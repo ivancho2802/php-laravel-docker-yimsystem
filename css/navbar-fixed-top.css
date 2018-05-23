@@ -1,0 +1,30 @@
+
+
+/* Estilos propios autor Ivan Diaz Ing sistemas venezuela
+ivancho2802@hotmail.com
+celular venezolano 0418010833
+*/
+/*justificacion por daño del */
+header{
+	width:100%;
+	height:70px;
+	}
+	
+li#mant_arch{
+	color: white;
+	}
+
+li#inicio:hover{	
+	border-bottom: 4px solid rgba(255,255,0,1);
+	}
+	
+li#mant_arch:hover{
+	border-bottom: 4px solid rgba(0,0,255,1);
+	}
+
+li#util:hover{
+	border-bottom: 4px solid rgba(0,0,255,1);
+	}
+li#repo:hover{
+	border-bottom: 4px solid rgba(255,0,0,1);
+	}
