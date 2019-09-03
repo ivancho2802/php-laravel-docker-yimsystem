@@ -5,7 +5,7 @@ class usuario
 		$clave=md5($clave);
 		$sql="select * from usuarios, data_system where usuario='$usuario' and password='$clave' and edo_ds=1";
 		$ok=mysqli_query($conexion,$sql);//mysql_query($sql);
-		echo $ok;
+		// echo $ok;
 		
 		if($resultado = $ok->fetch_array())
 		{
