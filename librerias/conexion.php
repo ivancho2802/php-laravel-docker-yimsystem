@@ -5,11 +5,7 @@ $conexion =  pg_connect("host=ec2-107-20-155-148.compute-1.amazonaws.com port=54
 // if ($conexion->connect_errno) {
 //     echo "Fallo al conectar a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
 // }
-if (!$conexion) {
-    die('Error de Conexión (' . mysqli_connect_errno() . ') '
-            . mysqli_connect_error());
-}
-
-echo 'Éxito... ' . mysqli_get_host_info($conexion) . "\n";
-mysqli_close($conexion);	
+if ($conexion->connect_error) {
+die("Connection failed: " . $conexion->connect_error);
+}	
 ?>
