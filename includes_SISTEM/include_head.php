@@ -2,6 +2,8 @@
 $uri   = "";//rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
 $extra = "";
 $url = str_replace("//","/",$_SERVER['REQUEST_URI']);
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 //$url = rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
 //	echo "aqui".$url;
 
