@@ -4,7 +4,7 @@ session_start();
 //////////////////////////////////			CONSULTA DE LA INFO DEL SISTEMA
 require_once("../librerias/conexion.php");
 $sql="select * from data_system where edo_ds='1'";
-$ok=$conexion->query($sql);
+$ok=pg_query($conexion, $sql);
 //$resultado=mysql_fetch_assoc($ok);
 //////////////////////////////////////////
 require_once("../clases/usuario.class.php");
