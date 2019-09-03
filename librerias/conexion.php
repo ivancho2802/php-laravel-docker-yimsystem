@@ -8,5 +8,7 @@ $conexion =  pg_connect("host=ec2-107-20-155-148.compute-1.amazonaws.com port=54
 if (!$conexion) {
 	var_dump($conexion);
 	die("Connection failed: " );
+}else{
+	return $conexion;
 }	
 ?>
