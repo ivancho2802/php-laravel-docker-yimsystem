@@ -10,7 +10,7 @@ $mensaje = '<strong><span class="glyphicon glyphicon-warning-sign" style="font-s
 include_once($extra."modales/alert/m_alert.php");
 
 //consultade los datos de la empresa ACTIVA
-$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 $filasEmpre = $consultaEmpre->fetch_assoc();
 $total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 ?>
@@ -71,7 +71,7 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 		
 		
 		//consulta de la factura con sus datos relacionados
-		$consulta=$conexion->query(sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
+		$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
 																					empre.est_empre = '1' AND
 																					fact_compra.empre_cod_empre = empre.cod_empre AND
 																					fact_compra.fk_proveedor = proveedor.rif AND
@@ -82,14 +82,14 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 		$total_consulta = mysqli_num_rows($consulta);
 		
 		/*//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-		$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+		$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 		$filasEmpre = $consultaEmpre);
 		$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 		*/
 	}elseif(isset($_POST['num_compro_reten']) ){
 		$num_compro_reten = $_POST['num_compro_reten'];
 		//consulta de la factura con sus datos relacionados
-		$consulta=$conexion->query(sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
+		$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
 																					empre.est_empre = '1' AND
 																					fact_compra.empre_cod_empre = empre.cod_empre AND
 																					fact_compra.fk_proveedor = proveedor.rif AND
@@ -100,7 +100,7 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 		$total_consulta = mysqli_num_rows($consulta);
 		
 		/*//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-		$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+		$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 		$filasEmpre = $consultaEmpre);
 		$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 		*/

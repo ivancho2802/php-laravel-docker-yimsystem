@@ -17,7 +17,7 @@ $insertSQL = sprintf("INSERT INTO inventario (codigo, nombre_i, cant_min, cant_m
 
   //mysql_select_db($database_conexion);
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $Result1 = $conexion->query($insertSQL) or die('
+  $Result1 = pg_query($conexion,$insertSQL) or die('
 	<div class="alert alert-danger in" role="alert">
 			<strong>Opps!</strong> Codigo Existente.
 			Error para PRODUCTO: '.mysql_error().'
@@ -38,7 +38,7 @@ if($Result1 && isset($_POST['tipo']) && $_POST['tipo']=="inv_ini"){
 											$_POST['codigo'],
 											date('Y/m/d'),
 											date('H:i:s'));
-		$resInsertRegInv = $conexion->query($InsertRegInv)or die('registro inventario NO realizada con éxito'.mysql_error());
+		$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('registro inventario NO realizada con éxito'.mysql_error());
 	}
   //si llega ha esta linea quiere decir que no ha arrojado error RIGISTRO EXITOSO
   //echo $_POST['fecha'];

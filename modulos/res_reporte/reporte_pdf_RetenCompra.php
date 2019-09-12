@@ -32,13 +32,13 @@ require_once($extra.'includes_SISTEM/include_login.php');
 <?php
 if(isset($_POST['num_compro_reten']) ){
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
 	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 	
 	$num_compro_reten = $_POST['num_compro_reten'];
 	//consulta de la factura con sus datos relacionados
-	$consulta=$conexion->query(sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
+	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
 																				empre.est_empre = '1' AND
 																				fact_compra.empre_cod_empre = empre.cod_empre AND
 																				fact_compra.fk_proveedor = proveedor.rif AND
@@ -175,7 +175,7 @@ if(isset($_POST['num_compro_reten']) ){
 <?php $nop = 1;
 	  do{
 			//consulta las notas si existen 
-			$consultaNota = $conexion->query(sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
+			$consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
 			$filasConsultaNota = $consultaNota->fetch_assoc();
 			$total_ConsultaNota = mysqli_num_rows($consultaNota);
 			$alicuotas = "";

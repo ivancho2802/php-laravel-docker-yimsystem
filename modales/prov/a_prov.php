@@ -11,7 +11,7 @@ $insertSQL = sprintf("INSERT INTO proveedor (rif, nombre, telefono, direccion) V
 
   //mysql_select_db($database_conexPana, $conexPana);
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $Result1 = $conexion->query($insertSQL) or die('
+  $Result1 = pg_query($conexion,$insertSQL) or die('
 	<div class="alert alert-danger fade in" role="alert">
 			<strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
 			Error para PROVEEDOR: '.mysql_error().'

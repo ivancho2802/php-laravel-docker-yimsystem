@@ -7,7 +7,7 @@ if(isset($_POST['rif_prov']))
 		//recibo la variable post
 		$rif_prov = $_POST['rif_prov'];	
 		//realizo el sql
-		$c_mm_prov=$conexion->query(sprintf("SELECT * FROM proveedor WHERE
+		$c_mm_prov=pg_query($conexion,sprintf("SELECT * FROM proveedor WHERE
 									proveedor.rif = '%s'",
 									$rif_prov));
 		$f_mm_prov=$c_mm_prov->fetch_assoc();

@@ -27,7 +27,7 @@
 	include_once($extra."modales/alert/m_alert.php");
 	
 	//consultade los datos de la empresa ACTIVA
-	$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
 	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 	//$filasEmpre cod_empre

@@ -5,7 +5,7 @@
 		if($_GET['id'] == 'ND' || $_GET['id'] == 'NC'){
 			//CONSULTA DE TODAS LOSDOCUMENTO TIPO FACTURAS Y DE HAY LA SELECCIONA
 			include_once("../conexion.php");	
-			$consulDocu = $conexion->query("SELECT * FROM fact_venta WHERE tipo_fact_venta = 'F'");
+			$consulDocu = pg_query($conexion,"SELECT * FROM fact_venta WHERE tipo_fact_venta = 'F'");
 			$resconsulDocu = $consulDocu->fetch_assoc();
 			$total_consulDocu = mysqli_num_rows($consulDocu);
 ?>

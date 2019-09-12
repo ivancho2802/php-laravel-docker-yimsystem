@@ -6,14 +6,14 @@ require_once($extra.'includes_SISTEM/include_login.php');
 	{
 		if($_POST['cliente'] == " "){
 		//realizo el sql
-		$consulta=$conexion->query(sprintf("SELECT * FROM cliente"));
+		$consulta=pg_query($conexion,sprintf("SELECT * FROM cliente"));
 		$filas=$consulta->fetch_assoc();
 		$total_consulta = mysqli_num_rows($consulta);
 		}else{
 		//recibo la variable post
 		$cliente = "%".$_POST['cliente']."%";	
 		//realizo el sql
-		$consulta=$conexion->query(sprintf("SELECT * FROM cliente WHERE
+		$consulta=pg_query($conexion,sprintf("SELECT * FROM cliente WHERE
 																cliente.nom_cliente LIKE '%s' OR cliente.ced_cliente LIKE '%s'",
 																$cliente, $cliente));
 		$filas=$consulta->fetch_assoc();

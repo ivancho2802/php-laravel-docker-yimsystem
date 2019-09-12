@@ -40,7 +40,7 @@ $mes = $_POST['mes'];
 	
 	//consulta de la factura con sus datos relacionados
 	//NOTA IMPORTANTE MUSTRSO TODAS LAS COMPRAAS MENOS LO DEL INVENTARIO INICIAL fact_compra.tipo_fact_compra !== 'II'
-	$consulta=$conexion->query(sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
+	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
 	  								fact_compra.empre_cod_empre = empre.cod_empre AND
 									empre.est_empre = '1' AND
 									fact_compra.fk_proveedor = proveedor.rif AND
@@ -53,7 +53,7 @@ $mes = $_POST['mes'];
 	$total_consulta = mysqli_num_rows($consulta);
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
 	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 																					
@@ -181,7 +181,7 @@ $( document ).ready(function() {
             do{
                 //CONSULTAS RELACIONALES
                 //consulta las notas si existen 
-                $consultaNota = $conexion->query(sprintf("SELECT * FROM notas_cd, fact_compra WHERE 
+                $consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE 
 								fact_compra.id_fact_compra = notas_cd.id_fact_compra AND
 								notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
                 $filasConsultaNota = $consultaNota->fetch_assoc();

@@ -7,7 +7,7 @@ $columna = $_GET['columna'];
 $valor = $_GET['valor'];
 
 
-$consulta=$conexion->query(sprintf("SELECT * FROM %s WHERE %s = '%s'",$tabla, $columna, $valor));
+$consulta=pg_query($conexion,sprintf("SELECT * FROM %s WHERE %s = '%s'",$tabla, $columna, $valor));
 $filas=$consulta->fetch_assoc();
 $total_consulta = mysqli_num_rows($consulta);
 

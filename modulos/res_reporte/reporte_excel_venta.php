@@ -20,11 +20,11 @@ if (isset($_POST['mes'])){
 	$mesi = $mes."-01";
 	$mesf = $mes."-31";
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA empresa
-	$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
 	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 	//consulta de la factura con sus datos relacionados
-	$consulta=$conexion->query(sprintf("SELECT * FROM empre, fact_venta, cliente WHERE
+	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_venta, cliente WHERE
 	  																			fact_venta.empre_cod_empre = empre.cod_empre AND
 																				empre.cod_empre = '%s' AND
 																				fact_venta.fk_cliente = cliente.ced_cliente AND
@@ -297,7 +297,7 @@ date_default_timezone_set('America/Caracas');
     do{
 			//CONSULTAS RELACIONALES
 				//consulta las notas si existen 
-				$consultaNota = $conexion->query(sprintf("SELECT * FROM notas_cd_venta, fact_venta WHERE fact_venta.id_fact_venta = notas_cd_venta.id_fact_venta AND notas_cd_venta.id_fact_venta = '%s'",$filas['id_fact_venta']));
+				$consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd_venta, fact_venta WHERE fact_venta.id_fact_venta = notas_cd_venta.id_fact_venta AND notas_cd_venta.id_fact_venta = '%s'",$filas['id_fact_venta']));
 				$filasConsultaNota = $consultaNota->fetch_assoc();
 				$total_ConsultaNota = mysqli_num_rows($consultaNota);
 				/////		FACTURA TOTALES EXPORTACIONES

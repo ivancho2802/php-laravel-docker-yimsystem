@@ -48,7 +48,7 @@ class utilidades
 		   //else
 		   //$sql="select $campo_retorno from $tabla where nombre LIKE '%$valor%'";
 		   
-		   $ok=$conexion->query($sql);
+		   $ok=pg_query($conexion,$sql);
 		   $datos=mysql_fetch_row($ok);
 		   
 		   if($datos[0] !== ""){//si el rif de los resultados de la consulta existe
@@ -80,7 +80,7 @@ class utilidades
 		   //else
 		   //$sql="select $campo_retorno from $tabla where nombre LIKE '%$valor%'";
 		   
-		   $ok=$conexion->query($sql);
+		   $ok=pg_query($conexion,$sql);
 		   $datos=mysql_fetch_row($ok);
 		   
 		   if($datos > 0){//si el rif de los resultados de la consulta existe
@@ -113,7 +113,7 @@ class utilidades
 function validar_repetido($conexion,$valor,$tabla,$columna)
 {
  $sql="select $columna from $tabla where $columna='$valor'";
- $ok=$conexion->query($sql);
+ $ok=pg_query($conexion,$sql);
  $datos=mysql_fetch_row($ok);
  if($datos[0]==$valor)
  {

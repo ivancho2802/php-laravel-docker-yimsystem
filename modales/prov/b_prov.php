@@ -11,14 +11,14 @@ require_once($extra.'includes_SISTEM/include_login.php');
 		
 		if($_POST['prov'] == " "){
 			//realizo el sql
-			$consulta=$conexion->query(sprintf("SELECT * FROM proveedor"));
+			$consulta=pg_query($conexion,sprintf("SELECT * FROM proveedor"));
 			$filas=$consulta->fetch_assoc();
 			$total_consulta = mysqli_num_rows($consulta);
 		}else{
 			//recibo la variable post
 			$prov = "%".$_POST['prov']."%";	
 			//realizo el sql
-			$consulta=$conexion->query(sprintf("SELECT * FROM proveedor WHERE
+			$consulta=pg_query($conexion,sprintf("SELECT * FROM proveedor WHERE
 														proveedor.nombre LIKE '%s' OR
 														proveedor.rif LIKE '%s'",
 																	$prov, $prov));

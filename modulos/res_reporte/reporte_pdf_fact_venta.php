@@ -15,12 +15,12 @@ require_once($extra.'includes_SISTEM/include_login.php');
 if (isset($_POST['id_fact_venta'])){
 	$id_fact_venta = $_POST['id_fact_venta'];
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
 	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 	
 	//consulta de la factura con sus datos relacionados
-	$consulta=$conexion->query(sprintf("SELECT * FROM empre, fact_venta, venta, inventario, cliente, usuarios WHERE
+	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_venta, venta, inventario, cliente, usuarios WHERE
 	  													fact_venta.empre_cod_empre = empre.cod_empre 	AND
 														fact_venta.empre_cod_empre = '%s' 				AND
                                                         fact_venta.id_fact_venta = venta.fk_fact_venta 	AND

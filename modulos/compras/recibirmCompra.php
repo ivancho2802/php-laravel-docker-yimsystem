@@ -77,7 +77,7 @@ $sql=sprintf("UPDATE fact_compra SET
 									$_POST['id_fact_compra']);//v
 					   //ndebito_factcompra, ncredito_factcompra,// , %s, %s// $_POST['ndebito_factcompra'],$_POST['ncredito_factcompra'],
 	 	 
-$res = $conexion->query($sql)or die('Factura NO realizada con éxito<br />'.mysql_error());
+$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito<br />'.mysql_error());
 if($res){
 	
 /////////////////////////////////////////////////////////////
@@ -89,7 +89,7 @@ if($res){
 //CONSULTA PARA SABER QUE COMPRAS PERTENECEN A ESTA FACTURA PARA RESTARLE ESAS COMPRAS AL INVENTARIO
 ////////////////////////////////////////////////////////////
 	
-	$sql_compra = $conexion->query(sprintf("SELECT * FROM compra WHERE compra.fk_fact_compra = '%s'",
+	$sql_compra = pg_query($conexion,sprintf("SELECT * FROM compra WHERE compra.fk_fact_compra = '%s'",
 										$_POST['id_fact_compra']));
 	
 	$res_sql_compra = $sql_compra->fetch_assoc();
@@ -102,7 +102,7 @@ if($res){
 			$prod_compra = $res_sql_compra['fk_inventario'];
 
 			//CONSULTA DE LO QUE HAY ACTUALMENTE ES ESE PRODUCTO
-			$sqlInventActual = $conexion->query(sprintf("SELECT * FROM inventario WHERE 
+			$sqlInventActual = pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 
 													codigo = '%s'",
 													$prod_compra));
 			$res_sqlInventActual = $sqlInventActual->fetch_assoc();
@@ -117,7 +117,7 @@ if($res){
 									codigo = '%s'", 
 									$cant_final, 
 									$prod_compra);
-			$UpdateRevetInven = $conexion->query($sqlUpdateRevetInven)or
+			$UpdateRevetInven = pg_query($conexion,$sqlUpdateRevetInven)or
 			die('Error al actualizar inventario Revirtiendo cantidad<br />'.mysql_error());
 ///////////////////////////////////////////////////////
 //REVERTIR BORRAR COMPRAS Y REGISTRO DE COMPRAS
@@ -126,7 +126,7 @@ if($res){
 			$sqlDeleteRevetCompra = sprintf("DELETE FROM compra WHERE  
 									id_compra = '%s'",
 									$res_sql_compra['id_compra']);
-			$DeleteRevetCompra = $conexion->query($sqlDeleteRevetCompra)or
+			$DeleteRevetCompra = pg_query($conexion,$sqlDeleteRevetCompra)or
 			die('Error al borrar compras de la factura Revirtiendo compra<br />'.mysql_error());
 			
 
@@ -144,7 +144,7 @@ if($res){
 							fk_fact_cv = '%s' AND
 							tipo = 'compra'",
 							$_POST['id_fact_compra']);
-	$DeleteRevetRegInv = $conexion->query($sqlDeleteRevetRegInv)or
+	$DeleteRevetRegInv = pg_query($conexion,$sqlDeleteRevetRegInv)or
 	die('Error al borrar registro inventario de la factura <br />'.mysql_error());
 /////////////////////////////////////////////////////////////
 //
@@ -159,7 +159,7 @@ if($res){
 		//funcion modificar inventario basado en la cantidad
 			
 			//consul de todos los costos de este producto
-			$sql_consul_costo = $conexion->query( sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
+			$sql_consul_costo = pg_query($conexion, sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
 					reg_inventario.fk_fact_cv = fact_compra.id_fact_compra AND
 					compra.fk_fact_compra = fact_compra.id_fact_compra AND
 					compra.fk_inventario = inventario.codigo AND
@@ -169,7 +169,7 @@ if($res){
 			$filas_sql_consul_costo = $sql_consul_costo->fetch_assoc();
 			
 			//consulta de la cantidad actual
-			$sql_consul_inven = $conexion->query( sprintf("SELECT * FROM inventario WHERE
+			$sql_consul_inven = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE
 												inventario.codigo = '%s'",
 												$_POST["fk_inventario$i"]));
 			$filas_consul_inven = $sql_consul_inven->fetch_assoc();
@@ -218,7 +218,7 @@ if($res){
 									$_POST["pmpvj$i"],
 									$_POST["fk_inventario$i"]);
 				
-				$UpdateInven = $conexion->query($sqlUpdateInven)or die('Error al actualizar inventario:<br />'.mysql_error());
+				$UpdateInven = pg_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario:<br />'.mysql_error());
 			}
 			
 			if($UpdateInven && $res){
@@ -234,7 +234,7 @@ if($res){
 												$_POST['id_fact_compra'],
 												date('H:i:s'),
 												date('Y/m/d'));
-				$resInsertRegInv = $conexion->query($InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.mysql_error());
+				$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.mysql_error());
 			}
 			
 			//insertar en productor ala compra del inventario tiene que existir en el inventarui sino
@@ -258,7 +258,7 @@ if($res){
 				$_POST["cantidad$i"], 
 				$_POST["id_fact_compra"]);
 				
-				$res2 = $conexion->query($sql2)or die('Compra NO realizada con éxito:<br />'.mysql_error());
+				$res2 = pg_query($conexion,$sql2)or die('Compra NO realizada con éxito:<br />'.mysql_error());
 			}
 		  }//IF ESTE CAMPO SE ENVIA procedo
 		}//FOR	

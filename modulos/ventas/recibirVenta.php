@@ -58,7 +58,7 @@ $sql=sprintf("INSERT INTO fact_venta (id_fact_venta, serie_fact_venta, num_fact_
 					   $_POST['reg_maq_fis'],
 					   $_POST['num_repo_z']);//v
 					   //ndebito_factventa, ncredito_factventa,// , %s, %s// $_POST['ndebito_factventa'],$_POST['ncredito_factventa'],	 	 
-$res = $conexion->query($sql)or die('Factura NO realizada con éxito'.mysql_error());
+$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito'.mysql_error());
 if($res){
 	$acumCamposN = "";
 	for($i = 1;$i <= $_POST['numCampos']; $i++){
@@ -67,7 +67,7 @@ if($res){
 	  	$costo_venta = $_POST["costo$i"];
 		
 		//CONSULTA de lo actual inventario
-		$sql_consul_inven = $conexion->query( sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario$i"]) );
+		$sql_consul_inven = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario$i"]) );
 		$filas_consul_inven = $sql_consul_inven->fetch_assoc();
 		
 		
@@ -88,7 +88,7 @@ if($res){
 								$stock_cantidad,
 								$costo_venta, 
 								$_POST["fk_inventario$i"]);
-		$UpdateInven = $conexion->query($sqlUpdateInven)or 
+		$UpdateInven = pg_query($conexion,$sqlUpdateInven)or 
 		die('Error al actualizar inventario'.mysql_error());
 		
 		if($sqlUpdateInven){
@@ -104,7 +104,7 @@ if($res){
 									$_POST["id_fact_venta"],
 									date('H:i:s'),
 									date('Y/m/d'));
-			$resInsertRegInv = $conexion->query($InsertRegInv)or
+			$resInsertRegInv = pg_query($conexion,$InsertRegInv)or
 			die('Registro inventario NO realizada con éxito'.mysql_error());
 		}
 		if($resInsertRegInv){
@@ -126,7 +126,7 @@ if($res){
 			$acumCamposN = $acumCamposN .",". $camposN;
 		*/
 		
-		$res2 = $conexion->query($sql2)or die('Venta NO realizada con éxito'.mysql_error());
+		$res2 = pg_query($conexion,$sql2)or die('Venta NO realizada con éxito'.mysql_error());
 		}
 	  }//IF ESTE CAMPO SE ENVIA procedo
 	}//for	

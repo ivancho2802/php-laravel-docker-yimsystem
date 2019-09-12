@@ -8,7 +8,7 @@ if(isset($_POST['id_fact_compra']))
 		//recibo la variable post
 		$fact = $_POST['id_fact_compra'];	
 		//realizo el sql
-		$consulta=$conexion->query(sprintf("SELECT * FROM fact_compra, compra, inventario WHERE
+		$consulta=pg_query($conexion,sprintf("SELECT * FROM fact_compra, compra, inventario WHERE
 									fact_compra.id_fact_compra = '%s' AND
 									compra.fk_fact_compra = fact_compra.id_fact_compra AND
 									compra.fk_inventario = inventario.codigo",
@@ -33,7 +33,7 @@ if(isset($_POST['id_fact_compra']))
 		do{
 		
 		
-		$consultaPMPVJ = $conexion->query(sprintf("SELECT * FROM inventario, reg_inventario WHERE
+		$consultaPMPVJ = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE
 									reg_inventario.fk_inventario = inventario.codigo AND
 									reg_inventario.fk_inventario = '%s'",
 									$filas['codigo']));

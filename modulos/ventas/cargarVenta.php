@@ -549,7 +549,7 @@ $( document ).ready(function() {
 </script>
 <?php 
 	
-	$consulEmpreActiva=$conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consulEmpreActiva=pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$resEmpreActiva=$consulEmpreActiva->fetch_assoc();
 	$total_consulEmpreActiva = mysqli_num_rows($consulEmpreActiva);
 	

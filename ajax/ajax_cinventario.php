@@ -3,7 +3,7 @@
 			$fechaInvIni = $_POST['id'];
 			//CONSULTA DE TODAS FACTURAS de COMPRA CON PARA COMPARAR LA FECHA CON LA DEL INVENTARIO
 			include_once("../conexion.php");	
-			$consulDocu = $conexion->query(sprintf("SELECT * FROM fact_compra WHERE fecha_fact_compra > '%s'", $fechaInvIni) );
+			$consulDocu = pg_query($conexion,sprintf("SELECT * FROM fact_compra WHERE fecha_fact_compra > '%s'", $fechaInvIni) );
 			$resconsulDocu = $consulDocu->fetch_assoc();
 			$total_consulDocu = mysqli_num_rows($consulDocu);//$resconsulDocu->num_rows
 	
