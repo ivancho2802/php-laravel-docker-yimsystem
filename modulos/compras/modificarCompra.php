@@ -8,7 +8,7 @@
 	echo $host."<br />".$uri."<br />".$extra;
 	*/
 if(1 == 1){
-	$consulEmpreActiva=mysqli_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consulEmpreActiva=$conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$resEmpreActiva=$consulEmpreActiva->fetch_assoc();
 	$total_consulEmpreActiva = mysqli_num_rows($consulEmpreActiva);
 	

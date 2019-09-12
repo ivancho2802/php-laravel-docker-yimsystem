@@ -17,7 +17,7 @@ if(isset($_POST['rif_nue']) && isset($_POST['rif_vie']) && isset($_POST['nombre'
 
   //mysql_select_db($database_conexPana, $conexPana);
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $Result1 = mysqli_query($conexion,$modRProv) or die('
+  $Result1 = $conexion->query($modRProv) or die('
 	<div class="alert alert-danger fade in" role="alert">
 			<strong>Opps!</strong> Algo ha salido mal nuestras disculpas Pongase en contacto con el Programador!.
 			Error para Desarrollador: '.mysql_error().'

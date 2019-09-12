@@ -5,7 +5,7 @@ include_once("../conexion.php");
 	$valor = $_POST['valor'];
 	
 	$sql = sprintf("SELECT * FROM %s WHERE %s = '%s'", $tabla, $campo, $valor);
-	$consulta=mysqli_query($conexion,$sql);
+	$consulta=$conexion->query($sql);
 	$filas=$consulta->fetch_assoc();
 	$total_consulta = mysqli_num_rows($consulta);
 	

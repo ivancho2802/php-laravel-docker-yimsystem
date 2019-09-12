@@ -16,11 +16,11 @@ require_once($extra.'includes_SISTEM/include_login.php');
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////				CONSULTAS SQL
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = mysqli_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$consultaEmpre = $conexion->query("SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
 	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
 	//	CONSULTA DE TODO LO QUE HAY EN EL INVENTARIO PARA MOSTRARLO JUNTO CON SU MOVIMIN¿ENTO
-	$sql_inventario=mysqli_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
+	$sql_inventario=$conexion->query(sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
 	$filas_inventario=$sql_inventario->fetch_assoc();
 	$total_inventario = mysqli_num_rows($sql_inventario);
 
@@ -35,7 +35,7 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 	UNION
 	SELECT reg_inventario.fecha_reg_inv AS fecha FROM reg_inventario
 	ORDER BY fecha ASC*/
-	$sql_fecha_menor=mysqli_query($conexion,sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
+	$sql_fecha_menor=$conexion->query(sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
 	UNION
 	SELECT fact_venta.fecha_fact_venta AS fecha FROM fact_venta
 	UNION

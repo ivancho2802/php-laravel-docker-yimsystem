@@ -14,12 +14,12 @@ $sql=sprintf("INSERT INTO inventario_retiros(cant_a, costo_a, fecha_inv_retiros,
 					   
 					   $_POST['fk_inventario'],//v
 					   $_POST['fk_usuariosRI']);
-$res = mysqli_query($conexion,$sql)or die('Retiro NO realizado con éxito'.mysql_error());
+$res = $conexion->query($sql)or die('Retiro NO realizado con éxito'.mysql_error());
 
 	if($res){
 				
 		//consulta de la cantidad actual
-		$sql_consul_inven = mysqli_query($conexion, sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario"]) );
+		$sql_consul_inven = $conexion->query( sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario"]) );
 		$filas_consul_inven = $sql_consul_inven->fetch_assoc();
 		
 		//para el precio o costo este es el promediado de precios
@@ -27,7 +27,7 @@ $res = mysqli_query($conexion,$sql)or die('Retiro NO realizado con éxito'.mysql
 		$sqlUpdateInven = sprintf("UPDATE inventario SET stock = '%s' WHERE codigo = '%s'"
 																			,$stock_cantidad
 																			,$_POST["fk_inventario"]);
-		$UpdateInven = mysqli_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario'.mysql_error());
+		$UpdateInven = $conexion->query($sqlUpdateInven)or die('Error al actualizar inventario'.mysql_error());
 		if($UpdateInven){
 		//INSERTAR PARA EL  REGISTRO DE INVENTARIO LO ACTUAL SEGUN LA FECHA PARA KARDEX
 		$InsertRegInv = sprintf("INSERT INTO reg_inventario( tipo, fecha_reg_inv, costo_reg_inv, cantidad_reg_inv, fk_inventario, fecha_registro, hora_registro) VALUES
@@ -39,7 +39,7 @@ $res = mysqli_query($conexion,$sql)or die('Retiro NO realizado con éxito'.mysql
 											$_POST["fk_inventario"],
 											date('Y/m/d'),
 											date('H:i:s'));
-		$resInsertRegInv = mysqli_query($conexion,$InsertRegInv)or die('Registro inventario NO realizada con éxito'.mysql_error());
+		$resInsertRegInv = $conexion->query($InsertRegInv)or die('Registro inventario NO realizada con éxito'.mysql_error());
 		}
 ?>
 <div align="center">

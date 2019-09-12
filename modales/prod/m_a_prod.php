@@ -1,7 +1,7 @@
 <?php
 include_once('../../includes_SISTEM/include_head.php');
 
-$consulta=mysqli_query($conexion,"SELECT * FROM reg_inventario WHERE tipo = 'inv_ini' ORDER BY fecha_reg_inv ASC");
+$consulta=$conexion->query("SELECT * FROM reg_inventario WHERE tipo = 'inv_ini' ORDER BY fecha_reg_inv ASC");
 $filas=$consulta->fetch_assoc();
 $total_consulta = mysqli_num_rows($consulta);
 	

@@ -15,7 +15,7 @@ $insertSQL = sprintf("INSERT INTO cliente (ced_cliente, nom_cliente, contri_clie
 					   $_POST['fech_i_cliente']);
 
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $Result1 = mysqli_query($conexion,$insertSQL) or die('
+  $Result1 = $conexion->query($insertSQL) or die('
 	<div class="alert alert-danger fade in" role="alert">
 			<strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
 			Error CLIENTE: '.mysql_error().'

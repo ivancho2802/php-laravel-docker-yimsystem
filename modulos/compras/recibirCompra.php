@@ -55,7 +55,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 						date('Y/m/d'));//v
 					   //ndebito_factcompra, ncredito_factcompra,// , %s, %s// $_POST['ndebito_factcompra'],$_POST['ncredito_factcompra'],
 	 	 
-		$res = mysqli_query($conexion,$sql)or die('Factura NO realizada con éxito:<br />'.mysql_error());
+		$res = $conexion->query($sql)or die('Factura NO realizada con éxito:<br />'.mysql_error());
 	
                        
 		if($res){
@@ -67,7 +67,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 //funcion modificar inventario basado en la cantidad
 				
 				//consul de todos los costos de este producto
-				$sql_consul_costo = mysqli_query($conexion, sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
+				$sql_consul_costo = $conexion->query( sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
                         reg_inventario.fk_fact_cv = fact_compra.id_fact_compra AND
                         compra.fk_fact_compra = fact_compra.id_fact_compra AND
                         compra.fk_inventario = inventario.codigo AND
@@ -77,7 +77,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 				$filas_sql_consul_costo = $sql_consul_costo->fetch_assoc();
 				
 				//consulta de la cantidad actual
-				$sql_consul_inven = mysqli_query($conexion, sprintf("SELECT * FROM inventario WHERE
+				$sql_consul_inven = $conexion->query( sprintf("SELECT * FROM inventario WHERE
                       								inventario.codigo = '%s'",
 													$_POST["fk_inventario$i"]));
 				$filas_consul_inven = $sql_consul_inven->fetch_assoc();
@@ -127,7 +127,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 										$_POST["pmpvj$i"],
 										$_POST["fk_inventario$i"]);
 					
-					$UpdateInven = mysqli_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario:<br />'.mysql_error());
+					$UpdateInven = $conexion->query($sqlUpdateInven)or die('Error al actualizar inventario:<br />'.mysql_error());
 				}
 				
 				if($UpdateInven && $res){
@@ -143,7 +143,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 													$_POST['id_fact_compra'],
 													date('H:i:s'),
 													date('Y/m/d'));
-					$resInsertRegInv = mysqli_query($conexion,$InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.mysql_error());
+					$resInsertRegInv = $conexion->query($InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.mysql_error());
 				}
 				
 				//insertar en productor ala compra del inventario tiene que existir en el inventarui sino
@@ -167,7 +167,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 					$_POST["cantidad$i"], 
 					$_POST["id_fact_compra"]);
 					
-					$res2 = mysqli_query($conexion,$sql2)or die('Compra NO realizada con éxito:<br />'.mysql_error());
+					$res2 = $conexion->query($sql2)or die('Compra NO realizada con éxito:<br />'.mysql_error());
 				}
 			  }//IF ESTE CAMPO SE ENVIA procedo
 			}//FOR	

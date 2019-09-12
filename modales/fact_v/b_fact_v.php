@@ -12,7 +12,7 @@ require_once($extra.'includes_SISTEM/include_login.php');
 		if($_POST['fact'] == " "){
 		//realizo el sql
 			
-			$consulta=mysqli_query($conexion,sprintf("SELECT * FROM fact_venta, cliente WHERE
+			$consulta=$conexion->query(sprintf("SELECT * FROM fact_venta, cliente WHERE
 									fact_venta.tipo_fact_venta = '%s'		AND
 									fact_venta.fk_cliente = cliente.ced_cliente",
 									$tipo_docu));
@@ -22,7 +22,7 @@ require_once($extra.'includes_SISTEM/include_login.php');
 			//recibo la variable post
 			$fact = "%".$_POST['fact']."%";	
 			//realizo el sql
-			$consulta=mysqli_query($conexion,sprintf("SELECT * FROM fact_venta, cliente WHERE
+			$consulta=$conexion->query(sprintf("SELECT * FROM fact_venta, cliente WHERE
 																	fact_venta.id_fact_venta LIKE '%s' 		AND
 																	fact_venta.tipo_fact_venta = '%s'		AND
 																	fact_venta.fk_cliente = cliente.ced_cliente",

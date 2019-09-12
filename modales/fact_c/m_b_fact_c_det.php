@@ -5,7 +5,7 @@ if(isset($_POST['nfact_afectada']))
 		//recibo la variable post
 		$fact = $_POST['nfact_afectada'];	
 		//realizo el sql
-		$consulta=mysqli_query($conexion,sprintf("SELECT * FROM fact_compra, compra, inventario WHERE
+		$consulta=$conexion->query(sprintf("SELECT * FROM fact_compra, compra, inventario WHERE
 									fact_compra.id_fact_compra = '%s' AND
 									compra.fk_fact_compra = fact_compra.id_fact_compra AND
 									compra.fk_inventario = inventario.codigo",

@@ -23,7 +23,7 @@ if(isset($_POST['ced_cliente_m_nue']) && isset($_POST['ced_cliente_m_vie']) && i
 
   //mysql_select_db($database_conexPana, $conexPana);
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $ResultmodRCliente = mysqli_query($conexion,$modRCliente) or die('
+  $ResultmodRCliente = $conexion->query($modRCliente) or die('
 	<div class="alert alert-danger fade in" role="alert">
 			<strong>Opps!</strong> Algo ha salido mal nuestras disculpas Pongase en contacto con el Programador!.
 			Error para Desarrollador: '.mysql_error().'

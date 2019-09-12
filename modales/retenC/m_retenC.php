@@ -12,7 +12,7 @@ $updateSQL = sprintf("UPDATE fact_compra SET fact_compra.num_compro_reten = '%s'
                        $_POST['id_fact_compra']);
 
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $Result1 = mysqli_query($conexion,$updateSQL) or die('
+  $Result1 = $conexion->query($updateSQL) or die('
 	<div class="alert alert-danger in" role="alert">
 			<strong>Opps!</strong> Codigo Existente.
 			Error para RETENCION: '.mysql_error().'

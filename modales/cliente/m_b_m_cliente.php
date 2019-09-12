@@ -7,7 +7,7 @@ if(isset($_POST['ced_cliente']))
 		//recibo la variable post
 		$ced_cliente = $_POST['ced_cliente'];	
 		//realizo el sql
-		$c_mm_cliente=mysqli_query($conexion,sprintf("SELECT * FROM cliente WHERE
+		$c_mm_cliente=$conexion->query(sprintf("SELECT * FROM cliente WHERE
 									cliente.ced_cliente = '%s'",
 									$ced_cliente));
 		$f_mm_cliente = $c_mm_cliente->fetch_assoc();

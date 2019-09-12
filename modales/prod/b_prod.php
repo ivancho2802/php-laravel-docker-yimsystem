@@ -28,10 +28,10 @@ if(isset($_POST['urlActual']))
 			//echo $consulta;
 			if(isset($_POST['sqlN']) && $_POST['sqlN']!== '' && isset($_POST['tipoDoc']) && $_POST['tipoDoc']=="NC-DESC" || $_POST['tipoDoc']=="NC-DEVO" ){
 				//echo $_POST['sqlN'];
-				$consulta = mysqli_query($conexion,sprintf($_POST['sqlN']));
+				$consulta = $conexion->query(sprintf($_POST['sqlN']));
 				
 			}else//realizo el sql
-				$consulta=mysqli_query($conexion,sprintf("SELECT * FROM inventario"));
+				$consulta=$conexion->query(sprintf("SELECT * FROM inventario"));
 				
 			
 		}else{
@@ -41,12 +41,12 @@ if(isset($_POST['urlActual']))
 			//if(stristr($urlActual, "venta") == true){
 			if(isset($_POST['sqlN']) && $_POST['sqlN']!== '' && isset($_POST['tipoDoc']) && $_POST['tipoDoc']=="NC-DESC" || $_POST['tipoDoc'] == "NC-DEVO" || $_POST['tipoDoc'] == "ND"){//DE MANERA INDIRECTA
 				//ASIGNANDO EL SQL DE LA CONNSULTA
-				$consulta=mysqli_query($conexion,sprintf($_POST['sqlN']."
+				$consulta=$conexion->query(sprintf($_POST['sqlN']."
 																AND
 																inventario.nombre_i LIKE '%s'",
 																$prod));
 			}else{
-				$consulta=mysqli_query($conexion,sprintf("SELECT * FROM inventario WHERE
+				$consulta=$conexion->query(sprintf("SELECT * FROM inventario WHERE
 																inventario.nombre_i LIKE '%s' OR 
 																inventario.descripcion LIKE '%s' OR 
 																inventario.codigo LIKE '%s'",
@@ -84,7 +84,7 @@ if(isset($_POST['urlActual']))
 				if($tipo == "venta"){
 					//consulta de los precios de venta
 					/// 		consulta de precio de venta mas actual pva
-					$consulta_pva=mysqli_query($conexion,sprintf("SELECT * FROM inventario WHERE
+					$consulta_pva=$conexion->query(sprintf("SELECT * FROM inventario WHERE
 										inventario.codigo = '%s' ",
 										$filas['codigo']));//para obtener elmas actual
 					$filas_pva=$consulta_pva->fetch_assoc();
@@ -108,7 +108,7 @@ if(isset($_POST['urlActual']))
 					}
 				}elseif($tipo == "compra"){
 					//COMMPRA
-					$consulta_costo_actual=mysqli_query($conexion,sprintf("SELECT * FROM inventario WHERE 
+					$consulta_costo_actual=$conexion->query(sprintf("SELECT * FROM inventario WHERE 
 									inventario.codigo = '%s'",
 									$filas['codigo']));//para obtener elmas actual
 									

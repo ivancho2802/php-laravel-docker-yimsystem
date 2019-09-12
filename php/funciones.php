@@ -25,7 +25,7 @@
 function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	////////////////////			COMPRA
 	$conexion = new mysqli("localhost", "root", "", "panaderia");
-	$c_inventario = mysqli_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
+	$c_inventario = $conexion->query(sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
 								fact_compra.id_fact_compra = compra.fk_fact_compra AND 
 								compra.fk_inventario = inventario.codigo AND 
 								inventario.codigo = '%s' AND
@@ -34,7 +34,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	$filas_c_inventario = $c_inventario->fetch_assoc();
 	$total_c_inventario = mysqli_num_rows($c_inventario);
 	//	DEVOLUCIONES			NC-DEVO		mcdc
-	$cd_inventario = mysqli_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
+	$cd_inventario = $conexion->query(sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
 								fact_compra.id_fact_compra = compra.fk_fact_compra AND 
 								compra.fk_inventario = inventario.codigo AND 
 								inventario.codigo = '%s' AND
@@ -45,7 +45,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	$total_cd_inventario = mysqli_num_rows($cd_inventario);
 	
 	///////////////////// 			VENTA
-	$v_inventario = mysqli_query($conexion,sprintf("SELECT * FROM venta, fact_venta, inventario WHERE
+	$v_inventario = $conexion->query(sprintf("SELECT * FROM venta, fact_venta, inventario WHERE
 										fact_venta.id_fact_venta = venta.fk_fact_venta AND 
 										venta.fk_inventario = inventario.codigo AND 
 										inventario.codigo = '%s' AND
@@ -54,7 +54,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	$filas_v_inventario = $v_inventario->fetch_assoc();
 	$total_v_inventario = mysqli_num_rows($v_inventario);
 	////////////////////			INVENTARIO INICIAL
-	$inv_ini = mysqli_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
+	$inv_ini = $conexion->query(sprintf("SELECT * FROM inventario, reg_inventario WHERE 
 								reg_inventario.fk_inventario = inventario.codigo AND
 																				inventario.codigo = '%s' AND
 																				reg_inventario.fecha_reg_inv < '%s'
@@ -64,7 +64,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	$total_inv_ini = mysqli_num_rows($inv_ini);
 	
 	////////////////////			INVENTARIO FINAL
-	$inv_fin = mysqli_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
+	$inv_fin = $conexion->query(sprintf("SELECT * FROM inventario, reg_inventario WHERE 
 											reg_inventario.fk_inventario = inventario.codigo AND
 											inventario.codigo = '%s' AND
 											reg_inventario.fecha_reg_inv <= '%s'
@@ -73,7 +73,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	$filas_inv_fin = $inv_fin->fetch_assoc();
 	$total_inv_fin = mysqli_num_rows($inv_fin);
 	////////////////////			INVENTARIO RETIROS
-	$ir = mysqli_query($conexion,sprintf("SELECT * FROM inventario, inventario_retiros WHERE 
+	$ir = $conexion->query(sprintf("SELECT * FROM inventario, inventario_retiros WHERE 
 							inventario_retiros.fk_inventario = inventario.codigo AND
 							inventario.codigo = '%s' AND
 							inventario_retiros.fecha_inv_retiros BETWEEN '%s' AND '%s'", 
@@ -151,7 +151,7 @@ function sumSinIVA($numdocu, $tipo){
 	$sumSinIVA = 0;
 	$conexion = new mysqli("localhost", "root", "", "panaderia");
 	//consulta de las compras exentas
-	$consultaExen = mysqli_query($conexion,sprintf("SELECT * FROM compra, fact_compra WHERE fact_compra.id_fact_compra = compra.fk_fact_compra AND compra.fk_fact_compra = '%s' AND compra.tipoCompra = '%s'", $numdocu, $tipo));
+	$consultaExen = $conexion->query(sprintf("SELECT * FROM compra, fact_compra WHERE fact_compra.id_fact_compra = compra.fk_fact_compra AND compra.fk_fact_compra = '%s' AND compra.tipoCompra = '%s'", $numdocu, $tipo));
 	$filas_consultaExen = $consultaExen->fetch_assoc();
 	$total_consultaExen = mysqli_num_rows($consultaExen);
 	
@@ -166,7 +166,7 @@ function sumSinIVAventas($numdocu, $tipo){
 	$sumSinIVA = 0;
 	$conexion = new mysqli("localhost", "root", "", "panaderia");
 	//consulta de las compras exentas
-	$consultaExen = mysqli_query($conexion,sprintf("SELECT * FROM venta, fact_venta WHERE fact_venta.id_fact_venta = venta.fk_fact_venta AND venta.fk_fact_venta = '%s' AND venta.tipoVenta = '%s'", $numdocu, $tipo));
+	$consultaExen = $conexion->query(sprintf("SELECT * FROM venta, fact_venta WHERE fact_venta.id_fact_venta = venta.fk_fact_venta AND venta.fk_fact_venta = '%s' AND venta.tipoVenta = '%s'", $numdocu, $tipo));
 	$filas_consultaExen = $consultaExen->fetch_assoc();
 	$total_consultaExen = mysqli_num_rows($consultaExen);
 	

@@ -21,7 +21,7 @@ $modRProd = sprintf("UPDATE inventario SET
 
   //mysql_select_db($database_conexion);
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $ResultmodRProd = mysqli_query($conexion,$modRProd) or die('
+  $ResultmodRProd = $conexion->query($modRProd) or die('
 	<div class="alert alert-danger in" role="alert">
 			<strong>Opps!</strong> Codigo Existente.
 			Error para PRODUCTO: '.mysql_error().'

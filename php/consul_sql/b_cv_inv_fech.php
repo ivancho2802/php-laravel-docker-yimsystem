@@ -4,17 +4,17 @@ require_once($extra.'includes_SISTEM/include_login.php');
 
 $vfecha = $_GET['vfecha'];
 
-$pre_consulta=mysqli_query($conexion,sprintf("SELECT * FROM reg_inventario"));
+$pre_consulta=$conexion->query(sprintf("SELECT * FROM reg_inventario"));
 $filas_pre=$pre_consulta);
 $total_pre_consulta = mysqli_num_rows($pre_consulta);
 ////////////////////////////////////////////////////////////////////////
-$consulta=mysqli_query($conexion,sprintf("SELECT * FROM reg_inventario, inventario WHERE 
+$consulta=$conexion->query(sprintf("SELECT * FROM reg_inventario, inventario WHERE 
 												reg_inventario.fk_inventario = inventario.codigo AND
 												'%s' > reg_inventario.fecha_reg_inv", $vfecha));
 $filas=$consulta->fetch_assoc();
 $total_consulta = mysqli_num_rows($consulta);
 ////////////////////////////////////////////////////////////////////////7
-$c_inv_menor=mysqli_query($conexion,sprintf("SELECT * FROM reg_inventario, inventario WHERE 
+$c_inv_menor=$conexion->query(sprintf("SELECT * FROM reg_inventario, inventario WHERE 
 												reg_inventario.fk_inventario = inventario.codigo 
 												ORDER BY fecha_reg_inv ASC"));
 $filas_c_inv_menor = $c_inv_menor->fetch_assoc();

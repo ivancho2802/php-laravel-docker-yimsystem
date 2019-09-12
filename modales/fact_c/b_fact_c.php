@@ -28,7 +28,7 @@ if(isset($_POST['num_fact_compra']))
 {	
 	if($_POST['num_fact_compra'] == " " || $_POST['serie_fact_compra'] == " "){
 		//realizo el sql
-		$consulta=mysqli_query($conexion,sprintf("SELECT * FROM fact_compra, proveedor, empre WHERE
+		$consulta=$conexion->query(sprintf("SELECT * FROM fact_compra, proveedor, empre WHERE
 										fact_compra.tipo_fact_compra = 'F'		AND
 										fact_compra.fk_proveedor = proveedor.rif
 										ORDER BY %s DESC", $ord))or die(mysql_error());
@@ -61,7 +61,7 @@ if(isset($_POST['num_fact_compra']))
 		
 			
 									
-		$consulta=mysqli_query($conexion,sprintf("SELECT * FROM fact_compra, proveedor ,empre WHERE
+		$consulta=$conexion->query(sprintf("SELECT * FROM fact_compra, proveedor ,empre WHERE
 									fact_compra.empre_cod_empre = empre.cod_empre AND
 									empre.est_empre = '1' AND
 									fact_compra.fk_proveedor = proveedor.rif AND

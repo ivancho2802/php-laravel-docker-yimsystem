@@ -10,7 +10,7 @@ exit;
 <?php include('conexion.php');
 $id=$_GET['id']; 
 $sql="DELETE FROM inventario WHERE id=$id";
-mysqli_query($conexion,$sql);
+$conexion->query($sql);
 echo 'Seleccion ha sido borrada';
 ?>
  

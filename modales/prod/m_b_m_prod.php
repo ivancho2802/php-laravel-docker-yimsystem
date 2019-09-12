@@ -7,7 +7,7 @@ if(isset($_POST['codigo_prod']))
 		//recibo la variable post
 		$codigo_prod = $_POST['codigo_prod'];	
 		//realizo el sql
-		$c_mm_prod=mysqli_query($conexion,sprintf("SELECT * FROM inventario WHERE
+		$c_mm_prod=$conexion->query(sprintf("SELECT * FROM inventario WHERE
 									inventario.codigo = '%s'",
 									$codigo_prod));
 		$f_mm_prod=$c_mm_prod->fetch_assoc();
