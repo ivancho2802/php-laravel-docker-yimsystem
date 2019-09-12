@@ -1,2 +1,2 @@
-/vendor/
-libreria/conexion.php
+/vendor/* 	
+/vendor/ 	

@@ -2,6 +2,8 @@
 $uri   = "";//rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
 $extra = "";
 $url = str_replace("//","/",$_SERVER['REQUEST_URI']);
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 //$url = rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
 //	echo "aqui".$url;
 
@@ -14,7 +16,7 @@ if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php'))
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-//echo $url;
+echo $extra."librerias/conexion.php";
 require_once($extra."librerias/conexion.php");
 require_once($extra."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
