@@ -8,7 +8,9 @@ class usuario
 		// $ok=mysqli_query($conexion,$sql);//mysql_query($sql);
 		var_dump($ok); 
 		
-		if($resultado = pg_fetch_row(fetch_array))
+		// if($resultado = $ok->fetch_array())
+		echo($resultado = pg_fetch_row($ok))
+		if($resultado = fetch_assoc($ok))
 		{
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;

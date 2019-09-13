@@ -20,7 +20,7 @@ require_once($extra."librerias/conexion.php");
 require_once($extra."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
-<title>Panadería 3 Esquinas</title>
+<title>Sist. YIM</title>
 <!--ESTILOS BOOSTRAP-->
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/navbar-fixed-top.css">
