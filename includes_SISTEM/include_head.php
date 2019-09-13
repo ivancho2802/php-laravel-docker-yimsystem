@@ -7,22 +7,22 @@ ini_set('display_errors', '1');
 //$url = rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
 //	echo "aqui".$url;
 
-// if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php')){
-// 	$extra = '../../';
-// 	if(strpos($url, '/modulos/reporte'))
-// 		$extra = '../';
-// }else
-	$extra = dirname(__DIR__)+'/';
+if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php')){
+	$extra = '../../';
+	if(strpos($url, '/modulos/reporte'))
+		$extra = '../';
+}else
+	$extra = '/';
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-include_once($extra."librerias/conexion.php");
+include_once(dirname(__DIR__).$extra."librerias/conexion.php");
 include_once($extra."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
 <title>Sist. YIM</title>
 <!--ESTILOS BOOSTRAP-->
-<link rel="stylesheet" type="text/css" href="<?php echo $extra?>css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/navbar-fixed-top.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/signin.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/loading.css">
