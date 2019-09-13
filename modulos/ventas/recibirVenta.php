@@ -58,7 +58,7 @@ $sql=sprintf("INSERT INTO fact_venta (id_fact_venta, serie_fact_venta, num_fact_
 					   $_POST['reg_maq_fis'],
 					   $_POST['num_repo_z']);//v
 					   //ndebito_factventa, ncredito_factventa,// , %s, %s// $_POST['ndebito_factventa'],$_POST['ncredito_factventa'],	 	 
-$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito'.mysql_error());
+$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito'.pg_last_error());
 if($res){
 	$acumCamposN = "";
 	for($i = 1;$i <= $_POST['numCampos']; $i++){
@@ -89,7 +89,7 @@ if($res){
 								$costo_venta, 
 								$_POST["fk_inventario$i"]);
 		$UpdateInven = pg_query($conexion,$sqlUpdateInven)or 
-		die('Error al actualizar inventario'.mysql_error());
+		die('Error al actualizar inventario'.pg_last_error());
 		
 		if($sqlUpdateInven){
 			//INSERTAR PARA EL  REGISTRO DE INVENTARIO LO ACTUAL SEGUN LA FECHA PARA KARDEX
@@ -105,7 +105,7 @@ if($res){
 									date('H:i:s'),
 									date('Y/m/d'));
 			$resInsertRegInv = pg_query($conexion,$InsertRegInv)or
-			die('Registro inventario NO realizada con éxito'.mysql_error());
+			die('Registro inventario NO realizada con éxito'.pg_last_error());
 		}
 		if($resInsertRegInv){
 		//INSERTAR venta
@@ -126,7 +126,7 @@ if($res){
 			$acumCamposN = $acumCamposN .",". $camposN;
 		*/
 		
-		$res2 = pg_query($conexion,$sql2)or die('Venta NO realizada con éxito'.mysql_error());
+		$res2 = pg_query($conexion,$sql2)or die('Venta NO realizada con éxito'.pg_last_error());
 		}
 	  }//IF ESTE CAMPO SE ENVIA procedo
 	}//for	

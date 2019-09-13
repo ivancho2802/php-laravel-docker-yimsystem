@@ -24,7 +24,7 @@ $modRProd = sprintf("UPDATE inventario SET
   $ResultmodRProd = pg_query($conexion,$modRProd) or die('
 	<div class="alert alert-danger in" role="alert">
 			<strong>Opps!</strong> Codigo Existente.
-			Error para PRODUCTO: '.mysql_error().'
+			Error para PRODUCTO: '.pg_last_error().'
 			<button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
 	</div>');
 //HASTA AQUI CODIGO DE INSERCION

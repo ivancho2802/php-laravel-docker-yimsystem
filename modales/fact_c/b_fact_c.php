@@ -31,7 +31,7 @@ if(isset($_POST['num_fact_compra']))
 		$consulta=pg_query($conexion,sprintf("SELECT * FROM fact_compra, proveedor, empre WHERE
 										fact_compra.tipo_fact_compra = 'F'		AND
 										fact_compra.fk_proveedor = proveedor.rif
-										ORDER BY %s DESC", $ord))or die(mysql_error());
+										ORDER BY %s DESC", $ord))or die(pg_last_error());
 		$filas=$consulta->fetch_assoc();
 		$total_consulta = mysqli_num_rows($consulta);
 		
@@ -69,7 +69,7 @@ if(isset($_POST['num_fact_compra']))
 									%s
 									
 									ORDER BY %s DESC", 
-									$sql_cont, $ord))or die(mysql_error());
+									$sql_cont, $ord))or die(pg_last_error());
 																
 																
 		$filas=$consulta->fetch_assoc();

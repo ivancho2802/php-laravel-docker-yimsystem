@@ -77,7 +77,7 @@ $sql=sprintf("UPDATE fact_compra SET
 									$_POST['id_fact_compra']);//v
 					   //ndebito_factcompra, ncredito_factcompra,// , %s, %s// $_POST['ndebito_factcompra'],$_POST['ncredito_factcompra'],
 	 	 
-$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito<br />'.mysql_error());
+$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito<br />'.pg_last_error());
 if($res){
 	
 /////////////////////////////////////////////////////////////
@@ -118,7 +118,7 @@ if($res){
 									$cant_final, 
 									$prod_compra);
 			$UpdateRevetInven = pg_query($conexion,$sqlUpdateRevetInven)or
-			die('Error al actualizar inventario Revirtiendo cantidad<br />'.mysql_error());
+			die('Error al actualizar inventario Revirtiendo cantidad<br />'.pg_last_error());
 ///////////////////////////////////////////////////////
 //REVERTIR BORRAR COMPRAS Y REGISTRO DE COMPRAS
 ////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@ if($res){
 									id_compra = '%s'",
 									$res_sql_compra['id_compra']);
 			$DeleteRevetCompra = pg_query($conexion,$sqlDeleteRevetCompra)or
-			die('Error al borrar compras de la factura Revirtiendo compra<br />'.mysql_error());
+			die('Error al borrar compras de la factura Revirtiendo compra<br />'.pg_last_error());
 			
 
   
@@ -145,7 +145,7 @@ if($res){
 							tipo = 'compra'",
 							$_POST['id_fact_compra']);
 	$DeleteRevetRegInv = pg_query($conexion,$sqlDeleteRevetRegInv)or
-	die('Error al borrar registro inventario de la factura <br />'.mysql_error());
+	die('Error al borrar registro inventario de la factura <br />'.pg_last_error());
 /////////////////////////////////////////////////////////////
 //
 //				AGREGAR AL INVENTARIO Y DEMAS
@@ -218,7 +218,7 @@ if($res){
 									$_POST["pmpvj$i"],
 									$_POST["fk_inventario$i"]);
 				
-				$UpdateInven = pg_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario:<br />'.mysql_error());
+				$UpdateInven = pg_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario:<br />'.pg_last_error());
 			}
 			
 			if($UpdateInven && $res){
@@ -234,7 +234,7 @@ if($res){
 												$_POST['id_fact_compra'],
 												date('H:i:s'),
 												date('Y/m/d'));
-				$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.mysql_error());
+				$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.pg_last_error());
 			}
 			
 			//insertar en productor ala compra del inventario tiene que existir en el inventarui sino
@@ -258,7 +258,7 @@ if($res){
 				$_POST["cantidad$i"], 
 				$_POST["id_fact_compra"]);
 				
-				$res2 = pg_query($conexion,$sql2)or die('Compra NO realizada con éxito:<br />'.mysql_error());
+				$res2 = pg_query($conexion,$sql2)or die('Compra NO realizada con éxito:<br />'.pg_last_error());
 			}
 		  }//IF ESTE CAMPO SE ENVIA procedo
 		}//FOR	

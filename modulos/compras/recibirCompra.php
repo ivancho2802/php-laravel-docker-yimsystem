@@ -55,7 +55,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 						date('Y/m/d'));//v
 					   //ndebito_factcompra, ncredito_factcompra,// , %s, %s// $_POST['ndebito_factcompra'],$_POST['ncredito_factcompra'],
 	 	 
-		$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito:<br />'.mysql_error());
+		$res = pg_query($conexion,$sql)or die('Factura NO realizada con éxito:<br />'.pg_last_error());
 	
                        
 		if($res){
@@ -127,7 +127,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 										$_POST["pmpvj$i"],
 										$_POST["fk_inventario$i"]);
 					
-					$UpdateInven = pg_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario:<br />'.mysql_error());
+					$UpdateInven = pg_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario:<br />'.pg_last_error());
 				}
 				
 				if($UpdateInven && $res){
@@ -143,7 +143,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 													$_POST['id_fact_compra'],
 													date('H:i:s'),
 													date('Y/m/d'));
-					$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.mysql_error());
+					$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('registro inventario NO realizada con éxito:<br />'.pg_last_error());
 				}
 				
 				//insertar en productor ala compra del inventario tiene que existir en el inventarui sino
@@ -167,7 +167,7 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 					$_POST["cantidad$i"], 
 					$_POST["id_fact_compra"]);
 					
-					$res2 = pg_query($conexion,$sql2)or die('Compra NO realizada con éxito:<br />'.mysql_error());
+					$res2 = pg_query($conexion,$sql2)or die('Compra NO realizada con éxito:<br />'.pg_last_error());
 				}
 			  }//IF ESTE CAMPO SE ENVIA procedo
 			}//FOR	

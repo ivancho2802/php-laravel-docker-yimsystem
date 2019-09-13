@@ -14,7 +14,7 @@ $insertSQL = sprintf("INSERT INTO proveedor (rif, nombre, telefono, direccion) V
   $Result1 = pg_query($conexion,$insertSQL) or die('
 	<div class="alert alert-danger fade in" role="alert">
 			<strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
-			Error para PROVEEDOR: '.mysql_error().'
+			Error para PROVEEDOR: '.pg_last_error().'
 			<button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
 	</div>');
 //HASTA AQUI CODIGO DE INSERCION

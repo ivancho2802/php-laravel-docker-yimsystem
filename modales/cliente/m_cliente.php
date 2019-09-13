@@ -26,7 +26,7 @@ if(isset($_POST['ced_cliente_m_nue']) && isset($_POST['ced_cliente_m_vie']) && i
   $ResultmodRCliente = pg_query($conexion,$modRCliente) or die('
 	<div class="alert alert-danger fade in" role="alert">
 			<strong>Opps!</strong> Algo ha salido mal nuestras disculpas Pongase en contacto con el Programador!.
-			Error para Desarrollador: '.mysql_error().'
+			Error para Desarrollador: '.pg_last_error().'
 			<button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
 	</div>');
 //HASTA AQUI CODIGO DE INSERCION

@@ -18,7 +18,7 @@ $insertSQL = sprintf("INSERT INTO cliente (ced_cliente, nom_cliente, contri_clie
   $Result1 = pg_query($conexion,$insertSQL) or die('
 	<div class="alert alert-danger fade in" role="alert">
 			<strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
-			Error CLIENTE: '.mysql_error().'
+			Error CLIENTE: '.pg_last_error().'
 			<button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
 	</div>');
 //HASTA AQUI CODIGO DE INSERCION

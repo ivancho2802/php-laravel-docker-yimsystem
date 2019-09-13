@@ -46,7 +46,7 @@ $mes = $_POST['mes'];
 									fact_compra.fk_proveedor = proveedor.rif AND
 									fact_compra.tipo_fact_compra != 'II' AND
 									fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s'",
-								$mesi, $mesf))or die(mysql_error());
+								$mesi, $mesf))or die(pg_last_error());
 																				
 																			
 	$filas=$consulta->fetch_assoc();

@@ -15,7 +15,7 @@ $updateSQL = sprintf("UPDATE fact_compra SET fact_compra.num_compro_reten = '%s'
   $Result1 = pg_query($conexion,$updateSQL) or die('
 	<div class="alert alert-danger in" role="alert">
 			<strong>Opps!</strong> Codigo Existente.
-			Error para RETENCION: '.mysql_error().'
+			Error para RETENCION: '.pg_last_error().'
 			<button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
 	</div>');
 //HASTA AQUI CODIGO DE INSERCION

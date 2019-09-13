@@ -14,7 +14,7 @@ $sql=sprintf("INSERT INTO inventario_retiros(cant_a, costo_a, fecha_inv_retiros,
 					   
 					   $_POST['fk_inventario'],//v
 					   $_POST['fk_usuariosRI']);
-$res = pg_query($conexion,$sql)or die('Retiro NO realizado con éxito'.mysql_error());
+$res = pg_query($conexion,$sql)or die('Retiro NO realizado con éxito'.pg_last_error());
 
 	if($res){
 				
@@ -27,7 +27,7 @@ $res = pg_query($conexion,$sql)or die('Retiro NO realizado con éxito'.mysql_err
 		$sqlUpdateInven = sprintf("UPDATE inventario SET stock = '%s' WHERE codigo = '%s'"
 																			,$stock_cantidad
 																			,$_POST["fk_inventario"]);
-		$UpdateInven = pg_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario'.mysql_error());
+		$UpdateInven = pg_query($conexion,$sqlUpdateInven)or die('Error al actualizar inventario'.pg_last_error());
 		if($UpdateInven){
 		//INSERTAR PARA EL  REGISTRO DE INVENTARIO LO ACTUAL SEGUN LA FECHA PARA KARDEX
 		$InsertRegInv = sprintf("INSERT INTO reg_inventario( tipo, fecha_reg_inv, costo_reg_inv, cantidad_reg_inv, fk_inventario, fecha_registro, hora_registro) VALUES
@@ -39,7 +39,7 @@ $res = pg_query($conexion,$sql)or die('Retiro NO realizado con éxito'.mysql_err
 											$_POST["fk_inventario"],
 											date('Y/m/d'),
 											date('H:i:s'));
-		$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('Registro inventario NO realizada con éxito'.mysql_error());
+		$resInsertRegInv = pg_query($conexion,$InsertRegInv)or die('Registro inventario NO realizada con éxito'.pg_last_error());
 		}
 ?>
 <div align="center">
