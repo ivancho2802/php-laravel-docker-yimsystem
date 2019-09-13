@@ -57,7 +57,8 @@ $mes = $_POST['mes'];
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
+	// $filasEmpre = $consultaEmpre->fetch_assoc();
+    $filasEmpre = pg_fetch_assoc($consultaEmpre);
 	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 																					
 ?>
@@ -274,7 +275,8 @@ $( document ).ready(function() {
                             do{
                                 if($filasConsultaNota['tipo_notas_cd'] == 'NC')
                                 echo "<tr><td>".$filasConsultaNota['num_notas_cd']."</td></tr>";
-                            }while($filasConsultaNota = $consultaNota->fetch_assoc());
+                            // }while($filasConsultaNota = $consultaNota->fetch_assoc());
+                            }while($filasConsultaNota = pg_fetch_assoc($consultaNota));
                         }
                 ?>
                 </table>
@@ -286,7 +288,7 @@ $( document ).ready(function() {
                             do{
                                 if($filasConsultaNota['tipo_notas_cd'] == 'ND')
                                 echo "<tr><td>".$filasConsultaNota['num_notas_cd']."</td></tr>";
-                            }while($filasConsultaNota = $consultaNota->fetch_assoc());
+                            }while($filasConsultaNota = pg_fetch_assoc($consultaNota));
                         }
                 ?>
                 </table>
@@ -338,7 +340,7 @@ $( document ).ready(function() {
           <?php
           ///	area de acumulaciones
                     
-          }while($filas=$consulta->fetch_assoc());
+          }while($filas=pg_fetch_assoc($consulta));
           ?>
           <tr>
             <td colspan="18">Totales</td>
