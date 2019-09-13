@@ -7,7 +7,7 @@ include_once("../conexion.php");
 	$sql = sprintf("SELECT * FROM %s WHERE %s = '%s'", $tabla, $campo, $valor);
 	$consulta=pg_query($conexion,$sql);
 	$filas=$consulta->fetch_assoc();
-	$total_consulta = mysqli_num_rows($consulta);
+	$total_consulta = pg_num_rows($consulta);
 	
 	echo $filas['stock'];
 ?>

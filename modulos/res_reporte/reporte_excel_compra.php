@@ -22,7 +22,7 @@ if (isset($_POST['mes'])){
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA empresa
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 	//consulta de la factura con sus datos relacionados
 	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
 	  																			fact_compra.empre_cod_empre = empre.cod_empre AND
@@ -32,7 +32,7 @@ if (isset($_POST['mes'])){
 																				$filasEmpre['cod_empre'], $mesi, $mesf));
 																				
 	$filas=$consulta->fetch_assoc();
-	$total_consulta = mysqli_num_rows($consulta);																			
+	$total_consulta = pg_num_rows($consulta);																			
 //////////////////////////////////////////////////////////////////////				LIBRERIA
 	error_reporting(E_ALL);
 	ini_set('display_errors', TRUE);
@@ -278,7 +278,7 @@ if (isset($_POST['mes'])){
 		//consulta las notas si existen 
 		$consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
 		$filasConsultaNota = $consultaNota->fetch_assoc();
-		$total_ConsultaNota = mysqli_num_rows($consultaNota);
+		$total_ConsultaNota = pg_num_rows($consultaNota);
 		/////		FACTURA TOTALES IMPORTACIONES
 		if($filas['nplanilla_import'] != ""){
 			$mtot_iva_compra_import = round($filas['mtot_iva_compra'],2);

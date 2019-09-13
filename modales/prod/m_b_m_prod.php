@@ -11,7 +11,7 @@ if(isset($_POST['codigo_prod']))
 									inventario.codigo = '%s'",
 									$codigo_prod));
 		$f_mm_prod=$c_mm_prod->fetch_assoc();
-		$t_mm_prod = mysqli_num_rows($c_mm_prod);
+		$t_mm_prod = pg_num_rows($c_mm_prod);
 }
 ?>
 <label>

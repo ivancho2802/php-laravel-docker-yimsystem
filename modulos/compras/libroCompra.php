@@ -53,12 +53,12 @@ $mes = $_POST['mes'];
 																				
 																			
 	$filas=$consulta->pg_fetch_assoc();
-	$total_consulta = mysqli_num_rows($consulta);
+	$total_consulta = pg_num_rows($consulta);
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 																					
 ?>
 <script>
@@ -187,8 +187,9 @@ $( document ).ready(function() {
                 $consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE 
 								fact_compra.id_fact_compra = notas_cd.id_fact_compra AND
 								notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
-                $filasConsultaNota = $consultaNota->fetch_assoc();
-                $total_ConsultaNota = mysqli_num_rows($consultaNota);
+                // $filasConsultaNota = $consultaNota->fetch_assoc();
+                $filasConsultaNota = pg_fetch_assoc($consultaNota);
+                $total_ConsultaNota = pg_num_rows($consultaNota);
                 /////		FACTURA TOTALES IMPORTACIONES
                 if($filas['nplanilla_import'] !== ""){
                     $mtot_iva_compra_import = round($filas['mtot_iva_compra'],2);

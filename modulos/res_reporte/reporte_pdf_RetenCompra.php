@@ -34,7 +34,7 @@ if(isset($_POST['num_compro_reten']) ){
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 	
 	$num_compro_reten = $_POST['num_compro_reten'];
 	//consulta de la factura con sus datos relacionados
@@ -46,7 +46,7 @@ if(isset($_POST['num_compro_reten']) ){
 																				$num_compro_reten));
 																				
 	$filas=$consulta->fetch_assoc();
-	$total_consulta = mysqli_num_rows($consulta);										
+	$total_consulta = pg_num_rows($consulta);										
 ?>
 	<page_header>
 		<table style="width: 90%;">
@@ -177,7 +177,7 @@ if(isset($_POST['num_compro_reten']) ){
 			//consulta las notas si existen 
 			$consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
 			$filasConsultaNota = $consultaNota->fetch_assoc();
-			$total_ConsultaNota = mysqli_num_rows($consultaNota);
+			$total_ConsultaNota = pg_num_rows($consultaNota);
 			$alicuotas = "";
 			if($filas['msubt_bi_iva_12']>0){
 				$alicuotas = $alicuotas."12";

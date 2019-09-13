@@ -5,7 +5,7 @@
 			include_once("../conexion.php");	
 			$consulDocu = pg_query($conexion,sprintf("SELECT * FROM fact_compra WHERE fecha_fact_compra > '%s'", $fechaInvIni) );
 			$resconsulDocu = $consulDocu->fetch_assoc();
-			$total_consulDocu = mysqli_num_rows($consulDocu);//$resconsulDocu->num_rows
+			$total_consulDocu = pg_num_rows($consulDocu);//$resconsulDocu->num_rows
 	
 			if($resconsulDocu)
 				echo 1;//la fecha compra > fecha inventario ASI ESTA BIEN

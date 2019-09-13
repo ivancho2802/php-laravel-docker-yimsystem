@@ -11,7 +11,7 @@ if(isset($_POST['rif_prov']))
 									proveedor.rif = '%s'",
 									$rif_prov));
 		$f_mm_prov=$c_mm_prov->fetch_assoc();
-		$t_mm_prov = mysqli_num_rows($c_mm_prov);
+		$t_mm_prov = pg_num_rows($c_mm_prov);
 }
 ?>
 <label>

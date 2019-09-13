@@ -11,7 +11,7 @@ if(isset($_POST['nfact_afectada']))
 											venta.fk_inventario = inventario.codigo",
 											$fact));
 		$filas=$consulta->fetch_assoc();
-		$total_consulta = mysqli_num_rows($consulta);
+		$total_consulta = pg_num_rows($consulta);
 }		
 ?>
 <!-- Modal mostrarFact-->

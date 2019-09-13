@@ -17,7 +17,7 @@ include_once('../../includes_SISTEM/include_login.php');
 									fact_venta.fk_cliente = cliente.ced_cliente",
 									$tipo_docu));
 			$filas=$consulta->fetch_assoc();
-			$total_consulta = mysqli_num_rows($consulta);
+			$total_consulta = pg_num_rows($consulta);
 		}else{
 			//recibo la variable post
 			$fact = "%".$_POST['fact']."%";	
@@ -28,7 +28,7 @@ include_once('../../includes_SISTEM/include_login.php');
 																	fact_venta.fk_cliente = cliente.ced_cliente",
 																	$fact,$tipo_docu));
 			$filas=$consulta->fetch_assoc();
-			$total_consulta = mysqli_num_rows($consulta);
+			$total_consulta = pg_num_rows($consulta);
 		}
 		
 ?>

@@ -10,7 +10,7 @@
 if(1 == 1){
 	$consulEmpreActiva=pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$resEmpreActiva=$consulEmpreActiva->fetch_assoc();
-	$total_consulEmpreActiva = mysqli_num_rows($consulEmpreActiva);
+	$total_consulEmpreActiva = pg_num_rows($consulEmpreActiva);
 	
 	//llamado de modales el id es "busFact"
 	include_once($extra."modales/fact_c/m_b_fact_c.php");

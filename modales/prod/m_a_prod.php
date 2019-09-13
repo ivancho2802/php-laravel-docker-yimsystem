@@ -3,7 +3,7 @@ include_once('../../includes_SISTEM/include_head.php');
 
 $consulta=pg_query($conexion,"SELECT * FROM reg_inventario WHERE tipo = 'inv_ini' ORDER BY fecha_reg_inv ASC");
 $filas=$consulta->fetch_assoc();
-$total_consulta = mysqli_num_rows($consulta);
+$total_consulta = pg_num_rows($consulta);
 	
 if($filas){
 	$mes_inventario = substr($filas['fecha_reg_inv'],0,7);

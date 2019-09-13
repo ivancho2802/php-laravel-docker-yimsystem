@@ -32,7 +32,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 								fact_compra.tipo_fact_compra = 'F' AND
 								fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s'", $codigoInv, $fechai,$fechaf));
 	$filas_c_inventario = $c_inventario->fetch_assoc();
-	$total_c_inventario = mysqli_num_rows($c_inventario);
+	$total_c_inventario = pg_num_rows($c_inventario);
 	//	DEVOLUCIONES			NC-DEVO		mcdc
 	$cd_inventario = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
 								fact_compra.id_fact_compra = compra.fk_fact_compra AND 
@@ -42,7 +42,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 								fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s'", 
 								$codigoInv, $fechai,$fechaf));
 	$filas_cd_inventario = $cd_inventario->fetch_assoc();
-	$total_cd_inventario = mysqli_num_rows($cd_inventario);
+	$total_cd_inventario = pg_num_rows($cd_inventario);
 	
 	///////////////////// 			VENTA
 	$v_inventario = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta, inventario WHERE
@@ -52,7 +52,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 										fact_venta.fecha_fact_venta BETWEEN '%s' AND '%s'", 
 										$codigoInv, $fechai,$fechaf));
 	$filas_v_inventario = $v_inventario->fetch_assoc();
-	$total_v_inventario = mysqli_num_rows($v_inventario);
+	$total_v_inventario = pg_num_rows($v_inventario);
 	////////////////////			INVENTARIO INICIAL
 	$inv_ini = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
 								reg_inventario.fk_inventario = inventario.codigo AND
@@ -61,7 +61,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 																				ORDER BY reg_inventario.fecha_reg_inv DESC", 
 																				$codigoInv, $fechai));//asi la menor o la mas cercana
 	$filas_inv_ini = $inv_ini->fetch_assoc();
-	$total_inv_ini = mysqli_num_rows($inv_ini);
+	$total_inv_ini = pg_num_rows($inv_ini);
 	
 	////////////////////			INVENTARIO FINAL
 	$inv_fin = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
@@ -71,7 +71,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 											ORDER BY reg_inventario.fecha_reg_inv DESC, reg_inventario.hora_registro DESC", 
 											$codigoInv, $fechaf));
 	$filas_inv_fin = $inv_fin->fetch_assoc();
-	$total_inv_fin = mysqli_num_rows($inv_fin);
+	$total_inv_fin = pg_num_rows($inv_fin);
 	////////////////////			INVENTARIO RETIROS
 	$ir = pg_query($conexion,sprintf("SELECT * FROM inventario, inventario_retiros WHERE 
 							inventario_retiros.fk_inventario = inventario.codigo AND
@@ -79,7 +79,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 							inventario_retiros.fecha_inv_retiros BETWEEN '%s' AND '%s'", 
 							$codigoInv, $fechai, $fechaf));
 	$filas_ir = $ir->fetch_assoc();
-	$total_ir = mysqli_num_rows($ir);
+	$total_ir = pg_num_rows($ir);
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
 	if($accion == "mcc"){//mostrar compra cantidad
 		$acum_cc = 0;
@@ -153,7 +153,7 @@ function sumSinIVA($numdocu, $tipo){
 	//consulta de las compras exentas
 	$consultaExen = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra WHERE fact_compra.id_fact_compra = compra.fk_fact_compra AND compra.fk_fact_compra = '%s' AND compra.tipoCompra = '%s'", $numdocu, $tipo));
 	$filas_consultaExen = $consultaExen->fetch_assoc();
-	$total_consultaExen = mysqli_num_rows($consultaExen);
+	$total_consultaExen = pg_num_rows($consultaExen);
 	
 	do{
 		$sumSinIVA += ($filas_consultaExen['costo'] * $filas_consultaExen['cantidad']);
@@ -168,7 +168,7 @@ function sumSinIVAventas($numdocu, $tipo){
 	//consulta de las compras exentas
 	$consultaExen = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta WHERE fact_venta.id_fact_venta = venta.fk_fact_venta AND venta.fk_fact_venta = '%s' AND venta.tipoVenta = '%s'", $numdocu, $tipo));
 	$filas_consultaExen = $consultaExen->fetch_assoc();
-	$total_consultaExen = mysqli_num_rows($consultaExen);
+	$total_consultaExen = pg_num_rows($consultaExen);
 	
 	do{
 		$sumSinIVA += ($filas_consultaExen['costo'] * $filas_consultaExen['cantidad']);

@@ -11,7 +11,7 @@ if(isset($_POST['ced_cliente']))
 									cliente.ced_cliente = '%s'",
 									$ced_cliente));
 		$f_mm_cliente = $c_mm_cliente->fetch_assoc();
-		$t_mm_cliente = mysqli_num_rows($c_mm_cliente);
+		$t_mm_cliente = pg_num_rows($c_mm_cliente);
 }
 ?>
 <label>

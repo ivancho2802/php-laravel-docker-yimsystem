@@ -17,7 +17,7 @@ if (isset($_POST['id_fact_venta'])){
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 	
 	//consulta de la factura con sus datos relacionados
 	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_venta, venta, inventario, cliente, usuarios WHERE
@@ -30,7 +30,7 @@ if (isset($_POST['id_fact_venta'])){
 														fact_venta.id_fact_venta = '%s'",
 														$filasEmpre['cod_empre'], $id_fact_venta));
 	$filas=$consulta->fetch_assoc();
-	$total_consulta = mysqli_num_rows($consulta);
+	$total_consulta = pg_num_rows($consulta);
 }
 if($total_consulta>0){
 ?>

@@ -33,7 +33,7 @@ if(isset($_POST['num_fact_compra']))
 										fact_compra.fk_proveedor = proveedor.rif
 										ORDER BY %s DESC", $ord))or die(pg_last_error());
 		$filas=$consulta->fetch_assoc();
-		$total_consulta = mysqli_num_rows($consulta);
+		$total_consulta = pg_num_rows($consulta);
 		
 	}else{	
 		//realizo el sql
@@ -73,7 +73,7 @@ if(isset($_POST['num_fact_compra']))
 																
 																
 		$filas=$consulta->fetch_assoc();
-		$total_consulta = mysqli_num_rows($consulta);
+		$total_consulta = pg_num_rows($consulta);
 		
 	}
 	

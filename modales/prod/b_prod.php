@@ -55,7 +55,7 @@ if(isset($_POST['urlActual']))
 			
 		}
 		$filas=$consulta->fetch_assoc();
-		$total_consulta = mysqli_num_rows($consulta);
+		$total_consulta = pg_num_rows($consulta);
 		
 	}
 		
@@ -88,7 +88,7 @@ if(isset($_POST['urlActual']))
 										inventario.codigo = '%s' ",
 										$filas['codigo']));//para obtener elmas actual
 					$filas_pva=$consulta_pva->fetch_assoc();
-					$total_consulta_pva = mysqli_num_rows($consulta_pva);
+					$total_consulta_pva = pg_num_rows($consulta_pva);
 					
 					$td_costo = $filas_pva['pmpvj_actual'];
 					$cantidadstock = $filas['stock'];
@@ -113,7 +113,7 @@ if(isset($_POST['urlActual']))
 									$filas['codigo']));//para obtener elmas actual
 									
 					$filas_costo_actual=$consulta_costo_actual->fetch_assoc();
-					$total_consulta_costo_actual = mysqli_num_rows($consulta_costo_actual);
+					$total_consulta_costo_actual = pg_num_rows($consulta_costo_actual);
 					
 					
 					$td_costo = $filas_costo_actual['valor_unitario'];

@@ -7,7 +7,7 @@
 			include_once("../conexion.php");	
 			$consulDocu = pg_query($conexion,"SELECT * FROM fact_venta WHERE tipo_fact_venta = 'F'");
 			$resconsulDocu = $consulDocu->fetch_assoc();
-			$total_consulDocu = mysqli_num_rows($consulDocu);
+			$total_consulDocu = pg_num_rows($consulDocu);
 ?>
 			<span id="span_resTipoDoc">N° Factura Afectada:<br></span>
             <input type="hidden" name="reg_maq_fis">

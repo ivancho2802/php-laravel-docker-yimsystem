@@ -13,7 +13,7 @@ include_once('../../includes_SISTEM/include_login.php');
 			//realizo el sql
 			$consulta=pg_query($conexion,sprintf("SELECT * FROM proveedor"));
 			$filas=$consulta->fetch_assoc();
-			$total_consulta = mysqli_num_rows($consulta);
+			$total_consulta = pg_num_rows($consulta);
 		}else{
 			//recibo la variable post
 			$prov = "%".$_POST['prov']."%";	
@@ -23,7 +23,7 @@ include_once('../../includes_SISTEM/include_login.php');
 														proveedor.rif LIKE '%s'",
 																	$prov, $prov));
 			$filas=$consulta->fetch_assoc();
-			$total_consulta = mysqli_num_rows($consulta);
+			$total_consulta = pg_num_rows($consulta);
 		}
 		
 //echo date('H:i:s')?>

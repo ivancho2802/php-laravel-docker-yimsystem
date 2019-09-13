@@ -12,7 +12,7 @@ include_once($extra."modales/alert/m_alert.php");
 //consultade los datos de la empresa ACTIVA
 $consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 $filasEmpre = $consultaEmpre->fetch_assoc();
-$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+$total_consultaEmpre = pg_num_rows($consultaEmpre);
 ?>
 <script>
 	function consulReten(formulario){
@@ -79,12 +79,12 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 																					$mesi, $mesf));
 															
 		$filas=$consulta->fetch_assoc();
-		$total_consulta = mysqli_num_rows($consulta);
+		$total_consulta = pg_num_rows($consulta);
 		
 		/*//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 		$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 		$filasEmpre = $consultaEmpre);
-		$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+		$total_consultaEmpre = pg_num_rows($consultaEmpre);
 		*/
 	}elseif(isset($_POST['num_compro_reten']) ){
 		$num_compro_reten = $_POST['num_compro_reten'];
@@ -97,12 +97,12 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 																					$num_compro_reten));
 																					
 		$filas=$consulta->fetch_assoc();
-		$total_consulta = mysqli_num_rows($consulta);
+		$total_consulta = pg_num_rows($consulta);
 		
 		/*//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 		$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 		$filasEmpre = $consultaEmpre);
-		$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+		$total_consultaEmpre = pg_num_rows($consultaEmpre);
 		*/
 	}
 																					

@@ -4,7 +4,7 @@
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 ?>
 <script>
 	function validar_fecha(fechai, fechaf){
@@ -95,7 +95,7 @@
 
 	$sql_inventario=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
 	$filas_inventario=$sql_inventario->fetch_assoc();
-	$total_inventario = mysqli_num_rows($sql_inventario);
+	$total_inventario = pg_num_rows($sql_inventario);
 	
 	if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && isset($_POST['fechaf'])) || isset($_POST['dia']) ){
 		//validando que la fecha o ano que se introduzca no sea menor al menor del sistema
@@ -116,7 +116,7 @@
 			SELECT reg_inventario.fecha_reg_inv AS fecha FROM reg_inventario
 			ORDER BY fecha ASC"));
 			$filas_fecha_menor = $sql_fecha_menor->fetch_assoc();
-			$total_fecha_menor = mysqli_num_rows($sql_fecha_menor);
+			$total_fecha_menor = pg_num_rows($sql_fecha_menor);
 			
 			//completando con ano y/o mes la fecha
 			if(isset($_POST['mes'])){

@@ -32,7 +32,7 @@ $mes = $_POST['mes'];
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 	
 	//consulta de la factura con sus datos relacionados
 	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_venta, cliente WHERE
@@ -42,7 +42,7 @@ $mes = $_POST['mes'];
 																				fact_venta.fecha_fact_venta BETWEEN '%s' AND '%s'",
 																				$filasEmpre['cod_empre'], $mesi, $mesf));
 	$filas=$consulta->fetch_assoc();
-	$total_consulta = mysqli_num_rows($consulta);
+	$total_consulta = pg_num_rows($consulta);
 	
 	
 																					
@@ -169,7 +169,7 @@ $mes = $_POST['mes'];
                         //consulta las notas si existen 
                         $consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd_venta, fact_venta WHERE fact_venta.id_fact_venta = notas_cd_venta.id_fact_venta AND notas_cd_venta.id_fact_venta = '%s'",$filas['id_fact_venta']));
                         $filasConsultaNota = $consultaNota->fetch_assoc();
-                        $total_ConsultaNota = mysqli_num_rows($consultaNota);
+                        $total_ConsultaNota = pg_num_rows($consultaNota);
                         /////		FACTURA TOTALES EXPORTACIONES
                     if($filas['nplanilla_export'] !== ""){
                         $msubt_exento_venta_export = round($filas['mtot_iva_venta'],2);

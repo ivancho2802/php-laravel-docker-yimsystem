@@ -551,7 +551,7 @@ $( document ).ready(function() {
 	
 	$consulEmpreActiva=pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$resEmpreActiva=$consulEmpreActiva->fetch_assoc();
-	$total_consulEmpreActiva = mysqli_num_rows($consulEmpreActiva);
+	$total_consulEmpreActiva = pg_num_rows($consulEmpreActiva);
 	
 	//llamado de modales el id es "busCliente"
 	include_once($extra."modales/cliente/m_b_cliente.php");

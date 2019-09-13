@@ -29,7 +29,7 @@
 	//consultade los datos de la empresa ACTIVA
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = mysqli_num_rows($consultaEmpre);
+	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 	//$filasEmpre cod_empre
 ?>
 <!--PARA LLAMAR A EL cRUL RIF-->

@@ -14,7 +14,7 @@ if(isset($_POST['id_fact_compra']))
 									compra.fk_inventario = inventario.codigo",
 									$fact));
 		$filas=$consulta->fetch_assoc();
-		$total_consulta = mysqli_num_rows($consulta);
+		$total_consulta = pg_num_rows($consulta);
 }
 ?>
 <table class="table_nada table table-bordered table_black">
@@ -38,7 +38,7 @@ if(isset($_POST['id_fact_compra']))
 									reg_inventario.fk_inventario = '%s'",
 									$filas['codigo']));
 		$filasPMPVJ = $consultaPMPVJ->fetch_assoc();
-		$total_consultaPMPVJ = mysqli_num_rows($consultaPMPVJ);
+		$total_consultaPMPVJ = pg_num_rows($consultaPMPVJ);
 		
 	?>
     	
