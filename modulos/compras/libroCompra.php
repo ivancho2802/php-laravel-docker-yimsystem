@@ -52,7 +52,7 @@ $mes = $_POST['mes'];
 								$mesi, $mesf))or die(pg_last_error());
 																				
 																			
-	$filas=$consulta->pg_fetch_assoc();
+	$filas=pg_fetch_assoc($consulta);
 	$total_consulta = pg_num_rows($consulta);
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
