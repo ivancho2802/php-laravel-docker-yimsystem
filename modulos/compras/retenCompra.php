@@ -67,7 +67,7 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 		$mes = $_POST['mes'];
 	
 		$mesi = $mes."-01";
-		$mesf = $mes."-31";
+		$mesf = ($mes=='02')? $mes."-28":((int) $mes%2==0) ? $mes."-31" : $mes."-30";
 		
 		
 		//consulta de la factura con sus datos relacionados
