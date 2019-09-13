@@ -7,16 +7,16 @@ ini_set('display_errors', '1');
 //$url = rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
 //	echo "aqui".$url;
 
-if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php')){
-	$extra = '../../';
-	if(strpos($url, '/modulos/reporte'))
-		$extra = '../';
-}else
-	$extra = './';
+// if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php')){
+// 	$extra = '../../';
+// 	if(strpos($url, '/modulos/reporte'))
+// 		$extra = '../';
+// }else
+	$extra = dirname(__DIR__)+'/';
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-include_once(dirname(__DIR__)."librerias/conexion.php");
+include_once($extra."librerias/conexion.php");
 include_once($extra."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
