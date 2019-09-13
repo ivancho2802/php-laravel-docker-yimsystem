@@ -22,7 +22,7 @@ if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
 <title>Sist. YIM</title>
 <!--ESTILOS BOOSTRAP-->
-<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $extra?>css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/navbar-fixed-top.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/signin.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/loading.css">
