@@ -4,7 +4,7 @@
 	$(window.document).on('shown.bs.modal', '#nueProv', function() {
 		window.setTimeout(function() {
 			<?php
-			include_once($extra.'includes_SISTEM/include_login.php');
+			include_once('../../includes_SISTEM/include_login.php');
 			?>
 			$('#rif', this).focus();
 			//esta variable contirnr rn realidad un rif paselo si no no

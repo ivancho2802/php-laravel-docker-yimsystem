@@ -1,6 +1,6 @@
 <?php
 	include_once('../../includes_SISTEM/include_head.php');
-	include_once($extra.'includes_SISTEM/include_login.php');
+	include_once('../../includes_SISTEM/include_login.php');
 	
 	date_default_timezone_set('America/Caracas');
 	setlocale(LC_ALL,"es_ES");

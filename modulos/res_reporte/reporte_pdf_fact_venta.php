@@ -7,7 +7,7 @@ include_once($extra."librerias/conexion.php");
 /////////////////////////////////////////////////////////////
 include_once($extra.'php/funciones.php');
 /////////////////////////////////////////////////////////////
-include_once($extra.'includes_SISTEM/include_login.php');
+include_once('../../includes_SISTEM/include_login.php');
 /////////////////////////////////////////////////////////////
 ?>
 <link rel="stylesheet" href="../css/estilos_reportes.css" type="text/css"/>

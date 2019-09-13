@@ -4,7 +4,7 @@
 $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#busFact', function() {
 		window.setTimeout(function() {
-			<?php include_once($extra.'includes_SISTEM/include_login.php'); ?>
+			<?php include_once('../../includes_SISTEM/include_login.php'); ?>
 			document.onkeypress = stopRKey;
 			$('#num_fact_compra', this).focus();
 			

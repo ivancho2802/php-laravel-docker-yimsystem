@@ -1,6 +1,6 @@
 <?php
 include_once('../../includes_SISTEM/include_head.php');
-include_once($extra.'includes_SISTEM/include_login.php');
+include_once('../../includes_SISTEM/include_login.php');
 
 	if(isset($_POST['cliente']))
 	{

@@ -52,7 +52,7 @@ function mmProv(str){
 		  $(window.document).on('shown.bs.modal', '#mmProv', function() {
 			window.setTimeout(function() {
 				//<?php
-				//include_once($extra.'includes_SISTEM/include_login.php');
+				//include_once('../../includes_SISTEM/include_login.php');
 				//?>
 				$('#rif_m_m_prov', this).focus();
 				document.forms['form_mmProv'].elements['rif_m_m_prov'].focus();
@@ -82,7 +82,7 @@ function mmCliente(str){
 		  $(window.document).on('shown.bs.modal', '#mmCliente', function() {
 			window.setTimeout(function() {
 				//<?php
-				//include_once($extra.'includes_SISTEM/include_login.php');
+				//include_once('../../includes_SISTEM/include_login.php');
 				//?>
 				$('#ced_cliente_m_nue', this).focus();
 				document.forms['form_mmCliente'].elements['ced_cliente_m_nue'].focus();
@@ -113,7 +113,7 @@ function mmProd(str){
 		  $(window.document).on('shown.bs.modal', '#mmProd', function() {
 			window.setTimeout(function() {
 				//<?php
-				//include_once($extra.'includes_SISTEM/include_login.php');
+				//include_once('../../includes_SISTEM/include_login.php');
 				//?>
 				$('#codigo_m_m_prod', this).focus();
 				document.forms['form_mmProd'].elements['codigo_m_m_prod_nue'].focus();

@@ -19,7 +19,7 @@ if(isset($_POST['nfact_afectada']))
 $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#mostrarFact', function() {
 		window.setTimeout(function() {
-			<?php include_once($extra.'includes_SISTEM/include_login.php'); ?>
+			<?php include_once('../../includes_SISTEM/include_login.php'); ?>
 			document.onkeypress = stopRKey;
 			//$('#b_fact', this).focus();
 		}.bind(this), 100);

@@ -1,6 +1,6 @@
 <?php
 	include_once('../../includes_SISTEM/include_head.php');
-	include_once($extra.'includes_SISTEM/include_login.php');
+	include_once('../../includes_SISTEM/include_login.php');
 
 //CODIGO DE MODIFICACION
 $updateSQL = sprintf("UPDATE fact_compra SET fact_compra.num_compro_reten = '%s', fact_compra.fecha_compro_reten = '%s', fact_compra.m_iva_reten = '%s', fact_compra.mes_apli_reten = '%s', fk_usuariosC = '%s' WHERE fact_compra.id_fact_compra = '%s'",

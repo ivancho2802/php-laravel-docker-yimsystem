@@ -1,6 +1,6 @@
 <?php
 include_once('../../includes_SISTEM/include_head.php');
-include_once($extra.'includes_SISTEM/include_login.php');
+include_once('../../includes_SISTEM/include_login.php');
 //CODIGO DE INSERCION
 if(isset($_POST['ced_cliente_m_nue']) && isset($_POST['ced_cliente_m_vie']) && isset($_POST['nom_cliente_m']) && isset($_POST['email_cliente_m']) && isset($_POST['tel_cliente_m']) && isset($_POST['dir_cliente_m']) && isset($_POST['fech_i_cliente_m']) ){
 	$modRCliente = sprintf("UPDATE cliente SET 

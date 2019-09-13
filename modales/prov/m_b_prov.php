@@ -6,7 +6,7 @@ $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#busProv', function() {
 		window.setTimeout(function() {
 			//alert(<?php //echo $_SERVER['REQUEST_URI']?>);
-			<?php include_once($extra.'includes_SISTEM/include_login.php'); ?>
+			<?php include_once('../../includes_SISTEM/include_login.php'); ?>
 			document.onkeypress = stopRKey;
 			$('#b_Prov', this).focus();
 			

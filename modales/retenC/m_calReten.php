@@ -15,7 +15,7 @@ if( stristr($urlActual, "inventario") == true){
 $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#calReten', function() {
 		window.setTimeout(function() {
-			<?php include_once($extra.'includes_SISTEM/include_login.php');?>
+			<?php include_once('../../includes_SISTEM/include_login.php');?>
 			$('#tot_iva', this).focus();
 			url = '<?php echo $_SERVER['REQUEST_URI'];?>';
 			patron1 = 'cargarRetenCompra';

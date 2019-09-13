@@ -1,6 +1,6 @@
 <?php
 include_once('../../includes_SISTEM/include_head.php');
-include_once($extra.'includes_SISTEM/include_login.php');
+include_once('../../includes_SISTEM/include_login.php');
 //asignacion de 			NEGATIVOS O NO
 //echo $_POST['nfact_afectada'];
 

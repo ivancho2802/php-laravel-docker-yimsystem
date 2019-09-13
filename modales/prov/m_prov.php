@@ -1,6 +1,6 @@
 <?php
 include_once('../../includes_SISTEM/include_head.php');
-include_once($extra.'includes_SISTEM/include_login.php');
+include_once('../../includes_SISTEM/include_login.php');
 //CODIGO DE INSERCION
 if(isset($_POST['rif_nue']) && isset($_POST['rif_vie']) && isset($_POST['nombre']) && isset($_POST['telefono']) && isset($_POST['direccion'])){
 	$modRProv = sprintf("UPDATE proveedor SET 
