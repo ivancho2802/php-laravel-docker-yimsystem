@@ -35,7 +35,7 @@ if (isset($_POST['mes'])){
 $mes = $_POST['mes'];
 
 	$mesi = $mes."-01";
-	$mesf = ($mes=='02')? $mes."-28":((int) $mes%2==0) ? $mes."-30" : $mes."-31";
+	$mesf = ($mes=='02')? $mes."-28":((int) $mes%2==0) ? $mes."-31" : $mes."-30";
 
     //  si el numero es divisible entre cero es par sino es impar 
     // si es impar tiene 31 el resto 30 menos febrero
