@@ -9,7 +9,7 @@ class usuario
 		var_dump($ok); 
 		
 		// if($resultado = $ok->fetch_array())
-		echo($resultado = pg_fetch_row($ok))
+		echo($resultado = pg_fetch_row($ok));
 		if($resultado = fetch_assoc($ok))
 		{
 			$resultado["mensaje"] = "";
