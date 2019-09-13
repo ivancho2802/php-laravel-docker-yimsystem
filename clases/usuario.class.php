@@ -10,7 +10,7 @@ class usuario
 		
 		// if($resultado = $ok->fetch_array())
 		// echo($resultado = pg_fetch_row($ok));
-		if($resultado = fetch_assoc($ok))
+		if($resultado = pg_fetch_assoc($ok))
 		{
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
