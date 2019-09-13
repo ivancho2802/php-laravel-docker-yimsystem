@@ -2,7 +2,7 @@
 <script>
 	$(window.document).on('shown.bs.modal', '#nueCliente', function() {
 		window.setTimeout(function() {
-			<?php require_once($extra.'includes_SISTEM/include_login.php'); ?>
+			<?php include_once($extra.'includes_SISTEM/include_login.php'); ?>
 			if (/[JVEGPjvepg][0-9]{8}$/.test(document.getElementById('b_cliente').value) || /[JVEGPjvepg][0-9]{9}$/.test(document.getElementById('b_cliente').value) || /[0-9]{8}$/.test(document.getElementById('b_cliente').value)) 
 				document.getElementById('ced_cliente').value = document.getElementById('b_cliente').value;
 			$('#ced_cliente', this).focus();

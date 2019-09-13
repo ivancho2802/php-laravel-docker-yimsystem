@@ -17,7 +17,7 @@
  	$content = '<page style="font-family: freeserif"><br />'.nl2br($content).'</page>';
 	
 	// conversion HTML => PDF
-	require_once(dirname(__FILE__).'/../html2pdf.class.php');
+	include_once(dirname(__FILE__).'/../html2pdf.class.php');
 	try
 	{
 		$html2pdf = new HTML2PDF('P','A4','fr', true, 'UTF-8');

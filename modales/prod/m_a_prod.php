@@ -17,7 +17,7 @@ if($filas){
 $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#nueProd', function() {
 		window.setTimeout(function() {
-			<?php require_once($extra.'includes_SISTEM/include_login.php');?>
+			<?php include_once($extra.'includes_SISTEM/include_login.php');?>
 			
 				
 			$('#codigo', this).focus();

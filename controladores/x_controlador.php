@@ -1,5 +1,5 @@
 <?php
-require_once("../clases/utilidades.class.php");
+include_once("../clases/utilidades.class.php");
 $objUtilidades=new utilidades;
 $conexion=$objUtilidades->conectar();
 $accion=@$_REQUEST["accion"];

@@ -22,7 +22,7 @@ $('.rotate').css('height', $('.rotate').width());
 	";
 	*/
 	// conversion HTML => PDF
-	require_once('../librerias/html2pdf_v4.01/html2pdf.class.php');
+	include_once('../librerias/html2pdf_v4.01/html2pdf.class.php');
 	try
 	{
 		$html2pdf = new HTML2PDF('P','A4', 'es', false, 'ISO-8859-15', 5);

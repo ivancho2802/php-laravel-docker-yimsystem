@@ -13,8 +13,8 @@ if (!defined('__CLASS_MYPDF__'))
 {
 	define('__CLASS_MYPDF__', true);
 	
-	require_once(dirname(__FILE__).'/tcpdf_config_html2pdf.php');
-	require_once(dirname(__FILE__).'/../_tcpdf/tcpdf.php');
+	include_once(dirname(__FILE__).'/tcpdf_config_html2pdf.php');
+	include_once(dirname(__FILE__).'/../_tcpdf/tcpdf.php');
 	
 	class MyPDF extends TCPDF
 	{

@@ -5,7 +5,7 @@
 $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#busProd', function() {
 		window.setTimeout(function() {
-			<?php require_once($extra.'includes_SISTEM/include_login.php'); ?>
+			<?php include_once($extra.'includes_SISTEM/include_login.php'); ?>
 			$('#b_prod', this).focus();
 			document.getElementById("b_prod").value = "";
 			document.getElementById("resProd").innerHTML = "";

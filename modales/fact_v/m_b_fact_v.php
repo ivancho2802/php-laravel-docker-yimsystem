@@ -9,7 +9,7 @@ $(document).ready(function() {
 			document.onkeypress = stopRKey;
 			$('#b_fact', this).focus();
 			//edicion de los campos de busqueda
-			<?php require_once($extra.'includes_SISTEM/include_login.php'); ?>
+			<?php include_once($extra.'includes_SISTEM/include_login.php'); ?>
 			url = '<?php echo $_SERVER['REQUEST_URI'];?>';
 			patron1 = 'cargarRetenVenta';
 			patron2 = 'cargarVenta';

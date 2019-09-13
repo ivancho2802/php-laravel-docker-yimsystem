@@ -16,8 +16,8 @@ if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php'))
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-require_once($extra."librerias/conexion.php");
-require_once($extra."php/funciones.php");
+include_once($extra."librerias/conexion.php");
+include_once($extra."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
 <title>Sist. YIM</title>

@@ -49,7 +49,7 @@ tr:nth-of-type(5) td:nth-of-type(1) {
 }
 ";	
 
-	require_once(dirname(__FILE__).'/../html2pdf.class.php');
+	include_once(dirname(__FILE__).'/../html2pdf.class.php');
 	try
 	{
 		$html2pdf = new HTML2PDF('P','A4','fr', false, 'ISO-8859-15');

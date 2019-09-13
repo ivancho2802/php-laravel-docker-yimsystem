@@ -1,6 +1,6 @@
 <?php
 	include_once('../../includes_SISTEM/include_head.php');
-	require_once($extra.'includes_SISTEM/include_login.php');
+	include_once($extra.'includes_SISTEM/include_login.php');
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
 	$filasEmpre = $consultaEmpre->fetch_assoc();

@@ -38,7 +38,7 @@ date_default_timezone_set('Europe/London');
 include "05featuredemo.inc.php";
 
 /** PHPExcel_IOFactory */
-require_once '../Classes/PHPExcel/IOFactory.php';
+include_once '../Classes/PHPExcel/IOFactory.php';
 
 
 echo date('H:i:s') , " Write to CSV format" , EOL;

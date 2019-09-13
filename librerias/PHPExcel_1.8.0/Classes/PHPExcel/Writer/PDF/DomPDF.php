@@ -29,7 +29,7 @@
 /**  Require DomPDF library */
 $pdfRendererClassFile = PHPExcel_Settings::getPdfRendererPath() . '/dompdf_config.inc.php';
 if (file_exists($pdfRendererClassFile)) {
-    require_once $pdfRendererClassFile;
+    include_once $pdfRendererClassFile;
 } else {
     throw new PHPExcel_Writer_Exception('Unable to load PDF Rendering library');
 }

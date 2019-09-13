@@ -7,7 +7,7 @@
  *
  * @author		Laurent MINGUET <webmaster@html2pdf.fr>
  */
-	require_once(dirname(__FILE__).'/../html2pdf.class.php');
+	include_once(dirname(__FILE__).'/../html2pdf.class.php');
 
 	// récupération de l'html
  	ob_start();

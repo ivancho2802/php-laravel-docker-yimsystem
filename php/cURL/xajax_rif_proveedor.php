@@ -1,7 +1,7 @@
 <?php
 // Incluir la librería
 echo '<!--/*';
-require_once 'cURL_rif_SENIAT.php';
+include_once 'cURL_rif_SENIAT.php';
 
 // Crear la instancia y pasar como parámetro el RIF a verificar
 //$rif = new Rif('G200003030');

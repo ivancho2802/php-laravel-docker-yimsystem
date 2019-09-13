@@ -13,9 +13,9 @@ if (!defined('__CLASS_HTML2PDF__'))
 {
 	define('__CLASS_HTML2PDF__', '4.01');
 
-	require_once(dirname(__FILE__).'/_mypdf/mypdf.class.php');	// classe mypdf
-	require_once(dirname(__FILE__).'/parsingHTML.class.php');	// classe de parsing HTML
-	require_once(dirname(__FILE__).'/styleHTML.class.php');		// classe de gestion des styles
+	include_once(dirname(__FILE__).'/_mypdf/mypdf.class.php');	// classe mypdf
+	include_once(dirname(__FILE__).'/parsingHTML.class.php');	// classe de parsing HTML
+	include_once(dirname(__FILE__).'/styleHTML.class.php');		// classe de gestion des styles
 
 	class HTML2PDF
 	{

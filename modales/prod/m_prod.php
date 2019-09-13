@@ -1,6 +1,6 @@
 <?php
 include_once('../../includes_SISTEM/include_head.php');
-require_once($extra.'includes_SISTEM/include_login.php');
+include_once($extra.'includes_SISTEM/include_login.php');
 
 //CODIGO DE INSERCION
 if(isset($_POST['codigo_m_m_prod_vie']) && isset($_POST['codigo_m_m_prod_nue']) && isset($_POST['nombre_i_m_m_prod']) && isset($_POST['cant_min_m_m_prod']) && isset($_POST['cant_max_m_m_prod']) && isset($_POST['descripcion_m_m_prod'])  ){

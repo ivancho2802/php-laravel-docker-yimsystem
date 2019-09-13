@@ -1,6 +1,6 @@
 <?php
-require_once('includes_SISTEM/include_header.php');
-require_once('includes_SISTEM/include_login.php');
+include_once('includes_SISTEM/include_header.php');
+include_once('includes_SISTEM/include_login.php');
 //$sistem_root = SISTEM_ROOT;
 ?>
 <!DOCTYPE HTML>

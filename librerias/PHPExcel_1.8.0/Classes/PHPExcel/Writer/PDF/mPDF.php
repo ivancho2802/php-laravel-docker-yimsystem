@@ -29,7 +29,7 @@
 /**  Require mPDF library */
 $pdfRendererClassFile = PHPExcel_Settings::getPdfRendererPath() . '/mpdf.php';
 if (file_exists($pdfRendererClassFile)) {
-    require_once $pdfRendererClassFile;
+    include_once $pdfRendererClassFile;
 } else {
     throw new PHPExcel_Writer_Exception('Unable to load PDF Rendering library');
 }

@@ -15,7 +15,7 @@
 */	 
 ///////////////////////////////////////
 // Incluir la librería
-require_once 'cURL_CNE.php';
+include_once 'cURL_CNE.php';
 $curls = new SearchCurl();
 // VALIDACION
 

@@ -26,8 +26,8 @@
  */
 
 
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/trend/bestFitClass.php';
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/Matrix.php';
+include_once PHPEXCEL_ROOT . 'PHPExcel/Shared/trend/bestFitClass.php';
+include_once PHPEXCEL_ROOT . 'PHPExcel/Shared/JAMA/Matrix.php';
 
 
 /**

@@ -84,7 +84,7 @@
 	$content_html = ob_get_clean();
 
 	// initialisation de HTML2PDF
-	require_once(dirname(__FILE__).'/../html2pdf.class.php');
+	include_once(dirname(__FILE__).'/../html2pdf.class.php');
 	try
 	{
 		$html2pdf = new HTML2PDF('P','A4','fr', false, 'ISO-8859-15', array(0, 0, 0, 0));

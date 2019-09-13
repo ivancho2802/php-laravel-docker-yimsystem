@@ -4,7 +4,7 @@
 $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#nueRetenC', function() {
 		window.setTimeout(function() {
-			<?php require_once($extra.'includes_SISTEM/include_login.php');?>
+			<?php include_once($extra.'includes_SISTEM/include_login.php');?>
 			$('#id_fact_compra', this).focus();
 			$('#nueRetenC').modal({ keyboard: false });
 			document.onkeypress = stopRKey;

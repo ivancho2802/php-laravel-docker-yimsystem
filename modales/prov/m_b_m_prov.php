@@ -1,6 +1,6 @@
 <?php
 include_once('../../includes_SISTEM/include_head.php');
-require_once($extra.'includes_SISTEM/include_login.php');
+include_once($extra.'includes_SISTEM/include_login.php');
 
 if(isset($_POST['rif_prov']))
 {		

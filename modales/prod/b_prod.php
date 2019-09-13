@@ -1,6 +1,6 @@
 <?php 
 include_once('../../includes_SISTEM/include_head.php');
-require_once($extra.'includes_SISTEM/include_login.php');
+include_once($extra.'includes_SISTEM/include_login.php');
 
 //inicializar variable del campo actual ya que no se recibe en todos lados
 if(isset($_POST['urlActual']))

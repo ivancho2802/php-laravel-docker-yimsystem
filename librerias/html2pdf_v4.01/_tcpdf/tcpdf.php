@@ -128,19 +128,19 @@
 /**
  * main configuration file
  */
-require_once(dirname(__FILE__).'/config/tcpdf_config.php');
+include_once(dirname(__FILE__).'/config/tcpdf_config.php');
 
 // includes some support files
 
 /**
  * unicode data
  */
-require_once(dirname(__FILE__).'/unicode_data.php');
+include_once(dirname(__FILE__).'/unicode_data.php');
 
 /**
  * html colors table
  */
-require_once(dirname(__FILE__).'/htmlcolors.php');
+include_once(dirname(__FILE__).'/htmlcolors.php');
 
 if (!class_exists('TCPDF', false)) {
 	/**
@@ -13245,7 +13245,7 @@ if (!class_exists('TCPDF', false)) {
 			if ($this->empty_string($code)) {
 				return;
 			}
-			require_once(dirname(__FILE__).'/barcodes.php');
+			include_once(dirname(__FILE__).'/barcodes.php');
 			// save current graphic settings
 			$gvars = $this->getGraphicVars();
 			// create new barcode object
@@ -13506,7 +13506,7 @@ if (!class_exists('TCPDF', false)) {
 			if ($this->empty_string($code)) {
 				return;
 			}
-			require_once(dirname(__FILE__).'/2dbarcodes.php');
+			include_once(dirname(__FILE__).'/2dbarcodes.php');
 			// save current graphic settings
 			$gvars = $this->getGraphicVars();
 			// create new barcode object

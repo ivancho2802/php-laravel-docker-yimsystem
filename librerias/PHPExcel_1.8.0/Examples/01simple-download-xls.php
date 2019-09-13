@@ -35,7 +35,7 @@ if (PHP_SAPI == 'cli')
 	die('This example should only be run from a Web Browser');
 
 /** Include PHPExcel */
-require_once dirname(__FILE__) . '/../Classes/PHPExcel.php';
+include_once dirname(__FILE__) . '/../Classes/PHPExcel.php';
 
 
 // Create new PHPExcel object
@@ -54,7 +54,7 @@ $objPHPExcel->getActiveSheet()->getHeaderFooter()->setOddHeader('&C&HPlease trea
 $objPHPExcel->getActiveSheet()->getHeaderFooter()->setOddFooter('&L&B' . $objPHPExcel->getProperties()->getTitle() . '&RPage &P of &N');
 
 // Add some data
-require_once('../../../funciones_ivan/funciones.php');
+include_once('../../../funciones_ivan/funciones.php');
 
 $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('A1', mesNum_Texto("2016-01-01"))

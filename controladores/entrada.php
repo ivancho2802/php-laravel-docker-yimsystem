@@ -2,13 +2,13 @@
 ob_start();
 session_start();
 //////////////////////////////////			CONSULTA DE LA INFO DEL SISTEMA
-require_once("../librerias/conexion.php");
+include_once("../librerias/conexion.php");
 $sql="select * from data_system where edo_ds='1'";
 $ok=pg_query($conexion, $sql);
 //$resultado=mysql_fetch_assoc($ok);
 //////////////////////////////////////////
-require_once("../clases/usuario.class.php");
-//require_once("../clases/utilidades.class.php");
+include_once("../clases/usuario.class.php");
+//include_once("../clases/utilidades.class.php");
 //$objUtilidades=new utilidades;
 //$conexion=$objUtilidades->conectar();
 

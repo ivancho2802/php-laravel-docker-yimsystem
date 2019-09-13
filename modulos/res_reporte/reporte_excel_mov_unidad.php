@@ -7,11 +7,11 @@ else
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-require_once($extra."librerias/conexion.php");
+include_once($extra."librerias/conexion.php");
 /////////////////////////////////////////////////////////////
 include_once($extra.'php/funciones.php');
 /////////////////////////////////////////////////////////////
-require_once($extra.'includes_SISTEM/include_login.php');
+include_once($extra.'includes_SISTEM/include_login.php');
 /////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////				CONSULTAS SQL
@@ -87,7 +87,7 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 		define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
 		date_default_timezone_set('America/Caracas');
 		/** Include PHPExcel */
-		require_once ('../../librerias/PHPExcel_1.8.0/Classes/PHPExcel.php');
+		include_once ('../../librerias/PHPExcel_1.8.0/Classes/PHPExcel.php');
 		
 		// Create new PHPExcel object
 		//echo date('H:i:s') , " Create new PHPExcel object" , EOL;

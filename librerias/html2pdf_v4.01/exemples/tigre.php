@@ -261,7 +261,7 @@ $content = '
 </page>';
 	
 	// conversion HTML => PDF
-	require_once(dirname(__FILE__).'/../html2pdf.class.php');
+	include_once(dirname(__FILE__).'/../html2pdf.class.php');
 	try
 	{
 		$html2pdf = new HTML2PDF('L','A4','fr', false, 'ISO-8859-15', 10);

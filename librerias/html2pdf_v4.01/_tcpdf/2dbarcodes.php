@@ -100,7 +100,7 @@ class TCPDF2DBarcode {
 		$qrtype = strtoupper($mode[0]);
 		switch ($qrtype) {
 			case 'QRCODE': { // QR-CODE
-				require_once(dirname(__FILE__).'/qrcode.php');
+				include_once(dirname(__FILE__).'/qrcode.php');
 				if (!isset($mode[1]) OR (!in_array($mode[1],array('L','M','Q','H')))) {
 					$mode[1] = 'L'; // Ddefault: Low error correction
 				}

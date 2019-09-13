@@ -21,7 +21,7 @@
 	$content = ob_get_clean();
 
 	// conversion HTML => PDF
-	require_once(dirname(__FILE__).'/../html2pdf.class.php');
+	include_once(dirname(__FILE__).'/../html2pdf.class.php');
 
 	try
 	{
