@@ -16,7 +16,7 @@ if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php'))
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-include_once($extra."librerias/conexion.php");
+include_once(dirname(__DIR__)."librerias/conexion.php");
 include_once($extra."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
