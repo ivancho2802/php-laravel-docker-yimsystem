@@ -2,9 +2,9 @@
 	include_once('../../includes_SISTEM/include_head.php');
 	include_once('../../includes_SISTEM/include_login.php');
 	//MODALES
-	include_once($extra."modales/prod/m_a_prod.php");
+	include_once("../../modales/prod/m_a_prod.php");
 	//llamando de modales el id es "calPMPVJ"
-	include_once($extra."modales/prod/m_PMPVJ.php")
+	include_once("../../modales/prod/m_PMPVJ.php")
 ?>
 
 <script>
