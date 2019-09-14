@@ -19,11 +19,12 @@ $res = pg_query($conexion,$sql)or die('Retiro NO realizado con éxito'.pg_last_e
 	if($res){
 				
 		//consulta de la cantidad actual
-		$sql_consul_inven = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario"]) );
-		$filas_consul_inven = $sql_consul_inven->fetch_assoc();
+		$consulta = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario"]) );
+		// $filas = $sql_consul_inven->fetch_assoc();
+        $filas=pg_fetch_assoc($consulta);
 		
 		//para el precio o costo este es el promediado de precios
-		$stock_cantidad = $filas_consul_inven['stock'] - $_POST["cant_inv_retiros"];
+		$stock_cantidad = $filas['stock'] - $_POST["cant_inv_retiros"];
 		$sqlUpdateInven = sprintf("UPDATE inventario SET stock = '%s' WHERE codigo = '%s'"
 																			,$stock_cantidad
 																			,$_POST["fk_inventario"]);
@@ -34,7 +35,7 @@ $res = pg_query($conexion,$sql)or die('Retiro NO realizado con éxito'.pg_last_e
 											('%s','%s','%s','%s','%s','%s','%s')",
 											'retiro',
 											$_POST['fecha_inv_retiros'],
-											$filas_consul_inven['valor_unitario'],//costo actual para esta fecha
+											$filas['valor_unitario'],//costo actual para esta fecha
 											$stock_cantidad,//cantidad actual para esta fecha
 											$_POST["fk_inventario"],
 											date('Y/m/d'),

@@ -32,9 +32,10 @@ include_once('../../includes_SISTEM/include_login.php');
 <?php
 if(isset($_POST['num_compro_reten']) ){
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = pg_num_rows($consultaEmpre);
+	$consulta2 = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	// $filasEmpre = pg_fetch_assoc($consultaEmpre);
+    $filas2=pg_fetch_assoc($consulta2);
+	$total_consultaEmpre = pg_num_rows($consulta2);
 	
 	$num_compro_reten = $_POST['num_compro_reten'];
 	//consulta de la factura con sus datos relacionados
@@ -45,7 +46,7 @@ if(isset($_POST['num_compro_reten']) ){
 																				fact_compra.num_compro_reten = '%s'",
 																				$num_compro_reten));
 																				
-	$filas=$consulta->fetch_assoc();
+	$filas=pg_fetch_assoc($consulta);
 	$total_consulta = pg_num_rows($consulta);										
 ?>
 	<page_header>
@@ -175,9 +176,10 @@ if(isset($_POST['num_compro_reten']) ){
 <?php $nop = 1;
 	  do{
 			//consulta las notas si existen 
-			$consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
-			$filasConsultaNota = $consultaNota->fetch_assoc();
-			$total_ConsultaNota = pg_num_rows($consultaNota);
+			$consulta3 = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
+			// $filasConsultaNota = $consultaNota->fetch_assoc();
+            $filas3=pg_fetch_assoc($consulta3);
+			$total_consulta3 = pg_num_rows($consulta3);
 			$alicuotas = "";
 			if($filas['msubt_bi_iva_12']>0){
 				$alicuotas = $alicuotas."12";
@@ -199,9 +201,9 @@ if(isset($_POST['num_compro_reten']) ){
 		<?php if($total_consulta > 0)
 				{ 
 					do{
-						if($filasConsultaNota['tipo_notas_cd'] == 'NC')
-						echo "<tr><td>".$filasConsultaNota['num_notas_cd']."</td></tr>";
-					}while($filasConsultaNota = $consultaNota->fetch_assoc());
+						if($filasconsulta3['tipo_notas_cd'] == 'NC')
+						echo "<tr><td>".$filasconsulta3['num_notas_cd']."</td></tr>";
+					}while($filasconsulta3 = pg_fetch_assoc($consulta3));
 				}
 		?>
         </table>
@@ -211,9 +213,9 @@ if(isset($_POST['num_compro_reten']) ){
 		<?php if($total_consulta > 0)
 				{ 
 					do{
-						if($filasConsultaNota['tipo_notas_cd'] == 'ND')
-						echo "<tr><td>".$filasConsultaNota['num_notas_cd']."</td></tr>";
-					}while($filasConsultaNota = $consultaNota->fetch_assoc());
+						if($filasconsulta3['tipo_notas_cd'] == 'ND')
+						echo "<tr><td>".$filasconsulta3['num_notas_cd']."</td></tr>";
+					}while($filasconsulta3 = pg_fetch_assoc($consulta3));
 				}
 		?>
         </table>
@@ -227,7 +229,7 @@ if(isset($_POST['num_compro_reten']) ){
     <td><span><?php echo round($filas['tot_iva'],2)?></span></td>
     <td><span><?php echo round($filas['m_iva_reten'],2);?></span></td>
   </tr>
-<?php }while($filas=$consulta->fetch_assoc()); ?>
+<?php }while($filas=pg_fetch_assoc($consulta)); ?>
  </tbody>
 </table>
 <br>

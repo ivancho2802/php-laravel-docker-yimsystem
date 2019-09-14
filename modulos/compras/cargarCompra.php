@@ -467,9 +467,10 @@ function mConsulFact(str){
 </script>
 <?php 
 	
-	$consulEmpreActiva=pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$resEmpreActiva=$consulEmpreActiva->fetch_assoc();
-	$total_consulEmpreActiva = pg_num_rows($consulEmpreActiva);
+	$consulta=pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+    $filas=pg_fetch_assoc($consulta);
+	// $resEmpreActiva=$consulEmpreActiva->fetch_assoc();
+	$total_consulEmpreActiva = pg_num_rows($consulta);
 	
 	//llamado de modales el id es "busFact"
 	include_once($extra."modales/fact_c/m_b_fact_c.php");

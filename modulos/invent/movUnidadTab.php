@@ -93,7 +93,7 @@
             
              
             do{	
-                $inv_cod = $filas_inventario["codigo"];////////FORMATO c_cv_inventario($codigoInv, $fechi, $fechaf, $accion);
+                $inv_cod = $filas2["codigo"];////////FORMATO c_cv_inventario($codigoInv, $fechi, $fechaf, $accion);
                 
                 $acum_miicu = $acum_miicu 	+ c_cv_inventario($inv_cod, $fechai, $fechaf, "miicu");
                 $acum_miic 	= $acum_miic 	+ c_cv_inventario($inv_cod, $fechai, $fechaf, "miic");
@@ -117,7 +117,7 @@
                     }else{
             ?>
                         <td> <?php echo $inv_cod?> </td>
-                        <td> <?php echo $filas_inventario["nombre_i"]?></td>
+                        <td> <?php echo $filas2["nombre_i"]?></td>
                         <!--EXISTENCIA INICIAL-->
                         <td colspan="13"><font color="red">NO SE MOSTRARA EN EL REPORTE no posee movimientos ni existencia inicial</font></td>
             <?php
@@ -126,7 +126,7 @@
             ?>
               <tr>
                 <td> <?php echo $inv_cod?> </td>
-                <td> <?php echo $filas_inventario["nombre_i"]?></td>
+                <td> <?php echo $filas2["nombre_i"]?></td>
                 <!--EXISTENCIA INICIAL-->
                 <td > <?php echo c_cv_inventario($inv_cod, $fechai, $fechaf, "miicu")?> </td>
                 <td > <?php echo c_cv_inventario($inv_cod, $fechai, $fechaf, "miic")?></td>
@@ -156,7 +156,9 @@
                 <?php }?>
               </tr>
               <?php }//	IF SI ES 0 0
-               }while($filas_inventario = $sql_inventario->fetch_assoc());
+               }while($filas2 = pg_fetch_assoc($consulta2));
+               // }while($filas_inventario = $sql_inventario->fetch_assoc());
+               
               ?>
               <tr>
                 <td colspan="2">&nbsp;</td>

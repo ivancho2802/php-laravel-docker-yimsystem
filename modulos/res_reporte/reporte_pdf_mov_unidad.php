@@ -38,13 +38,15 @@ include_once('../../includes_SISTEM/include_login.php');
 //	DATOS DE CONEXION y de consulta decisiones
 ///////////////////////////////
 	//	consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = pg_num_rows($consultaEmpre);
+	$consulta = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	// $filasEmpre = pg_fetch_assoc($consultaEmpre);
+	$filas=pg_fetch_assoc($consulta);
+	$total_consultaEmpre = pg_num_rows($consulta);
 	//	CONSULTA DE TODO LO QUE HAY EN EL INVENTARIO PARA MOSTRARLO JUNTO CON SU MOVIMIN¿ENTO
-	$sql_inventario=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
-	$filas_inventario=$sql_inventario->fetch_assoc();
-	$total_inventario = pg_num_rows($sql_inventario);
+	$consulta2=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
+	// $filas_inventario=$sql_inventario->fetch_assoc();
+	$filas2=pg_fetch_assoc($consulta2);
+	$total_inventario = pg_num_rows($consulta2);
 	//
 	if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && isset($_POST['fechaf'])) || isset($_POST['dia']) ){
 		//validando que la fecha o ano que se introduzca no sea menor al menor del sistema
@@ -56,7 +58,7 @@ include_once('../../includes_SISTEM/include_login.php');
 		UNION
 		SELECT reg_inventario.fecha_reg_inv AS fecha FROM reg_inventario
 		ORDER BY fecha ASC*/
-		$sql_fecha_menor=pg_query($conexion,sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
+		$consulta3=pg_query($conexion,sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
 		UNION
 		SELECT fact_venta.fecha_fact_venta AS fecha FROM fact_venta
 		UNION
@@ -64,20 +66,21 @@ include_once('../../includes_SISTEM/include_login.php');
 		UNION
 		SELECT reg_inventario.fecha_reg_inv AS fecha FROM reg_inventario
 		ORDER BY fecha ASC"));
-		$filas_fecha_menor = $sql_fecha_menor->fetch_assoc();
-		$total_fecha_menor = pg_num_rows($sql_fecha_menor);
+		// $filas_fecha_menor = $sql_fecha_menor->fetch_assoc();
+		$filas3=pg_fetch_assoc($consulta3);
+		$total_fecha_menor = pg_num_rows($consulta3);
 		
 		//completando con ano y/o mes la fecha
 		if(isset($_POST['mes'])){
 			$mes = $_POST['mes'];
 			$fechai = $mes."-01";
 			$fechaf = $mes."-31";
-			//echo $filas_fecha_menor['fecha'];
+			//echo $filas3['fecha'];
 			
 		}elseif(isset($_POST['ano'])){
 			$ano = $_POST['ano'];
-			if ($ano >= substr($filas_fecha_menor['fecha'],0,4))
-				$fechai = $filas_fecha_menor['fecha'];
+			if ($ano >= substr($filas3['fecha'],0,4))
+				$fechai = $filas3['fecha'];
 			else
 				$fechai = "errorano";
 			$fechaf = $ano."-12-31";
@@ -86,16 +89,16 @@ include_once('../../includes_SISTEM/include_login.php');
 			$fechaf = $_POST['fechaf'];
 		}elseif(isset($_POST['dia']) ){
 			$dia = $_POST['dia'];
-			if ($dia >= $filas_fecha_menor['fecha']){
+			if ($dia >= $filas3['fecha']){
 				$fechai = $_POST['dia'];
 				$fechaf = $_POST['dia'];
 			}else 
 				$fechai = "errorano";
 		}
 		
-		if($fechai == "errorano" || $fechai < $filas_fecha_menor['fecha'])//para AÑO o mes y 
+		if($fechai == "errorano" || $fechai < $filas3['fecha'])//para AÑO o mes y 
 		{
-			echo "Error con la fecha debe ser mayor a mes de ".mesNum_Texto($filas_fecha_menor['fecha']);
+			echo "Error con la fecha debe ser mayor a mes de ".mesNum_Texto($filas3['fecha']);
 		}else{
 ?>
             <page_header>

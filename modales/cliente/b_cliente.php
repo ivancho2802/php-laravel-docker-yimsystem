@@ -7,7 +7,9 @@ include_once('../../includes_SISTEM/include_login.php');
 		if($_POST['cliente'] == " "){
 		//realizo el sql
 		$consulta=pg_query($conexion,sprintf("SELECT * FROM cliente"));
-		$filas=$consulta->fetch_assoc();
+		// $filas=pg_fetch_assoc($consulta);
+    $filas=pg_fetch_assoc($consulta);
+
 		$total_consulta = pg_num_rows($consulta);
 		}else{
 		//recibo la variable post
@@ -16,7 +18,7 @@ include_once('../../includes_SISTEM/include_login.php');
 		$consulta=pg_query($conexion,sprintf("SELECT * FROM cliente WHERE
 																cliente.nom_cliente LIKE '%s' OR cliente.ced_cliente LIKE '%s'",
 																$cliente, $cliente));
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 		}
 		
@@ -56,7 +58,7 @@ include_once('../../includes_SISTEM/include_login.php');
               </td>
             </tr>
             <?php
-            }while($filas=$consulta->fetch_assoc());
+            }while($filas=pg_fetch_assoc($consulta));
 		}else{
 			?>
             <tr>

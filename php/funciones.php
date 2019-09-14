@@ -25,123 +25,131 @@
 function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	////////////////////			COMPRA
 	$conexion = new mysqli("localhost", "root", "", "panaderia");
-	$c_inventario = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
+	$consulta = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
 								fact_compra.id_fact_compra = compra.fk_fact_compra AND 
 								compra.fk_inventario = inventario.codigo AND 
 								inventario.codigo = '%s' AND
 								fact_compra.tipo_fact_compra = 'F' AND
 								fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s'", $codigoInv, $fechai,$fechaf));
-	$filas_c_inventario = $c_inventario->fetch_assoc();
-	$total_c_inventario = pg_num_rows($c_inventario);
+
+	// $filas_c_inventario = pg_fetch_assoc($consulta);
+	$filas=pg_fetch_assoc($consulta);
+
+	$total_c_inventario = pg_num_rows($consulta);
 	//	DEVOLUCIONES			NC-DEVO		mcdc
-	$cd_inventario = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
+	$consulta2 = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
 								fact_compra.id_fact_compra = compra.fk_fact_compra AND 
 								compra.fk_inventario = inventario.codigo AND 
 								inventario.codigo = '%s' AND
 								fact_compra.tipo_fact_compra = 'NC-DEVO' AND
 								fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s'", 
 								$codigoInv, $fechai,$fechaf));
-	$filas_cd_inventario = $cd_inventario->fetch_assoc();
-	$total_cd_inventario = pg_num_rows($cd_inventario);
+	// $filas_cd_inventario = $cd_inventario->fetch_assoc();
+	$filas2=pg_fetch_assoc($consulta2);
+	$total_cd_inventario = pg_num_rows($consulta2);
 	
 	///////////////////// 			VENTA
-	$v_inventario = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta, inventario WHERE
+	$consulta3 = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta, inventario WHERE
 										fact_venta.id_fact_venta = venta.fk_fact_venta AND 
 										venta.fk_inventario = inventario.codigo AND 
 										inventario.codigo = '%s' AND
 										fact_venta.fecha_fact_venta BETWEEN '%s' AND '%s'", 
 										$codigoInv, $fechai,$fechaf));
-	$filas_v_inventario = $v_inventario->fetch_assoc();
-	$total_v_inventario = pg_num_rows($v_inventario);
+	// $filas_v_inventario = $v_inventario->fetch_assoc();
+	$filas3=pg_fetch_assoc($consulta3);
+	$total_v_inventario = pg_num_rows($consulta3);
 	////////////////////			INVENTARIO INICIAL
-	$inv_ini = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
+	$consulta5 = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
 								reg_inventario.fk_inventario = inventario.codigo AND
 																				inventario.codigo = '%s' AND
 																				reg_inventario.fecha_reg_inv < '%s'
 																				ORDER BY reg_inventario.fecha_reg_inv DESC", 
 																				$codigoInv, $fechai));//asi la menor o la mas cercana
-	$filas_inv_ini = $inv_ini->fetch_assoc();
-	$total_inv_ini = pg_num_rows($inv_ini);
+	// $filas_inv_ini = $inv_ini->fetch_assoc();
+	$filas5=pg_fetch_assoc($consulta5);
+	$total_inv_ini = pg_num_rows($consulta5);
 	
 	////////////////////			INVENTARIO FINAL
-	$inv_fin = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
+	$consulta6 = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE 
 											reg_inventario.fk_inventario = inventario.codigo AND
 											inventario.codigo = '%s' AND
 											reg_inventario.fecha_reg_inv <= '%s'
 											ORDER BY reg_inventario.fecha_reg_inv DESC, reg_inventario.hora_registro DESC", 
 											$codigoInv, $fechaf));
-	$filas_inv_fin = $inv_fin->fetch_assoc();
-	$total_inv_fin = pg_num_rows($inv_fin);
+	// $filas_inv_fin = $inv_fin->fetch_assoc();
+	$filas6=pg_fetch_assoc($consulta6);
+	$total_inv_fin = pg_num_rows($consulta6);
 	////////////////////			INVENTARIO RETIROS
-	$ir = pg_query($conexion,sprintf("SELECT * FROM inventario, inventario_retiros WHERE 
+	$consulta4 = pg_query($conexion,sprintf("SELECT * FROM inventario, inventario_retiros WHERE 
 							inventario_retiros.fk_inventario = inventario.codigo AND
 							inventario.codigo = '%s' AND
 							inventario_retiros.fecha_inv_retiros BETWEEN '%s' AND '%s'", 
 							$codigoInv, $fechai, $fechaf));
-	$filas_ir = $ir->fetch_assoc();
-	$total_ir = pg_num_rows($ir);
+	// $filas_ir = $ir->fetch_assoc();
+	$filas4=pg_fetch_assoc($consulta4);
+	$total_ir = pg_num_rows($consulta4);
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
 	if($accion == "mcc"){//mostrar compra cantidad
 		$acum_cc = 0;
 		do{
-			$acum_cc += $filas_c_inventario["cantidad"];
-		}while($filas_c_inventario = $c_inventario->fetch_assoc());
+			$acum_cc += $filas["cantidad"];
+		}while($filas = pg_fetch_assoc($consulta));
 		return $acum_cc;
 	}elseif($accion == "mcm"){//mostrar compras monto (o costo)
 		$acum_cm = 0;
 		do{
-			$acum_cm += $filas_c_inventario["cantidad"] * $filas_c_inventario["costo"];//este costo es unitario se pide el monto total
-		}while($filas_c_inventario = $c_inventario->fetch_assoc());
+			$acum_cm += $filas["cantidad"] * $filas["costo"];//este costo es unitario se pide el monto total
+		}while($filas = pg_fetch_assoc($consulta));
 		return round($acum_cm,2);
 	///////////////////////////////////////////////////////////	
 	}elseif($accion == "mvc"){//mostrar ventas cantidad
 		$acum_vc = 0;
 		do{
-			$acum_vc += $filas_v_inventario["cantidad"];
+			$acum_vc += $filas3["cantidad"];
 			//echo $acum_vc;
-		}while($filas_v_inventario = $v_inventario->fetch_assoc());
+		}while($filas3 = pg_fetch_assoc($consulta3));
 		return $acum_vc;
 	}elseif($accion == "mvm"){//mostrar ventas monto
 		$acum_vm = 0;
 		do{
-			$acum_vm += $filas_v_inventario["cantidad"] * $filas_v_inventario["costo"];
-		}while($filas_v_inventario = $v_inventario->fetch_assoc());
+			$acum_vm += $filas3["cantidad"] * $filas3["costo"];
+		}while($filas3 = pg_fetch_assoc($consulta3));
 		return round($acum_vm,2);
 	}elseif($accion == "mcdc"){//mostrar compras devoluciones cantidad
 		$acum_cdc = 0;
 		do{
-			$acum_cdc += $filas_cd_inventario["cantidad"];
+			$acum_cdc += $filas2["cantidad"];
 			//echo $acum_vc;
-		}while($filas_cd_inventario = $cd_inventario->fetch_assoc());
+		}while($filas2 = pg_fetch_assoc($consulta2));
 		return $acum_cdc;
 	}elseif($accion == "mcdm"){//mostrar compras devoluciones monto
 		$acum_cdm = 0;
 		do{
-			$acum_cdm += $filas_cd_inventario["cantidad"] * $filas_cd_inventario["costo"];
-		}while($filas_cd_inventario = $cd_inventario->fetch_assoc());
+			$acum_cdm += $filas2["cantidad"] * $filas2["costo"];
+		}while($filas2 = pg_fetch_assoc($consulta2));
 		return round($acum_cdm,2);
 	}elseif($accion == "mirc"){//mostrar retiros cantidad
 		$acum_irc = 0;
 		do{
-			$acum_irc += $filas_ir["cant_inv_retiros"];
-		}while($filas_ir = $ir->fetch_assoc());
+			$acum_irc += $filas4["cant_inv_retiros"];
+		}while($filas4 = pg_fetch_assoc($consulta4));
 		return $acum_irc;
 	}elseif($accion == "mirm"){//mostrar retiros monto
 		$acum_irm = 0;
 		do{
-			$acum_irm += $filas_ir["cant_inv_retiros"] * $filas_ir["costo_a"];
-		}while($filas_ir = $ir->fetch_assoc());
+			$acum_irm += $filas4["cant_inv_retiros"] * $filas4["costo_a"];
+		}while($filas4 = pg_fetch_assoc($consulta4));
 		return round($acum_irm,2);
 	}elseif($accion == "miicu"){
-		return round($filas_inv_ini["costo_reg_inv"],2);
+		return round($filas5["costo_reg_inv"],2);
 	}elseif($accion == "miic"){
-		return $filas_inv_ini["cantidad_reg_inv"];
+		return $filas5["cantidad_reg_inv"];
 	}elseif($accion == "miim"){
-		return round($filas_inv_ini["cantidad_reg_inv"] * $filas_inv_ini["costo_reg_inv"],2);
+		return round($filas5["cantidad_reg_inv"] * $filas5["costo_reg_inv"],2);
 	}elseif($accion == "mifc"){
-		return $filas_inv_fin["cantidad_reg_inv"];
+		return $filas6["cantidad_reg_inv"];
 	}elseif($accion == "mifm"){
-		return round($filas_inv_fin["cantidad_reg_inv"] * $filas_inv_fin["costo_reg_inv"],2);
+		return round($filas6["cantidad_reg_inv"] * $filas6["costo_reg_inv"],2);
 	}
 }
 
@@ -151,13 +159,14 @@ function sumSinIVA($numdocu, $tipo){
 	$sumSinIVA = 0;
 	$conexion = new mysqli("localhost", "root", "", "panaderia");
 	//consulta de las compras exentas
-	$consultaExen = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra WHERE fact_compra.id_fact_compra = compra.fk_fact_compra AND compra.fk_fact_compra = '%s' AND compra.tipoCompra = '%s'", $numdocu, $tipo));
-	$filas_consultaExen = $consultaExen->fetch_assoc();
-	$total_consultaExen = pg_num_rows($consultaExen);
+	$consulta7 = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra WHERE fact_compra.id_fact_compra = compra.fk_fact_compra AND compra.fk_fact_compra = '%s' AND compra.tipoCompra = '%s'", $numdocu, $tipo));
+	// $filas_consultaExen = $consultaExen->fetch_assoc();
+	$filas7=pg_fetch_assoc($consulta7);
+	$total_consultaExen = pg_num_rows($consulta7);
 	
 	do{
-		$sumSinIVA += ($filas_consultaExen['costo'] * $filas_consultaExen['cantidad']);
-	}while($filas_consultaExen=$consultaExen->fetch_assoc());
+		$sumSinIVA += ($filas7['costo'] * $filas7['cantidad']);
+	}while($filas7=pg_fetch_assoc($consulta7));
 	
 	return round($sumSinIVA,2);
 }
@@ -167,12 +176,12 @@ function sumSinIVAventas($numdocu, $tipo){
 	$conexion = new mysqli("localhost", "root", "", "panaderia");
 	//consulta de las compras exentas
 	$consultaExen = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta WHERE fact_venta.id_fact_venta = venta.fk_fact_venta AND venta.fk_fact_venta = '%s' AND venta.tipoVenta = '%s'", $numdocu, $tipo));
-	$filas_consultaExen = $consultaExen->fetch_assoc();
+	$filas7 = pg_fetch_assoc($consulta7);
 	$total_consultaExen = pg_num_rows($consultaExen);
 	
 	do{
-		$sumSinIVA += ($filas_consultaExen['costo'] * $filas_consultaExen['cantidad']);
-	}while($filas_consultaExen=$consultaExen->fetch_assoc());
+		$sumSinIVA += ($filas7['costo'] * $filas7['cantidad']);
+	}while($filas7=pg_fetch_assoc($consulta7));
 
 	return round($sumSinIVA,2);
 }

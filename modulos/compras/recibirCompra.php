@@ -67,39 +67,41 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 //funcion modificar inventario basado en la cantidad
 				
 				//consul de todos los costos de este producto
-				$sql_consul_costo = pg_query($conexion, sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
+				$consulta = pg_query($conexion, sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
                         reg_inventario.fk_fact_cv = fact_compra.id_fact_compra AND
                         compra.fk_fact_compra = fact_compra.id_fact_compra AND
                         compra.fk_inventario = inventario.codigo AND
                         reg_inventario.fk_inventario = compra.fk_inventario AND
                         inventario.codigo = '%s' AND
                         reg_inventario.tipo = 'compra' ORDER BY reg_inventario.fecha_reg_inv DESC",$_POST["fk_inventario$i"]));
-				$filas_sql_consul_costo = $sql_consul_costo->fetch_assoc();
+				// $filas_sql_consul_costo = $sql_consul_costo->fetch_assoc();
+				$filas=pg_fetch_assoc($consulta);
 				
 				//consulta de la cantidad actual
-				$sql_consul_inven = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE
+				$consulta2 = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE
                       								inventario.codigo = '%s'",
 													$_POST["fk_inventario$i"]));
-				$filas_consul_inven = $sql_consul_inven->fetch_assoc();
+				// $filas_consul_inven = $sql_consul_inven->fetch_assoc();
+				$filas2=pg_fetch_assoc($consulta2);
 				
 				//para el precio o costo este es el promediado de precios
 				//OJO EL valor_unitario ES IGUAL A COSTO PROMEDIADO ACTUAL
 				//EL VALOR PROMEDIADO ES ESTIMULADO MEDIANTE CADA COMPRA
 				
-				if($filas_consul_inven["valor_unitario"] !== $_POST["costo$i"]){//si costo del inventario viejo es diferente al del inventario nuevo
+				if($filas2["valor_unitario"] !== $_POST["costo$i"]){//si costo del inventario viejo es diferente al del inventario nuevo
 					
 					//acumular costos * cantidades para promediar
 					$monto_actual = 0;
 					do{
 						
-						$monto_actual = $monto_actual + ($filas_sql_consul_costo['costo_reg_inv'] * $filas_sql_consul_costo['cantidad']);
+						$monto_actual = $monto_actual + ($filas['costo_reg_inv'] * $filas['cantidad']);
 						//el COSTO AL QUE FUE COMPRADA de reg_inventario
 						//la CANTIDAD QUE COMPRE de compas
 						
-					}while($filas_sql_consul_costo = $sql_consul_costo->fetch_assoc());
+					}while($filas=pg_fetch_assoc($consulta));
 					
 					$monto_actual = $monto_actual + ($_POST["costo$i"] * $_POST["cantidad$i"]);
-					$tot_cant = $filas_consul_inven["stock"] + $_POST["cantidad$i"];
+					$tot_cant = $filas2["stock"] + $_POST["cantidad$i"];
 					
 					$costo_promediado = $monto_actual / $tot_cant;
 				}else
@@ -111,11 +113,11 @@ $sql=sprintf("INSERT INTO fact_compra (id_fact_compra, serie_fact_compra, num_fa
 				//SI ES NC RESTO al inventario
 				
 				if($_POST['tipo_fact_compra'] == "NC-DEVO")			//RESTO
-					$stock_cantidad = $filas_consul_inven['stock'] - $_POST["cantidad$i"];
+					$stock_cantidad = $filas2['stock'] - $_POST["cantidad$i"];
 				elseif($_POST['tipo_fact_compra'] == "NC-DESC" || $_POST['tipo_fact_compra'] == "ND")			
-					$stock_cantidad = $filas_consul_inven['stock'];//NO RESTO
+					$stock_cantidad = $filas2['stock'];//NO RESTO
 				else// $_POST['tipo_fact_compra'] == "ND")		//SUMO NORMAL
-					$stock_cantidad = $filas_consul_inven['stock'] + $_POST["cantidad$i"];
+					$stock_cantidad = $filas2['stock'] + $_POST["cantidad$i"];
 				
 				if($res){
 					$sqlUpdateInven = sprintf("UPDATE inventario SET stock = '%s', 

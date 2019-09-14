@@ -27,10 +27,11 @@
 	include_once($extra."modales/alert/m_alert.php");
 	
 	//consultade los datos de la empresa ACTIVA
-	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = pg_num_rows($consultaEmpre);
-	//$filasEmpre cod_empre
+	$consulta = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	// $filasEmpre = pg_fetch_assoc($consultaEmpre);
+	$filas=pg_fetch_assoc($consulta);
+	$total_consultaEmpre = pg_num_rows($consulta);
+	//$filas cod_empre
 ?>
 <!--PARA LLAMAR A EL cRUL RIF-->
 <script>
@@ -39,7 +40,7 @@ $(document).ready(function() {
 	/*
 	//FUNCION CURL QUE ENVIA LA CEDULA PARA SABER SI ES RETENEDOR
 	var xhttp;
-	var str = <?php //echo $filasEmpre['cod_empre']?>;
+	var str = <?php //echo $filas['cod_empre']?>;
   	xhttp = new XMLHttpRequest();
   	xhttp.onreadystatechange = function() {
 	if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -50,8 +51,8 @@ $(document).ready(function() {
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("rif="+ str);
 	*/
-	var retenC = '<?php echo $filasEmpre['retenIVA']?>';
-	var contriC = '<?php echo $filasEmpre['contri_empre']?>';
+	var retenC = '<?php echo $filas['retenIVA']?>';
+	var contriC = '<?php echo $filas['contri_empre']?>';
 	if(retenC == 'SI' && contriC == 'Especial'){
 		$('#nueRetenC').modal({backdrop: 'static', keyboard: false})
 		$('#nueRetenC').modal('show');

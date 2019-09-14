@@ -53,12 +53,12 @@ $mes = $_POST['mes'];
 																				
 																			
 	$filas=pg_fetch_assoc($consulta);
-    // $filas=$consulta->fetch_assoc();
+    // $filas=pg_fetch_assoc($consulta);
 	$total_consulta = pg_num_rows($consulta);
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	// $filasEmpre = $consultaEmpre->fetch_assoc();
+	// $filasEmpre = pg_fetch_assoc($consultaEmpre);
     $filasEmpre = pg_fetch_assoc($consultaEmpre);
 	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 																					
@@ -342,7 +342,7 @@ $( document ).ready(function() {
           <?php
           ///	area de acumulaciones
                     
-          // }while($filas=$consulta->fetch_assoc());
+          // }while($filas=pg_fetch_assoc($consulta));
           }while($filas=pg_fetch_assoc($consulta));
           ?>
           <tr>

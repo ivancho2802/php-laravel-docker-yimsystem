@@ -8,9 +8,10 @@
 	echo $host."<br />".$uri."<br />".$extra;
 	*/
 if(1 == 1){
-	$consulEmpreActiva=pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$resEmpreActiva=$consulEmpreActiva->fetch_assoc();
-	$total_consulEmpreActiva = pg_num_rows($consulEmpreActiva);
+	$consulta=pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	$filas=pg_fetch_assoc($consulta);
+	// $filas=$consulEmpreActiva->fetch_assoc();
+	$total_consulEmpreActiva = pg_num_rows($consulta);
 	
 	//llamado de modales el id es "busFact"
 	include_once($extra."modales/fact_c/m_b_fact_c.php");
@@ -489,7 +490,7 @@ function elimInput(numCampoActual){
         <input type="hidden" name="fk_usuariosC" value="<?php echo $_SESSION["id_usu"]?>"/><!--que usuario operador hiso el registro-->
         <input type="hidden" name="id_fact_compra_old" id="id_fact_compra_old" value=""/>
         <input type="hidden" name="id_fact_compra" id="id_fact_compra" value=""/><!--el id auoincremento de la factura-->
-        <input type="hidden" name="empre_cod_empre" value="<?php echo $resEmpreActiva["cod_empre"]?>"/><!--el id de la empresa actual del sistema-->
+        <input type="hidden" name="empre_cod_empre" value="<?php echo $filas["cod_empre"]?>"/><!--el id de la empresa actual del sistema-->
             <label for="tipodocumnto">Tipo de Documento:</label><br />
             <select id="tipoDoc" class="form-control" name="tipo_fact_compra" onchange="tipoDocuC(this.value)" required>
                 <option value="">Seleccione</option>

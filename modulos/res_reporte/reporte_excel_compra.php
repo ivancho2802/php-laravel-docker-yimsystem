@@ -20,18 +20,19 @@ if (isset($_POST['mes'])){
 	$mesi = $mes."-01";
 	$mesf = ($mes=='02')? $mes."-28":((int) $mes%2==0) ? $mes."-31" : $mes."-30";
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA empresa
-	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = pg_num_rows($consultaEmpre);
+	$consulta2 = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	// $filasEmpre = pg_fetch_assoc($consultaEmpre);
+	$filas2=pg_fetch_assoc($consulta2);
+	$total_consultaEmpre = pg_num_rows($consulta2);
 	//consulta de la factura con sus datos relacionados
 	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
 	  																			fact_compra.empre_cod_empre = empre.cod_empre AND
 																				empre.cod_empre = '%s' AND
 																				fact_compra.fk_proveedor = proveedor.rif AND
 																				fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s'",
-																				$filasEmpre['cod_empre'], $mesi, $mesf));
+																				$filas2['cod_empre'], $mesi, $mesf));
 																				
-	$filas=$consulta->fetch_assoc();
+	$filas=pg_fetch_assoc($consulta);
 	$total_consulta = pg_num_rows($consulta);																			
 //////////////////////////////////////////////////////////////////////				LIBRERIA
 	error_reporting(E_ALL);
@@ -144,10 +145,10 @@ if (isset($_POST['mes'])){
 	//		MENBRETE		TABLA1	
 	//////////////////////////////////////////////////7			metodo para obtener el mes con la fecha	
 	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', 'Reporte de Compras')->mergeCells('A1:AI1')
-										->setCellValue('A2', $filasEmpre['titular_rif_empre']." - ". $filasEmpre['nom_empre'])->mergeCells('A2:AI2')
-										->setCellValue('A3', $filasEmpre['rif_empre'])->mergeCells('A3:AI3')
-										->setCellValue('A4', 'Dirección: '.$filasEmpre['dir_empre'])->mergeCells('A4:AI4')
-										->setCellValue('A5', 'Contribuyente: '.$filasEmpre['contri_empre'])->mergeCells('A5:AI5')
+										->setCellValue('A2', $filas2['titular_rif_empre']." - ". $filas2['nom_empre'])->mergeCells('A2:AI2')
+										->setCellValue('A3', $filas2['rif_empre'])->mergeCells('A3:AI3')
+										->setCellValue('A4', 'Dirección: '.$filas2['dir_empre'])->mergeCells('A4:AI4')
+										->setCellValue('A5', 'Contribuyente: '.$filas2['contri_empre'])->mergeCells('A5:AI5')
 										->setCellValue('A6', 'LIBRO DE COMPRAS CORRESPONDIENTE AL MES DE'.mesNum_Texto($mes))->mergeCells('A6:AI6')
 										;
 	$objPHPExcel->getActiveSheet()->getStyle('A1:A6')->applyFromArray($styleArrayT1H);// ESTILO
@@ -276,9 +277,10 @@ if (isset($_POST['mes'])){
     do{
 		//CONSULTAS RELACIONALES
 		//consulta las notas si existen 
-		$consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
-		$filasConsultaNota = $consultaNota->fetch_assoc();
-		$total_ConsultaNota = pg_num_rows($consultaNota);
+		$consulta3 = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE fact_compra.id_fact_compra = notas_cd.id_fact_compra AND notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
+		// $filas3 = $consultaNota->fetch_assoc();
+		$filas3=pg_fetch_assoc($consulta3);
+		$total_ConsultaNota = pg_num_rows($consulta3);
 		/////		FACTURA TOTALES IMPORTACIONES
 		if($filas['nplanilla_import'] != ""){
 			$mtot_iva_compra_import = round($filas['mtot_iva_compra'],2);
@@ -379,9 +381,9 @@ if (isset($_POST['mes'])){
 											if($total_consulta > 0)
 											{ 
 												do{
-													if($filasConsultaNota['tipo_notas_cd'] == 'NC')
-													$notas_credito = $notas_credito . $filasConsultaNota['num_notas_cd'].",";
-											  	}while($filasConsultaNota = $consultaNota->fetch_assoc());
+													if($filas3['tipo_notas_cd'] == 'NC')
+													$notas_credito = $notas_credito . $filas3['num_notas_cd'].",";
+											  	}while($filas3 = pg_fetch_assoc($consulta3));
 											}
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue(++$jt1.$it1, $notas_credito);
 							//<!--FACTURA NOTA DEBITO-->
@@ -389,9 +391,9 @@ if (isset($_POST['mes'])){
 											if($total_consulta > 0)
 											{ 
 												do{
-													if($filasConsultaNota['tipo_notas_cd'] == 'ND')
-													$notas_debito = $notas_debito . $filasConsultaNota['num_notas_cd'].",";
-												}while($filasConsultaNota = $consultaNota->fetch_assoc());
+													if($filas3['tipo_notas_cd'] == 'ND')
+													$notas_debito = $notas_debito . $filas3['num_notas_cd'].",";
+												}while($filas3 = pg_fetch_assoc($consulta3));
 											}
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue(++$jt1.$it1, $notas_debito);									
 							//<!--FACTURA RETENCION QUE Y A QUIEN-->
@@ -420,7 +422,7 @@ if (isset($_POST['mes'])){
 											->setCellValue(++$jt1.$it1, $filas['m_iva_reten'])
 									;
 		++$it1;//in cremento fials
-	}while($filas = $consulta->fetch_assoc());
+	}while($filas=pg_fetch_assoc($consulta));
 	//////////////////////////////////
 	// FOR PARA AJUSTAR SOLO LOS ELEMENTOS LLENOS
 	//////////////////////////////////
@@ -696,7 +698,7 @@ $objPHPExcel->getActiveSheet()->getStyle($jt2.$it2.':'.expo_var($jt2, 3).$it2)->
     $objPHPExcel->setActiveSheetIndex(0);
 	/*
     //	CREACION DEL NOMBRE DEL ARCHIVO
-	$url_archivo = $filasEmpre['url_report'];
+	$url_archivo = $filas2['url_report'];
 	
 	// Save Excel 2007 file
 	//echo date('H:i:s') , " Write to Excel2007 format" , EOL;

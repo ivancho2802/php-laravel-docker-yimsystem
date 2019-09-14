@@ -15,9 +15,10 @@ include_once('../../includes_SISTEM/include_login.php');
 if (isset($_POST['id_fact_venta'])){
 	$id_fact_venta = $_POST['id_fact_venta'];
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = pg_num_rows($consultaEmpre);
+	$consulta2 = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	// $filas2 = pg_fetch_assoc($consultaEmpre);
+    $filas2=pg_fetch_assoc($consulta2);
+	$total_consultaEmpre = pg_num_rows($consulta2);
 	
 	//consulta de la factura con sus datos relacionados
 	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_venta, venta, inventario, cliente, usuarios WHERE
@@ -28,8 +29,8 @@ if (isset($_POST['id_fact_venta'])){
 														fact_venta.fk_cliente = cliente.ced_cliente 	AND
 														fact_venta.fk_usuariosV = usuarios.idusuario 	AND
 														fact_venta.id_fact_venta = '%s'",
-														$filasEmpre['cod_empre'], $id_fact_venta));
-	$filas=$consulta->fetch_assoc();
+														$filas2['cod_empre'], $id_fact_venta));
+	$filas=pg_fetch_assoc($consulta);
 	$total_consulta = pg_num_rows($consulta);
 }
 if($total_consulta>0){
@@ -183,7 +184,7 @@ if($total_consulta>0){
     <td><?php echo round($filas['precio_venta'],2) * $filas['cantidad'];?></td>
   </tr>
 <?php		
-  	}while($filas=$consulta->fetch_assoc());
+  	}while($filas=pg_fetch_assoc($consulta));
 ?>
 </table>
 <page_footer style="font: arial; font-size:9px">

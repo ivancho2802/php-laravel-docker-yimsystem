@@ -13,7 +13,7 @@ if(isset($_POST['id_fact_compra']))
 									compra.fk_fact_compra = fact_compra.id_fact_compra AND
 									compra.fk_inventario = inventario.codigo",
 									$fact));
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 }
 ?>
@@ -33,12 +33,13 @@ if(isset($_POST['id_fact_compra']))
 		do{
 		
 		
-		$consultaPMPVJ = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE
+		$consulta2 = pg_query($conexion,sprintf("SELECT * FROM inventario, reg_inventario WHERE
 									reg_inventario.fk_inventario = inventario.codigo AND
 									reg_inventario.fk_inventario = '%s'",
 									$filas['codigo']));
-		$filasPMPVJ = $consultaPMPVJ->fetch_assoc();
-		$total_consultaPMPVJ = pg_num_rows($consultaPMPVJ);
+		// $filasPMPVJ = $consultaPMPVJ->fetch_assoc();
+        $filas2=pg_fetch_assoc($consulta2);
+		$total_consultaPMPVJ = pg_num_rows($consulta2);
 		
 	?>
     	
@@ -55,7 +56,7 @@ if(isset($_POST['id_fact_compra']))
         <input class="form-control btn-primary active" name="costo<?php echo $i?>" required="" type="number" min="0" step="0.0000001" value="<?php echo $filas['costo']?>" placeholder="0.00 Clic aqui" onblur="fcalculo()"/>
         <br>
         <span class="input-group">
-            <input class="form-control" name="pmpvj<?php echo $i?>" id="pmpvj<?php echo $i?>" type="number" min="0" step="0.0000001" value="<?php echo $filasPMPVJ['pmpvj']?>" placeholder="0.00"  required="required"  readonly="readonly"/>
+            <input class="form-control" name="pmpvj<?php echo $i?>" id="pmpvj<?php echo $i?>" type="number" min="0" step="0.0000001" value="<?php echo $filas2['pmpvj']?>" placeholder="0.00"  required="required"  readonly="readonly"/>
             <span class="input-group-btn">
                 <button class="btn btn-primary" type="button" onclick="ctrlSelecPMPVJ(<?php echo $i?>)">P. Venta</button>
             </span>
@@ -103,7 +104,7 @@ if(isset($_POST['id_fact_compra']))
     </tr>
 	<?php
 			$i++;
-		}while($filas=$consulta->fetch_assoc());
+		}while($filas=pg_fetch_assoc($consulta));
 	}else{
 	?>
 		<tr>

@@ -10,7 +10,7 @@ if(isset($_POST['nfact_afectada']))
 									compra.fk_fact_compra = fact_compra.id_fact_compra AND
 									compra.fk_inventario = inventario.codigo",
 									$fact));
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 }		
 ?>
@@ -94,7 +94,7 @@ $(document).ready(function() {
                               <td><?php echo $filas['cantidad']?></td>
 							</tr>
 							<?php
-							}while($filas=$consulta->fetch_assoc());
+							}while($filas=pg_fetch_assoc($consulta));
 						}else{
 						?>
                             <tr>

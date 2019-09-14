@@ -31,7 +31,7 @@ $mes = $_POST['mes'];
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
+	$filasEmpre = pg_fetch_assoc($consultaEmpre);
 	$total_consultaEmpre = pg_num_rows($consultaEmpre);
 	
 	//consulta de la factura con sus datos relacionados
@@ -41,7 +41,7 @@ $mes = $_POST['mes'];
 																				fact_venta.fk_cliente = cliente.ced_cliente AND
 																				fact_venta.fecha_fact_venta BETWEEN '%s' AND '%s'",
 																				$filasEmpre['cod_empre'], $mesi, $mesf));
-	$filas=$consulta->fetch_assoc();
+	$filas=pg_fetch_assoc($consulta);
 	$total_consulta = pg_num_rows($consulta);
 	
 	
@@ -167,9 +167,10 @@ $mes = $_POST['mes'];
             do{
                     //CONSULTAS RELACIONALES
                         //consulta las notas si existen 
-                        $consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd_venta, fact_venta WHERE fact_venta.id_fact_venta = notas_cd_venta.id_fact_venta AND notas_cd_venta.id_fact_venta = '%s'",$filas['id_fact_venta']));
-                        $filasConsultaNota = $consultaNota->fetch_assoc();
-                        $total_ConsultaNota = pg_num_rows($consultaNota);
+                        $consulta2 = pg_query($conexion,sprintf("SELECT * FROM notas_cd_venta, fact_venta WHERE fact_venta.id_fact_venta = notas_cd_venta.id_fact_venta AND notas_cd_venta.id_fact_venta = '%s'",$filas['id_fact_venta']));
+                        // $filasConsultaNota = $filas2=pg_fetch_assoc($consulta2);
+                        $filas2=pg_fetch_assoc($consulta2);
+                        $total_ConsultaNota = pg_num_rows($consulta2);
                         /////		FACTURA TOTALES EXPORTACIONES
                     if($filas['nplanilla_export'] !== ""){
                         $msubt_exento_venta_export = round($filas['mtot_iva_venta'],2);
@@ -250,9 +251,9 @@ $mes = $_POST['mes'];
                 <?php if($total_consulta > 0)
                         { 
                             do{
-                                if($filasConsultaNota['tipo_notas_cd_venta'] == 'NC')
-                                echo "<tr><td>".$filasConsultaNota['num_notas_cd_venta']."</td></tr>";
-                            }while($filasConsultaNota = $consultaNota->fetch_assoc());
+                                if($filas2['tipo_notas_cd_venta'] == 'NC')
+                                echo "<tr><td>".$filas2['num_notas_cd_venta']."</td></tr>";
+                            }while($filas2 = $filas2=pg_fetch_assoc($consulta2));
                         }
                 ?>
                 </table>
@@ -262,9 +263,9 @@ $mes = $_POST['mes'];
                 <?php if($total_consulta > 0)
                         { 
                             do{
-                                if($filasConsultaNota['tipo_notas_cd_venta'] == 'ND')
-                                echo "<tr><td>".$filasConsultaNota['num_notas_cd_venta']."</td></tr>";
-                            }while($filasConsultaNota = $consultaNota->fetch_assoc());
+                                if($filas2['tipo_notas_cd_venta'] == 'ND')
+                                echo "<tr><td>".$filas2['num_notas_cd_venta']."</td></tr>";
+                            }while($filas2 = $filas2=pg_fetch_assoc($consulta2));
                         }
                 ?>
                 </table>
@@ -328,7 +329,7 @@ $mes = $_POST['mes'];
                 </form>
             </td>
           </tr>
-          <?php }while($filas=$consulta->fetch_assoc()); ?>
+          <?php }while($filas=pg_fetch_assoc($consulta)); ?>
           <tr>
             <td colspan="20">Totales</td>
             <td><?php echo $acum_msubt_exento_venta_export;?></td>

@@ -32,7 +32,7 @@ if(isset($_POST['num_fact_compra']))
 										fact_compra.tipo_fact_compra = 'F'		AND
 										fact_compra.fk_proveedor = proveedor.rif
 										ORDER BY %s DESC", $ord))or die(pg_last_error());
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 		
 	}else{	
@@ -72,7 +72,7 @@ if(isset($_POST['num_fact_compra']))
 									$sql_cont, $ord))or die(pg_last_error());
 																
 																
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 		
 	}
@@ -121,7 +121,7 @@ if(isset($_POST['num_fact_compra']))
               </td>
             </tr>
             <?php
-            }while($filas=$consulta->fetch_assoc());
+            }while($filas=pg_fetch_assoc($consulta));
 		}else{
 			?>
             <tr>

@@ -10,7 +10,7 @@ if(isset($_POST['nfact_afectada']))
 											venta.fk_fact_venta = fact_venta.id_fact_venta AND
 											venta.fk_inventario = inventario.codigo",
 											$fact));
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 }		
 ?>
@@ -80,7 +80,7 @@ if(isset($_POST['nfact_afectada']))
 							</tr>
 							<?php
 							
-							}while($filas=$consulta->fetch_assoc());
+							}while($filas=pg_fetch_assoc($consulta));
 						}else{
 						?>
                             <tr>

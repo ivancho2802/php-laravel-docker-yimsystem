@@ -67,19 +67,20 @@ if($res){
 	  	$costo_venta = $_POST["costo$i"];
 		
 		//CONSULTA de lo actual inventario
-		$sql_consul_inven = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario$i"]) );
-		$filas_consul_inven = $sql_consul_inven->fetch_assoc();
+		$consulta = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE inventario.codigo = '%s'",$_POST["fk_inventario$i"]) );
+		// $filas = $sql_consul_inven->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		
 		
 		
 		//ACTUALIZA	RESTA DEL INVENTARIO//echo $stock_cantidad;
 		//si es ND 
 		if($_POST['tipo_fact_venta'] == "NC-DEVO")			//RESTO NORMAL
-			$stock_cantidad = $filas_consul_inven['stock'] + $_POST["cantidad$i"];
+			$stock_cantidad = $filas['stock'] + $_POST["cantidad$i"];
 		elseif($_POST['tipo_fact_venta'] == "NC-DESC" || $_POST['tipo_fact_venta'] == "ND")			//RESTO
-			$stock_cantidad = $filas_consul_inven['stock'];
+			$stock_cantidad = $filas['stock'];
 		else											//SUMO
-			$stock_cantidad = $filas_consul_inven['stock'] - $_POST["cantidad$i"];
+			$stock_cantidad = $filas['stock'] - $_POST["cantidad$i"];
 		
 				
 				
@@ -96,7 +97,7 @@ if($res){
 			$InsertRegInv = sprintf("INSERT INTO reg_inventario( fecha_reg_inv, costo_reg_inv, cantidad_reg_inv, pmpvj, tipo, fk_inventario, fk_fact_cv, hora_registro, fecha_registro) VALUES
 									('%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 									$_POST['fecha_fact_venta'],
-									$filas_consul_inven["valor_unitario"],//costo actual para esta fecha
+									$filas["valor_unitario"],//costo actual para esta fecha
 									$stock_cantidad,//cantidad actual para esta fecha
 									$costo_venta,
 									"venta",
@@ -113,7 +114,7 @@ if($res){
 						$_POST["id_venta$i"], 
 						$_POST["tipoVenta$i"],  
 						$_POST["fk_inventario$i"], 
-						$filas_consul_inven["valor_unitario"], 
+						$filas["valor_unitario"], 
 						$_POST["costo$i"],
 						$_POST["cantidad$i"], 
 						$_POST["id_fact_venta"]);//

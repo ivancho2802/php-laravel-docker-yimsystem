@@ -16,13 +16,15 @@ include_once('../../includes_SISTEM/include_login.php');
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////				CONSULTAS SQL
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
-	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-	$filasEmpre = $consultaEmpre->fetch_assoc();
-	$total_consultaEmpre = pg_num_rows($consultaEmpre);
+	$consulta = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+	// $filas = pg_fetch_assoc($consultaEmpre);
+	$filas=pg_fetch_assoc($consulta);
+	$total_consultaEmpre = pg_num_rows($consulta);
 	//	CONSULTA DE TODO LO QUE HAY EN EL INVENTARIO PARA MOSTRARLO JUNTO CON SU MOVIMIN¿ENTO
-	$sql_inventario=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
-	$filas_inventario=$sql_inventario->fetch_assoc();
-	$total_inventario = pg_num_rows($sql_inventario);
+	$consulta2=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
+	// $filas_inventario=$sql_inventario->fetch_assoc();
+	$filas2=pg_fetch_assoc($consulta2);
+	$total_inventario = pg_num_rows($consulta2);
 
 
 if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && isset($_POST['fechaf'])) || isset($_POST['dia']) ){
@@ -35,7 +37,7 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 	UNION
 	SELECT reg_inventario.fecha_reg_inv AS fecha FROM reg_inventario
 	ORDER BY fecha ASC*/
-	$sql_fecha_menor=pg_query($conexion,sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
+	$consulta3=pg_query($conexion,sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
 	UNION
 	SELECT fact_venta.fecha_fact_venta AS fecha FROM fact_venta
 	UNION
@@ -43,20 +45,21 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 	UNION
 	SELECT reg_inventario.fecha_reg_inv AS fecha FROM reg_inventario
 	ORDER BY fecha ASC"));
-	$filas_fecha_menor = $sql_fecha_menor->fetch_assoc();
-	$total_fecha_menor = pg_num_rows($sql_fecha_menor);
+	// $filas3 = $sql_fecha_menor->fetch_assoc();
+	$filas3=pg_fetch_assoc($consulta3);
+	$total_fecha_menor = pg_num_rows($consulta3);
 	
 	//completando con ano y/o mes la fecha
 	if(isset($_POST['mes'])){
 		$mes = $_POST['mes'];
 		$fechai = $mes."-01";
 		$fechaf = $mes."-31";
-		//echo $filas_fecha_menor['fecha'];
+		//echo $filas3['fecha'];
 		
 	}elseif(isset($_POST['ano'])){
 		$ano = $_POST['ano'];
-		if ($ano >= substr($filas_fecha_menor['fecha'],0,4))
-			$fechai = $filas_fecha_menor['fecha'];
+		if ($ano >= substr($filas3['fecha'],0,4))
+			$fechai = $filas3['fecha'];
 		else
 			$fechai = "errorano";
 		$fechaf = $ano."-12-31";
@@ -65,16 +68,16 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 		$fechaf = $_POST['fechaf'];
 	}elseif(isset($_POST['dia']) ){
 		$dia = $_POST['dia'];
-		if ($dia >= $filas_fecha_menor['fecha']){
+		if ($dia >= $filas3['fecha']){
 			$fechai = $_POST['dia'];
 			$fechaf = $_POST['dia'];
 		}else 
 			$fechai = "errorano";
 	}
 	
-	if($fechai == "errorano" || $fechai < $filas_fecha_menor['fecha'])//para AÑO o mes y 
+	if($fechai == "errorano" || $fechai < $filas3['fecha'])//para AÑO o mes y 
 	{
-		echo "Error con la fecha debe ser mayor a mes de ".mesNum_Texto($filas_fecha_menor['fecha']);
+		echo "Error con la fecha debe ser mayor a mes de ".mesNum_Texto($filas3['fecha']);
 	}else{
 		/////////////////////////////
 		//	TABLA DE LA CONSULT6A
@@ -206,11 +209,11 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 		//		MENBRETE 		TABLA1	
 		//////////////////////////////////////////////////7			metodo para obtener el mes con la fecha	
 		$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', 'Reporte Movimiento de Unidades')->mergeCells('A1:O1')
-											->setCellValue('A2', $filasEmpre['titular_rif_empre']." - ". $filasEmpre['nom_empre'])->mergeCells('A2:O2')
-											->setCellValue('A3', 'N.I.T./R.I.F.:'.$filasEmpre['rif_empre'])->mergeCells('A3:O3')
-											->setCellValue('A4', 'Dirección: '.$filasEmpre['dir_empre'])->mergeCells('A4:O4')
-											->setCellValue('A5', 'Contribuyente: '.$filasEmpre['contri_empre'])->mergeCells('A5:O5')
-											->setCellValue('A6', 'Telefono: '.$filasEmpre['tel_empre'])->mergeCells('A6:O6')
+											->setCellValue('A2', $filas['titular_rif_empre']." - ". $filas['nom_empre'])->mergeCells('A2:O2')
+											->setCellValue('A3', 'N.I.T./R.I.F.:'.$filas['rif_empre'])->mergeCells('A3:O3')
+											->setCellValue('A4', 'Dirección: '.$filas['dir_empre'])->mergeCells('A4:O4')
+											->setCellValue('A5', 'Contribuyente: '.$filas['contri_empre'])->mergeCells('A5:O5')
+											->setCellValue('A6', 'Telefono: '.$filas['tel_empre'])->mergeCells('A6:O6')
 											->setCellValue('A7', 'Clasificacion ')->mergeCells('A7:O7')
 											->setCellValue('A8', 'Activos: Todos ')->mergeCells('A8:O8')
 											->setCellValue('A9', 'Fecha Desde: '.fechaInver( $fechai))->mergeCells('A9:O9')
@@ -279,7 +282,7 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 		$acum_mifm	= 0;
 		$it1 = 15;//LAS FILAS DESDE
 		do{
-			$inv_cod = $filas_inventario["codigo"];////////FORMATO c_cv_inventario($codigoInv, $fechi, $fechaf, $accion);
+			$inv_cod = $filas2["codigo"];////////FORMATO c_cv_inventario($codigoInv, $fechi, $fechaf, $accion);
 			
 			$jt1 = 'A';// INICIALIZO LAS COLUMNAS EN A
 			
@@ -304,7 +307,7 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 				
 				
 				$objPHPExcel->setActiveSheetIndex(0)	->setCellValue($jt1.$it1, $inv_cod)
-														->setCellValue(++$jt1.$it1, $filas_inventario["nombre_i"])
+														->setCellValue(++$jt1.$it1, $filas2["nombre_i"])
 														->setCellValue(++$jt1.$it1, c_cv_inventario($inv_cod, $fechai, $fechaf, "miicu"))
 														->setCellValue(++$jt1.$it1, c_cv_inventario($inv_cod, $fechai, $fechaf, "miic"))
 														->setCellValue(++$jt1.$it1, c_cv_inventario($inv_cod, $fechai, $fechaf, "miim"))
@@ -324,7 +327,8 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 				
 				++$it1;//in cremento fials
 			}//	IF SI ES 0 0?
-	   }while($filas_inventario = $sql_inventario->fetch_assoc());
+	   // }while($filas2 = $consulta2->fetch_assoc());
+	   }while($filas2=pg_fetch_assoc($consulta2));
 	   
 	   	//////////////////////////////////////////////////////////
 		//	sumatoria de los resultados		 TOTALES
@@ -384,7 +388,7 @@ if (isset($_POST['mes']) || isset($_POST['ano']) || (isset($_POST['fechai']) && 
 		// Set active sheet index to the first sheet, so Excel opens this as the first sheet
 		$objPHPExcel->setActiveSheetIndex(0);
 		//	CREACION DEL NOMBRE DEL ARCHIVO
-		$url_archivo = $filasEmpre['url_report'];
+		$url_archivo = $filas['url_report'];
 		/*
 		// Save Excel 2007 file
 		//echo date('H:i:s') , " Write to Excel2007 format" , EOL;

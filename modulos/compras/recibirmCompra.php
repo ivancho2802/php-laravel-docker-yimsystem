@@ -89,28 +89,31 @@ if($res){
 //CONSULTA PARA SABER QUE COMPRAS PERTENECEN A ESTA FACTURA PARA RESTARLE ESAS COMPRAS AL INVENTARIO
 ////////////////////////////////////////////////////////////
 	
-	$sql_compra = pg_query($conexion,sprintf("SELECT * FROM compra WHERE compra.fk_fact_compra = '%s'",
+	$consulta = pg_query($conexion,sprintf("SELECT * FROM compra WHERE compra.fk_fact_compra = '%s'",
 										$_POST['id_fact_compra']));
 	
-	$res_sql_compra = $sql_compra->fetch_assoc();
+	// $filas = $sql_compra->fetch_assoc();
+	$filas=pg_fetch_assoc($consulta);
 	
-	if($res_sql_compra){
+	if($filas){
 		do{
 			//CANTIDAD COMPRADA Y QUE PRODUCTO
 			//////////////////////////////////////
-			$cant_compra = $res_sql_compra['cantidad'];
-			$prod_compra = $res_sql_compra['fk_inventario'];
+			$cant_compra = $filas['cantidad'];
+			$prod_compra = $filas['fk_inventario'];
 
 			//CONSULTA DE LO QUE HAY ACTUALMENTE ES ESE PRODUCTO
-			$sqlInventActual = pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 
+			$consulta2 = pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 
 													codigo = '%s'",
 													$prod_compra));
-			$res_sqlInventActual = $sqlInventActual->fetch_assoc();
+			// $filas2 = $sqlInventActual->fetch_assoc();
+			$filas2=pg_fetch_assoc($consulta2);
+
 ///////////////////////////////////////////////////////
 //REVERTIR ACTUALIZACION DEL INVENTARIO REVIRTIENDO LO QUE SE COMPRO SEGUN LA COMPRA
 ////////////////////////////////////////////////////////			
 			//RESTA DE LA CANTIDAD ACTUAL MENOS LA CANTIDAD QUE SE COMPRO
-			$cant_final = $res_sqlInventActual['stock'] - $cant_compra;
+			$cant_final = $filas2['stock'] - $cant_compra;
 			
 			//ACTUALIZACION DEL INVENTARIO REVIRTIENDO LO QUE SE COMPRO SEGUN LA COMPRA
 			$sqlUpdateRevetInven = sprintf("UPDATE inventario SET stock ='%s' WHERE 
@@ -125,13 +128,13 @@ if($res){
 			//BORRADO DE LAS COMPRAS DE ESTA FACTURA
 			$sqlDeleteRevetCompra = sprintf("DELETE FROM compra WHERE  
 									id_compra = '%s'",
-									$res_sql_compra['id_compra']);
+									$filas['id_compra']);
 			$DeleteRevetCompra = pg_query($conexion,$sqlDeleteRevetCompra)or
 			die('Error al borrar compras de la factura Revirtiendo compra<br />'.pg_last_error());
 			
 
   
-		}while($res_sql_compra = $sql_compra->fetch_assoc());
+		}while($filas=pg_fetch_assoc($consulta));
 	}// IF HAY RFESULTADOS D LA CONSULTA D LA COMPRA DE LA FACTURA
 	
 ///////////////////////////////////////////////////////
@@ -159,20 +162,22 @@ if($res){
 		//funcion modificar inventario basado en la cantidad
 			
 			//consul de todos los costos de este producto
-			$sql_consul_costo = pg_query($conexion, sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
+			$consulta3 = pg_query($conexion, sprintf("SELECT * FROM reg_inventario , inventario, compra ,fact_compra WHERE 
 					reg_inventario.fk_fact_cv = fact_compra.id_fact_compra AND
 					compra.fk_fact_compra = fact_compra.id_fact_compra AND
 					compra.fk_inventario = inventario.codigo AND
 					reg_inventario.fk_inventario = compra.fk_inventario AND
 					inventario.codigo = '%s' AND
 					reg_inventario.tipo = 'compra' ORDER BY reg_inventario.fecha_reg_inv DESC",$_POST["fk_inventario$i"]));
-			$filas_sql_consul_costo = $sql_consul_costo->fetch_assoc();
+			// $filas3 = $sql_consul_costo->fetch_assoc();
+			$filas3=pg_fetch_assoc($consulta3);
 			
 			//consulta de la cantidad actual
-			$sql_consul_inven = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE
+			$consulta4 = pg_query($conexion, sprintf("SELECT * FROM inventario WHERE
 												inventario.codigo = '%s'",
 												$_POST["fk_inventario$i"]));
-			$filas_consul_inven = $sql_consul_inven->fetch_assoc();
+			// $filas4 = $sql_consul_inven->fetch_assoc();
+			$filas4=pg_fetch_assoc($consulta4);
 			
 			//para el precio o costo este es el promediado de precios
 			//OJO EL valor_unitario ES IGUAL A COSTO PROMEDIADO ACTUAL
@@ -184,13 +189,13 @@ if($res){
 				$monto_actual = 0;
 				do{
 					
-					$monto_actual = $monto_actual + ($filas_sql_consul_costo['costo_reg_inv'] * $filas_sql_consul_costo['cantidad']);
+					$monto_actual = $monto_actual + ($filas3['costo_reg_inv'] * $filas3['cantidad']);
 					
 					
-				}while($filas_sql_consul_costo = $sql_consul_costo->fetch_assoc());
+				}while($filas3=pg_fetch_assoc($consulta3));
 				
 				$monto_actual = $monto_actual + ($_POST["costo$i"] * $_POST["cantidad$i"]);
-				$tot_cant = $filas_consul_inven["stock"] + $_POST["cantidad$i"];
+				$tot_cant = $filas4["stock"] + $_POST["cantidad$i"];
 				
 				$costo_promediado = $monto_actual / $tot_cant;
 			}else
@@ -202,11 +207,11 @@ if($res){
 			//SI ES NC RESTO al inventario
 			
 			if($_POST['tipo_fact_compra'] == "NC-DEVO")			//RESTO
-				$stock_cantidad = $filas_consul_inven['stock'] - $_POST["cantidad$i"];
+				$stock_cantidad = $filas4['stock'] - $_POST["cantidad$i"];
 			elseif($_POST['tipo_fact_compra'] == "NC-DESC" || $_POST['tipo_fact_compra'] == "ND")			
-				$stock_cantidad = $filas_consul_inven['stock'];//NO RESTO
+				$stock_cantidad = $filas4['stock'];//NO RESTO
 			else// $_POST['tipo_fact_compra'] == "ND")		//SUMO NORMAL
-				$stock_cantidad = $filas_consul_inven['stock'] + $_POST["cantidad$i"];
+				$stock_cantidad = $filas4['stock'] + $_POST["cantidad$i"];
 			
 			if($res){
 				$sqlUpdateInven = sprintf("UPDATE inventario SET stock = '%s', 

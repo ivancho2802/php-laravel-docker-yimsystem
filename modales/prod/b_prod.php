@@ -54,7 +54,7 @@ if(isset($_POST['urlActual']))
 			}
 			
 		}
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 		
 	}
@@ -87,7 +87,9 @@ if(isset($_POST['urlActual']))
 					$consulta_pva=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE
 										inventario.codigo = '%s' ",
 										$filas['codigo']));//para obtener elmas actual
-					$filas_pva=$consulta_pva->fetch_assoc();
+					// $filas_pva=$consulta_pva->fetch_assoc();
+					$filas_pva=pg_fetch_assoc($consulta_pva);
+
 					$total_consulta_pva = pg_num_rows($consulta_pva);
 					
 					$td_costo = $filas_pva['pmpvj_actual'];
@@ -111,8 +113,8 @@ if(isset($_POST['urlActual']))
 					$consulta_costo_actual=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 
 									inventario.codigo = '%s'",
 									$filas['codigo']));//para obtener elmas actual
-									
-					$filas_costo_actual=$consulta_costo_actual->fetch_assoc();
+					$filas_costo_actual=pg_fetch_assoc($consulta_costo_actual);
+					// $filas_costo_actual=$consulta_costo_actual->fetch_assoc();
 					$total_consulta_costo_actual = pg_num_rows($consulta_costo_actual);
 					
 					
@@ -149,7 +151,7 @@ if(isset($_POST['urlActual']))
               </td>
             </tr>
             <?php
-            }while($filas=$consulta->fetch_assoc());
+            }while($filas=pg_fetch_assoc($consulta));
 		}else{
 			?>
             <tr>

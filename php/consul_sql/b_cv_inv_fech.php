@@ -11,20 +11,21 @@ $total_pre_consulta = pg_num_rows($pre_consulta);
 $consulta=pg_query($conexion,sprintf("SELECT * FROM reg_inventario, inventario WHERE 
 												reg_inventario.fk_inventario = inventario.codigo AND
 												'%s' > reg_inventario.fecha_reg_inv", $vfecha));
-$filas=$consulta->fetch_assoc();
+$filas=pg_fetch_assoc($consulta);
 $total_consulta = pg_num_rows($consulta);
 ////////////////////////////////////////////////////////////////////////7
-$c_inv_menor=pg_query($conexion,sprintf("SELECT * FROM reg_inventario, inventario WHERE 
+$consulta2=pg_query($conexion,sprintf("SELECT * FROM reg_inventario, inventario WHERE 
 												reg_inventario.fk_inventario = inventario.codigo 
 												ORDER BY fecha_reg_inv ASC"));
-$filas_c_inv_menor = $c_inv_menor->fetch_assoc();
+// $filas2 = $c_inv_menor->fetch_assoc();
+$filas2=pg_fetch_assoc($consulta2);
 $total_c_inv_menor = pg_num_rows($c_inv_menor);
 
 if($filas_pre){//si existen registros al menos
 	if($filas)
 		echo 1;//esta bien
 	else 
-		echo $filas_c_inv_menor['fecha_reg_inv'];
+		echo $filas2['fecha_reg_inv'];
 }else
 	echo 2;//retorno condicion 2 para javascript decir que debe ingresar almenos un inventario inicial
 	

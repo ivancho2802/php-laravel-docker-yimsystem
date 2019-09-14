@@ -8,7 +8,7 @@ $valor = $_GET['valor'];
 
 
 $consulta=pg_query($conexion,sprintf("SELECT * FROM %s WHERE %s = '%s'",$tabla, $columna, $valor));
-$filas=$consulta->fetch_assoc();
+$filas=pg_fetch_assoc($consulta);
 $total_consulta = pg_num_rows($consulta);
 
 if($filas)echo 1;

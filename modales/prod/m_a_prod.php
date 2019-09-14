@@ -2,7 +2,7 @@
 include_once('../../includes_SISTEM/include_head.php');
 
 $consulta=pg_query($conexion,"SELECT * FROM reg_inventario WHERE tipo = 'inv_ini' ORDER BY fecha_reg_inv ASC");
-$filas=$consulta->fetch_assoc();
+$filas=pg_fetch_assoc($consulta);
 $total_consulta = pg_num_rows($consulta);
 	
 if($filas){

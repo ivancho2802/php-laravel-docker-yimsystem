@@ -10,9 +10,10 @@ $mensaje = '<strong><span class="glyphicon glyphicon-warning-sign" style="font-s
 include_once($extra."modales/alert/m_alert.php");
 
 //consultade los datos de la empresa ACTIVA
-$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-$filasEmpre = $consultaEmpre->fetch_assoc();
-$total_consultaEmpre = pg_num_rows($consultaEmpre);
+$consulta2 = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
+// $filas2 = pg_fetch_assoc($consultaEmpre);
+$filas2=pg_fetch_assoc($consulta2);
+$total_consultaEmpre = pg_num_rows($consulta2);
 ?>
 <script>
 	function consulReten(formulario){
@@ -24,8 +25,8 @@ $total_consultaEmpre = pg_num_rows($consultaEmpre);
 </script>
 <br>
 <?php 
-$retenC = $filasEmpre['retenIVA'];
-$contriC = $filasEmpre['contri_empre'];
+$retenC = $filas2['retenIVA'];
+$contriC = $filas2['contri_empre'];
 if($retenC == 'SI' && $contriC == 'Especial')
 {
 ?>
@@ -78,12 +79,12 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 																					fact_compra.fecha_compro_reten BETWEEN '%s' AND '%s'",
 																					$mesi, $mesf));
 															
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 		
 		/*//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 		$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-		$filasEmpre = $consultaEmpre);
+		$filas2 = $consultaEmpre);
 		$total_consultaEmpre = pg_num_rows($consultaEmpre);
 		*/
 	}elseif(isset($_POST['num_compro_reten']) ){
@@ -96,12 +97,12 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
 																					fact_compra.num_compro_reten = '%s'",
 																					$num_compro_reten));
 																					
-		$filas=$consulta->fetch_assoc();
+		$filas=pg_fetch_assoc($consulta);
 		$total_consulta = pg_num_rows($consulta);
 		
 		/*//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 		$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");
-		$filasEmpre = $consultaEmpre);
+		$filas2 = $consultaEmpre);
 		$total_consultaEmpre = pg_num_rows($consultaEmpre);
 		*/
 	}
@@ -120,7 +121,7 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
       </div>
     </div>
 	<div class="jumbotron">
-    	<div><?php echo $filasEmpre['titular_rif_empre']." - ". $filasEmpre['nom_empre'];?></div>
+    	<div><?php echo $filas2['titular_rif_empre']." - ". $filas2['nom_empre'];?></div>
 		<div><?php echo $filas['rif_empre'];?></div>
     	<div>Direcci&oacute;n: &nbsp;<?php echo $filas['dir_empre'];?></div>
         <div>Contribuyente <?php echo $filas['contri_empre'];?></div>
@@ -175,7 +176,7 @@ if (isset($_POST['mes']) || isset($_POST['num_compro_reten'])){
         </form>
         </td>
       </tr>
-    <?php 	}while($filas=$consulta->fetch_assoc());
+    <?php 	}while($filas=pg_fetch_assoc($consulta));
         }else{?>
         <td colspan="5"><h4>Lo sentimos pero no hay resultados</h4></td>
     <?php }?>
