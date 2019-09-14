@@ -53,6 +53,7 @@ $mes = $_POST['mes'];
 																				
 																			
 	$filas=pg_fetch_assoc($consulta);
+    // $filas=$consulta->fetch_assoc();
 	$total_consulta = pg_num_rows($consulta);
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
@@ -288,6 +289,7 @@ $( document ).ready(function() {
                             do{
                                 if($filasConsultaNota['tipo_notas_cd'] == 'ND')
                                 echo "<tr><td>".$filasConsultaNota['num_notas_cd']."</td></tr>";
+                            // }while($filasConsultaNota = $consultaNota->fetch_assoc());
                             }while($filasConsultaNota = pg_fetch_assoc($consultaNota));
                         }
                 ?>
@@ -340,6 +342,7 @@ $( document ).ready(function() {
           <?php
           ///	area de acumulaciones
                     
+          // }while($filas=$consulta->fetch_assoc());
           }while($filas=pg_fetch_assoc($consulta));
           ?>
           <tr>
