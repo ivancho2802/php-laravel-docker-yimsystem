@@ -53,7 +53,7 @@ $(document).ready(function() {
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("rif="+ str);
 	*/
-	var retenC = '<?php echo $filas['retenIVA']?>';
+	var retenC = '<?php echo $filas['reteniva']?>';
 	var contriC = '<?php echo $filas['contri_empre']?>';
 	if(retenC == 'SI' && contriC == 'Especial'){
 		$('#nueRetenC').modal({backdrop: 'static', keyboard: false})
