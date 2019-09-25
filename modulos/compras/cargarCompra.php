@@ -476,25 +476,25 @@ function mConsulFact(str){
 	$total_consulEmpreActiva = pg_num_rows($consulta);
 	
 	//llamado de modales el id es "busFact"
-	include_once(dirname(__DIR__).$extra."modales/fact_c/m_b_fact_c.php");
+	include_once(dirname(__DIR__).$extra."fact_c/m_b_fact_c.php");
 	//llamado de modales el id es "mostrarFact"
 	//esta en el id res_nfact_afectada aqui
 	
 	//llamando de modales el id es "nueProv"
-	include_once(dirname(__DIR__).$extra."modales/prov/m_a_prov.php");
+	include_once(dirname(__DIR__).$extra."prov/m_a_prov.php");
 	//llamado de modales el id es "busProv"
-	include_once(dirname(__DIR__).$extra."modales/prov/m_b_prov.php");
+	include_once(dirname(__DIR__).$extra."prov/m_b_prov.php");
 	//llamando de modales el id es "modProv"
-	include_once(dirname(__DIR__).$extra."modales/prov/m_m_prov.php");
+	include_once(dirname(__DIR__).$extra."prov/m_m_prov.php");
 	
 	//llamado de modales el id es "busProd"
-	include_once(dirname(__DIR__).$extra."modales/prod/m_b_prod.php");
+	include_once(dirname(__DIR__).$extra."prod/m_b_prod.php");
 	//llamando de modales el id es "nueProd"
-	include_once(dirname(__DIR__).$extra."modales/prod/m_a_prod.php");
+	include_once(dirname(__DIR__).$extra."prod/m_a_prod.php");
 	//llamando de modales el id es "mmProd"
-	include_once(dirname(__DIR__).$extra."modales/prod/m_m_prod.php");
+	include_once(dirname(__DIR__).$extra."prod/m_m_prod.php");
 	//llamando de modales el id es "calPMPVJ"
-	include_once(dirname(__DIR__).$extra."modales/prod/m_PMPVJ.php");
+	include_once(dirname(__DIR__).$extra."prod/m_PMPVJ.php");
 	
 	
 ?>
