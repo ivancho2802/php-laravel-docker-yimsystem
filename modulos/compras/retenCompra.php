@@ -26,9 +26,11 @@ $total_consultaEmpre = pg_num_rows($consulta2);
 </script>
 <br>
 <?php 
-$retenC = $filas2['retenIVA'];
-$contriC = $filas2['contri_empre'];
-if($retenC == 'SI' && $contriC == 'Especial')
+if($total_consultaEmpre>0){
+  $retenC = $filas2['retenIVA'];
+  $contriC = $filas2['contri_empre'];
+}
+  if($retenC == 'SI' && $contriC == 'Especial')
 {
 ?>
 <div id="retenCompra" class="container">
