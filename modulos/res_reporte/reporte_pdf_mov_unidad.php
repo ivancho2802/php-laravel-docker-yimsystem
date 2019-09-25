@@ -43,7 +43,7 @@ include_once('../../includes_SISTEM/include_login.php');
 	$filas=pg_fetch_assoc($consulta);
 	$total_consultaEmpre = pg_num_rows($consulta);
 	//	CONSULTA DE TODO LO QUE HAY EN EL INVENTARIO PARA MOSTRARLO JUNTO CON SU MOVIMIN¿ENTO
-	$consulta2=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
+	$consulta2=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1=1 ORDER BY codigo"));
 	// $filas_inventario=$sql_inventario->fetch_assoc();
 	$filas2=pg_fetch_assoc($consulta2);
 	$total_inventario = pg_num_rows($consulta2);

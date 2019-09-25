@@ -96,7 +96,7 @@
 <hr id="res_movUnidades" class="featurette-divider"/>
 <?php
 
-	$consulta2=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1 ORDER BY codigo"));
+	$consulta2=pg_query($conexion,sprintf("SELECT * FROM inventario WHERE 1=1 ORDER BY codigo;"));
 	// $filas2=$sql_inventario->fetch_assoc();
 	$filas2=pg_fetch_assoc($consulta2);
 
