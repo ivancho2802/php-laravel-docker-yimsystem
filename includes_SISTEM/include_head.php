@@ -8,8 +8,9 @@ ini_set('display_errors', '1');
 //	echo "aqui".$url;
 
 if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php')){
-	echo $extra;
 	$extra = '../../';
+	echo "$extra";
+	echo $extra;
 	if(strpos($url, '/modulos/reporte'))
 		$extra = '../';
 }else
