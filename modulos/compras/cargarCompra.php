@@ -476,7 +476,7 @@ function mConsulFact(str){
 	$total_consulEmpreActiva = pg_num_rows($consulta);
 	
 	//llamado de modales el id es "busFact"
-	include_once(dirname(__DIR__).$extra."fact_c/m_b_fact_c.php");
+	include_once(dirname(__DIR__).$extra."../fact_c/m_b_fact_c.php");
 	//llamado de modales el id es "mostrarFact"
 	//esta en el id res_nfact_afectada aqui
 	
