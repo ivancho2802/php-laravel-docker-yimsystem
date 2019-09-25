@@ -16,11 +16,11 @@
   </div>   <!--row-->  
   <?php }?>
     <div class="jumbotron">
-        <div><?php echo $filasEmpre['titular_rif_empre']." - ". $filasEmpre['nom_empre'];?></div>
-        <div>N.I.T./R.I.F.:<?php echo $filasEmpre["rif_empre"];?></div>
-        <div>Direcci&oacute;n: &nbsp;<?php echo $filasEmpre['dir_empre'];?></div>
-        <div>Contribuyente <?php echo $filasEmpre['contri_empre'];?></div>
-        <div>Telefono <?php echo $filasEmpre["tel_empre"];?></div>
+        <div><?php echo $filas['titular_rif_empre']." - ". $filas['nom_empre'];?></div>
+        <div>N.I.T./R.I.F.:<?php echo $filas["rif_empre"];?></div>
+        <div>Direcci&oacute;n: &nbsp;<?php echo $filas['dir_empre'];?></div>
+        <div>Contribuyente <?php echo $filas['contri_empre'];?></div>
+        <div>Telefono <?php echo $filas["tel_empre"];?></div>
         <div>Clasificaci&oacute;n: .... &amp; Activo: Todos</div>
         <div>Fecha Desde:  <?php echo fechaInver( $fechai);?> &amp; Fecha Hasta:  <?php echo fechaInver( $fechaf);?></div>
          <!--funcion para convertir la fechaa mes en letras y ano-->
