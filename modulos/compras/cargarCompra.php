@@ -7,6 +7,9 @@
 	$extra = 'index.php';
 	echo $host."<br />".$uri."<br />".$extra;
 	*/
+	
+	echo "$extra";
+	echo $extra;
 ?>
 <!--PARA LLAMAR A EL cRUL RIF-->
 <script>
