@@ -26,6 +26,11 @@ $total_consultaEmpre = pg_num_rows($consulta2);
 </script>
 <br>
 <?php 
+$retenC="";
+$contriC="";
+
+var_dump($filas2);
+
 if($total_consultaEmpre>0){
   $retenC = $filas2['retenIVA'];
   $contriC = $filas2['contri_empre'];
