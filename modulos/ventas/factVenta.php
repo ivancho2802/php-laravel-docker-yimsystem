@@ -5,6 +5,7 @@
 	date_default_timezone_set('America/Caracas');
 	setlocale(LC_ALL,"es_ES");
 	//llamado de modales el id es "busFact"
+	$extra = "../../";
 	include_once($extra."modales/fact_v/m_b_fact_v.php");
 
 ?>

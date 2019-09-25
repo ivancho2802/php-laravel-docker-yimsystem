@@ -6,10 +6,12 @@
 	
 	
 	//llamado de modales el id es "busFact"
+	$extra = "../../";
 	include_once($extra."modales/retenC/m_a_retenC.php");
 	
 	
 	//llamado de modales el id es "busFact"
+	$extra = "../../";
 	include_once($extra."modales/fact_c/m_b_fact_c.php");
 	//llamando de modales el id es "calReten"
 	include_once($extra."modales/retenC/m_calReten.php");

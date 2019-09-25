@@ -570,6 +570,7 @@ $( document ).ready(function() {
 	//llamando de modales el id es "calPMPVJ"
 	include_once($extra."modales/prod/m_PMPVJ.php");
 	//llamado de modales el id es "busFact"
+	$extra = "../../";
 	include_once($extra."modales/fact_v/m_b_fact_v.php");
 
 ?>

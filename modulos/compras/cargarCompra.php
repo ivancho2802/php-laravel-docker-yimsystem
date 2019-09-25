@@ -474,6 +474,7 @@ function mConsulFact(str){
 	$extra = "../../";
 	
 	//llamado de modales el id es "busFact"
+	$extra = "../../";
 	include_once($extra."modales/fact_c/m_b_fact_c.php");
 	//llamado de modales el id es "mostrarFact"
 	//esta en el id res_nfact_afectada aqui

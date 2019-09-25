@@ -14,6 +14,7 @@ if(1 == 1){
 	$total_consulEmpreActiva = pg_num_rows($consulta);
 	
 	//llamado de modales el id es "busFact"
+	$extra = "../../";
 	include_once($extra."modales/fact_c/m_b_fact_c.php");
 	
 	//llamando de modales el id es "nueProv"
