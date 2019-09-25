@@ -42,7 +42,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 								compra.fk_inventario = inventario.codigo AND 
 								inventario.codigo = '%s' AND
 								fact_compra.tipo_fact_compra = 'NC-DEVO' AND
-								fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s'", 
+								fact_compra.fecha_fact_compra BETWEEN '%s' AND '%s';", 
 								$codigoInv, $fechai,$fechaf));
 	// $filas_cd_inventario = $cd_inventario->fetch_assoc();
 	$filas2=pg_fetch_assoc($consulta2);

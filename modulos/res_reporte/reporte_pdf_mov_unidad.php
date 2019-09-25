@@ -74,7 +74,7 @@ include_once('../../includes_SISTEM/include_login.php');
 		if(isset($_POST['mes'])){
 			$mes = $_POST['mes'];
 			$fechai = $mes."-01";
-			$fechaf = $mes."-31";
+			$fechaf = ($mes=='02')? $mes."-28":((int) $mes%2==0) ? $mes."-31" : $mes."-30";
 			//echo $filas3['fecha'];
 			
 		}elseif(isset($_POST['ano'])){
