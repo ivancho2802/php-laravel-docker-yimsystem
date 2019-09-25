@@ -10,7 +10,6 @@
 
 	echo "$extra";
 	echo $extra;
-	$extra = 
 ?>
 <!--PARA LLAMAR A EL cRUL RIF-->
 <script>
