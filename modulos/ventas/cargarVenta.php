@@ -554,6 +554,7 @@ $( document ).ready(function() {
 	$filas=pg_fetch_assoc($consulta);
 	$total_consulEmpreActiva = pg_num_rows($consulta);
 	
+		$extra = "../../";
 	//llamado de modales el id es "busCliente"
 	include_once($extra."modales/cliente/m_b_cliente.php");
 	//llamando de modales el id es "nueCliente"

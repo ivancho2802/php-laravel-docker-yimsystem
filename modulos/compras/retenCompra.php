@@ -29,8 +29,6 @@ $total_consultaEmpre = pg_num_rows($consulta2);
 $retenC="";
 $contriC="";
 
-var_dump($filas2);
-
 if($total_consultaEmpre>0){
   $retenC = $filas2["reteniva"];
   $contriC = $filas2["contri_empre"];
