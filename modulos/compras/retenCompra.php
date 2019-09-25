@@ -6,6 +6,7 @@ $mensaje = '<strong><span class="glyphicon glyphicon-warning-sign" style="font-s
 				Lo sentimos ud debe cumplir ciertas condiciones para retener en compras Debe Ser<br />
 				- Contribuyente Especial<br />
 				- Debe Retener IVA segun pagina del SENIAT';//EL MENSAJE DEL ALERT
+$extra = "../../";
 //llamando de modales "alert"
 include_once($extra."modales/alert/m_alert.php");
 
