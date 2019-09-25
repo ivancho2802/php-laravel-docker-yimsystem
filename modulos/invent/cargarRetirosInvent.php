@@ -2,6 +2,7 @@
 	include_once('../../includes_SISTEM/include_head.php');
 	include_once('../../includes_SISTEM/include_login.php');
 	//llamado de modales el id es "busProd"
+  $extra = "../../";
 	include_once($extra."modales/prod/m_b_prod.php");
 ?>
 <br>
