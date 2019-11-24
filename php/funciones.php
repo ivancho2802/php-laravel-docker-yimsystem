@@ -175,13 +175,13 @@ function sumSinIVAventas($numdocu, $tipo){
 	$sumSinIVA = 0;
 	$conexion =  pg_connect("host=ec2-107-20-155-148.compute-1.amazonaws.com port=5432 dbname=delcqdglr7h1b8 user=kjogxhvdvnkumx password=b42f2b9f3dda672e63925904f1450b38698f03289409be8008efd07f526c20a9") ;
 	//consulta de las compras exentas
-	$consultaExen = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta WHERE fact_venta.id_fact_venta = venta.fk_fact_venta AND venta.fk_fact_venta = '%s' AND venta.tipoVenta = '%s'", $numdocu, $tipo));
-	$filas7 = pg_fetch_assoc($consulta7);
-	$total_consultaExen = pg_num_rows($consultaExen);
+	$consulta = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta WHERE fact_venta.id_fact_venta = venta.fk_fact_venta AND venta.fk_fact_venta = '%s' AND venta.tipoVenta = '%s'", $numdocu, $tipo));
+	$filas = pg_fetch_assoc($consulta);
+	$total_consultaExen = pg_num_rows($consulta);
 	
 	do{
-		$sumSinIVA += ($filas7['costo'] * $filas7['cantidad']);
-	}while($filas7=pg_fetch_assoc($consulta7));
+		$sumSinIVA += ($filas['costo'] * $filas['cantidad']);
+	}while($filas=pg_fetch_assoc($consulta));
 
 	return round($sumSinIVA,2);
 }
