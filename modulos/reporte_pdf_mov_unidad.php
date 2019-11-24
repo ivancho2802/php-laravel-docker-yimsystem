@@ -26,6 +26,7 @@ $('.rotate').css('height', $('.rotate').width());
 	try
 	{
 		$html2pdf = new HTML2PDF('L','A4', 'es', true, 'UTF-8', 5);
+        $html2pdf->pdf->IncludeJS('js/funciones.js');
 		//$html2pdf->pdf->IncludeJS($script);
 		$html2pdf->pdf->SetDisplayMode('fullpage');
 		$html2pdf->writeHTML($content, isset($_GET['vuehtml']));
