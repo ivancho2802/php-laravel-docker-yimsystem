@@ -199,7 +199,7 @@ function mesNum_Texto_solo($num_mes){
 			$mes="Abril";
 		else if ($num_mes ==  "05")
 			$mes="Mayo";
-		else if ($num_mes ==  "06":
+		else if ($num_mes ==  "06")
 			$mes="Junio";
 		else if ($num_mes ==  "07")
 			$mes="Julio";
