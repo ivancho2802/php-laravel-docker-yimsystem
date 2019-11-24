@@ -187,48 +187,32 @@ function sumSinIVAventas($numdocu, $tipo){
 }
 
 function mesNum_Texto_solo($num_mes){
-		switch ($num_mes) {
-		
-		case "01":
+		// switch ($num_mes) {
+	$mes = "";	
+		if ($num_mes ==  "01")
 			$mes="Enero";
-		  break;
-		case "02":
+		else if ($num_mes ==  "02")
 			$mes="Febrero";
-		  break;
-		case "03":
+		else if ($num_mes ==  "03")
 			$mes="Marzo";
-		  break;
-		case "04":
+		else if ($num_mes ==  "04")
 			$mes="Abril";
-		  break;
-		case "05":
+		else if ($num_mes ==  "05")
 			$mes="Mayo";
-		  break;
-		case "06":
+		else if ($num_mes ==  "06":
 			$mes="Junio";
-		  break;
-		case "07":
+		else if ($num_mes ==  "07")
 			$mes="Julio";
-		  break;
-		case "08":
+		else if ($num_mes ==  "08")
 			$mes="Agosto";
-		  break;
-		case "09":
+		else if ($num_mes ==  "09")
 			$mes="Septiembre";
-		  break;
-		case "10":
+		else if ($num_mes ==  "10")
 			$mes="Octubre";
-		  break;
-		case "11":
+		else if ($num_mes ==  "11")
 			$mes="Noviembre";
-		  break;
-		case "12":
+		else if ($num_mes ==  "12")
 			$mes="Diciembre";
-		  break;
-	
-		default:
-		  break;
-	  }
 	  return $mes;
 }
 
