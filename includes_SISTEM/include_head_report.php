@@ -33,10 +33,10 @@ if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 
 <link rel="icon" href="<?php echo $uri.$extra?>logo.ico">
 <c_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-3.2.1.slim.min.js"></o_SCRIPT>
-<o_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-1.6.4.min.js"></c_SCRIPT>
-<o_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-1.12.0.min.js"></c_SCRIPT>
-<o_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-latest.min.js"></c_SCRIPT>
+<c_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-1.6.4.min.js"></o_SCRIPT>
+<c_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-1.12.0.min.js"></o_SCRIPT>
+<c_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-latest.min.js"></o_SCRIPT>
 <!--<o_SCRIPT type="text/javascript" src="<?php //echo $uri.$extra?>js/jquery-ui.min.js"></c_SCRIPT>-->
-<o_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/bootstrap.min.js"></c_SCRIPT>
-<o_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/funciones.js"></c_SCRIPT>
+<c_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/bootstrap.min.js"></o_SCRIPT>
+<c_SCRIPT type="text/javascript" src="<?php echo $uri.$extra?>js/funciones.js"></o_SCRIPT>
 <?php }?>
