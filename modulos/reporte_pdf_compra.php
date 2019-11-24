@@ -19,6 +19,7 @@
 	/*
 	$script = "
 $('.rotate').css('height', $('.rotate').width());
+<script type="text/javascript" src="<?php echo $uri.$extra?>js/funciones.js"></script> -->
 	";
 	*/
 	// conversion HTML => PDF
@@ -26,7 +27,7 @@ $('.rotate').css('height', $('.rotate').width());
 	try
 	{
 		$html2pdf = new HTML2PDF('L','Legal', 'es', false, 'ISO-8859-15', 5);
-		//$html2pdf->pdf->IncludeJS($script);
+		$html2pdf->pdf->IncludeJS('js/funciones.js');
 		$html2pdf->pdf->SetDisplayMode('fullpage');
 		$html2pdf->writeHTML($content, isset($_GET['vuehtml']));
 		$html2pdf->Output('reporte_compra.pdf');
