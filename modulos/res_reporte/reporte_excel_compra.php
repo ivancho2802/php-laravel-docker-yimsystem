@@ -9,7 +9,7 @@ else
 ////////////////////////////////////////////////////////////////////////////////////
 include_once("../../librerias/conexion.php");
 /////////////////////////////////////////////////////////////
-include_once('../../php/funciones.php');
+// include_once('../../php/funciones.php');
 /////////////////////////////////////////////////////////////
 include_once('../../includes_SISTEM/include_login.php');
 /////////////////////////////////////////////////////////////
@@ -816,7 +816,7 @@ $objPHPExcel->getActiveSheet()->getStyle($jt2.$it2.':'.expo_var($jt2, 3).$it2)->
 	header("Content-Disposition: attachment; filename=\"$nombre_archivo\"\n");
 	header("Pragma: no-cache");
 header("Expires: 0");
-	//readfile($file);
+	// readfile($nombre_archivo);
 	$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 	$objWriter->save('php://output');
 
