@@ -49,7 +49,7 @@
 	}
 
     // consulta ajax para traer cuentas
-    consulcuenta(event){
+    function consulcuenta(event){
         console.log("cuenta")
         console.log(cuenta)
         return;
