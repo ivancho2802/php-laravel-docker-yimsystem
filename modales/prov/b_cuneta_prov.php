@@ -1,0 +1,42 @@
+<?php
+/**
+*   OBTENER CUENAT PARA EL PROVEEDOR
+*/
+
+include_once('../../includes_SISTEM/include_head.php');
+include_once('../../includes_SISTEM/include_login.php');
+//CODIGO DE CONAULTA
+if(isset($_GET['cuenta']) ){
+    $consulta=pg_query($conexion,sprintf("SELECT * FROM cuenta WHERE
+                                                        id = '%s' OR
+                                                        nombre like '%%%s%' OR
+                                                        descripcion LIKE '%%%s%';",
+                                                                    $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta']));
+  //mysql_select_db($database_conexPana, $conexPana);
+  //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
+  $consulta or die('
+    <div class="alert alert-danger fade in" role="alert">
+            <strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
+            Error para PROVEEDOR: '.pg_last_error().'
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+    </div>');
+//HASTA AQUI CODIGO DE CONAULTA
+  //si llega ha esta linea quiere decir que no ha arrojado error RIGISTRO EXITOSO
+
+    do{
+        ?>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+                <input type="radio" class="form-control" name="cuentaasoc"  onChange="selectcuenta($event)" aria-label="Radio button for following text input" required>
+            </div>
+          </div>
+          <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
+          <label ><?php echo $filas['id'] .' '. $filas['nombre'].' '. $filas['descripcion']?></label>
+        </div>
+        <?php
+    }while($filas=pg_fetch_assoc($Result1)); 
+
+}else{
+    echo "Error no se enviaron algunos parametros que se esperaban";
+}

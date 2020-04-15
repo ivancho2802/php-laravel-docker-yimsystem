@@ -10,7 +10,7 @@
             	<h1 class="bd-title">Libro de Ventas</h1>
                 <label class="control-label">Consulta Por Mes</label>
                 <div class="input-group">  
-                  <input type="month" class="form-control" name="mes" value="<?php if(isset($_POST['mes']))echo $_POST['mes'];?>" required="required"/>
+                  <input type="month" placeholder="MES/AÑO ejemplo:31/01" class="form-control" name="mes" value="<?php if(isset($_POST['mes']))echo $_POST['mes'];?>" required="required"/>
                   <span class="input-group-btn">
                     <button class="btn btn-primary" type="submit" name="" value="">Buscar Venta!</button>
                   </span>

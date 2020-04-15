@@ -19,8 +19,8 @@ include_once('../../includes_SISTEM/include_login.php');
 			$prov = "%".$_POST['prov']."%";	
 			//realizo el sql
 			$consulta=pg_query($conexion,sprintf("SELECT * FROM proveedor WHERE
-														proveedor.nombre LIKE '%s' OR
-														proveedor.rif LIKE '%s'",
+														proveedor.nombre LIKE '%%%s%' OR
+														proveedor.rif LIKE '%%%s%'",
 																	$prov, $prov));
 			$filas=pg_fetch_assoc($consulta);
 			$total_consulta = pg_num_rows($consulta);
