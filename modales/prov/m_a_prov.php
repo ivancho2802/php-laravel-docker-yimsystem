@@ -52,7 +52,6 @@
     function consulcuenta(event){
         console.log("event")
         console.log(event)
-        return;
         xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
