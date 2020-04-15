@@ -50,8 +50,8 @@
 
     // consulta ajax para traer cuentas
     function consulcuenta(event){
-        console.log("cuenta")
-        console.log(cuenta)
+        console.log("event")
+        console.log(event)
         return;
         xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
