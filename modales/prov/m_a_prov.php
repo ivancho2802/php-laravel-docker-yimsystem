@@ -66,7 +66,7 @@
             
             
             //si esto compila se puede insertar y seleccionar
-            //selecCuenta(rif,nombre,'<?php echo $_SERVER['REQUEST_URI'];?>');
+            //selecCuenta(rif,nombre,'<?php //echo $_SERVER['REQUEST_URI'];?>');
     } 	
 </script>
 <!-- Modal nueProv-->
