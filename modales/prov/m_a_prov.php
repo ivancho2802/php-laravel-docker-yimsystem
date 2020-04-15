@@ -110,7 +110,7 @@
                         <label class="col-md-6 col-lg-6">
                             Cuenta Asociada:<br />
                             <span class="input-group">
-                                <input type="text" class="form-control" name="cuentaasoc" id="cuentaasoc"  onLoad="consulcuenta($event)" required>
+                                <input type="text" class="form-control" name="cuentaasoc" id="cuentaasoc"  onkeyup="consulcuenta(this.value)" required>
 
                                 <span id="zona_dinamica"></span> 
 
