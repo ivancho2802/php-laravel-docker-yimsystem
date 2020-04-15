@@ -49,9 +49,9 @@
 	}
 
     // consulta ajax para traer cuentas
-    function consulcuenta(event){
-        console.log("event")
-        console.log(event)
+    function consulcuenta(cuenta){
+        console.log("cuenta")
+        console.log(cuenta)
         xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
