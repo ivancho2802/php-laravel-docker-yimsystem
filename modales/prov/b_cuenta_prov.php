@@ -7,12 +7,16 @@ include_once('../../includes_SISTEM/include_head.php');
 include_once('../../includes_SISTEM/include_login.php');
 //CODIGO DE CONAULTA
 if(isset($_GET['cuenta']) ){
-    $consulta=pg_query($conexion,sprintf("SELECT * FROM cuenta, categ_cuenta WHERE
-                                                        id = '%s' OR
-                                                        categ_cuenta.id = '%s' OR
-                                                        nombre like '%s%%' OR
-                                                        descripcion LIKE '%s%%';",
-                                                                    $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta']));
+    $consulta=pg_query($conexion,sprintf("SELECT * FROM cuenta cu, categ_cuenta cat_cu 
+                                        INNER JOIN categoria cat
+                                        ON cat_cu.fk_categoria = cat.id
+                                        WHERE
+                                            id = '%s' OR
+                                            categoria.id = '%s' OR
+                                            nombre LIKE '%s%%' OR
+                                            descripcion LIKE '%s%%';",
+                                            
+                                            $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta']));
   //mysql_select_db($database_conexPana, $conexPana);
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
   $consulta or die('
@@ -21,8 +25,8 @@ if(isset($_GET['cuenta']) ){
             Error para PROVEEDOR: '.pg_last_error().'
             <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
     </div>');
-//HASTA AQUI CODIGO DE CONAULTA
-  //si llega ha esta linea quiere decir que no ha arrojado error RIGISTRO EXITOSO
+    //HASTA AQUI CODIGO DE CONAULTA
+    //si llega ha esta linea quiere decir que no ha arrojado error RIGISTRO EXITOSO
 
     do{
         ?>
