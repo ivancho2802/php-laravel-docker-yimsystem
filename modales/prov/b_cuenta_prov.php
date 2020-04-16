@@ -18,7 +18,7 @@ if(isset($_GET['cuenta']) ){
                                             cu.nombre LIKE '%s%%' OR
                                             cu.descripcion LIKE '%s%%';",
                                             
-                                            $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta']));
+                                            $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta']));
   //mysql_select_db($database_conexPana, $conexPana);
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
   $consulta or die('
