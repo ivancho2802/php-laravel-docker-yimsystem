@@ -11,8 +11,8 @@ if(isset($_GET['cuenta']) ){
                                         INNER JOIN categoria cat
                                         ON cat_cu.fk_categoria = cat.id
                                         WHERE
-                                            id = '%s' OR
-                                            categoria.id = '%s' OR
+                                            cu.id = '%s' OR
+                                            cat.id = '%s' OR
                                             nombre LIKE '%s%%' OR
                                             descripcion LIKE '%s%%';",
                                             
