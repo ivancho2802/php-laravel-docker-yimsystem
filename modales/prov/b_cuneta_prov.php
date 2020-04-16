@@ -7,8 +7,9 @@ include_once('../../includes_SISTEM/include_head.php');
 include_once('../../includes_SISTEM/include_login.php');
 //CODIGO DE CONAULTA
 if(isset($_GET['cuenta']) ){
-    $consulta=pg_query($conexion,sprintf("SELECT * FROM cuenta WHERE
+    $consulta=pg_query($conexion,sprintf("SELECT * FROM cuenta, categ_cuenta WHERE
                                                         id = '%s' OR
+                                                        categ_cuenta.id = '%s' OR
                                                         nombre like '%%%s%' OR
                                                         descripcion LIKE '%%%s%';",
                                                                     $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta']));
@@ -32,7 +33,7 @@ if(isset($_GET['cuenta']) ){
             </div>
           </div>
           <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-          <label ><?php echo $filas['id'] .' '. $filas['nombre'].' '. $filas['descripcion']?></label>
+          <label ><?php echo  $filas['categ_cuenta.id'] .' '. $filas['nombre'].' '. $filas['descripcion']?></label>
         </div>
         <?php
     }while($filas=pg_fetch_assoc($Result1)); 

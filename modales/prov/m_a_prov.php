@@ -106,16 +106,6 @@
                             </span>
                         </label>
 
-                        <label class="col-md-6 col-lg-6">
-                            Cuenta Asociada:<br />
-                            <span class="input-group">
-                                <input type="text" class="form-control" name="cuentaasoc" id="cuentaasoc"  onkeyup="consulcuenta(this.value)" required>
-
-                                <span id="zona_dinamica"></span> 
-
-                            </span>
-                        </label>
-
 
                         
                         
@@ -131,6 +121,17 @@
                             <input class="form-control" type="text" name="direccion" id="direccion" required>
                         </label>
                 	</div><!--row-->
+                    <div class="row">
+                        <label class="col-md-12 col-lg-12">
+                            Cuenta Asociada:<br />
+                            <span class="input-group">
+                                <input type="text" class="form-control" name="cuentaasoc" id="cuentaasoc"  onkeyup="consulcuenta(this.value)" required> 
+                            </span>
+                        </label>
+                    </div><!--row-->
+                    <div class="row">
+                        <span id="zona_dinamica"></span> 
+                    </div><!--row-->
                 </label>
               </div><!--form-group-->
           </div><!--modal-bosy-->
