@@ -56,6 +56,14 @@
           xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
               document.getElementById("zona_dinamica").innerHTML = xhttp.responseText;
+            }else{
+                console.log(xhttp);
+                document.getElementById("zona_dinamica").innerHTML = ' <div id="msm_login" class="alert alert-danger alert-dismissible fade in" role="alert">'+
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+                    '<span aria-hidden="true">×</span>'+
+                    '</button>'+
+                    '<strong> No se encontraron resultados'+       
+                '</div>';
             }
           }; 
           
