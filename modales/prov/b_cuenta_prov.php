@@ -13,8 +13,10 @@ if(isset($_GET['cuenta']) ){
                                         WHERE
                                             cu.id = '%s' OR
                                             cat.id = '%s' OR
-                                            nombre LIKE '%s%%' OR
-                                            descripcion LIKE '%s%%';",
+                                            cat.nombre LIKE '%s%%' OR
+                                            cat.descripcion LIKE '%s%%'  OR
+                                            cu.nombre LIKE '%s%%' OR
+                                            cu.descripcion LIKE '%s%%';",
                                             
                                             $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta'], $_GET['cuenta']));
   //mysql_select_db($database_conexPana, $conexPana);
