@@ -39,10 +39,10 @@ if(isset($_GET['cuenta']) ){
             </div>
           </div>
           <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-          <label ><?php echo  $filas['categ_cuenta.id'] .' '. $filas['nombre'].' '. $filas['descripcion']?></label>
+          <label ><?php echo  $filas['categ_cuenta.id'] .' '. $filas['cat.nombre'] .' '. $filas['cu.nombre'].' '. $filas['cu.descripcion']?></label>
         </div>
         <?php
-    }while($filas=pg_fetch_assoc($Result1)); 
+    }while($filas=pg_fetch_assoc($consulta)); 
 
 }else{
     echo "Error no se enviaron algunos parametros que se esperaban";
