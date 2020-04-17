@@ -2,14 +2,19 @@
     include_once('../../includes_SISTEM/include_head.php');
     include_once('../../includes_SISTEM/include_login.php');
     //consulta de los datos de la empreas PARA SABE LA ACTIVA 
-    $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta cu, categ_cuenta cat_cu 
-                                        INNER JOIN categoria cat
-                                        ON cat_cu.fk_categoria = cat.id WHERE cuenta.fk_empre = %s", $_SESSION["id_usu"]));
+    $consulta = pg_query($conexion, sprintf("
+                                        SELECT * FROM 
+                                            cuenta cu, categ_cuenta cat_cu 
+                                        INNER JOIN 
+                                            categoria cat
+                                        ON 
+                                            cat_cu.fk_categoria = cat.id 
+                                        WHERE 
+                                            cuenta.fk_empre = %s", $_SESSION["id_usu"]));
 
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
-
-    $total_consultaEmpre = pg_num_rows($consulta);
+    $total_consulta = pg_num_rows($consulta);
 ?>
 <div id="cuentas"  class="bs-example">
     <div class="">
