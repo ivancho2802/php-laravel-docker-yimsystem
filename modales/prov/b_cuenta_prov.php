@@ -30,19 +30,29 @@ if(isset($_GET['cuenta']) ){
     //HASTA AQUI CODIGO DE CONAULTA
     //si llega ha esta linea quiere decir que no ha arrojado error RIGISTRO EXITOSO
     $filas=pg_fetch_assoc($consulta);
-    do{
+    if($total_consulta<=0){
         ?>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-                <input type="radio" class="form-control" name="cuentaasoc"  onChange="selectcuenta($event)" aria-label="Radio button for following text input" required>
-            </div>
-          </div>
-          <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-          <label ><?php echo  $filas['categ_cuenta.id'] .' '. $filas['categoria.nombre'] .' '. $filas['cuenta.nombre'].' '. $filas['cuenta.descripcion']?></label>
+        <div class="alert alert-danger fade in" role="alert">
+            <strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
+            Error para PROVEEDOR: '.pg_last_error().'
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
         </div>
         <?php
-    }while($filas=pg_fetch_assoc($consulta)); 
+    }else{
+        do{
+            ?>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" class="form-control" name="cuentaasoc"  onChange="selectcuenta($event)" aria-label="Radio button for following text input" required>
+                </div>
+              </div>
+              <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
+              <label ><?php echo  $filas['categ_cuenta.id'] .' '. $filas['categoria.nombre'] .' '. $filas['cuenta.nombre'].' '. $filas['cuenta.descripcion']?></label>
+            </div>
+            <?php
+        }while($filas=pg_fetch_assoc($consulta)); 
+    }
 
 }else{
     echo "Error no se enviaron algunos parametros que se esperaban";
