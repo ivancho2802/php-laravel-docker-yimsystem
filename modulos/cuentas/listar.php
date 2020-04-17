@@ -4,7 +4,7 @@
     //consulta de los datos de la empreas PARA SABE LA ACTIVA 
     $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta cu, categ_cuenta cat_cu 
                                         INNER JOIN categoria cat
-                                        ON cat_cu.fk_categoria = cat.id WHERE fk_empre = %s", $_SESSION["id_usu"]));
+                                        ON cat_cu.fk_categoria = cat.id WHERE cuenta.fk_empre = %s", $_SESSION["id_usu"]));
 
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
