@@ -39,7 +39,7 @@ if(isset($_GET['cuenta']) ){
             </div>
           </div>
           <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-          <label ><?php echo  $filas['categ_cuenta.id'] .' '. $filas['cat.nombre'] .' '. $filas['cu.nombre'].' '. $filas['cu.descripcion']?></label>
+          <label ><?php echo  $filas['categ_cuenta.id'] .' '. $filas['categoria.nombre'] .' '. $filas['cuenta.nombre'].' '. $filas['cuenta.descripcion']?></label>
         </div>
         <?php
     }while($filas=pg_fetch_assoc($consulta)); 
