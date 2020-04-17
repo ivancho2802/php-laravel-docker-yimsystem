@@ -10,7 +10,7 @@
                                         ON 
                                             cat_cu.fk_categoria = cat.id 
                                         WHERE 
-                                            cuenta.fk_empre = %s", $_SESSION["id_usu"]));
+                                            cu.fk_empre = '%s'", $_SESSION["id_usu"]));
 
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
