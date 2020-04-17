@@ -30,6 +30,8 @@ if(isset($_GET['cuenta']) ){
     //HASTA AQUI CODIGO DE CONAULTA
     //si llega ha esta linea quiere decir que no ha arrojado error RIGISTRO EXITOSO
     $filas=pg_fetch_assoc($consulta);
+    $total_consulta = pg_num_rows($consulta);
+    
     if($total_consulta<=0){
         ?>
         <div class="alert alert-danger fade in" role="alert">
