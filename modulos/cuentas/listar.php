@@ -42,7 +42,6 @@
 </div><!--cuentas-->
 <hr id="res_cuentas" class="featurette-divider"/>
 <?php
-    if (isset($_POST['cuenta']) ){
         //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
 
         /*$consulta3=pg_query($conexion,sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
@@ -105,8 +104,4 @@
             <p>no hay resultados</p>
             <?php
         }
-    }else{
-        ?>
-        <p>faltan parametros</p>
-        <?php
-    }
+    
