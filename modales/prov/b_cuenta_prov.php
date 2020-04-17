@@ -29,7 +29,7 @@ if(isset($_GET['cuenta']) ){
     </div>');
     //HASTA AQUI CODIGO DE CONAULTA
     //si llega ha esta linea quiere decir que no ha arrojado error RIGISTRO EXITOSO
-
+    $filas=pg_fetch_assoc($consulta);
     do{
         ?>
         <div class="input-group">
