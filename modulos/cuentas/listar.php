@@ -15,6 +15,8 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
+    if ($_POST['crear']) {
+        # code...
 ?>
 <div id="cuentas"  class="bs-example">
     <div class="">
@@ -102,6 +104,21 @@
         }else{
             ?>
             <p>no hay resultados</p>
+            <div class="row">
+                <div class="col-12">
+                    <form  method="post" accept-charset="utf-8">
+                        <input type="hidden" name="create"/>
+                        <button type="submit" name="create"  class="primary"></button>
+                    </form>
+                </div>
+            </div>
             <?php
         }
-    
+    }else{// si es crear
+        ?>
+        <form action="listar_submit" method="post" accept-charset="utf-8">
+            listar_submit
+            get
+        </form>
+        <?php
+    }
