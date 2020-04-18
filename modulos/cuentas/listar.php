@@ -59,7 +59,7 @@
                                 ON cat_cu.fk_categoria = cat.id 
                                 WHERE 
                                 
-                                fk_empre = %s AND 
+                                fk_empre = '%s' AND 
                                 cu.id = '%s' OR
                                 cat.id = '%s' OR
                                 cat.nombre LIKE '%s%%' OR
