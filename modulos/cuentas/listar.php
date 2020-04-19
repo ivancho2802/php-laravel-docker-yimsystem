@@ -26,17 +26,15 @@
       <div class="col-xs-12 col-md-4 col-lg-4">
         <div class="form-group">
           <form method="POST">
+            <div class="input-group">
                 <label class="control-label">Consulta Por Numero, nombre y categorias</label>
-                <div class="input-group">
-                  <!-- <input type="date" class="form-control" name="dia" value="<?php //if(isset($_POST['dia']))echo $_POST['dia'];?>" required="required"/> -->
-                    <span class="input-group">
-                        <input type="text" class="form-control" name="cuenta" id="cuenta"required> 
-                    </span>  
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit" name="" value="">Buscar Cuenta!</button>
-                  </span>
-                </div>
-          </form>
+                <span class="input-group">
+                    <input type="text" class="form-control" name="cuenta" id="cuenta"required> 
+                </span> 
+            </div> 
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit" name="" value="">Crear Cuenta!</button>
+              </span>
         </div>
       </div><!--col--> 
     </div><!--row-->
@@ -56,18 +54,19 @@
         ORDER BY fecha ASC")); 
         $filas3=pg_fetch_assoc($consulta3);
         $total_fecha_menor = pg_num_rows($consulta3);*/
+        $param = $_POST['cuenta'] ? $_POST['cuenta'] :'';
+
         $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta cu, categ_cuenta cat_cu 
                                 INNER JOIN categoria cat
                                 ON cat_cu.fk_categoria = cat.id 
                                 WHERE 
-                                
                                 fk_empre = '%s' AND 
                                 cu.id = '%s' OR
                                 cat.id = '%s' OR
                                 cat.nombre LIKE '%s%%' OR
                                 cat.descripcion LIKE '%s%%'  OR
                                 cu.nombre LIKE '%s%%' OR
-                                cu.descripcion LIKE '%s%%';", $_SESSION["id_usu"], $_POST['cuenta'], $_POST['cuenta'], $_POST['cuenta'], $_POST['cuenta'], $_POST['cuenta'], $_POST['cuenta']));
+                                cu.descripcion LIKE '%s%%';", $_SESSION["id_usu"], $param, $param, $param, $param, $param, $param));
         // $filas = pg_fetch_assoc($consultaEmpre);
         $filas=pg_fetch_assoc($consulta);
         $total_consulta = pg_num_rows($consulta);
