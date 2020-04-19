@@ -27,17 +27,19 @@
         <div class="form-group">
           <form method="POST">
             <div class="row">
-                <div class="col input-group">
-                    <label class="control-label">Consulta Por Numero, nombre y categorias</label>
-                    <span class="input-group">
-                        <input type="text" class="form-control" name="cuenta" id="cuenta"required> 
-                        <button type="button" class="list-group-item active" >Buscar</button>
-                    </span> 
+                <div class="col">
+                    <div class="input-group">
+                        <label class="control-label">Consulta Por Numero, nombre y categorias</label>
+                        <span class="input-group">
+                            <input type="text" class="form-control" name="cuenta" id="cuenta" > 
+                            <button type="button" class="list-group-item active" >Buscar</button>
+                        </span> 
+                    </div>
                 </div> 
                 <div class="col">
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit" name="" value="">Crear Cuenta!</button>
-                  </span>
+                    <input type="hidden" name="crear">
+                    <button class="btn btn-primary" type="submit" name="crear" value="">Crear Cuenta!</button>
+                    <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
                 </div>
             </div>
         </div>
