@@ -54,7 +54,7 @@
         ORDER BY fecha ASC")); 
         $filas3=pg_fetch_assoc($consulta3);
         $total_fecha_menor = pg_num_rows($consulta3);*/
-        $param = $_POST['cuenta'] ? $_POST['cuenta'] :'';
+        $param = isset($_POST['cuenta']) ? $_POST['cuenta'] :'';
 
         $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta cu, categ_cuenta cat_cu 
                                 INNER JOIN categoria cat
