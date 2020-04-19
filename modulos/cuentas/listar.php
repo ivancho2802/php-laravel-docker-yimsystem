@@ -117,8 +117,15 @@
     }else{// si es crear
         ?>
         <form action="listar_submit" method="post" accept-charset="utf-8">
-            listar_submit
-            get
+            <div class="row">
+                  <div class="col-xs-4 col-md-4 col-lg-4">
+                    <label>Cunera:</label><br />
+                    <div class="list-group">
+                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required" onclick="modalbusProv('N')" onfocus="modalbusProv('N')" value="" type="text" placeholder="Clic aqui" />
+                        <button type="button" class="list-group-item active" onclick="modalbusProv('N')">Seleccionar Proveedor</button>
+                    </div>
+                  </div>
+            </div>
         </form>
         <?php
     }
