@@ -15,7 +15,7 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
-    if (isset($_POST['crear'])) {
+    if (!isset($_POST['crear'])) {
         # code...
 ?>
 <div id="cuentas"  class="bs-example">
@@ -119,13 +119,30 @@
         <form action="listar_submit" method="post" accept-charset="utf-8">
             <div class="row">
                   <div class="col-xs-4 col-md-4 col-lg-4">
-                    <label>Cunera:</label><br />
+                    <label>Cuenta:</label><br />
                     <div class="list-group">
-                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required" onclick="modalbusProv('N')" onfocus="modalbusProv('N')" value="" type="text" placeholder="Clic aqui" />
-                        <button type="button" class="list-group-item active" onclick="modalbusProv('N')">Seleccionar Proveedor</button>
+                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
+                        <button type="submit" class="list-group-item active" >Buscar</button>
+                    </div>
+                  </div>
+                  <div class="col-xs-4 col-md-4 col-lg-4">
+                    <label>Cuenta:</label><br />
+                    <div class="list-group">
+                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
+                        <button type="submit" class="list-group-item active" >Buscar</button>
+                    </div>
+                  </div>
+                  <div class="col-xs-4 col-md-4 col-lg-4">
+                    <label>Cuenta:</label><br />
+                    <div class="list-group">
+                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
+                        <button type="submit" class="list-group-item active" >Buscar</button>
                     </div>
                   </div>
             </div>
+            <button type="submit" class="list-group-item active" >Agregar Cuenta</button>
         </form>
+
+
         <?php
     }
