@@ -51,16 +51,13 @@
 <?php
         //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
 
-        /*$consulta3=pg_query($conexion,sprintf("SELECT fact_compra.fecha_fact_compra AS fecha FROM fact_compra
-        UNION
-        SELECT fact_venta.fecha_fact_venta AS fecha FROM fact_venta
-        UNION
-        SELECT inventario_retiros.fecha_inv_retiros AS fecha FROM inventario_retiros
-        UNION
-        SELECT reg_inventario.fecha_reg_inv AS fecha FROM reg_inventario
-        ORDER BY fecha ASC")); 
-        $filas3=pg_fetch_assoc($consulta3);
-        $total_fecha_menor = pg_num_rows($consulta3);*/
+        $consulta2 = pg_query($conexion, sprintf("SELECT * FROM categoria 
+                                WHERE 
+                                fk_empre = '%s';", $_SESSION["id_usu"] ));
+        // $filas = pg_fetch_assoc($consultaEmpre);
+        $filas2=pg_fetch_assoc($consulta2);
+        $total_consulta2 = pg_num_rows($consulta2);
+
         $param = isset($_POST['cuenta']) ? $_POST['cuenta'] :'';
 
         $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta cu, categ_cuenta cat_cu 
@@ -122,33 +119,59 @@
         }
     }else{// si es crear
         ?>
+        <div class="">
+            <h1 class="bd-title">Crear Cuentas</h1>
+        </div>
         <form action="listar_submit" method="post" accept-charset="utf-8">
             <div class="row">
                   <div class="col-xs-4 col-md-4 col-lg-4">
-                    <label>Cuenta:</label><br />
+                    <label>N° Cuenta:</label><br />
                     <div class="list-group">
-                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
-                        <button type="submit" class="list-group-item active" >Buscar</button>
+                        <input id="id" name="id" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
                     </div>
                   </div>
                   <div class="col-xs-4 col-md-4 col-lg-4">
-                    <label>Cuenta:</label><br />
+                    <label>Nombre:</label><br />
                     <div class="list-group">
-                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
-                        <button type="submit" class="list-group-item active" >Buscar</button>
+                        <input id="nombre" name="nombre" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
                     </div>
                   </div>
                   <div class="col-xs-4 col-md-4 col-lg-4">
-                    <label>Cuenta:</label><br />
+                    <label>Descripcion:</label><br />
                     <div class="list-group">
-                        <input id="nom_prov_ajax" name="nombre" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
-                        <button type="submit" class="list-group-item active" >Buscar</button>
+                        <input id="descripcion" name="descripcion" class="form-control" required="required"   placeholder="Clic aqui para buscar" />
                     </div>
                   </div>
             </div>
-            <button type="submit" class="list-group-item active" >Agregar Cuenta</button>
+            <div class="row">
+                  <div class="col-xs-4 col-md-4 col-lg-4">
+                    <label>Categoria:</label><br />
+                    <div class="list-group">
+                        <?php if($total_consulta2>0){?>
+                            <select name="categoria" class="form-control" required="required"  >
+                                <?php do{ ?>
+                                <option value="<?php echo $filas['id']?>"><?php echo $filas['nombre'];?></option>
+                                <?php }while($filas2 = pg_fetch_assoc($consulta2)); ?>
+                            </select>    
+                        <?php }else{?>
+                            <div>no hay categorias.</div>
+                        <?php }?>
+                    </div>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input name="formcreatecuenta" type="hidden">
+                    <button type="submit" class="list-group-item active" disabled="<?php if($total_consulta2>0)echo 'true'?>">Crear Cuenta</button>
+                </div>
+            </div>
         </form>
-
-
+        <form action="listar_submit" method="post" accept-charset="utf-8">
+            <button type="submit" class="list-group-item active" >volver</button>
+        </form>
         <?php
+    }
+
+    if($_POST['formcreatecuenta']){
+        echo $_POST['formcreatecuenta'];
     }
