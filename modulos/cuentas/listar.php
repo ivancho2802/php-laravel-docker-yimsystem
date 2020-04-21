@@ -27,16 +27,14 @@
         <div class="form-group">
           <form method="POST">
             <div class="row">
-                <div class="col">
-                    <div class="input-group">
-                        <label class="control-label">Consulta Por Numero, nombre y categorias</label>
-                        <span class="input-group">
-                            <input type="text" class="form-control" name="cuenta" id="cuenta" > 
-                            <button type="button" class="list-group-item active" >Buscar</button>
-                        </span> 
-                    </div>
+                <div class="col-6">
+                    <label class="control-label">Consulta Por Numero, nombre y categorias</label>
+                    <span class="input-group">
+                        <input type="text" class="form-control" name="cuenta" id="cuenta" > 
+                        <button type="button" class="list-group-item active" >Buscar</button>
+                    </span> 
                 </div> 
-                <div class="col">
+                <div class="col-6">
                     <input type="hidden" name="crear">
                     <button class="btn btn-primary" type="submit" name="crear" value="">Crear Cuenta!</button>
                     <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
@@ -51,12 +49,7 @@
 <?php
         //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
 
-        $consulta2 = pg_query($conexion, sprintf("SELECT * FROM categoria 
-                                WHERE 
-                                fk_empre = '%s';", $_SESSION["id_usu"] ));
-        // $filas = pg_fetch_assoc($consultaEmpre);
-        $filas2=pg_fetch_assoc($consulta2);
-        $total_consulta2 = pg_num_rows($consulta2);
+        
 
         $param = isset($_POST['cuenta']) ? $_POST['cuenta'] :'';
 
@@ -147,7 +140,15 @@
                   <div class="col-xs-4 col-md-4 col-lg-4">
                     <label>Categoria:</label><br />
                     <div class="list-group">
-                        <?php if($total_consulta2>0){?>
+
+                        <?php 
+                        $consulta2 = pg_query($conexion, sprintf("SELECT * FROM categoria 
+                                                WHERE 
+                                                fk_empre = '%s';", $_SESSION["id_usu"] ));
+                        // $filas = pg_fetch_assoc($consultaEmpre);
+                        $filas2=pg_fetch_assoc($consulta2);
+                        $total_consulta2 = pg_num_rows($consulta2);
+                        if($total_consulta2>0){?>
                             <select name="categoria" class="form-control" required="required"  >
                                 <?php do{ ?>
                                 <option value="<?php echo $filas['id']?>"><?php echo $filas['nombre'];?></option>
