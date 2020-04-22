@@ -15,12 +15,12 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
-    if (!isset($_POST['operation']) || isset($_POST['operation']) !=='crear') {
+    if (isset($_POST['operation']) || isset($_POST['operation']) !=='crear') {
         # code...
 ?>
 <div id="cuentas"  class="bs-example">
     <div class="">
-        <h1 class="bd-title">Cuentas</h1>
+        <h1 class="bd-title">Cuentas <?php echo $_POST['operation']?></h1>
     </div>
         <!-- col-xs-12 col-md-4 col-lg-4 -->
         <div class="form-group">
