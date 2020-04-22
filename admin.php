@@ -249,7 +249,7 @@ $( document ).ready(function() {
         </div>
 
         <!-- cuentas categorias-->
-        <div class="tab-pane" id="cuentas" data-src="modulos/cuentas/categorias.php">
+        <div class="tab-pane" id="cuentascate" data-src="modulos/cuentas/categorias.php">
             <iframe id="cuentascatei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
