@@ -120,7 +120,7 @@
                   </div>
             </div>
             <div class="row">
-                  <div class="col-xs-4 col-md-4 col-lg-4">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
                     <label>Categoria:</label><br />
                     <div class="list-group">
 
@@ -141,17 +141,14 @@
                             <div>no hay categorias.</div>
                         <?php }?>
                     </div>
-                  </div>
-            </div>
-            <div class="row">
-                <div class="col">
+
                     <input name="formcreatecuenta" type="hidden">
                     <button type="submit" class="list-group-item active" disabled="<?php if($total_consulta2>0)echo 'true'?>">Crear Cuenta</button>
-                </div>
-            </div>
+                  </div>
+            </div> 
         </form>
         <form action="listar_submit" method="post" accept-charset="utf-8">
-            <button type="submit" class="list-group-item active" >volver</button>
+            <button type="submit" class="list-group-item" >volver</button>
         </form>
         <?php
     }
