@@ -15,7 +15,7 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
-    if (!isset($_POST['crear'])) {
+    if (!isset($_POST['operation']) && $_POST['operation'] !=='crear') {
         # code...
 ?>
 <div id="cuentas"  class="bs-example">
@@ -23,7 +23,8 @@
         <h1 class="bd-title">Cuentas</h1>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-4 col-lg-4">
+      <div class="">
+        <!-- col-xs-12 col-md-4 col-lg-4 -->
         <div class="form-group">
           <form method="POST">
             <div class="row">
@@ -34,12 +35,22 @@
                         <button type="button" class="list-group-item active" >Buscar</button>
                     </span> 
                 </div> 
+            </div>
+            <div class="row">
                 <div class="col-6">
-                    <input type="hidden" name="crear">
+                    <button type="submit" class="list-group-item active" >Buscar</button>
+                </div>
+            </div>
+            <div class="row">             
+              <form method="POST">
+                <div class="col-6">
+                    <input type="hidden" name="operation" value="crear">
                     <button class="btn btn-primary" type="submit" name="crear" value="">Crear Cuenta!</button>
                     <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
                 </div>
+              </form>
             </div>
+          </form>
         </div>
       </div><!--col--> 
     </div><!--row-->
