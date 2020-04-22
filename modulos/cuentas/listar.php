@@ -15,45 +15,28 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
-    if (!isset($_POST['operation']) && $_POST['operation'] !=='crear') {
+    if (!isset($_POST['operation']) && isset($_POST['operation']) !=='crear') {
         # code...
 ?>
 <div id="cuentas"  class="bs-example">
     <div class="">
         <h1 class="bd-title">Cuentas</h1>
     </div>
-    <div class="row">
-      <div class="">
         <!-- col-xs-12 col-md-4 col-lg-4 -->
         <div class="form-group">
           <form method="POST">
-            <div class="row">
-                <div class="col-6">
-                    <label class="control-label">Consulta Por Numero, nombre y categorias</label>
-                    <span class="input-group">
-                        <input type="text" class="form-control" name="cuenta" id="cuenta" > 
-                        <button type="button" class="list-group-item active" >Buscar</button>
-                    </span> 
-                </div> 
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <button type="submit" class="list-group-item active" >Buscar</button>
-                </div>
-            </div>
+                <label class="control-label">Consulta Por Numero, nombre y categorias</label>
+                <input type="text" class="form-control" name="cuenta" id="cuenta" > 
+                <button type="submit" class="list-group-item" >Buscar</button>
+          </form>
             <div class="row">             
               <form method="POST">
-                <div class="col-6">
-                    <input type="hidden" name="operation" value="crear">
-                    <button class="btn btn-primary" type="submit" name="crear" value="">Crear Cuenta!</button>
-                    <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
-                </div>
+                <input type="hidden" name="operation" value="crear">
+                <button class="btn list-group-item" type="submit" name="crear" value="">Crear Cuenta!</button>
+                <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
               </form>
             </div>
-          </form>
         </div>
-      </div><!--col--> 
-    </div><!--row-->
 
 </div><!--cuentas-->
 <hr id="res_cuentas" class="featurette-divider"/>
@@ -111,14 +94,6 @@
         }else{
             ?>
             <p>no hay resultados</p>
-            <div class="row">
-                <div class="col-12">
-                    <form  method="post" accept-charset="utf-8">
-                        <input type="hidden" name="create"/>
-                        <button type="submit" name="create"  class="primary"></button>
-                    </form>
-                </div>
-            </div>
             <?php
         }
     }else{// si es crear
