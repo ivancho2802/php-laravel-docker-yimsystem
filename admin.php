@@ -65,7 +65,8 @@ $( document ).ready(function() {
 		ajustarAltoIframe("cinventi",1200);		//	CARGAR INVENTARIO
 		ajustarAltoIframe("movUnidadesi",1200);	//	MOVIMINTO INVENTARIO
         ajustarAltoIframe("cretinventi",1200);      //  RETIROS INVENTARIO
-		ajustarAltoIframe("cuentasi",1200);		//	CUENTAS
+        ajustarAltoIframe("cuentasi",1200);     //  CUENTAS
+		ajustarAltoIframe("cuentascatei",1200);		//	CUENTAS CATEGORIAS
 								//STATUS
 		ajustarAltoIframe("homei",1200);		//	LIBRO DE COMPRAS
 		
@@ -180,6 +181,7 @@ $( document ).ready(function() {
               <ul class="dropdown-menu">
                 <li><a target='principal' href='modulos/user/#'>Usuarios</a></li>
                 <li><a data-toggle="tab" href='#cuentas'>Cuentas</a></li>
+                <li><a data-toggle="tab" href='#cuentascate'>Cuentas - Categorias</a></li>
               </ul>
             </li>
           </ul>
@@ -244,6 +246,11 @@ $( document ).ready(function() {
         <!-- cuentas-->
         <div class="tab-pane" id="cuentas" data-src="modulos/cuentas/listar.php">
             <iframe id="cuentasi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+        </div>
+
+        <!-- cuentas categorias-->
+        <div class="tab-pane" id="cuentas" data-src="modulos/cuentas/categorias.php">
+            <iframe id="cuentascatei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="cretinvent" data-src="modulos/invent/cargarRetirosInvent.php">
