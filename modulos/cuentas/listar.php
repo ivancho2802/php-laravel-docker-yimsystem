@@ -27,15 +27,13 @@
           <form method="POST">
                 <label class="control-label">Consulta Por Numero, nombre y categorias</label>
                 <input type="text" class="form-control" name="cuenta" id="cuenta" > 
-                <button type="submit" class="list-group-item" >Buscar</button>
+                <button type="submit" class="list-group-item active" >Buscar</button>
           </form>
-            <div class="row">             
-              <form method="POST">
-                <input type="hidden" name="operation" value="crear">
-                <button class="btn list-group-item" type="submit" name="crear" value="">Crear Cuenta!</button>
-                <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
-              </form>
-            </div>
+          <form method="POST">
+            <input type="hidden" name="operation" value="crear">
+            <button class="list-group-item list-group-item-secondary" type="submit" name="crear" value="">Crear Cuenta!</button>
+            <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
+          </form>
         </div>
 
 </div><!--cuentas-->
