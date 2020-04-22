@@ -15,7 +15,7 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
-    if (isset($_POST['operation']) || isset($_POST['operation']) !=='crear') {
+    if (isset($_POST['operation']) && isset($_POST['operation']) !=='crear') {
         # code...
 ?>
 <div id="cuentas"  class="bs-example">
