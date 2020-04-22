@@ -122,4 +122,18 @@
 
     if(isset($_POST['formcreatecuenta'])){
         echo $_POST['formcreatecategoria'];
+        
+        $sql=sprintf("INSERT INTO categoria (id, nombre, descrpcion) VALUES ('%s', '%s', '%s' )",
+                       $_POST['id'], 
+                       $_POST['nombre'], 
+                       $_POST['descripcion']);
+        $res = pg_query($conexion,$sql)or die('Registro NO realizada con éxito:<br />'.pg_last_error());
+
+        if($res){
+            echo '<div class="alert alert-success">
+              <strong>Excelente!</strong> Categoria registrada..
+            </div>';
+        }
+
+
     }
