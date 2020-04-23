@@ -88,7 +88,7 @@
     }else if(isset($_POST['operation'])=="crear"){// si es crear
         ?>
         <div class="">
-            <h1 class="bd-title">Crear Categoria</h1>
+            <h1 class="bd-title"><?php echo $_POST['operation']?> Categoria</h1>
         </div>
         <form action="listar_submit" method="post" accept-charset="utf-8">
             <div class="row">
