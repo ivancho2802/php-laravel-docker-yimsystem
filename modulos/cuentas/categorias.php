@@ -11,29 +11,29 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
-    if ( !isset($_POST['operation'])) {
-?>
-<div id="cuentas"  class="bs-example">
-    <div class="">
-        <h1 class="bd-title">Cuentas -Categorias</h1>
-    </div>
-        <!-- col-xs-12 col-md-4 col-lg-4 -->
-        <div class="form-group">
-          <form method="POST">
-                <label class="control-label">Consulta Por Numero, nombre</label>
-                <input type="text" class="form-control" name="cate" id="cate" > 
-                <button type="submit" class="list-group-item active" >Buscar</button>
-          </form>
-          <form method="POST">
-            <input type="hidden" name="operation" value="crear">
-            <button class="list-group-item list-group-item-secondary" type="submit"  value="">Crear Categoria!</button>
-            <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
-          </form>
-        </div>
+    if ( !isset($_POST['operation']) || isset($_POST['operation'])=="") {
+        ?>
+        <div id="cuentas"  class="bs-example">
+            <div class="">
+                <h1 class="bd-title">Cuentas - Categorias</h1>
+            </div>
+                <!-- col-xs-12 col-md-4 col-lg-4 -->
+                <div class="form-group">
+                  <form method="POST">
+                        <label class="control-label">Consulta Por Numero, nombre</label>
+                        <input type="text" class="form-control" name="cate" id="cate" > 
+                        <button type="submit" class="list-group-item active" >Buscar</button>
+                  </form>
+                  <form method="POST">
+                    <input type="hidden" name="operation" value="crear">
+                    <button class="list-group-item list-group-item-secondary" type="submit"  value="">Crear Categoria!</button>
+                    <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
+                  </form>
+                </div>
 
-</div><!--cuentas-->
-<hr id="res_cuentas" class="featurette-divider"/>
-<?php
+        </div><!--cuentas-->
+        <hr id="res_cuentas" class="featurette-divider"/>
+        <?php
         //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
 
         
@@ -85,7 +85,7 @@
             <p>no hay resultados</p>
             <?php
         }
-    }else{// si es crear
+    }else if(isset($_POST['operation'])=="crear"){// si es crear
         ?>
         <div class="">
             <h1 class="bd-title">Crear Categoria</h1>
@@ -111,7 +111,8 @@
                     </div>
                   </div>
             </div> 
-            <input name="formcreatecuenta" type="hidden">
+            <input name="formcreatecategoria" type="hidden">
+            <input name="operation" value="" type="hidden">
             <button type="submit" class="list-group-item active" >Crear Categoria</button>
         </form>
         <form action="listar_submit" method="post" accept-charset="utf-8">
@@ -120,7 +121,7 @@
         <?php
     }
 
-    if(isset($_POST['formcreatecuenta'])){
+    if(isset($_POST['formcreatecategoria'])){
         echo $_POST['formcreatecategoria'];
         
         $sql=sprintf("INSERT INTO categoria (id, nombre, descrpcion) VALUES ('%s', '%s', '%s' )",
@@ -138,6 +139,7 @@
 
     }
     ?>
-        <form action="listar_submit" method="post" accept-charset="utf-8">
-            <button type="submit" class="list-group-item" >volver</button>
-        </form>
+    <form action="listar_submit" method="post" accept-charset="utf-8">
+        <input name="operation" value="" type="hidden">
+        <button type="submit" class="list-group-item" >volver</button>
+    </form>
