@@ -1162,6 +1162,6 @@ function showHint1(str) {
 // MODALES CUENTAS
 function modaladdcate(otroModal) {
     // document.getElementById('otroModal').value = '';
-    $('#busProv').modal('show');
+    $('#addCate').modal('show');
     return
 }
