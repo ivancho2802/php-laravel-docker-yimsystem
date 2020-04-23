@@ -26,8 +26,7 @@
                   </form>
                   <form method="POST">
                     <input type="hidden" name="operation" value="crear">
-                    <button class="list-group-item list-group-item-secondary" type="submit"  value="">Crear Categoria!</button>
-                    <button type="submit" name="volver"  class="list-group-item" >volver</button>
+                    <button class="list-group-item list-group-item-secondary" type="submit"  value="">Crear Categoria!</button> 
                     <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
                   </form>
                 </div>
@@ -115,9 +114,11 @@
             <input name="formcreatecategoria" type="hidden">
             <input name="operation" value="" type="hidden">
             <button type="submit" class="list-group-item active" >Crear Categoria</button>
-        </form>
-        <form action="listar_submit" method="post" accept-charset="utf-8">
-            <button type="submit" class="list-group-item" >volver</button>
+        </form> 
+        <form method="POST">
+            <input type="hidden" name="operation" value="">
+            <button type="submit" name="volver"  class="list-group-item" >volver</button>
+            <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
         </form>
         <?php
     }
