@@ -28,7 +28,7 @@
                 <input type="text" class="form-control" name="cuenta" id="cuenta" > 
                 <button type="submit" class="list-group-item active" >Buscar</button>
           </form>
-          <form method="POST">
+          <form method="POST" action="listar_submit">
             <input type="hidden" name="operation" value="crear">
             <button class="list-group-item list-group-item-secondary" type="submit"  value="">Crear Cuenta!</button>
             <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->

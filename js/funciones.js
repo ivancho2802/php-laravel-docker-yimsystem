@@ -1158,3 +1158,10 @@ function showHint1(str) {
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("rif="+ str);
 }
+
+// MODALES CUENTAS
+function modaladdcate(otroModal) {
+    // document.getElementById('otroModal').value = '';
+    $('#busProv').modal('show');
+    return
+}
