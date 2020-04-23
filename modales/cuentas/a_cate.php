@@ -4,7 +4,7 @@ include_once('../../includes_SISTEM/include_login.php');
 
 //CODIGO DE INSERCION
 if(isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['descripcion'])  ){
-  $insertSQL = sprintf("INSERT INTO categoria (id, nombre, descripcion, fk_empre) VALUES ('%s', '%s', '%s' )",
+  $insertSQL = sprintf("INSERT INTO categoria (id, nombre, descripcion, fk_empre) VALUES ('%s', '%s', '%s', '%s' )",
                        $_POST['id'], 
                        $_POST['nombre'], 
                        $_POST['descripcion'],
