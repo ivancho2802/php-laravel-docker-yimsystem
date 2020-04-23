@@ -11,6 +11,29 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
+    switch ($_POST['operation']) {
+        case 'crear':
+            ?>
+                  <form method="POST">
+                    <button class="list-group-item list-group-item-secondary" name="operation" value="crear" type="submit"  value="">Crear Categoria!</button> 
+                  </form>
+            <?php
+            break;
+        case 1:
+            echo "i es igual a 1";
+            break;
+        case 2:
+            echo "i es igual a 2";
+            break;
+        default:
+            ?>
+                  <form method="POST">
+                    <button class="list-group-item list-group-item-secondary" name="operation" value="crear" type="submit"  value="">Crear Categoria switch!</button> 
+                  </form>
+            <?php
+        endswitch;
+    }
+
     if ( !isset($_POST['operation']) || isset($_POST['operation'])=="") {
         ?>
         <div id="cuentas"  class="bs-example">
