@@ -15,7 +15,7 @@
         ?>
         <div id="cuentas"  class="bs-example">
             <div class="">
-                <h1 class="bd-title">Cuentas - Categorias</h1>
+                <h1 class="bd-title">Cuentas - Categorias <?php echo $_POST['volver']?></h1>
             </div>
                 <!-- col-xs-12 col-md-4 col-lg-4 -->
                 <div class="form-group">
@@ -27,6 +27,7 @@
                   <form method="POST">
                     <input type="hidden" name="operation" value="crear">
                     <button class="list-group-item list-group-item-secondary" type="submit"  value="">Crear Categoria!</button>
+                    <button type="submit" name="volver"  class="list-group-item" >volver</button>
                     <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
                   </form>
                 </div>
@@ -139,7 +140,3 @@
 
     }
     ?>
-    <form action="listar_submit" method="post" accept-charset="utf-8">
-        <input name="operation" value="" type="hidden">
-        <button type="submit" class="list-group-item" >volver</button>
-    </form>
