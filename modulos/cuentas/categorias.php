@@ -137,3 +137,7 @@
 
 
     }
+    ?>
+        <form action="listar_submit" method="post" accept-charset="utf-8">
+            <button type="submit" class="list-group-item" >volver</button>
+        </form>
