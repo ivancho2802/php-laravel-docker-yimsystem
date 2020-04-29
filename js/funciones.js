@@ -1159,9 +1159,15 @@ function showHint1(str) {
 	xhttp.send("rif="+ str);
 }
 
-// MODALES CUENTAS
+// MODALES CUENTAS CATEGORIA
 function modaladdcate(otroModal) {
     // document.getElementById('otroModal').value = '';
     $('#addCate').modal('show');
+    return
+}
+// MODALES CUENTAS
+function modaladdcuenta(otroModal) {
+    // document.getElementById('otroModal').value = '';
+    $('#addCuenta').modal('show');
     return
 }

@@ -1,6 +1,3 @@
-<script>
-    
-</script>
 <?php
     $extra = "../../";
     //llamando de modales el id es "addCate"
@@ -14,7 +11,6 @@
                                             categoria cat
                                         WHERE 
                                             cat.fk_empre = '%s'", $_SESSION["id_usu"]));
-
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
@@ -42,12 +38,12 @@
         //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
         $param = isset($_POST['cate']) ? $_POST['cate'] :'';
         $consulta = pg_query($conexion, sprintf("SELECT * FROM 
-                                    categoria cat 
+                                    categoria 
                                 WHERE 
-                                    cat.fk_empre = '%s' AND 
-                                    cat.id = '%s' OR
-                                    cat.nombre LIKE '%s%%' OR
-                                    cat.descripcion LIKE '%s%%';", 
+                                    fk_empre = '%s' AND 
+                                    id = '%s' OR
+                                    nombre LIKE '%s%%' OR
+                                    descripcion LIKE '%s%%';", 
                                         $_SESSION["id_usu"], 
                                         $param, 
                                         $param, 
@@ -71,15 +67,14 @@
                 <tbody>
                     <?php do{?>
                         <tr>
-                            <td><?php $filas['cat.id'];?></td>
-                            <td><?php $filas['cat.nombre'];?></td>
-                            <td><?php $filas['cat.descripcion'];?></td>
+                            <td><?php $filas['id'];?></td>
+                            <td><?php $filas['nombre'];?></td>
+                            <td><?php $filas['descripcion'];?></td>
                         </tr>
                     <?php }while($filas = pg_fetch_assoc($consulta)); ?>
                 </tbody>
             </table>
             <?php
-
         }else{
             ?>
             <p>no hay resultados</p>
