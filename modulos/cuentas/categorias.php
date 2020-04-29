@@ -8,9 +8,9 @@
     //consulta de los datos de la empreas PARA SABE LA ACTIVA 
     $consulta = pg_query($conexion, sprintf("
                                         SELECT * FROM 
-                                            categoria cat
-                                        WHERE 
-                                            cat.fk_empre = '%s'", $_SESSION["id_usu"]));
+                                            categoria"));
+                                        //WHERE 
+                                        //    cat.fk_empre = '%s'", $_SESSION["id_usu"]));
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
@@ -55,13 +55,14 @@
         if($total_consulta > 0){
             // TABLA DE CONSULTA 
             ?>
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <td>N° Categoria</td>
                         <td>Nombre Categoria</td>
                         <td>Descrip</td>
                         <td>Categoria</td>
+                        <td>company</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,6 +71,7 @@
                             <td><?php $filas['id'];?></td>
                             <td><?php $filas['nombre'];?></td>
                             <td><?php $filas['descripcion'];?></td>
+                            <td><?php $filas['fk_empre'];?></td>
                         </tr>
                     <?php }while($filas = pg_fetch_assoc($consulta)); ?>
                 </tbody>

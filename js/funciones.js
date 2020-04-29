@@ -1166,7 +1166,7 @@ function modaladdcate(otroModal) {
     return
 }
 // MODALES CUENTAS
-function modaladdcuenta(otroModal) {
+function modaladdcuenta() {
     // document.getElementById('otroModal').value = '';
     $('#addCuenta').modal('show');
     return

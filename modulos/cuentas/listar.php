@@ -59,7 +59,7 @@
     if($total_consulta > 0){
         // TABLA DE CONSULTA 
         ?>
-        <table>
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <td>N° Categoria</td>

@@ -100,13 +100,12 @@
                                 $consulta2 = pg_query($conexion, sprintf("SELECT * FROM categoria 
                                                         WHERE 
                                                         fk_empre = '%s';", $_SESSION["id_usu"] ));
-                                // $filas = pg_fetch_assoc($consultaEmpre);
                                 $filas2=pg_fetch_assoc($consulta2);
                                 $total_consulta2 = pg_num_rows($consulta2);
                                 if($total_consulta2>0){?>
                                     <select name="categoria"  id="categoria" class="form-control" required="required"  >
                                         <?php do{ ?>
-                                        <option value="<?php echo $filas['id']?>"><?php echo $filas['nombre'];?></option>
+                                        <option value="<?php echo $filas2['id']?>"><?php echo $filas2['nombre'];?></option>
                                         <?php }while($filas2 = pg_fetch_assoc($consulta2)); ?>
                                     </select>    
                                 <?php }else{?>
