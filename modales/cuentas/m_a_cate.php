@@ -65,7 +65,7 @@
           <form name="formModal"><!--QUE AL PRECIONAR ENTER ENVIE EL FORTMULARIUO-->
           <div class="modal-body">
               <div class="form-group">
-                <label align="grid">
+                <div class="grid">
                 	<div class="row">
                         <!--para mostrar resultado de acciones de insercion y demas-->
                         <label class="col-md-12 col-lg-12" id="txtHintA" data-dismiss="modal"></label>
@@ -92,7 +92,7 @@
                             <input class="form-control" name="descripcion" id="descripcion" lang="si-general" required>
                         </label>
                 	</div><!--row-->
-                </label>
+                </div>
               </div><!--form-group-->
           </div><!--modal-bosy-->
           

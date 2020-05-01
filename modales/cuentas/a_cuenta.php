@@ -4,12 +4,18 @@ include_once('../../includes_SISTEM/include_login.php');
 
 //CODIGO DE INSERCION
 if(isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['fk_cate'])  ){
-  $insertSQL = sprintf("INSERT INTO cuenta (id, nombre, descripcion, fk_cate, fk_empre) VALUES ('%s', '%s', '%s', '%s', '%s' )",
+  $insertSQL = sprintf("INSERT INTO cuenta (id, nombre, descripcion, fk_empre) VALUES ('%s', '%s', '%s', '%s' )",
                        $_POST['id'], 
                        $_POST['nombre'], 
                        $_POST['descripcion'],
-                       $_POST['fk_cate'],
                        $_SESSION["id_usu"]);
+
+
+  $insertSQL2 = sprintf("INSERT INTO cuenta_categ ( fk_categoria, fk_cuenta) VALUES ( '%s', '%s' )",
+                       $_POST['fk_cate'],
+                       $_POST['id']
+                       // $_SESSION["id_usu"]
+                   );
 
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
   $Result1 = pg_query($conexion,$insertSQL) or die('

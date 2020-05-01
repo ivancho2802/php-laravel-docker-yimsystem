@@ -36,21 +36,24 @@
         <hr id="res_cuentas" class="featurette-divider"/>
         <?php
         //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
-        $param = isset($_POST['cate']) ? $_POST['cate'] :'';
-        $consulta = pg_query($conexion, sprintf("SELECT * FROM 
-                                    categoria 
-                                WHERE 
-                                    fk_empre = '%s' AND 
-                                    id = '%s' OR
-                                    nombre LIKE '%s%%' OR
-                                    descripcion LIKE '%s%%';", 
-                                        $_SESSION["id_usu"], 
-                                        $param, 
-                                        $param, 
-                                        $param));
-        // $filas = pg_fetch_assoc($consultaEmpre);
-        $filas=pg_fetch_assoc($consulta);
-        $total_consulta = pg_num_rows($consulta);
+        if(isset($_POST['cate'])){
+            $param = isset($_POST['cate']) ? $_POST['cate'] :'';
+            $consulta = pg_query($conexion, sprintf("SELECT * FROM 
+                                        categoria 
+                                    WHERE 
+                                        fk_empre = '%s' AND 
+                                        id like '%%s%%' OR
+                                        nombre LIKE '%s%%' OR
+                                        descripcion LIKE '%s%%';", 
+                                            $_SESSION["id_usu"], 
+                                            $param, 
+                                            $param, 
+                                            $param));
+            // $filas = pg_fetch_assoc($consultaEmpre);
+            $filas=pg_fetch_assoc($consulta);
+            $total_consulta = pg_num_rows($consulta);
+        }
+        
         
         if($total_consulta > 0){
             // TABLA DE CONSULTA 
@@ -68,10 +71,10 @@
                 <tbody>
                     <?php do{?>
                         <tr>
-                            <td><?php $filas['id'];?></td>
-                            <td><?php $filas['nombre'];?></td>
-                            <td><?php $filas['descripcion'];?></td>
-                            <td><?php $filas['fk_empre'];?></td>
+                            <td><?php echo $filas['id'];?></td>
+                            <td><?php echo $filas['nombre'];?></td>
+                            <td><?php echo $filas['descripcion'];?></td>
+                            <td><?php echo $filas['fk_empre'];?></td>
                         </tr>
                     <?php }while($filas = pg_fetch_assoc($consulta)); ?>
                 </tbody>

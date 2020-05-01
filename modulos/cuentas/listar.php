@@ -46,8 +46,8 @@
                             ON cat_cu.fk_categoria = cat.id 
                             WHERE 
                             cat.fk_empre = '%s' AND 
-                            cu.id = '%s' OR
-                            cat.id = '%s' OR
+                            cu.id LIKE '%s%%' OR
+                            cat.id LIKE '%s%%' OR
                             cat.nombre LIKE '%s%%' OR
                             cat.descripcion LIKE '%s%%'  OR
                             cu.nombre LIKE '%s%%' OR
@@ -73,11 +73,11 @@
             <tbody>
                 <?php do{?>
                     <tr>
-                        <td><?php $filas['cat.id'];?></td>
-                        <td><?php $filas['cat.nombre'];?></td>
-                        <td><?php $filas['cu.id'];?></td>
-                        <td><?php $filas['cu.nombre'];?></td>
-                        <td><?php $filas['cu.descripcion'];?></td>
+                        <td><?php echo $filas['cat.id'];?></td>
+                        <td><?php echo $filas['cat.nombre'];?></td>
+                        <td><?php echo $filas['cu.id'];?></td>
+                        <td><?php echo $filas['cu.nombre'];?></td>
+                        <td><?php echo $filas['cu.descripcion'];?></td>
                     </tr>
                 <?php }while($filas = pg_fetch_assoc($consulta)); ?>
             </tbody>
