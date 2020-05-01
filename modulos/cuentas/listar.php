@@ -80,9 +80,9 @@
                     <tr>
                         <!-- <td><?php //echo $filas['cat.id'];?></td> -->
                         <!-- <td><?php //echo $filas['cat.nombre'];?></td> -->
-                        <td><?php echo $filas['cuenta.id'];?></td>
-                        <td><?php echo $filas['cuenta.nombre'];?></td>
-                        <td><?php echo $filas['cuenta.descripcion'];?></td>
+                        <td><?php echo $filas['id'];?></td>
+                        <td><?php echo $filas['nombre'];?></td>
+                        <td><?php echo $filas['descripcion'];?></td>
                     </tr>
                 <?php }while($filas = pg_fetch_assoc($consulta)); ?>
             </tbody>
