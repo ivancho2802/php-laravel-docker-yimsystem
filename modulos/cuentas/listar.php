@@ -67,22 +67,22 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td>N° Categoria</td>
-                    <td>Nombre Categoria</td>
+                    <!-- <td>N° Categoria</td> -->
+                    <!-- <td>Nombre Categoria</td> -->
                     <td>N° Cuenta</td>
                     <td>Nom Cuenta</td>
                     <td>Descrip</td>
-                    <td>Categoria</td>
+                    <!-- <td>Categoria</td> -->
                 </tr>
             </thead>
             <tbody>
                 <?php do{?>
                     <tr>
-                        <td><?php echo $filas['cat.id'];?></td>
-                        <td><?php echo $filas['cat.nombre'];?></td>
-                        <td><?php echo $filas['cu.id'];?></td>
-                        <td><?php echo $filas['cu.nombre'];?></td>
-                        <td><?php echo $filas['cu.descripcion'];?></td>
+                        <!-- <td><?php //echo $filas['cat.id'];?></td> -->
+                        <!-- <td><?php //echo $filas['cat.nombre'];?></td> -->
+                        <td><?php echo $filas['cuenta.id'];?></td>
+                        <td><?php echo $filas['cuenta.nombre'];?></td>
+                        <td><?php echo $filas['cuenta.descripcion'];?></td>
                     </tr>
                 <?php }while($filas = pg_fetch_assoc($consulta)); ?>
             </tbody>
