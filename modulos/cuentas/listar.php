@@ -12,6 +12,10 @@
                                             cuenta c
                                         ON 
                                             cc.fk_cuenta = c.id
+                                        INNER JOIN 
+                                            categoria ca
+                                        ON 
+                                            cc.fk_categoria = ca.id
                                         WHERE 
                                             cuenta.fk_empre = '%s'", $_SESSION["id_usu"]));
     /* cu, categ_cuenta cat_cu 
@@ -48,14 +52,19 @@
     $param = isset($_POST['cuenta']) ? $_POST['cuenta'] :'';
     $consulta = pg_query($conexion, sprintf("SELECT * FROM 
                                 categ_cuenta cc
-                            INNER JOIN 
-                                cuenta c
-                            ON 
-                                cc.fk_cuenta = c.id
+                                        INNER JOIN 
+                                            cuenta c
+                                        ON 
+                                            cc.fk_cuenta = c.id
+                                        INNER JOIN 
+                                            categoria ca
+                                        ON 
+                                            cc.fk_categoria = ca.id
                             WHERE 
+                                ca.id LIKE '%s%%' OR
                                 c.id LIKE '%s%%' OR
                                 c.nombre LIKE '%s%%' OR
-                                c.descripcion LIKE '%s%%';", $param, $param, $param ));
+                                c.descripcion LIKE '%s%%';", $param, $param, $param, $param ));
     /*cu, categ_cuenta cat_cu 
                             INNER JOIN categoria cat
                             ON cat_cu.fk_categoria = cat.id 
@@ -76,19 +85,18 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <!-- <td>N° Categoria</td> -->
-                    <!-- <td>Nombre Categoria</td> -->
+                    <td>N° Categoria</td>
+                    <td>Nombre Categoria</td>
                     <td>N° Cuenta</td>
                     <td>Nom Cuenta</td>
                     <td>Descrip</td>
-                    <!-- <td>Categoria</td> -->
                 </tr>
             </thead>
             <tbody>
                 <?php do{?>
                     <tr>
-                        <!-- <td><?php //echo $filas['cat.id'];?></td> -->
-                        <!-- <td><?php //echo $filas['cat.nombre'];?></td> -->
+                        <td><?php echo $filas['ca.id'];?></td> 
+                        <td><?php echo $filas['ca.nombre'];?></td> 
                         <td><?php echo $filas['c.id'];?></td>
                         <td><?php echo $filas['c.nombre'];?></td>
                         <td><?php echo $filas['c.descripcion'];?></td>
