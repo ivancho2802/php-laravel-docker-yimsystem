@@ -11,14 +11,19 @@ if(isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['descripcion']
                        $_SESSION["id_usu"]);
 
 
-  $insertSQL2 = sprintf("INSERT INTO cuenta_categ ( fk_categoria, fk_cuenta) VALUES ( '%s', '%s' )",
+  $insertSQL2 = sprintf("INSERT INTO categ_cuenta ( fk_categoria, fk_cuenta) VALUES ( '%s', '%s' )",
                        $_POST['fk_cate'],
                        $_POST['id']
                        // $_SESSION["id_usu"]
                    );
 
   //SI NO SE REGISTR RETORNA DIE O MUERE EL PROCESO Y MUESTRA
-  $Result1 = pg_query($conexion,$insertSQL) or die('
+  $Result1 = pg_query( $conexion, $insertSQL2) ?  pg_query($conexion,$insertSQL) or die('
+    <div class="alert alert-danger fade in" role="alert">
+            <strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
+            Error CLIENTE: '.pg_last_error().'
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+    </div>'): die('
     <div class="alert alert-danger fade in" role="alert">
             <strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!.
             Error CLIENTE: '.pg_last_error().'
