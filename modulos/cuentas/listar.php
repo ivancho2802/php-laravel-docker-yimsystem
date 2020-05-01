@@ -42,17 +42,21 @@
 <?php
     //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
     $param = isset($_POST['cuenta']) ? $_POST['cuenta'] :'';
-    $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta cu, categ_cuenta cat_cu 
+    $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta 
+                            WHERE 
+                            cuenta.id LIKE '%s%%' OR
+                            cuenta.nombre LIKE '%s%%' OR
+                            cuenta.descripcion LIKE '%s%%';", $param, $param, $param ));
+    /*cu, categ_cuenta cat_cu 
                             INNER JOIN categoria cat
                             ON cat_cu.fk_categoria = cat.id 
-                            WHERE 
-                            cat.fk_empre = '%s' AND 
-                            cu.id LIKE '%s%%' OR
+
                             cat.id LIKE '%s%%' OR
                             cat.nombre LIKE '%s%%' OR
                             cat.descripcion LIKE '%s%%'  OR
-                            cu.nombre LIKE '%s%%' OR
-                            cu.descripcion LIKE '%s%%';", $_SESSION["id_usu"], $param, $param, $param, $param, $param, $param));
+                            cat.fk_empre = '%s' AND 
+
+                            */
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
