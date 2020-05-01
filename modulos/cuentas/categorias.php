@@ -64,7 +64,6 @@
                         <td>N° Categoria</td>
                         <td>Nombre Categoria</td>
                         <td>Descrip</td>
-                        <td>Categoria</td>
                         <td>company</td>
                     </tr>
                 </thead>
