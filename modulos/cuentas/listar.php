@@ -7,7 +7,11 @@
     //consulta de los datos de la empreas PARA SABE LA ACTIVA 
     $consulta = pg_query($conexion, sprintf("
                                         SELECT * FROM 
-                                            cuenta
+                                            categ_cuenta cc
+                                        INNER JOIN 
+                                            cuenta c
+                                        ON 
+                                            cc.fk_cuenta = c.id
                                         WHERE 
                                             cuenta.fk_empre = '%s'", $_SESSION["id_usu"]));
     /* cu, categ_cuenta cat_cu 
@@ -42,11 +46,16 @@
 <?php
     //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
     $param = isset($_POST['cuenta']) ? $_POST['cuenta'] :'';
-    $consulta = pg_query($conexion, sprintf("SELECT * FROM cuenta 
+    $consulta = pg_query($conexion, sprintf("SELECT * FROM 
+                                categ_cuenta cc
+                            INNER JOIN 
+                                cuenta c
+                            ON 
+                                cc.fk_cuenta = c.id
                             WHERE 
-                            cuenta.id LIKE '%s%%' OR
-                            cuenta.nombre LIKE '%s%%' OR
-                            cuenta.descripcion LIKE '%s%%';", $param, $param, $param ));
+                                c.id LIKE '%s%%' OR
+                                c.nombre LIKE '%s%%' OR
+                                c.descripcion LIKE '%s%%';", $param, $param, $param ));
     /*cu, categ_cuenta cat_cu 
                             INNER JOIN categoria cat
                             ON cat_cu.fk_categoria = cat.id 
@@ -80,9 +89,9 @@
                     <tr>
                         <!-- <td><?php //echo $filas['cat.id'];?></td> -->
                         <!-- <td><?php //echo $filas['cat.nombre'];?></td> -->
-                        <td><?php echo $filas['id'];?></td>
-                        <td><?php echo $filas['nombre'];?></td>
-                        <td><?php echo $filas['descripcion'];?></td>
+                        <td><?php echo $filas['c.id'];?></td>
+                        <td><?php echo $filas['c.nombre'];?></td>
+                        <td><?php echo $filas['c.descripcion'];?></td>
                     </tr>
                 <?php }while($filas = pg_fetch_assoc($consulta)); ?>
             </tbody>

@@ -12,7 +12,7 @@ if(isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['descripcion']
 
 
   $insertSQL2 = sprintf("INSERT INTO categ_cuenta ( fk_categoria, fk_cuenta) VALUES ( '%s', '%s' )",
-                       $_POST['fk_cate'],
+                       $_POST['categoria'],
                        $_POST['id']
                        // $_SESSION["id_usu"]
                    );
