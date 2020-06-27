@@ -21,6 +21,7 @@ $_SESSION["msm"] = $usu_aprobado["mensaje"];
 if($_SESSION["acceso"] == 1)
  {	
  	//inicializo menu
+	var_dump($usu_aprobado);
 	$_SESSION['menu'] = $usu_aprobado['menu'];
 	//INICIALIZO LA VARIABLE urlPrev
 	$_SESSION['urlPrev']="";
