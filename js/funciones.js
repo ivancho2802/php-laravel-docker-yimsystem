@@ -322,26 +322,27 @@ function decimalAdjust(type, value, exp) {
     // Shift back
     value = value.toString().split('e');
     return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-  }
+}
 
-  // Decimal round
-  if (!Math.round10) {
-    Math.round10 = function(value, exp) {
-      return decimalAdjust('round', value, exp);
-    };
-  }
-  // Decimal floor
-  if (!Math.floor10) {
-    Math.floor10 = function(value, exp) {
-      return decimalAdjust('floor', value, exp);
-    };
-  }
-  // Decimal ceil
-  if (!Math.ceil10) {
-    Math.ceil10 = function(value, exp) {
-      return decimalAdjust('ceil', value, exp);
-    };
-  }
+// Decimal round
+if (!Math.round10) {
+  Math.round10 = function(value, exp) {
+    return decimalAdjust('round', value, exp);
+  };
+}
+// Decimal floor
+if (!Math.floor10) {
+  Math.floor10 = function(value, exp) {
+    return decimalAdjust('floor', value, exp);
+  };
+}
+// Decimal ceil
+if (!Math.ceil10) {
+  Math.ceil10 = function(value, exp) {
+    return decimalAdjust('ceil', value, exp);
+  };
+}
+
 function cURLcne(campo, posVec, formu, resCampo, boton){
   var spanbtnload = document.createElement("span");
   spanbtnload.setAttribute("class", "bootstrap-dialog-button-icon glyphicon glyphicon-asterisk glyphicon-spin");
@@ -753,7 +754,7 @@ function guardar(formulario)
 	{
 	document.form1.submit();
 	}
-} 
+}
 
 function validarFormulario(formulario) {  
 
@@ -764,33 +765,37 @@ function validarFormulario(formulario) {
   var i=0;
   var campoObligatorio="";
   var campoEspecial="";
-   for(i=0;i<numElement && error==0;i++)
+  for(i=0;i<numElement && error==0;i++)
   { 
     var objElement=formulario[i];
-	//alert(objElement.value);		para ver si esta leyendo los elementos
-	if(objElement.lang !=='' )
-	{  
-		valor=objElement.lang.split('-');
-		campoObligatorio=valor[0];
-		campoEspecial=valor[1];
-	   
-	}else{
+		//alert(objElement.value);		para ver si esta leyendo los elementos
+		if(objElement.lang !=='' )
+		{  
+			valor=objElement.lang.split('-');
+			campoObligatorio=valor[0];
+			campoEspecial=valor[1];
+		   
+		}else{
 	   campoObligatorio="";
        campoEspecial="";
-	 }
-	var caract_ext=":";
-	objElement.style.border="";//"1px  #666666 solid";
-     switch(objElement.type){
-	 case 'text': //alert('esto es un texto');
-	              valCarat=1;
+	 	}
+		var caract_ext=":";
+		objElement.style.border="";//"1px  #666666 solid";
+    switch(objElement.type){
+
+	 	case 'text': //alert('esto es un texto');
+          valCarat=1;
 				  caract_ext="()?=,/:.;&";//ojo si general
-				  if(campoEspecial=="especial") caract_ext="@.-º?=,/:"; 
+				  if(campoEspecial=="especial") 
+				  	caract_ext="@.-º?=,/:"; 
+
 				  if(campoEspecial=="float") { 
 				  		caract_ext=".,"; 
 						valCarat=3;
 				  }
 	 			  if(error!=1 &&(campoObligatorio=="si" && objElement.value=="")) 
-				  { error=1;
+				  { 
+				  	error=1;
 				    alert("Campo Obligatorio Vacío");			
 				  }
 				  if( error!=1 && ((campoObligatorio=="si" && campoEspecial=="general" && objElement.value=="") ) )
@@ -826,7 +831,8 @@ function validarFormulario(formulario) {
 				  if( error!=1 && ((campoObligatorio=="si" && campoEspecial=="telf") || (campoObligatorio=="no" && campoEspecial=="telf" && objElement.value!==""))	)	  
 				    {   
 					    if(!validarTelf(objElement.value)) 
-					 		{ error=1;
+					 		{ 
+					 			error=1;
 							  alert("Campo Telefono Inválido Formato 04161234567");
 							  document.getElementById(objElement.name).focus();	
 							}
@@ -839,9 +845,11 @@ function validarFormulario(formulario) {
 						 if(document.getElementById(campo).value!==objElement.value){
 						 	error=1;
 					  		alert("Campos de emails no son iguales");	
+
+					  		
 				 		 {  error=1;
-				    		alert("Campo Obligatorio Vacío");			
-				  		 }
+			    			alert("Campo Obligatorio Vacío");			
+			  		 }
 					if( error!=1 && ((campoObligatorio=="si" && campoEspecial=="number") || (campoObligatorio=="no" && campoEspecial=="number" && objElement.value!=="0")) )
 						{
 							if(!validarNumber(objElement.value)) 
@@ -855,7 +863,7 @@ function validarFormulario(formulario) {
 	 				if(campoObligatorio=="si" && objElement.value=="") 
 				 		 {  error=1;
 				    		alert("Campo Obligatorio Vacío");			
-				  		 }
+			  		 }
 					/*	 
 					if( error!=1 && ((campoObligatorio=="si" && campoEspecial=="general") || (campoObligatorio=="no" && campoEspecial=="general" && objElement.value!="")) )
 						{
@@ -923,33 +931,34 @@ function validarFormulario(formulario) {
 				  }
 	 			  break;
 	 case 'select-multiple': 
-//	 alert('esto es un select - multiple');
+				//	 alert('esto es un select - multiple');
 	 			if(campoObligatorio=="si" && objElement.selectedIndex<0) 
 				  { alert("Campo obligatorio debe elegir al menos una opción");
 					error=1;
 				  }
 	 			  break;
-	 case 'hidden': //alert('esto es un select - one'); 		
+	 case 'hidden': 
+	 			//alert('esto es un select - one'); 		
 				if(error!=1 && campoObligatorio=="si" && campoEspecial=="repetido" && objElement.value==1)
 				  { 
-				  error=1;
-				  campo=objElement.name;//
-				  campo=campo.substring(0,campo.length-1);
-				  objElement=document.getElementById(campo);
-				  alert("Valor ya existe ");
+					  error=1;
+					  campo=objElement.name;//
+					  campo=campo.substring(0,campo.length-1);
+					  objElement=document.getElementById(campo);
+					  alert("Valor ya existe ");
 				  }
-				  
 	 			  break;
-	 case 'submit': //alert('esto es un submit'); 
+	  case 'submit': 
+	 				//alert('esto es un submit'); 
 	 			  break;
-	 }
+	  }
   }
 
-   if(error==1) 
+  if(error==1) 
   {
-objElement.style.border="1px #FF0000 solid";
+		objElement.style.border="1px #FF0000 solid";
     objElement.focus();	 
-	return (false);	
+		return (false);	
   }	else return (true);
   
 }
