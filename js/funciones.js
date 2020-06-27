@@ -754,6 +754,13 @@ function guardar(formulario)
 	document.form1.submit();
 	}
 }
+						 }
+					  }
+				 if(error!=1 && campoEspecial!=="noValidar" && !validarExpresionRegula(objElement.value,caract_ext,valCarat)) error=1;
+	 			  break;
+	 case 'number':
+	 				if(campoObligatorio=="si" && objElement.value=="") 
+								  alert("Campo Numérico Inválido");
 
 function validarFormulario(formulario) {  
 
@@ -839,12 +846,6 @@ function validarFormulario(formulario) {
 						 if(document.getElementById(campo).value!==objElement.value){
 						 	error=1;
 					  		alert("Campos de emails no son iguales");	
-						 }
-					  }
-				 if(error!=1 && campoEspecial!=="noValidar" && !validarExpresionRegula(objElement.value,caract_ext,valCarat)) error=1;
-	 			  break;
-	 case 'number':
-	 				if(campoObligatorio=="si" && objElement.value=="") 
 				 		 {  error=1;
 				    		alert("Campo Obligatorio Vacío");			
 				  		 }
@@ -883,7 +884,6 @@ function validarFormulario(formulario) {
 						{
 							if(!validarNumber(objElement.value)) 
 								{ error=1;
-								  alert("Campo Numérico Inválido");
 								  document.getElementById(objElement.name).focus();	
 								}
 						}

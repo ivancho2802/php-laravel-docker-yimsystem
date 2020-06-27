@@ -21,6 +21,8 @@ include_once('includes_SISTEM/include_login.php');
 <script type="text/javascript">  
 //funcion ajax para cargar el menu	
 $( document ).ready(function() {
+
+  alert(<?php var_dump($_SESSION['menu'])?>)
 	
 	function ajustarAltoIframe(iframe, extra){//ejemplo ajustarAltoIframe("lcomprai")
 		//document.getElementById('Noite').style.display='block';
@@ -135,6 +137,11 @@ $( document ).ready(function() {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" id="myTabs">
+
+            <?php if($_SESSION['menu']) do{?>
+
+            <?php }while($_SESSION['menu']);?>
+
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -157,7 +164,6 @@ $( document ).ready(function() {
                 <li><a href='#lventa'  data-toggle="tab">Libro de Ventas</a></li>
                 <li><a href='#cventa' data-toggle="tab">Cargar Ventas</a></li>
                 <li><a href='#cfactventa'  data-toggle="tab">Consultar Fact. de Ventas</a></li>
-                
                 <!--
                 <li role="separator" class="divider"></li>
                 <li><a target='principal' href='modulos/ventas/'>Aplicar Retencion</a></li>
@@ -181,7 +187,6 @@ $( document ).ready(function() {
               <ul class="dropdown-menu">
                 <li><a target='principal' href='modulos/user/#'>Usuarios</a></li>
                 <li><a data-toggle="tab" href='#cuentas'>Cuentas</a></li>
-                <li><a data-toggle="tab" href='#cuentascate'>Cuentas - Categorias</a></li>
               </ul>
             </li>
           </ul>
@@ -193,7 +198,8 @@ $( document ).ready(function() {
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Contactenos</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
+        <!--/.nav-collapse -->
       </div>
     </nav>
 </header>
