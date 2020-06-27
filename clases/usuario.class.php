@@ -16,7 +16,7 @@ class usuario
 			$nivel = $resultado["nivel"];
 			$sqlmenu="SELECT * FROM menu_sub ms
                         INNER JOIN menu me
-                        ON menu_sub.fk_menu = menu.id
+                        ON ms.fk_menu = me.id
 						WHERE menu.nivel='$nivel'";
 			$okmenu=pg_query($conexion,$sqlmenu);
 			$resultadomenu=pg_fetch_assoc($okmenu);
