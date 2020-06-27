@@ -2,6 +2,7 @@
 include_once('includes_SISTEM/include_header.php');
 include_once('includes_SISTEM/include_login.php');
 //$sistem_root = SISTEM_ROOT;
+var_dump($_SESSION['menu']);
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -20,8 +21,8 @@ include_once('includes_SISTEM/include_login.php');
 <!--					JS DEL MENU-->
 <script type="text/javascript">  
 //funcion ajax para cargar el menu	
-$( document ).ready(function() {
-
+$( document ).ready(function() { 
+	
 	function ajustarAltoIframe(iframe, extra){//ejemplo ajustarAltoIframe("lcomprai")
 		//document.getElementById('Noite').style.display='block';
 		if (window.innerHeight){ 
