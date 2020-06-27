@@ -845,7 +845,14 @@ function validarFormulario(formulario) {
 						 if(document.getElementById(campo).value!==objElement.value){
 						 	error=1;
 					  		alert("Campos de emails no son iguales");	
-
+					   }
+					  }
+				 if(error!=1 && campoEspecial!=="noValidar" && !validarExpresionRegula(objElement.value,caract_ext,valCarat)) 
+				 		error=1;
+	 			  break;
+	 case 'number':
+	 				if(campoObligatorio=="si" && objElement.value=="") 
+								  alert("Campo Numérico Inválido");
 					  		
 				 		 {  error=1;
 			    			alert("Campo Obligatorio Vacío");			
