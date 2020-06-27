@@ -22,8 +22,6 @@ include_once('includes_SISTEM/include_login.php');
 //funcion ajax para cargar el menu	
 $( document ).ready(function() {
 
-  alert(<?php var_dump($_SESSION['menu'])?>)
-	
 	function ajustarAltoIframe(iframe, extra){//ejemplo ajustarAltoIframe("lcomprai")
 		//document.getElementById('Noite').style.display='block';
 		if (window.innerHeight){ 
@@ -138,9 +136,6 @@ $( document ).ready(function() {
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" id="myTabs">
 
-            <?php if($_SESSION['menu']) do{?>
-
-            <?php }while($_SESSION['menu']);?>
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
