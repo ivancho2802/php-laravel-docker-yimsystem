@@ -139,7 +139,7 @@ $( document ).ready(function() {
 
             <?php 
               if($_SESSION['menu']) for($i=0;$i<count($_SESSION['menu']);$i++) { 
-                echo $_SESSION['menu'][$i].count($_SESSION['menu']);
+                echo $_SESSION['menu'][$i]['nombre'].count($_SESSION['menu']);
             ?>
 
             <?php };?> 
