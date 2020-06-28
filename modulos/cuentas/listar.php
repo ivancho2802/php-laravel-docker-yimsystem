@@ -43,17 +43,8 @@
     //validando que la fecha o ano que se introduzca no sea menor al menor del sistema
     $param = isset($_POST['cuenta']) ? $_POST['cuenta'] :'';
     $consulta = pg_query($conexion, sprintf("SELECT * FROM 
-                                categ_cuenta cc
-                                        INNER JOIN 
                                             cuenta c
-                                        ON 
-                                            cc.fk_cuenta = c.id
-                                        INNER JOIN 
-                                            categoria ca
-                                        ON 
-                                            cc.fk_categoria = ca.id
                             WHERE 
-                                ca.id LIKE '%s%%' OR
                                 c.id LIKE '%s%%' OR
                                 c.nombre LIKE '%s%%' OR
                                 c.descripcion LIKE '%s%%';", $param, $param, $param, $param ));
@@ -77,8 +68,6 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td>N° Categoria</td>
-                    <td>Nombre Categoria</td>
                     <td>N° Cuenta</td>
                     <td>Nom Cuenta</td>
                     <td>Descrip</td>
@@ -87,8 +76,6 @@
             <tbody>
                 <?php do{?>
                     <tr>
-                        <td><?php echo $filas['ca.id'];?></td> 
-                        <td><?php echo $filas['ca.nombre'];?></td> 
                         <td><?php echo $filas['c.id'];?></td>
                         <td><?php echo $filas['c.nombre'];?></td>
                         <td><?php echo $filas['c.descripcion'];?></td>
