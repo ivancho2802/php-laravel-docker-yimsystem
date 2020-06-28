@@ -3,6 +3,8 @@ include_once('includes_SISTEM/include_header.php');
 include_once('includes_SISTEM/include_login.php');
 //$sistem_root = SISTEM_ROOT;
 var_dump($_SESSION['menu']);
+var_dump($_COOKIE["menu"]);
+return;
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
