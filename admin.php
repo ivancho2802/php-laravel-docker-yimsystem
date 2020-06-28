@@ -137,9 +137,12 @@ $( document ).ready(function() {
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" id="myTabs">
 
-            <?php if($_SESSION['menu']) for($i=0;$i<count($_SESSION['menu']);$i++) { echo $_SESSION['menu']['nombre'] . $_SESSION['menu'][1];?>
+            <?php 
+              if($_SESSION['menu']) for($i=0;$i<count($_SESSION['menu']);$i++) { 
+                echo $_SESSION['menu'][$i].count($_SESSION['menu']);
+            ?>
 
-            <?php };?>
+            <?php };?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
