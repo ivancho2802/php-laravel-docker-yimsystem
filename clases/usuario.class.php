@@ -20,6 +20,11 @@ class usuario
 						WHERE me.nivel='$nivel'";
 			$okmenu=pg_query($conexion,$sqlmenu);
 			$resultadomenu=pg_fetch_assoc($okmenu);
+			$custommenu=[];
+			// do {
+			// 	$custommenu.push($resultadomenu);
+			// }while($resultadomenu=pg_fetch_assoc($okmenu));
+
 			$resultado["menu"] = $resultadomenu;
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
