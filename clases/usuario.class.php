@@ -14,14 +14,13 @@ class usuario
 		{
 			//consulta del menu segun el rol
 			$nivel = $resultado["nivel"];
-			$sqlmenu="SELECT * FROM menu_sub ms
-                        INNER JOIN menu me
+			$sqlmenu="SELECT * FROM menu me , menu_sub ms
+                        INNER JOIN me
                         ON ms.fk_menu = me.id
 						WHERE me.nivel='$nivel'";
 			$okmenu=pg_query($conexion,$sqlmenu);
-			$resultadomenu=pg_fetch_assoc($okmenu);
-			var_dump($resultadomenu);
-			$resultado["menu"] = $resultadomenu;
+			
+			$resultado["menu"] = $okmenu;
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
 			return $resultado;

@@ -139,12 +139,11 @@ $( document ).ready(function() {
 
             <?php 
               if($_SESSION['menu']) 
-                // for($i=0;$i<count($_SESSION['menu']);$i++) { 
-                do{ 
-                echo $_SESSION['menu']['nombre'];
-                echo $_SESSION['menu']['ruta'];
-            ?>
-            <?php }while($_SESSION['menu']);?> 
+              do{ 
+              echo $_SESSION['menu']['nombre'];
+              echo $_SESSION['menu']['ruta'];
+
+              }while($resultadomenu=pg_fetch_assoc($_SESSION['menu']));?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
