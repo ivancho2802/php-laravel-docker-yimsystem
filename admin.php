@@ -137,7 +137,7 @@ $( document ).ready(function() {
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" id="myTabs">
 
-            <?php if($_SESSION['menu']) for($i=0;$i<count($_SESSION['menu']);$i++) { echo $_SESSION['menu'][$i]. $_SESSION['menu']['nombre'] .' <br>';?>
+            <?php if($_SESSION['menu']) for($i=0;$i<count($_SESSION['menu']);$i++) { echo $_SESSION['menu']['nombre'] . $_SESSION['menu'][1];?>
 
             <?php };?>
 
