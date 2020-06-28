@@ -137,13 +137,14 @@ $( document ).ready(function() {
           <ul class="nav navbar-nav" id="myTabs">
 
             <?php 
-              // if($_SESSION['menu'])
+              if($_SESSION['menu']){
                 $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
                 do{ 
                   echo $resultadomenu['nombre'];
                   echo $resultadomenu['menu.nombre'];
                   echo $resultadomenu['menu.ruta'];//menu_sub
                 }while($resultadomenu=pg_fetch_assoc($_SESSION['menu']));
+              }
               ?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
