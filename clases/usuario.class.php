@@ -25,7 +25,7 @@ class usuario
 			// 	$custommenu.push($resultadomenu);
 			// }while($resultadomenu=pg_fetch_assoc($okmenu));
 
-			$resultado["menu"] = $resultadomenu;
+			$resultado["menu"] = $okmenu;
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
 			return $resultado;

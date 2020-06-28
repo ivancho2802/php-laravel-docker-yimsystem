@@ -22,7 +22,9 @@ if($_SESSION["acceso"] == 1)
  {	
  	//inicializo menu
 	$_SESSION['menu'] = $usu_aprobado['menu'];
-	var_dump($_SESSION['menu']);
+	$resultadomenu=pg_fetch_assoc($_SESSION['menu']);
+
+	var_dump($resultadomenu);
 	return;
 	//INICIALIZO LA VARIABLE urlPrev
 	$_SESSION['urlPrev']="";
