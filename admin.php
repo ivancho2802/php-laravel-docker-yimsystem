@@ -138,12 +138,13 @@ $( document ).ready(function() {
           <ul class="nav navbar-nav" id="myTabs">
 
             <?php 
-              if($_SESSION['menu']) for($i=0;$i<count($_SESSION['menu']);$i++) { 
-                echo $_SESSION['menu'][$i]['me.nombre'];
-                echo $_SESSION['menu'][$i]['ms.nombre'];
+              if($_SESSION['menu']) 
+                // for($i=0;$i<count($_SESSION['menu']);$i++) { 
+                do{ 
+                echo $_SESSION['menu']['me.nombre'];
+                echo $_SESSION['menu']['ms.nombre'];
             ?>
-
-            <?php };?> 
+            <?php }while($_SESSION['menu']);?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
