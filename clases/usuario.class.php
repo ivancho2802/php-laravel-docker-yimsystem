@@ -14,8 +14,8 @@ class usuario
 		{
 			//consulta del menu segun el rol
 			$nivel = $resultado["nivel"];
-			$sqlmenu="SELECT * FROM menu me , menu_sub ms
-                        INNER JOIN me
+			$sqlmenu="SELECT * FROM menu_sub ms
+                        INNER JOIN menu me 
                         ON ms.fk_menu = me.id
 						WHERE me.nivel='$nivel'";
 			$okmenu=pg_query($conexion,$sqlmenu);
