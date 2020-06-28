@@ -138,11 +138,12 @@ $( document ).ready(function() {
 
             <?php 
               if($_SESSION['menu'])
-              do{ 
-                echo $_SESSION['menu']['nombre'];
-                echo $_SESSION['menu']['ruta'];
-                echo $_SESSION['menu']['me.ruta'];
-              }while($_SESSION['menu']);?> 
+              // do{ 
+              //   echo $_SESSION['menu']['nombre'];
+              //   echo $_SESSION['menu']['ruta'];
+              //   echo $_SESSION['menu']['me.ruta'];
+              // }while($_SESSION['menu']);
+              ?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
