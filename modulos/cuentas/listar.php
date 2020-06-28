@@ -7,17 +7,9 @@
     //consulta de los datos de la empreas PARA SABE LA ACTIVA 
     $consulta = pg_query($conexion, sprintf("
                                         SELECT * FROM 
-                                            categ_cuenta cc
-                                        INNER JOIN 
                                             cuenta c
-                                        ON 
-                                            cc.fk_cuenta = c.id
-                                        INNER JOIN 
-                                            categoria ca
-                                        ON 
-                                            cc.fk_categoria = ca.id
                                         WHERE 
-                                            cuenta.fk_empre = '%s'", $_SESSION["id_usu"]));
+                                            c.fk_empre = '%s'", $_SESSION["id_usu"]));
     /* cu, categ_cuenta cat_cu 
                                         INNER JOIN 
                                             categoria cat
