@@ -137,7 +137,7 @@ $( document ).ready(function() {
           <ul class="nav navbar-nav" id="myTabs">
 
             <?php 
-              if($_SESSION['menu'])
+              // if($_SESSION['menu'])
                 $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
                 do{ 
                   echo $resultadomenu['nombre'];
