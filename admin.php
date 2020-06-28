@@ -139,10 +139,12 @@ $( document ).ready(function() {
 
             <?php 
               $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
-              if($_SESSION['menu']) 
+              $total_consulta = pg_num_rows($_SESSION['menu']);
+
+              if($total_consulta > 0)
               do{ 
                 echo $resultadomenu['nombre'];
-                echo $resultadomenu['menu']['ruta'];
+                echo $resultadomenu['ruta'];
               }while($resultadomenu=pg_fetch_assoc($_SESSION['menu']));?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
