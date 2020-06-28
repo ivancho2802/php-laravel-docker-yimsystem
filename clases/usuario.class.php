@@ -19,8 +19,8 @@ class usuario
                         ON ms.fk_menu = me.id
 						WHERE me.nivel='$nivel'";
 			$okmenu=pg_query($conexion,$sqlmenu);
-			
-			$resultado["menu"] = $okmenu;
+			$resultadomenu=pg_fetch_assoc($okmenu);
+			$resultado["menu"] = $resultadomenu;
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
 			return $resultado;

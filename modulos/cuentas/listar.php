@@ -28,8 +28,14 @@
         <div class="form-group">
           <form method="POST">
                 <label class="control-label">Consulta Por Numero, nombre y categorias</label>
-                <input type="text" class="form-control" name="cuenta" id="cuenta" > 
-                <button type="submit" class="list-group-item active" >Buscar</button>
+                <span class="input-group">
+                    <span class="input-group-prepend">
+                        <input type="text" class="form-control" name="cuenta" id="cuenta" required="required" lang="si-general"> 
+                    </span>
+                    <button id="btn" type="button" class="form-control btn btn-primary"  name="Consultar" id="Consultar">
+                        Buscar
+                    </button>
+                </span>
           </form>
           <form method="POST" action="listar_submit">
             <button class="list-group-item list-group-item-secondary" type="button" onclick="modaladdcuenta()">Crear Cuenta!</button>

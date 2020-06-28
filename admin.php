@@ -65,8 +65,8 @@ $( document ).ready(function() {
 								//INVENTARIO
 		ajustarAltoIframe("cinventi",1200);		//	CARGAR INVENTARIO
 		ajustarAltoIframe("movUnidadesi",1200);	//	MOVIMINTO INVENTARIO
-        ajustarAltoIframe("cretinventi",1200);      //  RETIROS INVENTARIO
-        ajustarAltoIframe("cuentasi",1200);     //  CUENTAS
+    ajustarAltoIframe("cretinventi",1200);      //  RETIROS INVENTARIO
+    ajustarAltoIframe("cuentasi",1200);     //  CUENTAS
 		ajustarAltoIframe("cuentascatei",1200);		//	CUENTAS CATEGORIAS
 								//STATUS
 		ajustarAltoIframe("homei",1200);		//	LIBRO DE COMPRAS
@@ -114,7 +114,6 @@ $( document ).ready(function() {
 		} else {
 			 console.log('the tab with the content id ' + contentId + ' is NOT visible');
 		}
-	
 	});
 	*/
 }); 
@@ -138,14 +137,11 @@ $( document ).ready(function() {
           <ul class="nav navbar-nav" id="myTabs">
 
             <?php 
-              $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
-              $total_consulta = pg_num_rows($_SESSION['menu']);
-
-              if($total_consulta > 0)
+              if($_SESSION['menu'])
               do{ 
-                echo $resultadomenu['nombre'];
-                echo $resultadomenu['ruta'];
-              }while($resultadomenu=pg_fetch_assoc($_SESSION['menu']));?> 
+                echo $_SESSION['menu']['nombre'];
+                echo $_SESSION['menu']['ruta'];
+              }while($_SESSION['menu']);?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
