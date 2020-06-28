@@ -76,9 +76,9 @@
             <tbody>
                 <?php do{?>
                     <tr>
-                        <td><?php echo $filas['c.id'];?></td>
-                        <td><?php echo $filas['c.nombre'];?></td>
-                        <td><?php echo $filas['c.descripcion'];?></td>
+                        <td><?php echo $filas['id'];?></td>
+                        <td><?php echo $filas['nombre'];?></td>
+                        <td><?php echo $filas['descripcion'];?></td>
                     </tr>
                 <?php }while($filas = pg_fetch_assoc($consulta)); ?>
             </tbody>
