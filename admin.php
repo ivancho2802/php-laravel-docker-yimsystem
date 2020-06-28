@@ -138,11 +138,12 @@ $( document ).ready(function() {
 
             <?php 
               if($_SESSION['menu'])
-              // do{ 
-              //   echo $_SESSION['menu']['nombre'];
-              //   echo $_SESSION['menu']['ruta'];
-              //   echo $_SESSION['menu']['me.ruta'];
-              // }while($_SESSION['menu']);
+                $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
+                do{ 
+                  echo $resultadomenu['nombre'];
+                  echo $resultadomenu['menu.nombre'];
+                  echo $resultadomenu['menu.ruta'];//menu_sub
+                }while($resultadomenu=pg_fetch_assoc($_SESSION['menu']));
               ?> 
 
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>

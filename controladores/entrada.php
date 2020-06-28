@@ -21,17 +21,7 @@ $_SESSION["msm"] = $usu_aprobado["mensaje"];
 if($_SESSION["acceso"] == 1)
  {	
  	//inicializo menu
-	$_SESSION['menu'] = $usu_aprobado['menu'];
-	$resultadomenu=pg_fetch_assoc($_SESSION['menu']);
-
-      do{ 
-      	echo $resultadomenu['nombre'];
-      	echo $resultadomenu['menu.nombre'];
-      }while($resultadomenu=pg_fetch_assoc($_SESSION['menu']));
-
-
-	var_dump($resultadomenu);
-	return;
+	$_SESSION['menu'] = $usu_aprobado['menu']; 
 	//INICIALIZO LA VARIABLE urlPrev
 	$_SESSION['urlPrev']="";
 	$_SESSION["usuario"]=$usu_aprobado["usuario"];
