@@ -141,8 +141,8 @@ $( document ).ready(function() {
               if($_SESSION['menu']) 
                 // for($i=0;$i<count($_SESSION['menu']);$i++) { 
                 do{ 
-                echo $_SESSION['menu']['menu.nombre'];
-                echo $_SESSION['menu']['menu_sub.nombre'];
+                echo $_SESSION['menu']['nombre'];
+                echo $_SESSION['menu']['ruta'];
             ?>
             <?php }while($_SESSION['menu']);?> 
 
