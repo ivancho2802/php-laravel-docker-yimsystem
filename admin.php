@@ -168,10 +168,8 @@ $( document ).ready(function() {
                               <ul class="dropdown-menu" id="myTabs">
                       ';
                     }
-                    if($menubefore[$i-1] == $menubefore[$i]){
                       echo '    <li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                                 // <li role="separator" class="divider"></li>
-                    }
                     if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '    </ul>
                               </li>
