@@ -16,8 +16,7 @@ do {
   // $custommenu=$resultadomenu
   echo $resultadomenu['menu.nombre'];
 }while($resultadomenu=pg_fetch_assoc($okmenu));
-var_dump($resultadomenu);
-var_dump($custommenu);
+// var_dump($resultadomenu);
 return;
 
 ?>
