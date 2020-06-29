@@ -156,7 +156,7 @@ $( document ).ready(function() {
                 do {
                   // $custommenu=$resultadomenu
                   $menubefore[$i] = $resultadomenu['menuid'];
-                  if(!$resultadomenu['menuruta'] || $resultadomenu['menuruta'] !== '#'){
+                  if(  $resultadomenu['menuruta'] !== '#'){
                     if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '<li class="active"><a href="'.$resultadomenu['menuruta'].'" data-toggle="tab">'.$resultadomenu['menunombre'].'</a></li>';
                     }
@@ -168,10 +168,8 @@ $( document ).ready(function() {
                               <ul class="dropdown-menu" id="myTabs">
                       ';
                     }
-                    if($menubefore[$i-1] == $menubefore[$i]){
                       echo '    <li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                                 // <li role="separator" class="divider"></li>
-                    }
                     if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '    </ul>
                               </li>
