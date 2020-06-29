@@ -6,15 +6,24 @@ include_once('includes_SISTEM/include_login.php');
 
 //consulta del menu segun el rol
 $nivel = $_SESSION["nivel"];
-$sqlmenu="SELECT * FROM menu_sub ms
-                  INNER JOIN menu me 
+$sqlmenu="SELECT  me.id AS menuid, me.nombre AS menunombre, me.ruta AS menuruta,
+                  ms.nombre AS menu_subnombre , ms.ruta AS menu_subruta, ms.fk_menu AS fk_menu,
+                  *
+          FROM menu_sub ms 
+                  INNER JOIN menu me
                   ON ms.fk_menu = me.id
-      WHERE me.nivel='$nivel'";
+          WHERE me.nivel='$nivel'";
 $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
+$i = 0;
+$menubefore;
 do {
   // $custommenu=$resultadomenu
-  echo $resultadomenu['nombre'];
+  $menubefore[$i] = $resultadomenu['menuid'];
+  if($menubefore[$i-1] !== $menubefore[$i]){
+    echo $resultadomenu['nombre'];
+  }
+  $i++;
 }while($resultadomenu=pg_fetch_assoc($okmenu));
 // var_dump($resultadomenu);
 return;
