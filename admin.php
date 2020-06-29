@@ -2,6 +2,24 @@
 include_once('includes_SISTEM/include_header.php');
 include_once('includes_SISTEM/include_login.php');
 //$sistem_root = SISTEM_ROOT;
+
+
+//consulta del menu segun el rol
+$nivel = $_SESSION["nivel"];
+$sqlmenu="SELECT * FROM menu_sub ms
+                  INNER JOIN menu me 
+                  ON ms.fk_menu = me.id
+      WHERE me.nivel='$nivel'";
+$okmenu=pg_query($conexion,$sqlmenu);
+$resultadomenu=pg_fetch_assoc($okmenu);
+do {
+  // $custommenu=$resultadomenu
+  echo $resultadomenu['menu.nombre'];
+}while($resultadomenu=pg_fetch_assoc($okmenu));
+var_dump($resultadomenu);
+var_dump($custommenu);
+return;
+
 ?>
 <!DOCTYPE HTML>
 <html lang="es">

@@ -12,20 +12,8 @@ class usuario
 		// echo($resultado = pg_fetch_row($ok));
 		if($resultado = pg_fetch_assoc($ok))
 		{
-			//consulta del menu segun el rol
-			$nivel = $resultado["nivel"];
-			$sqlmenu="SELECT * FROM menu_sub ms
-                        INNER JOIN menu me 
-                        ON ms.fk_menu = me.id
-						WHERE me.nivel='$nivel'";
-			$okmenu=pg_query($conexion,$sqlmenu);
-			$resultadomenu=pg_fetch_assoc($okmenu);
-			$custommenu=[];
-			// do {
-			// 	$custommenu.push($resultadomenu);
-			// }while($resultadomenu=pg_fetch_assoc($okmenu));
 
-			$resultado["menu"] = $resultadomenu;
+			$resultado["nivel"] = $nivel;
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
 			return $resultado;
