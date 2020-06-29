@@ -15,19 +15,10 @@ $sqlmenu="SELECT  me.id AS menuid, me.nombre AS menunombre, me.ruta AS menuruta,
           WHERE me.nivel='$nivel'";
 $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
+$totalRows_Recordset1 = pg_num_rows($okmenu);
 $i = 0;
 $menubefore;
-do {
-  // $custommenu=$resultadomenu
-  $menubefore[$i] = $resultadomenu['menuid'];
-  if($menubefore[$i-1] !== $menubefore[$i]){
-    echo $resultadomenu['nombre'];
-  }
-  $i++;
-}while($resultadomenu=pg_fetch_assoc($okmenu));
 // var_dump($resultadomenu);
-return;
-
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -160,19 +151,37 @@ $( document ).ready(function() {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" id="myTabs">
-
             <?php 
-
-              if($_SESSION['menu']){
-                $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
-                do{ 
-                  echo $resultadomenu['nombre'];
-                  echo $resultadomenu['menu.nombre'];
-                  echo $resultadomenu['menu.ruta'];//menu_sub
-                }while($resultadomenu=pg_fetch_assoc($_SESSION['menu']));
+              if($totalRows_Recordset1>0){
+                do {
+                  // $custommenu=$resultadomenu
+                  $menubefore[$i] = $resultadomenu['menuid'];
+                  if(!$resultadomenu['menuruta'] || $resultadomenu['menuruta'] !== '#'){
+                    if($menubefore[$i-1] !== $menubefore[$i]){
+                      echo '<li class="active"><a href="'.$resultadomenu['menuruta'].'" data-toggle="tab">'.$resultadomenu['menunombre'].'</a></li>';
+                    }
+                  }else{
+                    if($menubefore[$i-1] !== $menubefore[$i]){
+                      echo '<li class="dropdown">
+                              <a href="'.$resultadomenu['menuruta'].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$resultadomenu['menunombre'].'  <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" id="myTabs">
+                      ';
+                    }
+                    if($menubefore[$i-1] == $menubefore[$i]){
+                      echo '    <li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
+                                // <li role="separator" class="divider"></li>
+                    }
+                    if($menubefore[$i-1] !== $menubefore[$i]){
+                      echo '    </ul>
+                              </li>
+                      ';
+                    }
+                  }
+                  $i++;
+                }while($resultadomenu=pg_fetch_assoc($okmenu));
               }
               ?> 
-
             <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
