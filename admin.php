@@ -2,9 +2,6 @@
 include_once('includes_SISTEM/include_header.php');
 include_once('includes_SISTEM/include_login.php');
 //$sistem_root = SISTEM_ROOT;
-var_dump($_SESSION['menu']);
-var_dump($_COOKIE["menu"]);
-return;
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -139,6 +136,13 @@ $( document ).ready(function() {
           <ul class="nav navbar-nav" id="myTabs">
 
             <?php 
+
+
+var_dump($_SESSION['menu']);
+var_dump($_COOKIE["menu"]);
+return;
+
+
               if($_SESSION['menu']){
                 $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
                 do{ 
