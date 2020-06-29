@@ -137,11 +137,6 @@ $( document ).ready(function() {
 
             <?php 
 
-
-var_dump($_SESSION['menu']);
-return;
-
-
               if($_SESSION['menu']){
                 $resultadomenu=pg_fetch_assoc($_SESSION['menu']);
                 do{ 
