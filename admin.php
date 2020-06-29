@@ -16,8 +16,8 @@ $sqlmenu="SELECT  me.id AS menuid, me.nombre AS menunombre, me.ruta AS menuruta,
 $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
 $totalRows_Recordset1 = pg_num_rows($okmenu);
-$i = 1;
-$menubefore=array('0' => 'inicial' );
+$i = 0;
+$menubefore=array('-1' => 'inicial' );
 // var_dump($resultadomenu);
 ?>
 <!DOCTYPE HTML>
@@ -168,8 +168,10 @@ $( document ).ready(function() {
                               <ul class="dropdown-menu" id="myTabs">
                       ';
                     }
+                    if($menubefore[$i-1] == $menubefore[$i]){
                       echo '    <li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                                 // <li role="separator" class="divider"></li>
+                    }
                     if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '    </ul>
                               </li>
