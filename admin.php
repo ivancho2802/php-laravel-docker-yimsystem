@@ -14,7 +14,7 @@ $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
 do {
   // $custommenu=$resultadomenu
-  echo $resultadomenu['me.nombre'];
+  echo $resultadomenu['nombre'];
 }while($resultadomenu=pg_fetch_assoc($okmenu));
 // var_dump($resultadomenu);
 return;
