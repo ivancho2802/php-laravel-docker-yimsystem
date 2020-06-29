@@ -13,7 +13,6 @@ class usuario
 		if($resultado = pg_fetch_assoc($ok))
 		{
 
-			$resultado["nivel"] = $nivel;
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
 			return $resultado;
