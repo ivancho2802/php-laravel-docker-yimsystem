@@ -28,6 +28,8 @@ class usuario
 			$resultado["menu"] = $okmenu;
 			$resultado["mensaje"] = "";
 			$resultado["acceso"] = 1;
+			setcookie("menu", $usu_aprobado['menu']);
+			$_SESSION['menu'] = $usu_aprobado['menu']; 
 			return $resultado;
 		} else{
 			$resultado["mensaje"] = "Usuario &oacute; Contrase&ntilde;a Inv&aacute;lidos";

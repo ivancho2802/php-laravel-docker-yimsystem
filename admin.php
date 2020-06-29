@@ -138,8 +138,8 @@ $( document ).ready(function() {
             <?php 
 
 
-var_dump($_SESSION['menu']);
-var_dump($_COOKIE["menu"]);
+var_dump($resultadomenu=pg_fetch_assoc($_SESSION['menu']));
+var_dump($resultadomenu=pg_fetch_assoc($_COOKIE["menu"]));
 return;
 
 
