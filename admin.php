@@ -16,7 +16,7 @@ $sqlmenu="SELECT  me.id AS menuid, me.nombre AS menunombre, me.ruta AS menuruta,
 $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
 $totalRows_Recordset1 = pg_num_rows($okmenu);
-$i = 0;
+$i = 1;
 $menubefore;
 // var_dump($resultadomenu);
 ?>
