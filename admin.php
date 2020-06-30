@@ -152,6 +152,7 @@ $( document ).ready(function() {
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" id="myTabs">
             <?php 
+              $groupul = '';
               if($totalRows_Recordset1>0){
                 do {
                   // $custommenu=$resultadomenu
@@ -167,13 +168,14 @@ $( document ).ready(function() {
                               </a>
                               <ul class="dropdown-menu" id="myTabs">
                       ';
-                    }
-                      echo '    <li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
-                                // <li role="separator" class="divider"></li>
-                    if($menubefore[$i-1] !== $menubefore[$i]){
-                      echo '    </ul>
-                              </li>
+                      echo $groupul;
+                      echo '  </ul>
+                            </li>
                       ';
+                      $groupul = '';
+                    }else{
+                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
+                                // <li role="separator" class="divider"></li>
                     }
                   }
                   $i++;
