@@ -17,7 +17,7 @@ $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
 $totalRows_Recordset1 = pg_num_rows($okmenu);
 $i = 0;
-$menubefore=array('-1' => '1' );
+$menubefore;//=array('-1' => '0' );
 // var_dump($resultadomenu);
 ?>
 <!DOCTYPE HTML>
@@ -158,11 +158,11 @@ $( document ).ready(function() {
                   // $custommenu=$resultadomenu
                   $menubefore[$i] = $resultadomenu['menuid'];
                   if(  $resultadomenu['menuruta'] !== '#'){
-                    if($menubefore[$i-1] !== $menubefore[$i]){
+                    if($menubefore[$i+1] !== $menubefore[$i]){
                       echo '<li class="active"><a href="'.$resultadomenu['menuruta'].'" data-toggle="tab">'.$resultadomenu['menunombre'].'</a></li>';
                     }
                   }else{
-                    if($menubefore[$i-1] !== $menubefore[$i]){
+                    if($menubefore[$i+1] !== $menubefore[$i]){
                       echo '<li class="dropdown">
                               <a href="'.$resultadomenu['menuruta'].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$resultadomenu['menunombre'].$menubefore[$i-1].$menubefore[$i].'  <span class="caret"></span>
                               </a>
