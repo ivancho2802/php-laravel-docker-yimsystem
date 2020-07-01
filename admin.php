@@ -174,7 +174,7 @@ $( document ).ready(function() {
                       ';
                       $groupul = '';
                     }else{
-                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
+                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].$menubefore[$i-1].$menubefore[$i].'</a></li>';
                                 // <li role="separator" class="divider"></li>
                     }
                   }
