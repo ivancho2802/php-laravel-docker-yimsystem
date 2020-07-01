@@ -165,7 +165,7 @@ $( document ).ready(function() {
                     }
                   }else{
                     if($menubefore[$i-1] !== $menubefore[$i]){
-                      if($totalRows_Recordset1 !== $i){
+                      if($totalRows_Recordset1 !== $i && ($menurutabefore && $menunombrebefore)){
 
                         echo '<li class="dropdown">
                                 <a href="'.$menurutabefore.'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menunombrebefore.'  <span class="caret"></span>
@@ -178,7 +178,12 @@ $( document ).ready(function() {
                         ';
                         $groupul = '';
                         $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
-                      }else
+                      }
+                      
+                    }else{
+                      $menurutabefore = $resultadomenu['menuruta'];
+                      $menunombrebefore = $resultadomenu['menunombre'];
+                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                       if($totalRows_Recordset1 == $i){
                         $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                         echo '<li class="dropdown">
@@ -199,13 +204,6 @@ $( document ).ready(function() {
                         echo '  </ul>
                               </li>
                         ';
-                      }
-                    }else{
-                      $menurutabefore = $resultadomenu['menuruta'];
-                      $menunombrebefore = $resultadomenu['menunombre'];
-                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
-                      if($totalRows_Recordset1 == $i){
-                        
                       }
                                 // <li role="separator" class="divider"></li>
                     }
