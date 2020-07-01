@@ -17,7 +17,7 @@ $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
 $totalRows_Recordset1 = pg_num_rows($okmenu);
 $i = 0;
-$menubefore=array('-1' => '0' );
+$menubefore=array('-1' => '1' );
 // var_dump($resultadomenu);
 ?>
 <!DOCTYPE HTML>
