@@ -164,7 +164,7 @@ $( document ).ready(function() {
                   }else{
                     if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '<li class="dropdown">
-                              <a href="'.$resultadomenu['menuruta'].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$resultadomenu['menunombre'].'  <span class="caret"></span>
+                              <a href="'.$resultadomenu['menuruta'].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$resultadomenu['menunombre'].$menubefore[$i-1].$menubefore[$i].'  <span class="caret"></span>
                               </a>
                               <ul class="dropdown-menu" id="myTabs">
                       ';
