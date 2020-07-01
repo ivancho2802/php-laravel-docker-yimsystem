@@ -157,14 +157,14 @@ $( document ).ready(function() {
                 do {
                   // $custommenu=$resultadomenu
                   $menubefore[$i] = $resultadomenu['menuid'];
-                  $menurutabefore[$i] = $resultadomenu['menuruta'];
-                  $menunombrebefore[$i] = $resultadomenu['menunombre'];
                   if(  $resultadomenu['menuruta'] !== '#'){
+                    if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '<li class="active"><a href="'.$resultadomenu['menuruta'].'" data-toggle="tab">'.$resultadomenu['menunombre'].'</a></li>';
+                    }
                   }else{
                     if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '<li class="dropdown">
-                              <a href="'.$menurutabefore[$i-1]?$menurutabefore[$i-1]:$menurutabefore[$i].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menunombrebefore[$i-1]?$menunombrebefore[$i-1]:$menunombrebefore[$i].'  <span class="caret"></span>
+                              <a href="'.$resultadomenu['menuruta'].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$resultadomenu['menunombre'].'  <span class="caret"></span>
                               </a>
                               <ul class="dropdown-menu" id="myTabs">
                       ';
@@ -174,7 +174,7 @@ $( document ).ready(function() {
                       ';
                       $groupul = '';
                     }else{
-                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].$menubefore[$i-1].$menubefore[$i].'</a></li>';
+                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                                 // <li role="separator" class="divider"></li>
                     }
                   }
