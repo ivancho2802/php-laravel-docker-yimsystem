@@ -17,7 +17,7 @@ $okmenu=pg_query($conexion,$sqlmenu);
 $resultadomenu=pg_fetch_assoc($okmenu);
 $totalRows_Recordset1 = pg_num_rows($okmenu);
 $i = 0;
-$menubefore=array($totalRows_Recordset1+1 => $totalRows_Recordset1 );
+$menubefore=array('-1' => '0' );
 // var_dump($resultadomenu);
 ?>
 <!DOCTYPE HTML>
@@ -157,14 +157,14 @@ $( document ).ready(function() {
                 do {
                   // $custommenu=$resultadomenu
                   $menubefore[$i] = $resultadomenu['menuid'];
+                  $menurutabefore[$i] = $resultadomenu['menuruta'];
+                  $menunombrebefore[$i] = $resultadomenu['menunombre'];
                   if(  $resultadomenu['menuruta'] !== '#'){
-                    if($menubefore[$i] !== $menubefore[$i+1]){
                       echo '<li class="active"><a href="'.$resultadomenu['menuruta'].'" data-toggle="tab">'.$resultadomenu['menunombre'].'</a></li>';
-                    }
                   }else{
-                    if($menubefore[$i] !== $menubefore[$i+1]){
+                    if($menubefore[$i-1] !== $menubefore[$i]){
                       echo '<li class="dropdown">
-                              <a href="'.$resultadomenu['menuruta'].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$resultadomenu['menunombre'].'  <span class="caret"></span>
+                              <a href="'.$menurutabefore[$i-1].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menunombrebefore[$i-1].'  <span class="caret"></span>
                               </a>
                               <ul class="dropdown-menu" id="myTabs">
                       ';
