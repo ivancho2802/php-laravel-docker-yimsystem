@@ -202,55 +202,7 @@ $( document ).ready(function() {
                 }while($resultadomenu=pg_fetch_assoc($okmenu));
               }
               ?> 
-            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Compras <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" id="myTabs">
-                <li><a href="#lcompra" data-toggle="tab">Libro de Compras</a></li>
-                <li><a href='#ccompra' data-toggle="tab">Cargar Compras</a></li>
-                <li><a href='#mcompra' data-toggle="tab">Modificar Compras</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href='#rcompra' data-toggle="tab">Reimprimir Comprobante</a></li>
-                <li><a href='#crcompra' data-toggle="tab">Aplicar Retencion</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Ventas <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href='#lventa'  data-toggle="tab">Libro de Ventas</a></li>
-                <li><a href='#cventa' data-toggle="tab">Cargar Ventas</a></li>
-                <li><a href='#cfactventa'  data-toggle="tab">Consultar Fact. de Ventas</a></li>
-                <!--
-                <li role="separator" class="divider"></li>
-                <li><a target='principal' href='modulos/ventas/'>Aplicar Retencion</a></li>
-                -->
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Movimiento de Unidades <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a data-toggle="tab" href='#cinvent'>Cargar Inventario Inicial</a></li>
-                <li><a data-toggle="tab" href='#movUnidades'>Consultar Movimiento de Unidades</a></li>
-                <li><a data-toggle="tab" href='#cretinvent'>Cargar Retiros del Inventario</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Utilidades <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a target='principal' href='modulos/user/#'>Usuarios</a></li>
-                <li><a data-toggle="tab" href='#cuentas'>Cuentas</a></li>
-              </ul>
-            </li>
           </ul>
-          
           <form class="bav navbar-nav navbar-form navbar-right" action="index.php" method="POST">
             <input type="hidden" name="msm" value="Tu Sesi&oacute;n a sido cerrada">
           	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</button>
