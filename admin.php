@@ -181,8 +181,6 @@ $( document ).ready(function() {
                       }
                       
                     }else{
-                      $menurutabefore = $resultadomenu['menuruta'];
-                      $menunombrebefore = $resultadomenu['menunombre'];
                       $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                       if($totalRows_Recordset1-1 == $i){
                         $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
@@ -207,6 +205,8 @@ $( document ).ready(function() {
                       }
                                 // <li role="separator" class="divider"></li>
                     }
+                      $menurutabefore = $resultadomenu['menuruta'];
+                      $menunombrebefore = $resultadomenu['menunombre'];
                   }
                   $i++;
                 }while($resultadomenu=pg_fetch_assoc($okmenu));
