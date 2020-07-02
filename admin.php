@@ -183,7 +183,6 @@ $( document ).ready(function() {
                     }else{
                       $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                       if($totalRows_Recordset1-1 == $i){
-                        $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
                         echo '<li class="dropdown">
                               <a href="'.$menurutabefore.'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menunombrebefore.'  <span class="caret"></span>
                               </a>
@@ -192,16 +191,7 @@ $( document ).ready(function() {
                         echo $groupul;
                         echo '  </ul>
                               </li>
-                        ';
-                        echo '<li class="dropdown">
-                              <a href="'.$resultadomenu['menuruta'].'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$resultadomenu['menunombre'].'  <span class="caret"></span>
-                              </a>
-                              <ul class="dropdown-menu" id="myTabs">
-                        ';
-                        echo $groupul;
-                        echo '  </ul>
-                              </li>
-                        ';
+                        '; 
                       }
                                 // <li role="separator" class="divider"></li>
                     }
