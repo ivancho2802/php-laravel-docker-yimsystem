@@ -19,16 +19,76 @@
     // $filas = pg_fetch_assoc($consultaEmpre);
     $filas=pg_fetch_assoc($consulta);
     $total_consulta = pg_num_rows($consulta);
+
+    // lectura de pdf y carga de elementos
+    if (isset($_POST["import"])) {
+        
+        $fileName = $_FILES["file"]["tmp_name"];
+        
+        if ($_FILES["file"]["size"] > 0) {
+            
+            $file = fopen($fileName, "r");
+
+            $sqlInsert = "INSERT into users (id,nombre,descripcion,fk_empre) VALUES ";
+            
+            while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+                
+                $id = "";
+                if (isset($column[0])) {
+                    $id = pg_escape_string($column[0]);
+                }
+                $nombre = "";
+                if (isset($column[1])) {
+                    $nombre = pg_escape_string($column[1]);
+                }
+                $descripcion = "";
+                if (isset($column[2])) {
+                    $descripcion = pg_escape_string($column[2]);
+                } 
+                $fk_empre = "";
+                if (isset($column[4])) {
+                    $fk_empre = $_SESSION["id_usu"]);
+                } 
+                $sqlInsert .= "(".$id.", ".$nombre.", ".$descripcion.", ".$fk_empre."),";
+                
+                if (! empty($insertId)) {
+                    $type = "success";
+                    $message = "CSV Data Imported into the Database";
+                } else {
+                    $type = "error";
+                    $message = "Problem in Importing CSV Data";
+                }
+            }
+
+            echo $sqlInsert;
+        }
+    }
+
 ?>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#frmCSVImport").on("submit", function () {
+
+        $("#response").attr("class", "");
+        $("#response").html("");
+        var fileType = ".csv";
+        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + fileType + ")$");
+        if (!regex.test($("#file").val().toLowerCase())) {
+                $("#response").addClass("error");
+                $("#response").addClass("display-block");
+            $("#response").html("Invalid File. Upload : <b>" + fileType + "</b> Files.");
+            return false;
+        }
+        return true;
+    });
+});
+</script>
 <div id="cuentas"  class="bs-example">
         <!-- col-xs-12 col-md-12 col-lg-12 -->
         <div class="form-group row">
 
-            <div class="col-xs-6 col-md-6 col-lg-6">
-                <h1 class="bd-title">Cuentas </h1>
-            </div>
-              <form method="POST" class="col-xs-6 col-md-6 col-lg-6">
-                  <label class="control-label">Consulta Por Numero, nombre y categorias</label>
+              <form method="POST" class="col-xs-4 col-md-4 col-lg-4">
+                  <label class="control-label">Consulta de Cuentas</label>
                   <div class="input-group">  
                         <input type="text" class="form-control" name="cuenta" id="cuenta" required="required" lang="si-general">
                         <span class="input-group-btn">
@@ -36,10 +96,20 @@
                         </span> 
                   </div>
               </form>
+            <div class="col-xs-4 col-md-4 col-lg-4">
+                <form class="form-horizontal" action="" method="post"
+                name="frmCSVImport" id="frmCSVImport"
+                enctype="multipart/form-data">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile" accept=".csv">
+                      <label class="custom-file-label" for="customFile">Cargar Archivo CSV</label>
+                    </div>
+                    <button type="submit" id="submit" name="import"  class="btn-submit">Import</button>
+                </form>
+            </div>
         </div>
 
 </div><!--cuentas-->
-<hr id="res_cuentas" class="featurette-divider"/>
   <form method="POST" action="listar_submit">
     <button type="button" class="btn btn-sm btn-primary col-xs-12 col-lg-12 glyphicon glyphicon-plus" onclick="modaladdcuenta()"></button>
     <!-- <button class="btn btn-primary" type="button" click="loadcrearcuenta()">Crear Cuenta!</button> -->
