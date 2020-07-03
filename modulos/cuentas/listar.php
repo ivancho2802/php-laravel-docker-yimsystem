@@ -47,7 +47,7 @@
                 } 
                 $fk_empre = "";
                 if (isset($column[4])) {
-                    $fk_empre = $_SESSION["id_usu"]);
+                    $fk_empre = $_SESSION["id_usu"];
                 } 
                 $sqlInsert .= "(".$id.", ".$nombre.", ".$descripcion.", ".$fk_empre."),";
                 
