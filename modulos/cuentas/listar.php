@@ -33,15 +33,15 @@
             
             while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) {
                 
-                $id = "";
+                $id = "''";
                 if (isset($column[0])) {
                     $id = pg_escape_string($column[0]);
                 }
-                $nombre = "";
+                $nombre = "''";
                 if (isset($column[1])) {
                     $nombre = pg_escape_string($column[1]);
                 }
-                $descripcion = "";
+                $descripcion = "''";
                 if (isset($column[2])) {
                     $descripcion = pg_escape_string($column[2]);
                 } 
