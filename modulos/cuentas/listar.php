@@ -101,7 +101,7 @@ $(document).ready(function() {
                 name="frmCSVImport" id="frmCSVImport"
                 enctype="multipart/form-data">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile" accept=".csv">
+                      <input type="file" class="custom-file-input" id="customFile" name="customFile" accept=".csv">
                       <label class="custom-file-label" for="customFile">Cargar Archivo CSV</label>
                     </div>
                     <button type="submit" id="submit" name="import"  class="btn-submit">Import</button>
