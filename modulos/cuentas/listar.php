@@ -29,7 +29,7 @@
             
             $file = fopen($fileName, "r");
 
-            $sqlInsert = "INSERT into users (id,nombre,descripcion,fk_empre) VALUES ";
+            $sqlInsert = "INSERT into cuentas (id,nombre,descripcion,fk_empre) VALUES ";
             
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 
@@ -45,10 +45,7 @@
                 if (isset($column[2])) {
                     $descripcion = pg_escape_string($column[2]);
                 } 
-                $fk_empre = "";
-                if (isset($column[4])) {
-                    $fk_empre = $_SESSION["id_usu"];
-                } 
+                $fk_empre = $_SESSION["id_usu"];
                 $sqlInsert .= "(".$id.", ".$nombre.", ".$descripcion.", ".$fk_empre."),";
                 
                 if (! empty($insertId)) {
