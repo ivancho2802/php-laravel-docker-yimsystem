@@ -24,18 +24,16 @@
     <div class="">
         <h1 class="bd-title">Cuentas </h1>
     </div>
-        <!-- col-xs-12 col-md-4 col-lg-4 -->
-        <div class="form-group">
-          <form method="POST">
-                <label class="control-label">Consulta Por Numero, nombre y categorias</label>
-                <span class="input-group">
-                    <span class="input-group-prepend">
-                        <input type="text" class="form-control" name="cuenta" id="cuenta" required="required" lang="si-general"> 
-                    </span>
-                    <button id="btn" type="button" class="form-control btn btn-primary"  name="Consultar" id="Consultar">
-                        Buscar
-                    </button>
-                </span>
+        <!-- col-xs-12 col-md-12 col-lg-12 -->
+        <div class="form-group row">
+          <form method="POST" class="col-xs-12 col-md-12 col-lg-12">
+              <label class="control-label">Consulta Por Numero, nombre y categorias</label>
+              <div class="input-group">  
+                    <input type="text" class="form-control" name="cuenta" id="cuenta" required="required" lang="si-general">
+                    <span class="input-group-btn">
+                        <button  name="Consultar" id="Consultar" class="btn btn-primary" type="button"  value="">Buscar</button>
+                    </span> 
+              </div>
           </form>
           <form method="POST" action="listar_submit">
             <button class="list-group-item list-group-item-secondary" type="button" onclick="modaladdcuenta()">Crear Cuenta!</button>
@@ -74,19 +72,35 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td>N° Cuenta</td>
+                    <td>Codigo</td>
                     <td>Nom Cuenta</td>
                     <td>Descrip</td>
                 </tr>
             </thead>
             <tbody>
-                <?php do{?>
-                    <tr>
-                        <td><?php echo $filas['id'];?></td>
-                        <td><?php echo $filas['nombre'];?></td>
-                        <td><?php echo $filas['descripcion'];?></td>
-                    </tr>
-                <?php }while($filas = pg_fetch_assoc($consulta)); ?>
+                <?php 
+                    $i = 1;
+                    do{
+                        if($i>=3){
+                ?>
+                            <tr>
+                                <td><?php echo $filas['id'];?></td>
+                                <td><?php echo $filas['nombre'];?></td>
+                                <td><?php echo $filas['descripcion'];?></td>
+                            </tr>
+                <?php
+                        }else{
+                ?>
+                            <tr class="">
+                                <td><?php echo $filas['id'];?></td>
+                                <td><?php echo $filas['nombre'];?></td>
+                                <td><?php echo $filas['descripcion'];?></td>
+                            </tr>
+                <?php
+                        }
+                        $i++;
+                    }while($filas = pg_fetch_assoc($consulta)); 
+                ?>
             </tbody>
         </table>
         <?php
