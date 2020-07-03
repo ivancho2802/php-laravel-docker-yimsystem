@@ -31,7 +31,7 @@
 
             $sqlInsert = "INSERT into cuentas (id,nombre,descripcion,fk_empre) VALUES ";
             
-            while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+            while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) {
                 
                 $id = "";
                 if (isset($column[0])) {
