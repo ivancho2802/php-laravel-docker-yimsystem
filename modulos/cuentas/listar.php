@@ -23,9 +23,9 @@
     // lectura de pdf y carga de elementos
     if (isset($_POST["import"])) {
         
-        $fileName = $_FILES["file"]["tmp_name"];
+        $fileName = $_FILES["customFile"]["tmp_name"];
         
-        if ($_FILES["file"]["size"] > 0) {
+        if ($_FILES["customFile"]["size"] > 0) {
             
             $file = fopen($fileName, "r");
 
