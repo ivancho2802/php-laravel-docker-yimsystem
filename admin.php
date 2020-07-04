@@ -218,61 +218,61 @@ $( document ).ready(function() {
 <div class="container">
     <div class="tab-content">
     	<div class="tab-pane" id="home" data-src="modulos/home/status.php">
-        <iframe id="homei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+        <iframe id="homei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
     	
         <div class="tab-pane" id="lcompra" data-src="modulos/compras/libroCompra.php">
-        <iframe id="lcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+        <iframe id="lcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         <div class="tab-pane" id="ccompra" data-src="modulos/compras/cargarCompra.php">
-        <iframe id="ccomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+        <iframe id="ccomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         <div class="tab-pane" id="mcompra" data-src="modulos/compras/modificarCompra.php">
-        <iframe id="mcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+        <iframe id="mcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         <div class="tab-pane" id="rcompra" data-src="modulos/compras/retenCompra.php">
-        <iframe id="rcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+        <iframe id="rcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         <div class="tab-pane" id="crcompra" data-src="modulos/compras/cargarRetenCompra.php">
-       <iframe id="crcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+       <iframe id="crcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         <!--///////////////////////////////		VENTAS-->
         <div class="tab-pane" id="lventa" data-src="modulos/ventas/libroVenta.php">
-        <iframe id="lventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+        <iframe id="lventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
 		<div class="tab-pane" id="cfactventa" data-src="modulos/ventas/factVenta.php">
-     <iframe id="cfactventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+     <iframe id="cfactventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         <div class="tab-pane" id="cventa" data-src="modulos/ventas/cargarVenta.php">
-     <iframe id="cventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+     <iframe id="cventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         <!--///////////////////////////////// INVENTARIO		-->
         <div class="tab-pane" id="cinvent" data-src="modulos/invent/cargarInvent.php">
-     <iframe id="cinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+     <iframe id="cinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         <div class="tab-pane" id="movUnidades" data-src="modulos/invent/movUnidad.php">
-     <iframe id="movUnidadesi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+     <iframe id="movUnidadesi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
 
         <!-- cuentas-->
         <div class="tab-pane" id="cuentas" data-src="modulos/cuentas/listar.php">
-            <iframe id="cuentasi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+            <iframe id="cuentasi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
 
         <!-- cuentas categorias-->
         <div class="tab-pane" id="cuentascate" data-src="modulos/cuentas/categorias.php">
-            <iframe id="cuentascatei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+            <iframe id="cuentascatei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         <div class="tab-pane" id="cretinvent" data-src="modulos/invent/cargarRetirosInvent.php">
-     <iframe id="cretinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+     <iframe id="cretinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
         </div>
         
         

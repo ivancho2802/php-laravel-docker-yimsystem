@@ -1180,3 +1180,9 @@ function modaladdcuenta() {
     $('#addCuenta').modal('show');
     return
 }
+
+//funcion para redimencionar los iframe
+
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+  }
