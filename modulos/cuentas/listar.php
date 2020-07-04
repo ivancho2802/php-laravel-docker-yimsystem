@@ -33,15 +33,15 @@
             
             while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) {
                 
-                $id = addslashes();
+                $id = addslashes('');
                 if (isset($column[0])) {
                     $id = addslashes($column[0]);
                 }
-                $nombre = addslashes();
+                $nombre = addslashes('');
                 if (isset($column[1])) {
                     $nombre = addslashes($column[1]);
                 }
-                $descripcion = addslashes();
+                $descripcion = addslashes('');
                 if (isset($column[2])) {
                     $descripcion = addslashes($column[2]);
                 } 
