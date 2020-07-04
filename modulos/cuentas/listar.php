@@ -57,7 +57,14 @@
                 }
             }
 
-            echo $sqlInsert;
+            $Result1 = pg_query($conexion,$sqlInsert);
+
+            if($resultado = pg_fetch_assoc($Result1)){
+                $_SESSION["msmsus"] = '<strong>Operacion hecha con exito!</strong>';
+            }else{
+                $_SESSION["msmerr"] = '<strong>Opps!</strong> Vuelva ha intentarlo algo ha salido mal nuestras disculpas!. Error CLIENTE: '.pg_last_error();
+            }
+
         }
     }
 
@@ -78,13 +85,37 @@ $(document).ready(function() {
         }
         return true;
     });
+
+    <?php
+    if(isset($_POST["msm"]) || isset($_SESSION["msm"])){//osea cuando cierro session por admin
+    ?>
+        $( document ).ready(function() {
+            document.getElementById('msm_register').setAttribute("class", "alert alert-danger alert-dismissible fade in");
+        });
+    <?php
+    }
+    ?>
 });
 </script>
 <div id="cuentas"  class="bs-example">
-        <!-- col-xs-12 col-md-12 col-lg-12 -->
-        <div class="form-group row">
+            <!-- col-xs-12 col-md-12 col-lg-12 -->
+            <div class="form-group row">
+                <div id="msm_register" class="alert <?php if(isset($_SESSION['msmerr']) && $_SESSION['msmerr'] !== '') echo 'alert-danger'; else echo 'alert-success';?> alert-dismissible fade" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <?php if(isset($_SESSION["msmerr"]) && $_SESSION["msmerr"] !== "")
+                    echo $_SESSION["msmerr"];
+                elseif(isset($_POST["msmerr"]))
+                    echo $_POST["msmerr"];
+                elseif(isset($_SESSION["msmsus"]) && $_SESSION["msmsus"] !== "")
+                    echo $_SESSION["msmsus"];
+                elseif(isset($_POST["msmsus"]))
+                    echo $_POST["msmsus"];
+                ?>
+            </div>
 
-              <form method="POST" class="col-xs-4 col-md-4 col-lg-4">
+            <form method="POST" class="col-xs-4 col-md-4 col-lg-4">
                   <label class="control-label">Consulta de Cuentas</label>
                   <div class="input-group">  
                         <input type="text" class="form-control" name="cuenta" id="cuenta" required="required" lang="si-general">
@@ -92,7 +123,7 @@ $(document).ready(function() {
                             <button  name="Consultar" id="Consultar" class="btn btn-primary" type="button"  value="">Buscar</button>
                         </span> 
                   </div>
-              </form>
+            </form>
             <div class="col-xs-4 col-md-4 col-lg-4">
                 <form class="form-horizontal" action="" method="post"
                 name="frmCSVImport" id="frmCSVImport"
