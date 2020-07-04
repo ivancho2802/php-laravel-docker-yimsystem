@@ -22,6 +22,8 @@
 
     // lectura de pdf y carga de elementos
     if (isset($_POST["import"])) {
+        $_SESSION["msmsus"] = '';
+        $_SESSION["msmerr"] = '';
         
         $fileName = $_FILES["customFile"]["tmp_name"];
         
