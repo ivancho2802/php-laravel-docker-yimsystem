@@ -47,7 +47,7 @@
                 } 
                 $fk_empre = addslashes($_SESSION["id_usu"]);
                 
-                if($id!=="''" && $nombre!=="''")
+                if($column[0]  && $column[1])
                     $sqlInsert .= "('".$id."', '".$nombre."', '".$descripcion."', '".$fk_empre."'),";
                 
                 if (! empty($insertId)) {
