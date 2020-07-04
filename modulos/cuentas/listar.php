@@ -46,7 +46,9 @@
                     $descripcion = addslashes($column[2]);
                 } 
                 $fk_empre = addslashes($_SESSION["id_usu"]);
-                $sqlInsert .= "('".$id."', '".$nombre."', '".$descripcion."', '".$fk_empre."'),";
+                
+                if($id!=="''" && $nombre!=="''")
+                    $sqlInsert .= "('".$id."', '".$nombre."', '".$descripcion."', '".$fk_empre."'),";
                 
                 if (! empty($insertId)) {
                     $type = "success";
@@ -57,7 +59,7 @@
                 }
             }
 
-            $Result1 = pg_query($conexion,$sqlInsert);
+            $Result1 = pg_query($conexion, rtrim($sqlInsert,','));
 
             if($resultado = pg_fetch_assoc($Result1)){
                 $_SESSION["msmsus"] = '<strong>Operacion hecha con exito!</strong>';
@@ -98,9 +100,8 @@ $(document).ready(function() {
 });
 </script>
 <div id="cuentas"  class="bs-example">
-            <!-- col-xs-12 col-md-12 col-lg-12 -->
-            <div class="form-group row">
-                <div id="msm_register" class="alert <?php if(isset($_SESSION['msmerr']) && $_SESSION['msmerr'] !== '') echo 'alert-danger'; else echo 'alert-success';?> alert-dismissible fade" role="alert">
+        <!-- col-xs-12 col-md-12 col-lg-12 -->
+            <div id="msm_register" class="alert <?php if(isset($_SESSION['msmerr']) && $_SESSION['msmerr'] !== '') echo 'alert-danger'; else echo 'alert-success';?> alert-dismissible fade" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -114,6 +115,7 @@ $(document).ready(function() {
                     echo $_POST["msmsus"];
                 ?>
             </div>
+        <div class="form-group row">
 
             <form method="POST" class="col-xs-4 col-md-4 col-lg-4">
                   <label class="control-label">Consulta de Cuentas</label>
