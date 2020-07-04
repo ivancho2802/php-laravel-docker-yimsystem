@@ -33,19 +33,19 @@
             
             while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) {
                 
-                $id = "''";
+                $id = addslashes();
                 if (isset($column[0])) {
-                    $id = "'".pg_escape_string($column[0])."'";
+                    $id = addslashes($column[0]);
                 }
-                $nombre = "''";
+                $nombre = addslashes();
                 if (isset($column[1])) {
-                    $nombre = "'".pg_escape_string($column[1])."'";
+                    $nombre = addslashes($column[1]);
                 }
-                $descripcion = "''";
+                $descripcion = addslashes();
                 if (isset($column[2])) {
-                    $descripcion = "'".pg_escape_string($column[2])."'";
+                    $descripcion = addslashes($column[2]);
                 } 
-                $fk_empre = $_SESSION["id_usu"];
+                $fk_empre = addslashes($_SESSION["id_usu"]);
                 $sqlInsert .= "(".$id.", ".$nombre.", ".$descripcion.", ".$fk_empre."),";
                 
                 if (! empty($insertId)) {
