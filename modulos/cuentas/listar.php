@@ -46,7 +46,7 @@
                     $descripcion = addslashes($column[2]);
                 } 
                 $fk_empre = addslashes($_SESSION["id_usu"]);
-                $sqlInsert .= "(".$id.", ".$nombre.", ".$descripcion.", ".$fk_empre."),";
+                $sqlInsert .= "('".$id."', '".$nombre."', '".$descripcion."', '".$fk_empre."'),";
                 
                 if (! empty($insertId)) {
                     $type = "success";
@@ -87,7 +87,7 @@ $(document).ready(function() {
     });
 
     <?php
-    if(isset($_POST["msm"]) || isset($_SESSION["msm"])){//osea cuando cierro session por admin
+    if(isset($_POST["msmsus"]) || isset($_SESSION["msmsus"]) || isset($_POST["msmerr"]) || isset($_SESSION["msmerr"])){//osea cuando cierro session por admin
     ?>
         $( document ).ready(function() {
             document.getElementById('msm_register').setAttribute("class", "alert alert-danger alert-dismissible fade in");
