@@ -29,7 +29,7 @@
             
             $file = fopen($fileName, "r");
 
-            $sqlInsert = "INSERT into cuentas (id,nombre,descripcion,fk_empre) VALUES ";
+            $sqlInsert = "INSERT into cuenta (id,nombre,descripcion,fk_empre) VALUES ";
             
             while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) {
                 
