@@ -32,33 +32,36 @@
             $file = fopen($fileName, "r");
 
             $sqlInsert = "INSERT into cuenta (id,nombre,descripcion,fk_empre) VALUES ";
-            
+            $i = 0;
             while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) {
-                
-                $id = addslashes('');
-                if (isset($column[0])) {
-                    $id = addslashes($column[0]);
+
+                if($i!==0){
+                    $id = addslashes('');
+                    if (isset($column[0])) {
+                        $id = addslashes($column[0]);
+                    }
+                    $nombre = addslashes('');
+                    if (isset($column[1])) {
+                        $nombre = addslashes($column[1]);
+                    }
+                    $descripcion = addslashes('');
+                    if (isset($column[2])) {
+                        $descripcion = addslashes($column[2]);
+                    } 
+                    $fk_empre = addslashes($_SESSION["id_usu"]);
+                    
+                    if($column[0]  && $column[1])
+                        $sqlInsert .= "('".$id."', '".$nombre."', '".$descripcion."', '".$fk_empre."'),";
+                    
+                    if (! empty($insertId)) {
+                        $type = "success";
+                        $message = "CSV Data Imported into the Database";
+                    } else {
+                        $type = "error";
+                        $message = "Problem in Importing CSV Data";
+                    }
                 }
-                $nombre = addslashes('');
-                if (isset($column[1])) {
-                    $nombre = addslashes($column[1]);
-                }
-                $descripcion = addslashes('');
-                if (isset($column[2])) {
-                    $descripcion = addslashes($column[2]);
-                } 
-                $fk_empre = addslashes($_SESSION["id_usu"]);
-                
-                if($column[0]  && $column[1])
-                    $sqlInsert .= "('".$id."', '".$nombre."', '".$descripcion."', '".$fk_empre."'),";
-                
-                if (! empty($insertId)) {
-                    $type = "success";
-                    $message = "CSV Data Imported into the Database";
-                } else {
-                    $type = "error";
-                    $message = "Problem in Importing CSV Data";
-                }
+                $i++;
             }
 
             $Result1 = pg_query($conexion, rtrim($sqlInsert,','));
