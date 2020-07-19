@@ -35,7 +35,7 @@
             $i = 0;
             while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) {
 
-                if($i!==0){
+                if($i>0){
                     $id = addslashes('');
                     if (isset($column[0])) {
                         $id = addslashes($column[0]);
