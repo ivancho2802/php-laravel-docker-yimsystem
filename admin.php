@@ -2,25 +2,6 @@
 include_once('includes_SISTEM/include_header.php');
 include_once('includes_SISTEM/include_login.php');
 //$sistem_root = SISTEM_ROOT;
-
-
-//consulta del menu segun el rol
-$nivel = $_SESSION["nivel"];
-$sqlmenu="SELECT  me.id AS menuid, me.nombre AS menunombre, me.ruta AS menuruta,
-                  ms.nombre AS menu_subnombre , ms.ruta AS menu_subruta, ms.fk_menu AS fk_menu,
-                  *
-          FROM menu_sub ms 
-                  INNER JOIN menu me
-                  ON ms.fk_menu = me.id
-          WHERE me.nivel='$nivel'";
-$okmenu=pg_query($conexion,$sqlmenu);
-$resultadomenu=pg_fetch_assoc($okmenu);
-$totalRows_Recordset1 = pg_num_rows($okmenu);
-$i = 0;
-$menubefore=array('-1' => '0' );
-$menurutabefore='';//array('-1' => '#' );
-$menunombrebefore='';//array('-1' => 'Compras' );
-// var_dump($resultadomenu);
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -39,7 +20,7 @@ $menunombrebefore='';//array('-1' => 'Compras' );
 <!--					JS DEL MENU-->
 <script type="text/javascript">  
 //funcion ajax para cargar el menu	
-$( document ).ready(function() { 
+$( document ).ready(function() {
 	
 	function ajustarAltoIframe(iframe, extra){//ejemplo ajustarAltoIframe("lcomprai")
 		//document.getElementById('Noite').style.display='block';
@@ -83,9 +64,7 @@ $( document ).ready(function() {
 								//INVENTARIO
 		ajustarAltoIframe("cinventi",1200);		//	CARGAR INVENTARIO
 		ajustarAltoIframe("movUnidadesi",1200);	//	MOVIMINTO INVENTARIO
-    ajustarAltoIframe("cretinventi",1200);      //  RETIROS INVENTARIO
-    ajustarAltoIframe("cuentasi",1200);     //  CUENTAS
-		ajustarAltoIframe("cuentascatei",1200);		//	CUENTAS CATEGORIAS
+		ajustarAltoIframe("cretinventi",1200);		//	RETIROS INVENTARIO
 								//STATUS
 		ajustarAltoIframe("homei",1200);		//	LIBRO DE COMPRAS
 		
@@ -132,6 +111,7 @@ $( document ).ready(function() {
 		} else {
 			 console.log('the tab with the content id ' + contentId + ' is NOT visible');
 		}
+	
 	});
 	*/
 }); 
@@ -153,56 +133,55 @@ $( document ).ready(function() {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" id="myTabs">
-            <?php 
-              $groupul = '';
-              if($totalRows_Recordset1>0){
-                do {
-                  // $custommenu=$resultadomenu
-                  $menubefore[$i] = $resultadomenu['menuid'];
-                  if(  $resultadomenu['menuruta'] !== '#'){
-                    if($menubefore[$i-1] !== $menubefore[$i]){
-                      echo '<li class="active"><a href="'.$resultadomenu['menuruta'].'" data-toggle="tab">'.$resultadomenu['menunombre'].'</a></li>';
-                    }
-                  }else{
-                    if($menubefore[$i-1] !== $menubefore[$i]){
-                      if($totalRows_Recordset1-1 !== $i && ($menurutabefore && $menunombrebefore)){
-
-                        echo '<li class="dropdown">
-                                <a href="'.$menurutabefore.'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menunombrebefore.'  <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" id="myTabs">
-                        ';
-                        echo $groupul;
-                        echo '  </ul>
-                              </li>
-                        ';
-                        $groupul = '';
-                        $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
-                      }
-                      
-                    }else{
-                      $groupul .= '<li><a href="'.$resultadomenu['menu_subruta'].'" data-toggle="'.$resultadomenu['target'].'">'.$resultadomenu['menu_subnombre'].'</a></li>';
-                      if($totalRows_Recordset1-1 == $i){
-                        echo '<li class="dropdown">
-                              <a href="'.$menurutabefore.'"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menunombrebefore.'  <span class="caret"></span>
-                              </a>
-                              <ul class="dropdown-menu" id="myTabs">
-                        ';
-                        echo $groupul;
-                        echo '  </ul>
-                              </li>
-                        '; 
-                      }
-                                // <li role="separator" class="divider"></li>
-                    }
-                      $menurutabefore = $resultadomenu['menuruta'];
-                      $menunombrebefore = $resultadomenu['menunombre'];
-                  }
-                  $i++;
-                }while($resultadomenu=pg_fetch_assoc($okmenu));
-              }
-              ?> 
+            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Compras <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" id="myTabs">
+                <li><a href="#lcompra" data-toggle="tab">Libro de Compras</a></li>
+                <li><a href='#ccompra' data-toggle="tab">Cargar Compras</a></li>
+                <li><a href='#mcompra' data-toggle="tab">Modificar Compras</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href='#rcompra' data-toggle="tab">Reimprimir Comprobante</a></li>
+                <li><a href='#crcompra' data-toggle="tab">Aplicar Retencion</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Ventas <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href='#lventa'  data-toggle="tab">Libro de Ventas</a></li>
+                <li><a href='#cventa' data-toggle="tab">Cargar Ventas</a></li>
+                <li><a href='#cfactventa'  data-toggle="tab">Consultar Fact. de Ventas</a></li>
+                
+                <!--
+                <li role="separator" class="divider"></li>
+                <li><a target='principal' href='modulos/ventas/'>Aplicar Retencion</a></li>
+                -->
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Movimiento de Unidades <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a data-toggle="tab" href='#cinvent'>Cargar Inventario Inicial</a></li>
+                <li><a data-toggle="tab" href='#movUnidades'>Consultar Movimiento de Unidades</a></li>
+                <li><a data-toggle="tab" href='#cretinvent'>Cargar Retiros del Inventario</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Utilidades <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a target='principal' href='modulos/user/#'>Usuarios</a></li>
+              </ul>
+            </li>
           </ul>
+          
           <form class="bav navbar-nav navbar-form navbar-right" action="index.php" method="POST">
             <input type="hidden" name="msm" value="Tu Sesi&oacute;n a sido cerrada">
           	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</button>
@@ -210,69 +189,58 @@ $( document ).ready(function() {
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Contactenos</a></li>
           </ul>
-        </div>
-        <!--/.nav-collapse -->
+        </div><!--/.nav-collapse -->
       </div>
     </nav>
 </header>
 <div class="container">
     <div class="tab-content">
     	<div class="tab-pane" id="home" data-src="modulos/home/status.php">
-        <iframe id="homei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+        <iframe id="homei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
     	
         <div class="tab-pane" id="lcompra" data-src="modulos/compras/libroCompra.php">
-        <iframe id="lcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+        <iframe id="lcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="ccompra" data-src="modulos/compras/cargarCompra.php">
-        <iframe id="ccomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+        <iframe id="ccomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="mcompra" data-src="modulos/compras/modificarCompra.php">
-        <iframe id="mcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+        <iframe id="mcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="rcompra" data-src="modulos/compras/retenCompra.php">
-        <iframe id="rcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+        <iframe id="rcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="crcompra" data-src="modulos/compras/cargarRetenCompra.php">
-       <iframe id="crcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+       <iframe id="crcomprai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         <!--///////////////////////////////		VENTAS-->
         <div class="tab-pane" id="lventa" data-src="modulos/ventas/libroVenta.php">
-        <iframe id="lventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+        <iframe id="lventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
 		<div class="tab-pane" id="cfactventa" data-src="modulos/ventas/factVenta.php">
-     <iframe id="cfactventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+     <iframe id="cfactventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="cventa" data-src="modulos/ventas/cargarVenta.php">
-     <iframe id="cventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+     <iframe id="cventai" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         <!--///////////////////////////////// INVENTARIO		-->
         <div class="tab-pane" id="cinvent" data-src="modulos/invent/cargarInvent.php">
-     <iframe id="cinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+     <iframe id="cinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="movUnidades" data-src="modulos/invent/movUnidad.php">
-     <iframe id="movUnidadesi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
-        </div>
-
-        <!-- cuentas-->
-        <div class="tab-pane" id="cuentas" data-src="modulos/cuentas/listar.php">
-            <iframe id="cuentasi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
-        </div>
-
-        <!-- cuentas categorias-->
-        <div class="tab-pane" id="cuentascate" data-src="modulos/cuentas/categorias.php">
-            <iframe id="cuentascatei" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+     <iframe id="movUnidadesi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         <div class="tab-pane" id="cretinvent" data-src="modulos/invent/cargarRetirosInvent.php">
-     <iframe id="cretinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="resizeIframe(this)"></iframe>  
+     <iframe id="cretinventi" src="" width="100%" height="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
         </div>
         
         

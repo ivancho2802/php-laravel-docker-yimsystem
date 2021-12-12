@@ -170,7 +170,7 @@ $(document).ready(function() {
                         
                     	<label class="col-md-4 col-lg-4">
                             Mes de Aplicacion Retencion:<br>
-                            <input type="month" placeholder="MES/AÑO ejemplo:31/01" class="form-control" name="mes_apli_reten" id="mes_apli_reten" value="" lang="si-general">
+                            <input type="month" class="form-control" name="mes_apli_reten" id="mes_apli_reten" value="" lang="si-general">
                         </label>
                     </div>
                     <div class="row">

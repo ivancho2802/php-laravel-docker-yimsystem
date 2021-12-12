@@ -47,34 +47,7 @@
 		}
 			
 	}
-
-    // consulta ajax para traer cuentas
-    function consulcuenta(cuenta){
-        console.log("cuenta")
-        console.log(cuenta)
-        xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-              document.getElementById("zona_dinamica").innerHTML = xhttp.responseText;
-            }else{
-                console.log(xhttp);
-                document.getElementById("zona_dinamica").innerHTML = ' <div id="msm_login" class="alert alert-danger alert-dismissible fade in" role="alert">'+
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-                    '<span aria-hidden="true">×</span>'+
-                    '</button>'+
-                    '<strong> No se encontraron resultados'+       
-                '</div>';
-            }
-          }; 
-          
-            xhttp.open("GET", "<?php echo $extra?>modales/prov/b_cuenta_prov.php?cuenta="+ cuenta, true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send();
-            
-            
-            //si esto compila se puede insertar y seleccionar
-            //selecCuenta(rif,nombre,'<?php //echo $_SERVER['REQUEST_URI'];?>');
-    } 	
+		
 </script>
 <!-- Modal nueProv-->
     <div id="nueProv" class="modal fade" role="dialog">
@@ -103,8 +76,8 @@
                             </span>
                         </label>
                         <label class="col-md-6 col-lg-6">
-                            Nombre o Raz&oacute;n Social:<br />
-                            <span class="input-group">
+                        	Nombre o Raz&oacute;n Social:<br />
+                        	<span class="input-group">
                                 <span id="resRifC"> </span>
                                     <input type="text" class="form-control" name="nombre" id="nombre" pattern="[A-Za-z ñáéíóú ÑÁÉÍÓÚ 0-9]*" onBlur="javascript:this.value=this.value.toUpperCase();" lang="si-general" required>
                                
@@ -113,8 +86,6 @@
                                 </span>
                             </span>
                         </label>
-
-
                         
                         
                     </div>
@@ -129,17 +100,6 @@
                             <input class="form-control" type="text" name="direccion" id="direccion" required>
                         </label>
                 	</div><!--row-->
-                    <div class="row">
-                        <label class="col-md-12 col-lg-12">
-                            Cuenta Asociada:<br />
-                            <span class="input-group">
-                                <input type="text" class="form-control" name="cuentaasoc" id="cuentaasoc"  onkeyup="consulcuenta(this.value)" required> 
-                            </span>
-                        </label>
-                    </div><!--row-->
-                    <div class="row">
-                        <span id="zona_dinamica"></span> 
-                    </div><!--row-->
                 </label>
               </div><!--form-group-->
           </div><!--modal-bosy-->

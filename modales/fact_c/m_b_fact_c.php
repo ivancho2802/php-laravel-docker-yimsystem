@@ -142,7 +142,7 @@ $(document).ready(function() {
             <div class="row">
             	<div class="col-xs-12 col-md-4 col-lg-4">
                     <label>Mes y A&ntilde;o de Emisi&oacute;n:</label><br><!--de la Compra-->
-                    <input type="month" placeholder="MES/AÑO ejemplo:31/01" class="form-control" name="mes_fact_compra" id="mes_fact_compra" onchange="consulFact();"/>
+                    <input type="month" class="form-control" name="mes_fact_compra" id="mes_fact_compra" onchange="consulFact();"/>
                  </div>
                  
             	<div class="col-xs-12 col-md-4 col-lg-4">

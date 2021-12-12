@@ -46,7 +46,7 @@ if($total_consultaEmpre>0){
               <form method="POST"  name="form1">
                 <label class="control-label">Consulta Por Mes:</label>
                 <div class="input-group">  
-                  <input type="month" placeholder="MES/AÑO ejemplo:31/01" name="mes" class="form-control" value="<?php if(isset($_POST['mes']))echo $_POST['mes'];?>" required="required"/>
+                  <input type="month" name="mes" class="form-control" value="<?php if(isset($_POST['mes']))echo $_POST['mes'];?>" required="required"/>
                   <span class="input-group-btn">
                     <input class="btn btn-primary" type="submit" name="" value="Buscar Comprobante"/>
                   </span>

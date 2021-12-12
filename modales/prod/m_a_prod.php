@@ -163,7 +163,7 @@ $(document).ready(function() {
                         </label>
                         <label class="col-md-4 col-lg-4">
                             Fecha de Inventario Inicial:<br>
-                            <input type="month" placeholder="MES/AÑO ejemplo:31/01" class="form-control"  name="fecha" id="fecha" value="<?php echo $mes_inventario;?>" lang="si-general"/>
+                            <input type="month" class="form-control"  name="fecha" id="fecha" value="<?php echo $mes_inventario;?>" lang="si-general"/>
                         </label>
                 	</div><!--row-->
                     <div class="row">

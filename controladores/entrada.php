@@ -19,9 +19,7 @@ $_SESSION["acceso"] = $usu_aprobado['acceso'];
 $_SESSION["msm"] = $usu_aprobado["mensaje"];
 
 if($_SESSION["acceso"] == 1)
- {	
- 	//inicializo menu
- 	$_SESSION["nivel"] = $usu_aprobado["nivel"];
+ {
 	//INICIALIZO LA VARIABLE urlPrev
 	$_SESSION['urlPrev']="";
 	$_SESSION["usuario"]=$usu_aprobado["usuario"];

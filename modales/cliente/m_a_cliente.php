@@ -95,7 +95,7 @@
                         	Nombre o Raz&oacute;n Social:<br />
                             <span class="input-group">
                                 <span id="resRifC"></span>
-                                <input type="text" class="form-control" name="nom_cliente" id="nom_cliente" pattern="[A-Za-z ñáéíóú ÑÁÉÍÓÚ 0-9]*" onBlur="javascript:this.value=this.value.toUpperCase();" lang="si-general" required>
+                                    <input type="text" class="form-control" name="nom_cliente" id="nom_cliente" pattern="[A-Za-z ñáéíóú ÑÁÉÍÓÚ 0-9]*" onBlur="javascript:this.value=this.value.toUpperCase();" lang="si-general" required>
                                 
                                 <span class="input-group-btn">
                                     <button id="btn" type="button" onclick="cURLrifC('nombre','ced_cliente','formModal','nom_cliente','resRifC',this.id);" class="form-control btn btn-primary">
@@ -104,6 +104,7 @@
                                 </span>
                             </span>
                         </label>
+                        
                     </div>
                     <div class="row">
                     	<label class="col-md-4 col-lg-4">
