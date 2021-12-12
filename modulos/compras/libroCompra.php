@@ -183,6 +183,7 @@ $( document ).ready(function() {
             $acum_tot_iva = 0;
             //contador de filas
             $nop = 1;
+            if(!is_null($filas['id_fact_compra']))
             do{
                 //CONSULTAS RELACIONALES
                 //consulta las notas si existen 
