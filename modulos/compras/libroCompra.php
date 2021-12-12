@@ -188,12 +188,12 @@ $( document ).ready(function() {
                 //consulta las notas si existen 
                 $consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE 
 								fact_compra.id_fact_compra = notas_cd.id_fact_compra AND
-								notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']));
+								notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']?$filas['id_fact_compra']:''));
                 // $filasConsultaNota = $consultaNota->fetch_assoc();
                 $filasConsultaNota = pg_fetch_assoc($consultaNota);
                 $total_ConsultaNota = pg_num_rows($consultaNota);
                 /////		FACTURA TOTALES IMPORTACIONES
-                if($filas['nplanilla_import'] !== ""){
+                if(!is_null($filas['nplanilla_import'])){
                     $mtot_iva_compra_import = round($filas['mtot_iva_compra'],2);
                     $msubt_exento_compra_import = round($filas['msubt_exento_compra'],2);
                     $msubt_tot_bi_compra_import = round($filas['msubt_tot_bi_compra'],2);
@@ -242,7 +242,7 @@ $( document ).ready(function() {
                     $acum_msubt_bi_iva_8_inter = 		$acum_msubt_bi_iva_8_inter + $msubt_bi_iva_8_inter;
                     $acum_msubt_bi_iva_27_inter = 		$acum_msubt_bi_iva_27_inter + $msubt_bi_iva_27_inter;
                 }
-                $acum_msubt_exento_compra = $acum_msubt_exento_compra + round($filas['msubt_exento_compra'],2);
+                $acum_msubt_exento_compra = $acum_msubt_exento_compra + round($filas['msubt_exento_compra']?$filas['msubt_exento_compra']:0,2);
                 $acum_m_iva_reten = $acum_m_iva_reten + round($filas['m_iva_reten'],2);
                 
                 $acum_tot_iva = $acum_tot_iva + round($filas['tot_iva'],2);
