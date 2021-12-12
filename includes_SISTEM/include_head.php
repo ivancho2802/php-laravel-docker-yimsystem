@@ -8,29 +8,38 @@ ini_set('display_errors', '1');
 //	echo "aqui".$url;
 
 if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php')){
-	$extra = '../../';
-	echo "$extra";
-	echo $extra;
+	
+	if( $_SERVER["SERVER_NAME"] == 'localhost'){
+		$extra1 = '../';
+		$extra = '../../';
+	}
+	else{
+		$extra = '../../';
+		$extra1 = $extra;
+	}
+	//echo "$extra";
 	if(strpos($url, '/modulos/reporte'))
 		$extra = '../';
 }else{
 	if( $_SERVER["SERVER_NAME"] == 'localhost')
-	$extra = './';
-	else
-	$extra = '/';
+	$extra1 = './';
+	else{
+		$extra = '/';
+		$extra1 = $extra;
+	}
 }
 //echo $_SERVER["SERVER_NAME"];
-echo $extra;
+//echo $extra;
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-include_once(dirname(__DIR__).$extra."librerias/conexion.php");
-include_once(dirname(__DIR__).$extra."php/funciones.php");
+include_once(dirname(__DIR__).$extra1."librerias/conexion.php");
+include_once(dirname(__DIR__).$extra1."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
 <title>Sist. YIM</title>
 <!--ESTILOS BOOSTRAP-->
-<link rel="stylesheet" type="text/css" href="<?php echo $extra?>css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/navbar-fixed-top.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/signin.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/loading.css">
