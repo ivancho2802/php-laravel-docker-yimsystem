@@ -13,8 +13,14 @@ if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php'))
 	echo $extra;
 	if(strpos($url, '/modulos/reporte'))
 		$extra = '../';
-}else
+}else{
+	if( $_SERVER["SERVER_NAME"] == 'localhost')
 	$extra = './';
+	else
+	$extra = '/';
+}
+//echo $_SERVER["SERVER_NAME"];
+echo $extra;
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +30,7 @@ if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
 <title>Sist. YIM</title>
 <!--ESTILOS BOOSTRAP-->
-<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $extra?>css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/navbar-fixed-top.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/signin.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/loading.css">

@@ -3,8 +3,12 @@ class usuario
 {	
 	function iniciar_sesion($conexion,$usuario,$clave){
 		$clave=md5($clave);
-		$sql="select * from usuarios, data_system where usuario='$usuario' and password='$clave' and edo_ds=1";
-		$ok=pg_query($conexion,$sql);//mysql_query($sql);
+		$sql = pg_prepare($conexion, "login___", 'select * from usuarios, data_system 
+		where usuario=$1 and password=$2 and edo_ds=1');
+		//$sql=sprintf("select * from usuarios, data_system 
+		//where usuario='%s' and password='%s' and edo_ds=1", $usuario, $clave);
+		$ok=pg_execute($conexion, 'login___', array($usuario, $clave));//mysql_query($sql);
+		//$ok=pg_query($conexion,$sql);//mysql_query($sql);
 		// $ok=mysqli_query($conexion,$sql);//mysql_query($sql);
 		// var_dump($ok); 
 		

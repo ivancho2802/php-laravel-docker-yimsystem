@@ -68,13 +68,13 @@
 														 }
 													?>"/>
         <label for="inputEmail" class="col-xs-12 col-md-12 col-lg-12">
-          Usuario<br>
+          Usuario (admin)<br>
           <input type="text" name="usuario" id="usuario" class="form-control" value="<?php //echo $_SESSION['urlPrev']?>" required autofocus/>
         </label>
         </div>
         <div class="row">
         <label for="inputPassword" class="col-xs-12 col-md-12 col-lg-12">
-          Contrase&ntilde;a<br>
+          Contrase&ntilde;a (admin)<br>
           <input type="password" name="clave" id="clave" class="form-control" required>
         </label>
         </div>
