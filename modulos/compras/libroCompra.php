@@ -188,7 +188,7 @@ $( document ).ready(function() {
                 //consulta las notas si existen 
                 $consultaNota = pg_query($conexion,sprintf("SELECT * FROM notas_cd, fact_compra WHERE 
 								fact_compra.id_fact_compra = notas_cd.id_fact_compra AND
-								notas_cd.id_fact_compra = '%s'",$filas['id_fact_compra']?$filas['id_fact_compra']:''));
+								notas_cd.id_fact_compra = '%s'",is_null($filas['id_fact_compra'])?'':$filas['id_fact_compra']));
                 // $filasConsultaNota = $consultaNota->fetch_assoc();
                 $filasConsultaNota = pg_fetch_assoc($consultaNota);
                 $total_ConsultaNota = pg_num_rows($consultaNota);
