@@ -12,5 +12,5 @@ if (!$conexion) {
 	die("Connection failed: " );
 }else{
 	return $conexion;
-}	
+}
 ?>

@@ -1,4 +1,6 @@
 <?php
+	include_once('../../includes_SISTEM/include_head.php');
+
  if( !isset($_POST['report_pdf']) ){?>
 <script>
 	$( document ).ready(function() {

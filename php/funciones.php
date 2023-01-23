@@ -24,7 +24,7 @@
 															
 function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 	////////////////////			COMPRA
-	$conexion =  pg_connect("host=ec2-107-20-155-148.compute-1.amazonaws.com port=5432 dbname=delcqdglr7h1b8 user=kjogxhvdvnkumx password=b42f2b9f3dda672e63925904f1450b38698f03289409be8008efd07f526c20a9") ;
+$conexion =  pg_connect("host=ec2-3-222-30-53.compute-1.amazonaws.com port=5432 dbname=d8dgaqfecs81l5 user=bbefneimvprfqo password=fdd8bcae207b03ec7f030d1f42b3c3b7234743f3208a3a022a6f523f35163c94") ;
 	$consulta = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra, inventario WHERE
 								fact_compra.id_fact_compra = compra.fk_fact_compra AND 
 								compra.fk_inventario = inventario.codigo AND 
@@ -157,7 +157,7 @@ function c_cv_inventario($codigoInv, $fechai, $fechaf, $accion){
 //function sumSiniva()
 function sumSinIVA($numdocu, $tipo){
 	$sumSinIVA = 0;
-	$conexion =  pg_connect("host=ec2-107-20-155-148.compute-1.amazonaws.com port=5432 dbname=delcqdglr7h1b8 user=kjogxhvdvnkumx password=b42f2b9f3dda672e63925904f1450b38698f03289409be8008efd07f526c20a9") ;
+	$conexion =  pg_connect("host=ec2-3-222-30-53.compute-1.amazonaws.com port=5432 dbname=d8dgaqfecs81l5 user=bbefneimvprfqo password=fdd8bcae207b03ec7f030d1f42b3c3b7234743f3208a3a022a6f523f35163c94") ;
 	//consulta de las compras exentas
 	$consulta7 = pg_query($conexion,sprintf("SELECT * FROM compra, fact_compra WHERE fact_compra.id_fact_compra = compra.fk_fact_compra AND compra.fk_fact_compra = '%s' AND compra.tipoCompra = '%s'", $numdocu, $tipo));
 	// $filas_consultaExen = $consultaExen->fetch_assoc();
@@ -173,7 +173,7 @@ function sumSinIVA($numdocu, $tipo){
 //function sumSiniva()
 function sumSinIVAventas($numdocu, $tipo){
 	$sumSinIVA = 0;
-	$conexion =  pg_connect("host=ec2-107-20-155-148.compute-1.amazonaws.com port=5432 dbname=delcqdglr7h1b8 user=kjogxhvdvnkumx password=b42f2b9f3dda672e63925904f1450b38698f03289409be8008efd07f526c20a9") ;
+	$conexion =  pg_connect("host=ec2-3-222-30-53.compute-1.amazonaws.com port=5432 dbname=d8dgaqfecs81l5 user=bbefneimvprfqo password=fdd8bcae207b03ec7f030d1f42b3c3b7234743f3208a3a022a6f523f35163c94") ;
 	//consulta de las compras exentas
 	$consulta = pg_query($conexion,sprintf("SELECT * FROM venta, fact_venta WHERE fact_venta.id_fact_venta = venta.fk_fact_venta AND venta.fk_fact_venta = '%s' AND venta.tipoVenta = '%s'", $numdocu, $tipo));
 	$filas = pg_fetch_assoc($consulta);
