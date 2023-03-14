@@ -11,6 +11,6 @@ services:
         image: php:fpm
         build:
             context: .
-            dockerfile: PHP.Dockerfile
+            dockerfile: Dockerfile
         volumes:
             - ./app:/app  
