@@ -9,5 +9,8 @@ services:
             - ./app:/app
     php:
         image: php:fpm
+        build:
+            context: .
+            dockerfile: PHP.Dockerfile
         volumes:
             - ./app:/app  
