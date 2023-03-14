@@ -1,0 +1,57 @@
+<?php
+$uri   = "";//rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
+$extra = "";
+$url = str_replace("//","/",$_SERVER['REQUEST_URI']);
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+//$url = rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
+//	echo "aqui".$url;
+
+if(strpos($url, '/modulos') || strpos($url, '/modales') || strpos($url, '/php')){
+	
+	if( $_SERVER["SERVER_NAME"] == 'localhost'){
+		$extra1 = '../';
+		$extra = '../../';
+	}
+	else{
+		$extra = '../../';
+		$extra1 = $extra;
+	}
+	//echo "$extra";
+	if(strpos($url, '/modulos/reporte'))
+		$extra = '../';
+}else{
+	if( $_SERVER["SERVER_NAME"] == 'localhost')
+	$extra1 = './';
+	else{
+		$extra = '/';
+		$extra1 = $extra;
+	}
+}
+//echo $_SERVER["SERVER_NAME"];
+//echo $extra;
+///////////////////////////////////////////////////////////////////////////////////
+//			FUNCIONES
+////////////////////////////////////////////////////////////////////////////////////
+include_once(dirname(__DIR__).$extra1."librerias/conexion.php");
+include_once(dirname(__DIR__).$extra1."php/funciones.php");
+if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
+?>
+<title>Sist. YIM</title>
+<!--ESTILOS BOOSTRAP-->
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/navbar-fixed-top.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/signin.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/loading.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/font-awesome-4.6.3/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $uri.$extra?>css/otros-stylos.css">
+
+<link rel="icon" href="<?php echo $uri.$extra?>logo.ico">
+<script type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-latest.min.js"></script>
+<!--<script type="text/javascript" src="<?php //echo $uri.$extra?>js/jquery-ui.min.js"></script>-->
+<script type="text/javascript" src="<?php echo $uri.$extra?>js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo $uri.$extra?>js/funciones.js"></script>
+<?php }?>
