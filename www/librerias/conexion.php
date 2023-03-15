@@ -1,7 +1,7 @@
 <?php
 //psql 'postgres://ings.ivandiaz:UDtVsYR6PG9c@ep-dry-resonance-197252.us-east-2.aws.neon.tech/neondb'
 $ENDPOINT_ID = "ep-dry-resonance-197252";
-$conexion =  pg_connect("host=us-east-2.aws.neon.tech?options=project%3D".$ENDPOINT_ID." port=5432 dbname=neondb user=ings.ivandiaz password=UDtVsYR6PG9c sslmode=verify-full") ;
+$conexion =  pg_connect("host=us-east-2.aws.neon.tech options='--project=".$ENDPOINT_ID."' port=5432 dbname=neondb user=ings.ivandiaz password=UDtVsYR6PG9c sslmode=require") ;
 //$conexion =  pg_connect("host=ec2-3-222-30-53.compute-1.amazonaws.com port=5432 dbname=d8dgaqfecs81l5 user=bbefneimvprfqo password=fdd8bcae207b03ec7f030d1f42b3c3b7234743f3208a3a022a6f523f35163c94") ;
 // $conexion = new mysqli("ec2-107-20-155-148.compute-1.amazonaws.com", "kjogxhvdvnkumx", "b42f2b9f3dda672e63925904f1450b38698f03289409be8008efd07f526c20a9", "delcqdglr7h1b8", 5432);
 //$conexion =  pg_connect("host=ec2-107-20-155-148.compute-1.amazonaws.com port=5432 dbname=delcqdglr7h1b8 user=kjogxhvdvnkumx password=b42f2b9f3dda672e63925904f1450b38698f03289409be8008efd07f526c20a9") ;
