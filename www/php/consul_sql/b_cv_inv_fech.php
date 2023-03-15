@@ -5,7 +5,7 @@ include_once('../../includes_SISTEM/include_login.php');
 $vfecha = $_GET['vfecha'];
 
 $pre_consulta=pg_query($conexion,sprintf("SELECT * FROM reg_inventario"));
-$filas_pre=$pre_consulta);
+$filas_pre=$pre_consulta;
 $total_pre_consulta = pg_num_rows($pre_consulta);
 ////////////////////////////////////////////////////////////////////////
 $consulta=pg_query($conexion,sprintf("SELECT * FROM reg_inventario, inventario WHERE 
