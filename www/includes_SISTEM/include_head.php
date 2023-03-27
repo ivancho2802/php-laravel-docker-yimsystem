@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 //$url = rtrim(dirname($_SERVER['REQUEST_URI']), '/\\');
 
-if(strpos($url, 'modulos') > 0 || strpos($url, 'modales') > 0  || strpos($url, 'php') > 0 ){
+if(strpos($url, 'modulos/') > 0 || strpos($url, 'modales/') > 0  || strpos($url, 'php/') > 0 ){
 	
 	if( $_SERVER["SERVER_NAME"] === 'localhost'){
 		$extra1 = '../';
@@ -20,10 +20,11 @@ if(strpos($url, 'modulos') > 0 || strpos($url, 'modales') > 0  || strpos($url, '
 	if(strpos($url, 'modulos/reporte') > 0)
 		$extra = '../';
 
-}else{
-	if( $_SERVER["SERVER_NAME"] === 'localhost')
-	$extra1 = './';
-	else{
+} else {
+	if ($_SERVER["SERVER_NAME"] === 'localhost')
+	{
+		$extra1 = './';
+	} else {
 		$extra = '/';
 		$extra1 = $extra;
 	}
