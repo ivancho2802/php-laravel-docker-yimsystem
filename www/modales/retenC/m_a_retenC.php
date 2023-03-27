@@ -133,7 +133,7 @@ $(document).ready(function() {
                             <span class="input-group" id="cont_id_fact_compra">
                             <input class="form-control" id="num_fact_compra" name="num_fact_compra" readonly="readonly" lang="si-general" required="required">
                             	<span class="input-group-btn">
-                                <button type="button" class="btn btn-primary" title="Buscar Factura" data-toggle="modal" data-target="#busFact">
+                                <button type="button" class="btn btn-primary" title="Buscar Factura" data-bs-toggle="modal" data-target="#busFact">
                                 B <i class="glyphicon glyphicon-search"></i>
                                 </button>
                                 <button type="button" class="btn btn-info" title="Detalles Factura" onclick="mConsulFact(document.getElementById('id_fact_compra').value)">
@@ -146,11 +146,11 @@ $(document).ready(function() {
                         </label>
                         <label class="col-md-4 col-lg-4">
                         	Serie Factura de Compra:<br />
-                        	<input type="text" class="form-control" id="serie_fact_compra"  data-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
+                        	<input type="text" class="form-control" id="serie_fact_compra"  data-bs-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
                         </label>
                         <label class="col-md-4 col-lg-4">
                         	Proveedor:<br />
-                        	<input type="text" class="form-control" id="proveedor_fact_compra"  data-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
+                        	<input type="text" class="form-control" id="proveedor_fact_compra"  data-bs-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
                         </label>
                     </div>
                     <div class="row">
@@ -176,7 +176,7 @@ $(document).ready(function() {
                     <div class="row">
                     	<label class="col-md-6 col-lg-6">
                         	Total I.V.A.:<br />
-                    		<input type="text" class="form-control" id="tot_iva"  data-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
+                    		<input type="text" class="form-control" id="tot_iva"  data-bs-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
                     	</label>
                     	<label class="col-md-6 col-lg-6" id="res_m_iva_reten">
                             I.V.A. Retenido:<br>

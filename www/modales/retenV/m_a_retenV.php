@@ -114,7 +114,7 @@ $(document).ready(function() {
                         <label class="col-md-12 col-lg-12" id="txtHintAPROV" data-dismiss="modal"></label>
                     </div>
                 	<div class="row">
-                    	<label class="col-md-4 col-lg-4" id="res_id_fact_venta" data-toggle="modal" data-target="#busFact">
+                    	<label class="col-md-4 col-lg-4" id="res_id_fact_venta" data-bs-toggle="modal" data-target="#busFact">
                         	<input type="hidden" class="form-control" name="id_fact_venta" id="id_fact_venta" lang="si-general" required>
                             Num. Factura de Venta:<br>
                             <span class="input-group" id="cont_id_fact_venta">
@@ -126,11 +126,11 @@ $(document).ready(function() {
                         </label>
                         <label class="col-md-4 col-lg-4">
                         	Serie Factura de Venta:<br />
-                        	<input type="text" class="form-control" id="serie_fact_venta"  data-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
+                        	<input type="text" class="form-control" id="serie_fact_venta"  data-bs-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
                         </label>
                         <label class="col-md-4 col-lg-4">
                         	Cliente:<br />
-                        	<input type="text" class="form-control" id="cliente_fact_venta"  data-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
+                        	<input type="text" class="form-control" id="cliente_fact_venta"  data-bs-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
                         </label>
                     </div>
                     <div class="row">
@@ -152,7 +152,7 @@ $(document).ready(function() {
                     <div class="row">
                     	<label class="col-md-6 col-lg-6">
                         	Total I.V.A.:<br />
-                    		<input type="text" class="form-control" id="tot_iva"  data-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
+                    		<input type="text" class="form-control" id="tot_iva"  data-bs-toggle="modal" data-target="#busFact" readonly="readonly" lang="si-general" required="required">
                     	</label>
                     	<label class="col-md-6 col-lg-6" id="res_m_iva_reten">
                             I.V.A. Retenido:<br>

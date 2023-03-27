@@ -126,7 +126,7 @@ if(isset($_POST['num_fact_compra']))
 			?>
             <tr>
                 <td colspan="5"><div>No hay resultados La Factura Debe Existir en el Sistema</div></td>
-                <!--data-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
+                <!--data-bs-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
                 <td><input type="button" class="btn btn-danger" value="Cancelar" data-dismiss="modal"></td>
             </tr>
             <?php    

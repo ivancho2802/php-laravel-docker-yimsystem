@@ -162,7 +162,7 @@ function tipoDocuV(str){
 		//esta arriba document.getElementById("span_resTipoDoc").innerHTML = "N. Factura Afectada";
 		
 		infact_afectada.type = 'text';
-		infact_afectada.setAttribute("data-toggle", "modal");
+		infact_afectada.setAttribute("data-bs-toggle", "modal");
 		infact_afectada.setAttribute("data-target", "#busFact");
 		infact_afectada.setAttribute("onfocus", "$('#busFact').modal('show')");
 		infact_afectada.setAttribute("readonly", "readonly");
@@ -628,17 +628,17 @@ $( document ).ready(function() {
           <div class="col-xs-4 col-md-4 col-lg-4" id="ResselecCliente">
           	<label>Documento del Cliente:</label>
             <!--en onclocl queda la funcion que desactiva la tecla enter del teclado-->
-            <input name="fk_cliente" required="required" onfocus="$('#busCliente').modal('show');" onblur="javascript:this.value=this.value.toUpperCase();codFactProvee('form1', 'serie_fact_venta', 'num_fact_venta', 'fk_cliente', 'id_fact_venta')" data-toggle="modal" data-target="#busCliente" readonly="readonly" placeholder="Clic aqui" class="form-control btn-primary active"/>
+            <input name="fk_cliente" required="required" onfocus="$('#busCliente').modal('show');" onblur="javascript:this.value=this.value.toUpperCase();codFactProvee('form1', 'serie_fact_venta', 'num_fact_venta', 'fk_cliente', 'id_fact_venta')" data-bs-toggle="modal" data-target="#busCliente" readonly="readonly" placeholder="Clic aqui" class="form-control btn-primary active"/>
           </div>
           
           <div class="col-xs-4 col-md-4 col-lg-4">
           	<label>Nombre o Raz&oacute;n Social:</label>
-            <input name="nom_cliente_ajax" class="form-control btn-primary active" id="nom_cliente_ajax" required="required" data-toggle="modal" data-target="#busCliente" onblur="javascript:this.value=this.value.toUpperCase();" onfocus="$('#busCliente').modal('show');" readonly="readonly"  placeholder="Clic aqui"/>
+            <input name="nom_cliente_ajax" class="form-control btn-primary active" id="nom_cliente_ajax" required="required" data-bs-toggle="modal" data-target="#busCliente" onblur="javascript:this.value=this.value.toUpperCase();" onfocus="$('#busCliente').modal('show');" readonly="readonly"  placeholder="Clic aqui"/>
           </div>
           
           <div class="col-xs-4 col-md-4 col-lg-4">
           	<label>Tipo de Contribuyente:</label>
-            <input name="tipo_contri" class="form-control btn-primary active" id="tipo_contri" required="required" data-toggle="modal" data-target="#busCliente" onblur="javascript:this.value=this.value.toUpperCase();" onfocus="$('#busCliente').modal('show');" readonly="readonly" placeholder="Clic aqui"/>
+            <input name="tipo_contri" class="form-control btn-primary active" id="tipo_contri" required="required" data-bs-toggle="modal" data-target="#busCliente" onblur="javascript:this.value=this.value.toUpperCase();" onfocus="$('#busCliente').modal('show');" readonly="readonly" placeholder="Clic aqui"/>
           </div>
         </div><!--rOW-->
         

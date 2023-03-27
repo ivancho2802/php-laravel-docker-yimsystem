@@ -24,14 +24,14 @@
             <input name="pmpvj" type="hidden" />
             <label>Codigo Producto</label>
             <div class="list-group">
-                <input name="fk_inventario" class="form-control list-group-item" id="fk_inventario" required="" onfocus="$('#busProd').modal('show');" onblur="javascript:this.value=this.value.toUpperCase();" data-toggle="modal" data-target="#busProd" readonly="readonly" placeholder="Seleccionar Producto">
+                <input name="fk_inventario" class="form-control list-group-item" id="fk_inventario" required="" onfocus="$('#busProd').modal('show');" onblur="javascript:this.value=this.value.toUpperCase();" data-bs-toggle="modal" data-target="#busProd" readonly="readonly" placeholder="Seleccionar Producto">
                 <button type="button" class="list-group-item active" onclick="$('#busProd').modal('show');">Seleccionar Producto</button>
             </div>
           </div>
           <div class="col-xs-4 col-md-4 col-lg-4">
             <label>Nombre Producto</label>
             <div class="list-group">
-                <input name="nom_fk_inventario" class="form-control list-group-item"  placeholder="Seleccionar Producto" onfocus="$('#busProd').modal('show');" onblur="javascript:this.value=this.value.toUpperCase();" data-toggle="modal" data-target="#busProd" readonly="readonly">
+                <input name="nom_fk_inventario" class="form-control list-group-item"  placeholder="Seleccionar Producto" onfocus="$('#busProd').modal('show');" onblur="javascript:this.value=this.value.toUpperCase();" data-bs-toggle="modal" data-target="#busProd" readonly="readonly">
                 <button type="button" class="list-group-item active" onclick="$('#busProd').modal('show');">Seleccionar Producto</button>
             </div>
           </div>

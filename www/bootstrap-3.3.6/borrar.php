@@ -17,7 +17,7 @@
         <a href="#" class="list-group-item active">First item</a>
         <a href="#" class="list-group-item">Second item</a>
         <a href="#" class="list-group-item">Third item</a>
-        <a class="list-group-item" id="" data-remote="true" href="#sub_categoria_4"  data-toggle="collapse">
+        <a class="list-group-item" id="" data-remote="true" href="#sub_categoria_4"  data-bs-toggle="collapse">
           <span>Compras</span>
           <span class="glyphicon glyphicon-chevron-down"></span>
         </a>

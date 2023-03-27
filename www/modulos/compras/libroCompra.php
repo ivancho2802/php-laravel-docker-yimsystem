@@ -44,7 +44,6 @@ $mes = $_POST['mes'];
 	//consulta de la factura con sus datos relacionados
 	//NOTA IMPORTANTE MUSTRSO TODAS LAS COMPRAAS MENOS LO DEL INVENTARIO INICIAL fact_compra.tipo_fact_compra !== 'II'
 	$consulta=pg_query($conexion,sprintf("SELECT * FROM empre, fact_compra, proveedor WHERE
-	  								fact_compra.empre_cod_empre = empre.cod_empre AND
 									empre.est_empre = '1' AND
 									fact_compra.fk_proveedor = proveedor.rif AND
 									fact_compra.tipo_fact_compra != 'II' AND

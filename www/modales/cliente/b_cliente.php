@@ -63,8 +63,8 @@ include_once('../../includes_SISTEM/include_login.php');
 			?>
             <tr>
                 <td colspan="3"><div>No hay resultados</div></td>
-                <!--data-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
-                <td><input type="button" class="btn btn-success" value="Agregar y Seleccionar Cliente" data-dismiss="modal" data-toggle="modal" data-target="#nueCliente"></td>
+                <!--data-bs-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
+                <td><input type="button" class="btn btn-success" value="Agregar y Seleccionar Cliente" data-dismiss="modal" data-bs-toggle="modal" data-target="#nueCliente"></td>
             </tr>
             <?php    
 		}

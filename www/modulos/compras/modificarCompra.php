@@ -52,7 +52,7 @@ function tipoDocuC(str){
 			tit_nfact_afectada.innerHTML = "N. Factura Afectada";
 			
 			infact_afectada.type = 'text';
-			infact_afectada.setAttribute("data-toggle", "modal");
+			infact_afectada.setAttribute("data-bs-toggle", "modal");
 			infact_afectada.setAttribute("data-target", "#busFact");
 			infact_afectada.setAttribute("onfocus", "$('#busFact').modal('show')");
 			infact_afectada.setAttribute("readonly", "readonly");
@@ -473,7 +473,7 @@ function elimInput(numCampoActual){
                 <input type="number" class="form-control" min="0" name="num_fact_compra" id="num_fact_compra" value="" size="20" onblur="codFactProvee('form1', 'serie_fact_compra', 'num_fact_compra', 'fk_proveedor', 'id_fact_compra')"/>
                 <!-- readonly="readonly"-->
                 <span class="input-group-btn">
-                <button type="button" class="btn btn-primary" title="Buscar Factura" data-toggle="modal" data-target="#busFact">
+                <button type="button" class="btn btn-primary" title="Buscar Factura" data-bs-toggle="modal" data-target="#busFact">
                 B <i class="glyphicon glyphicon-search"></i>
                 </button>
                 <button type="button" class="btn btn-info" title="Detalles Factura" onclick="mConsulFact(document.getElementById('id_fact_compra').value)">

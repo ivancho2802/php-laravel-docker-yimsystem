@@ -15,9 +15,9 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPExcel classes</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-bs-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPExcel classes</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
-<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+<a href="#api" class="dropdown-toggle" data-bs-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a>Packages</a></li>
 <li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
@@ -53,11 +53,11 @@ r = sqrt(a^2 + b^2) without under/overflow</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
-<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+<a href="#charts" class="dropdown-toggle" data-bs-toggle="dropdown">
                                     Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
 </li>
 <li class="dropdown" id="reports-menu">
-<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+<a href="#reports" class="dropdown-toggle" data-bs-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
                 <span class="label label-info">551</span></a></li>
@@ -85,7 +85,7 @@ r = sqrt(a^2 + b^2) without under/overflow</a></li>
                         </div></noscript>
 <div class="row">
 <div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<span class="btn-group visibility" data-bs-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-bs-toggle="buttons-radio">
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
 <ul class="side-nav nav nav-list">
@@ -498,7 +498,7 @@ Identifies whether the Reader should only read data values for cells, and ignore
 </table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method__GetInt2d"></a><div class="element clickable method public method__GetInt2d" data-toggle="collapse" data-target=".method__GetInt2d .collapse">
+<a id="method__GetInt2d"></a><div class="element clickable method public method__GetInt2d" data-bs-toggle="collapse" data-target=".method__GetInt2d .collapse">
 <h2>Read 16-bit unsigned integer</h2>
 <pre>_GetInt2d(string $data, int $pos) : int</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -517,7 +517,7 @@ Identifies whether the Reader should only read data values for cells, and ignore
 <div class="subelement response"><code>int</code></div>
 </div></div>
 </div>
-<a id="method__GetInt4d"></a><div class="element clickable method public method__GetInt4d" data-toggle="collapse" data-target=".method__GetInt4d .collapse">
+<a id="method__GetInt4d"></a><div class="element clickable method public method__GetInt4d" data-bs-toggle="collapse" data-target=".method__GetInt4d .collapse">
 <h2>Read 32-bit signed integer</h2>
 <pre>_GetInt4d(string $data, int $pos) : int</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -536,13 +536,13 @@ Identifies whether the Reader should only read data values for cells, and ignore
 <div class="subelement response"><code>int</code></div>
 </div></div>
 </div>
-<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-bs-toggle="collapse" data-target=".method___construct .collapse">
 <h2>Create a new PHPExcel_Reader_Excel5 instance</h2>
 <pre>__construct() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method_canRead"></a><div class="element clickable method public method_canRead" data-toggle="collapse" data-target=".method_canRead .collapse">
+<a id="method_canRead"></a><div class="element clickable method public method_canRead" data-bs-toggle="collapse" data-target=".method_canRead .collapse">
 <h2>Can the current PHPExcel_Reader_IReader read the file?</h2>
 <pre>canRead(string $pFilename) : boolean</pre>
 <div class="labels"></div>
@@ -562,7 +562,7 @@ Identifies whether the Reader should only read data values for cells, and ignore
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
-<a id="method_getIncludeCharts"></a><div class="element clickable method public method_getIncludeCharts" data-toggle="collapse" data-target=".method_getIncludeCharts .collapse">
+<a id="method_getIncludeCharts"></a><div class="element clickable method public method_getIncludeCharts" data-bs-toggle="collapse" data-target=".method_getIncludeCharts .collapse">
 <h2>Read charts in workbook?
 	If this is true, then the Reader will include any charts that exist in the workbook.</h2>
 <pre>getIncludeCharts() : boolean</pre>
@@ -578,7 +578,7 @@ Identifies whether the Reader should only read data values for cells, and ignore
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
-<a id="method_getLoadSheetsOnly"></a><div class="element clickable method public method_getLoadSheetsOnly" data-toggle="collapse" data-target=".method_getLoadSheetsOnly .collapse">
+<a id="method_getLoadSheetsOnly"></a><div class="element clickable method public method_getLoadSheetsOnly" data-bs-toggle="collapse" data-target=".method_getLoadSheetsOnly .collapse">
 <h2>Get which sheets to load
 Returns either an array of worksheet names (the list of worksheets that should be loaded), or a null
 	indicating that all worksheets in the workbook should be loaded.</h2>
@@ -594,7 +594,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
-<a id="method_getReadDataOnly"></a><div class="element clickable method public method_getReadDataOnly" data-toggle="collapse" data-target=".method_getReadDataOnly .collapse">
+<a id="method_getReadDataOnly"></a><div class="element clickable method public method_getReadDataOnly" data-bs-toggle="collapse" data-target=".method_getReadDataOnly .collapse">
 <h2>Read data only?
 	If this is true, then the Reader will only read data values for cells, it will not read any formatting information.</h2>
 <pre>getReadDataOnly() : boolean</pre>
@@ -609,7 +609,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
-<a id="method_getReadFilter"></a><div class="element clickable method public method_getReadFilter" data-toggle="collapse" data-target=".method_getReadFilter .collapse">
+<a id="method_getReadFilter"></a><div class="element clickable method public method_getReadFilter" data-bs-toggle="collapse" data-target=".method_getReadFilter .collapse">
 <h2>Read filter</h2>
 <pre>getReadFilter() : <a href="../classes/PHPExcel_Reader_IReadFilter.html">\PHPExcel_Reader_IReadFilter</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -623,7 +623,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code><a href="../classes/PHPExcel_Reader_IReadFilter.html">\PHPExcel_Reader_IReadFilter</a></code></div>
 </div></div>
 </div>
-<a id="method_listWorksheetInfo"></a><div class="element clickable method public method_listWorksheetInfo" data-toggle="collapse" data-target=".method_listWorksheetInfo .collapse">
+<a id="method_listWorksheetInfo"></a><div class="element clickable method public method_listWorksheetInfo" data-bs-toggle="collapse" data-target=".method_listWorksheetInfo .collapse">
 <h2>Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns)</h2>
 <pre>listWorksheetInfo(string $pFilename) </pre>
 <div class="labels"></div>
@@ -641,7 +641,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 </tr></table>
 </div></div>
 </div>
-<a id="method_listWorksheetNames"></a><div class="element clickable method public method_listWorksheetNames" data-toggle="collapse" data-target=".method_listWorksheetNames .collapse">
+<a id="method_listWorksheetNames"></a><div class="element clickable method public method_listWorksheetNames" data-bs-toggle="collapse" data-target=".method_listWorksheetNames .collapse">
 <h2>Reads names of the worksheets from a file, without parsing the whole file to a PHPExcel object</h2>
 <pre>listWorksheetNames(string $pFilename) </pre>
 <div class="labels"></div>
@@ -659,7 +659,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 </tr></table>
 </div></div>
 </div>
-<a id="method_load"></a><div class="element clickable method public method_load" data-toggle="collapse" data-target=".method_load .collapse">
+<a id="method_load"></a><div class="element clickable method public method_load" data-bs-toggle="collapse" data-target=".method_load .collapse">
 <h2>Loads PHPExcel from file</h2>
 <pre>load(string $pFilename) : <a href="../classes/PHPExcel.html">\PHPExcel</a></pre>
 <div class="labels"></div>
@@ -679,7 +679,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code><a href="../classes/PHPExcel.html">\PHPExcel</a></code></div>
 </div></div>
 </div>
-<a id="method_setIncludeCharts"></a><div class="element clickable method public method_setIncludeCharts" data-toggle="collapse" data-target=".method_setIncludeCharts .collapse">
+<a id="method_setIncludeCharts"></a><div class="element clickable method public method_setIncludeCharts" data-bs-toggle="collapse" data-target=".method_setIncludeCharts .collapse">
 <h2>Set read charts in workbook
 	Set to true, to advise the Reader to include any charts that exist in the workbook.</h2>
 <pre>setIncludeCharts(boolean $pValue) : <a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></pre>
@@ -700,7 +700,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code><a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></code></div>
 </div></div>
 </div>
-<a id="method_setLoadAllSheets"></a><div class="element clickable method public method_setLoadAllSheets" data-toggle="collapse" data-target=".method_setLoadAllSheets .collapse">
+<a id="method_setLoadAllSheets"></a><div class="element clickable method public method_setLoadAllSheets" data-bs-toggle="collapse" data-target=".method_setLoadAllSheets .collapse">
 <h2>Set all sheets to load
 	Tells the Reader to load all worksheets from the workbook.</h2>
 <pre>setLoadAllSheets() : <a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></pre>
@@ -715,7 +715,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code><a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></code></div>
 </div></div>
 </div>
-<a id="method_setLoadSheetsOnly"></a><div class="element clickable method public method_setLoadSheetsOnly" data-toggle="collapse" data-target=".method_setLoadSheetsOnly .collapse">
+<a id="method_setLoadSheetsOnly"></a><div class="element clickable method public method_setLoadSheetsOnly" data-bs-toggle="collapse" data-target=".method_setLoadSheetsOnly .collapse">
 <h2>Set which sheets to load</h2>
 <pre>setLoadSheetsOnly(mixed $value) : <a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -734,7 +734,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code><a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></code></div>
 </div></div>
 </div>
-<a id="method_setReadDataOnly"></a><div class="element clickable method public method_setReadDataOnly" data-toggle="collapse" data-target=".method_setReadDataOnly .collapse">
+<a id="method_setReadDataOnly"></a><div class="element clickable method public method_setReadDataOnly" data-bs-toggle="collapse" data-target=".method_setReadDataOnly .collapse">
 <h2>Set read data only
 	Set to true, to advise the Reader only to read data values for cells, and to ignore any formatting information.</h2>
 <pre>setReadDataOnly(boolean $pValue) : <a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></pre>
@@ -754,7 +754,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code><a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></code></div>
 </div></div>
 </div>
-<a id="method_setReadFilter"></a><div class="element clickable method public method_setReadFilter" data-toggle="collapse" data-target=".method_setReadFilter .collapse">
+<a id="method_setReadFilter"></a><div class="element clickable method public method_setReadFilter" data-bs-toggle="collapse" data-target=".method_setReadFilter .collapse">
 <h2>Set read filter</h2>
 <pre>setReadFilter(\PHPExcel_Reader_IReadFilter $pValue) : <a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -773,7 +773,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code><a href="../classes/PHPExcel_Reader_IReader.html">\PHPExcel_Reader_IReader</a></code></div>
 </div></div>
 </div>
-<a id="method__openFile"></a><div class="element clickable method protected method__openFile" data-toggle="collapse" data-target=".method__openFile .collapse">
+<a id="method__openFile"></a><div class="element clickable method protected method__openFile" data-bs-toggle="collapse" data-target=".method__openFile .collapse">
 <h2>Open file for reading</h2>
 <pre>_openFile(string $pFilename) : resource</pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -797,7 +797,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement response"><code>resource</code></div>
 </div></div>
 </div>
-<a id="method__GetIEEE754"></a><div class="element clickable method private method__GetIEEE754" data-toggle="collapse" data-target=".method__GetIEEE754 .collapse">
+<a id="method__GetIEEE754"></a><div class="element clickable method private method__GetIEEE754" data-bs-toggle="collapse" data-target=".method__GetIEEE754 .collapse">
 <h2>_GetIEEE754()
         </h2>
 <pre>_GetIEEE754($rknum) </pre>
@@ -808,7 +808,7 @@ Returns either an array of worksheet names (the list of worksheets that should b
 <div class="subelement argument"><h4>$rknum</h4></div>
 </div></div>
 </div>
-<a id="method__UTF8toExcelDoubleQuoted"></a><div class="element clickable method private method__UTF8toExcelDoubleQuoted" data-toggle="collapse" data-target=".method__UTF8toExcelDoubleQuoted .collapse">
+<a id="method__UTF8toExcelDoubleQuoted"></a><div class="element clickable method private method__UTF8toExcelDoubleQuoted" data-bs-toggle="collapse" data-target=".method__UTF8toExcelDoubleQuoted .collapse">
 <h2>Convert UTF-8 string to string surounded by double quotes.</h2>
 <pre>_UTF8toExcelDoubleQuoted(string $value) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -824,7 +824,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__createFormulaFromTokens"></a><div class="element clickable method private method__createFormulaFromTokens" data-toggle="collapse" data-target=".method__createFormulaFromTokens .collapse">
+<a id="method__createFormulaFromTokens"></a><div class="element clickable method private method__createFormulaFromTokens" data-bs-toggle="collapse" data-target=".method__createFormulaFromTokens .collapse">
 <h2>Take array of tokens together with additional data for formula and return human readable formula</h2>
 <pre>_createFormulaFromTokens(array $tokens, array $additionalData) : string</pre>
 <div class="labels"></div>
@@ -843,7 +843,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <code>string</code>Human readable formula</div>
 </div></div>
 </div>
-<a id="method__decodeCodepage"></a><div class="element clickable method private method__decodeCodepage" data-toggle="collapse" data-target=".method__decodeCodepage .collapse">
+<a id="method__decodeCodepage"></a><div class="element clickable method private method__decodeCodepage" data-bs-toggle="collapse" data-target=".method__decodeCodepage .collapse">
 <h2>Convert string to UTF-8.</h2>
 <pre>_decodeCodepage(string $string) : string</pre>
 <div class="labels"></div>
@@ -858,7 +858,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__encodeUTF16"></a><div class="element clickable method private method__encodeUTF16" data-toggle="collapse" data-target=".method__encodeUTF16 .collapse">
+<a id="method__encodeUTF16"></a><div class="element clickable method private method__encodeUTF16" data-bs-toggle="collapse" data-target=".method__encodeUTF16 .collapse">
 <h2>Get UTF-8 string from (compressed or uncompressed) UTF-16 string</h2>
 <pre>_encodeUTF16(string $string, bool $compressed) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -877,7 +877,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__extractNumber"></a><div class="element clickable method private method__extractNumber" data-toggle="collapse" data-target=".method__extractNumber .collapse">
+<a id="method__extractNumber"></a><div class="element clickable method private method__extractNumber" data-bs-toggle="collapse" data-target=".method__extractNumber .collapse">
 <h2>Reads first 8 bytes of a string and return IEEE 754 float</h2>
 <pre>_extractNumber(string $data) : float</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -891,7 +891,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <div class="subelement response"><code>float</code></div>
 </div></div>
 </div>
-<a id="method__getFormulaFromData"></a><div class="element clickable method private method__getFormulaFromData" data-toggle="collapse" data-target=".method__getFormulaFromData .collapse">
+<a id="method__getFormulaFromData"></a><div class="element clickable method private method__getFormulaFromData" data-bs-toggle="collapse" data-target=".method__getFormulaFromData .collapse">
 <h2>Take formula data and additional data for formula and return human readable formula</h2>
 <pre>_getFormulaFromData(string $formulaData, string $additionalData, string $baseCell) : string</pre>
 <div class="labels"></div>
@@ -912,7 +912,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <code>string</code>Human readable formula</div>
 </div></div>
 </div>
-<a id="method__getFormulaFromStructure"></a><div class="element clickable method private method__getFormulaFromStructure" data-toggle="collapse" data-target=".method__getFormulaFromStructure .collapse">
+<a id="method__getFormulaFromStructure"></a><div class="element clickable method private method__getFormulaFromStructure" data-bs-toggle="collapse" data-target=".method__getFormulaFromStructure .collapse">
 <h2>Convert formula structure into human readable Excel formula like 'A3+A5*5'</h2>
 <pre>_getFormulaFromStructure(string $formulaStructure, string $baseCell) : string</pre>
 <div class="labels"></div>
@@ -930,7 +930,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <code>string</code>Human readable formula</div>
 </div></div>
 </div>
-<a id="method__getNextToken"></a><div class="element clickable method private method__getNextToken" data-toggle="collapse" data-target=".method__getNextToken .collapse">
+<a id="method__getNextToken"></a><div class="element clickable method private method__getNextToken" data-bs-toggle="collapse" data-target=".method__getNextToken .collapse">
 <h2>Fetch next token from binary formula data</h2>
 <pre>_getNextToken(string $formulaData, string $baseCell) : array</pre>
 <div class="labels"></div>
@@ -952,7 +952,7 @@ Example:  hello"world  -->  "hello""world"</p></div>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__getSplicedRecordData"></a><div class="element clickable method private method__getSplicedRecordData" data-toggle="collapse" data-target=".method__getSplicedRecordData .collapse">
+<a id="method__getSplicedRecordData"></a><div class="element clickable method private method__getSplicedRecordData" data-bs-toggle="collapse" data-target=".method__getSplicedRecordData .collapse">
 <h2>Reads a record from current position in data stream and continues reading data as long as CONTINUE
 records are found.</h2>
 <pre>_getSplicedRecordData() : array</pre>
@@ -965,7 +965,7 @@ Moves to next current position in data stream to start of next record different 
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__includeCellRangeFiltered"></a><div class="element clickable method private method__includeCellRangeFiltered" data-toggle="collapse" data-target=".method__includeCellRangeFiltered .collapse">
+<a id="method__includeCellRangeFiltered"></a><div class="element clickable method private method__includeCellRangeFiltered" data-bs-toggle="collapse" data-target=".method__includeCellRangeFiltered .collapse">
 <h2>_includeCellRangeFiltered()
         </h2>
 <pre>_includeCellRangeFiltered($cellRangeAddress) </pre>
@@ -976,7 +976,7 @@ Moves to next current position in data stream to start of next record different 
 <div class="subelement argument"><h4>$cellRangeAddress</h4></div>
 </div></div>
 </div>
-<a id="method__loadOLE"></a><div class="element clickable method private method__loadOLE" data-toggle="collapse" data-target=".method__loadOLE .collapse">
+<a id="method__loadOLE"></a><div class="element clickable method private method__loadOLE" data-bs-toggle="collapse" data-target=".method__loadOLE .collapse">
 <h2>Use OLE reader to extract the relevant data streams from the OLE file</h2>
 <pre>_loadOLE(string $pFilename) </pre>
 <div class="labels"></div>
@@ -989,7 +989,7 @@ Moves to next current position in data stream to start of next record different 
 </div>
 </div></div>
 </div>
-<a id="method__makeKey"></a><div class="element clickable method private method__makeKey" data-toggle="collapse" data-target=".method__makeKey .collapse">
+<a id="method__makeKey"></a><div class="element clickable method private method__makeKey" data-bs-toggle="collapse" data-target=".method__makeKey .collapse">
 <h2>Make an RC4 decryptor for the given block</h2>
 <pre>_makeKey($block, $valContext) : <a href="../classes/PHPExcel_Reader_Excel5_RC4.html">\PHPExcel_Reader_Excel5_RC4</a></pre>
 <div class="labels"></div>
@@ -1012,7 +1012,7 @@ Moves to next current position in data stream to start of next record different 
 <div class="subelement response"><code><a href="../classes/PHPExcel_Reader_Excel5_RC4.html">\PHPExcel_Reader_Excel5_RC4</a></code></div>
 </div></div>
 </div>
-<a id="method__mapBorderStyle"></a><div class="element clickable method private method__mapBorderStyle" data-toggle="collapse" data-target=".method__mapBorderStyle .collapse">
+<a id="method__mapBorderStyle"></a><div class="element clickable method private method__mapBorderStyle" data-bs-toggle="collapse" data-target=".method__mapBorderStyle .collapse">
 <h2>Map border style
 OpenOffice documentation: 2.5.11</h2>
 <pre>_mapBorderStyle(int $index) : string</pre>
@@ -1028,7 +1028,7 @@ OpenOffice documentation: 2.5.11</h2>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__mapBuiltInColor"></a><div class="element clickable method private method__mapBuiltInColor" data-toggle="collapse" data-target=".method__mapBuiltInColor .collapse">
+<a id="method__mapBuiltInColor"></a><div class="element clickable method private method__mapBuiltInColor" data-bs-toggle="collapse" data-target=".method__mapBuiltInColor .collapse">
 <h2>Map built-in color to RGB value</h2>
 <pre>_mapBuiltInColor(int $color) : array</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -1042,7 +1042,7 @@ OpenOffice documentation: 2.5.11</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__mapColor"></a><div class="element clickable method private method__mapColor" data-toggle="collapse" data-target=".method__mapColor .collapse">
+<a id="method__mapColor"></a><div class="element clickable method private method__mapColor" data-bs-toggle="collapse" data-target=".method__mapColor .collapse">
 <h2>Map color array from BIFF8 built-in color index</h2>
 <pre>_mapColor(int $subData) : array</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -1057,7 +1057,7 @@ OpenOffice documentation: 2.5.11</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__mapColorBIFF5"></a><div class="element clickable method private method__mapColorBIFF5" data-toggle="collapse" data-target=".method__mapColorBIFF5 .collapse">
+<a id="method__mapColorBIFF5"></a><div class="element clickable method private method__mapColorBIFF5" data-bs-toggle="collapse" data-target=".method__mapColorBIFF5 .collapse">
 <h2>Map color array from BIFF5 built-in color index</h2>
 <pre>_mapColorBIFF5(int $subData) : array</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -1072,7 +1072,7 @@ OpenOffice documentation: 2.5.11</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__mapErrorCode"></a><div class="element clickable method private method__mapErrorCode" data-toggle="collapse" data-target=".method__mapErrorCode .collapse">
+<a id="method__mapErrorCode"></a><div class="element clickable method private method__mapErrorCode" data-bs-toggle="collapse" data-target=".method__mapErrorCode .collapse">
 <h2>Map error code, e.g.</h2>
 <pre>_mapErrorCode(int $subData) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -1087,7 +1087,7 @@ OpenOffice documentation: 2.5.11</h2>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__mapFillPattern"></a><div class="element clickable method private method__mapFillPattern" data-toggle="collapse" data-target=".method__mapFillPattern .collapse">
+<a id="method__mapFillPattern"></a><div class="element clickable method private method__mapFillPattern" data-bs-toggle="collapse" data-target=".method__mapFillPattern .collapse">
 <h2>Get fill pattern from index
 OpenOffice documentation: 2.5.12</h2>
 <pre>_mapFillPattern(int $index) : string</pre>
@@ -1103,7 +1103,7 @@ OpenOffice documentation: 2.5.12</h2>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__parseRichText"></a><div class="element clickable method private method__parseRichText" data-toggle="collapse" data-target=".method__parseRichText .collapse">
+<a id="method__parseRichText"></a><div class="element clickable method private method__parseRichText" data-bs-toggle="collapse" data-target=".method__parseRichText .collapse">
 <h2>_parseRichText()
         </h2>
 <pre>_parseRichText($is) </pre>
@@ -1114,7 +1114,7 @@ OpenOffice documentation: 2.5.12</h2>
 <div class="subelement argument"><h4>$is</h4></div>
 </div></div>
 </div>
-<a id="method__readBIFF5CellRangeAddressFixed"></a><div class="element clickable method private method__readBIFF5CellRangeAddressFixed" data-toggle="collapse" data-target=".method__readBIFF5CellRangeAddressFixed .collapse">
+<a id="method__readBIFF5CellRangeAddressFixed"></a><div class="element clickable method private method__readBIFF5CellRangeAddressFixed" data-bs-toggle="collapse" data-target=".method__readBIFF5CellRangeAddressFixed .collapse">
 <h2>Reads a cell range address in BIFF5 e.g.</h2>
 <pre>_readBIFF5CellRangeAddressFixed(string $subData) : string</pre>
 <div class="labels"></div>
@@ -1136,7 +1136,7 @@ section 2.5.14</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF5CellRangeAddressList"></a><div class="element clickable method private method__readBIFF5CellRangeAddressList" data-toggle="collapse" data-target=".method__readBIFF5CellRangeAddressList .collapse">
+<a id="method__readBIFF5CellRangeAddressList"></a><div class="element clickable method private method__readBIFF5CellRangeAddressList" data-bs-toggle="collapse" data-target=".method__readBIFF5CellRangeAddressList .collapse">
 <h2>Read BIFF5 cell range address list
 section 2.5.15</h2>
 <pre>_readBIFF5CellRangeAddressList(string $subData) : array</pre>
@@ -1152,7 +1152,7 @@ section 2.5.15</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF8CellAddress"></a><div class="element clickable method private method__readBIFF8CellAddress" data-toggle="collapse" data-target=".method__readBIFF8CellAddress .collapse">
+<a id="method__readBIFF8CellAddress"></a><div class="element clickable method private method__readBIFF8CellAddress" data-bs-toggle="collapse" data-target=".method__readBIFF8CellAddress .collapse">
 <h2>Reads a cell address in BIFF8 e.g.</h2>
 <pre>_readBIFF8CellAddress(string $cellAddressStructure) : string</pre>
 <div class="labels"></div>
@@ -1168,7 +1168,7 @@ section 3.3.4</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF8CellAddressB"></a><div class="element clickable method private method__readBIFF8CellAddressB" data-toggle="collapse" data-target=".method__readBIFF8CellAddressB .collapse">
+<a id="method__readBIFF8CellAddressB"></a><div class="element clickable method private method__readBIFF8CellAddressB" data-bs-toggle="collapse" data-target=".method__readBIFF8CellAddressB .collapse">
 <h2>Reads a cell address in BIFF8 for shared formulas.</h2>
 <pre>_readBIFF8CellAddressB(string $cellAddressStructure, string $baseCell) : string</pre>
 <div class="labels"></div>
@@ -1188,7 +1188,7 @@ section 3.3.4</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF8CellRangeAddress"></a><div class="element clickable method private method__readBIFF8CellRangeAddress" data-toggle="collapse" data-target=".method__readBIFF8CellRangeAddress .collapse">
+<a id="method__readBIFF8CellRangeAddress"></a><div class="element clickable method private method__readBIFF8CellRangeAddress" data-bs-toggle="collapse" data-target=".method__readBIFF8CellRangeAddress .collapse">
 <h2>Reads a cell range address in BIFF8 e.g.</h2>
 <pre>_readBIFF8CellRangeAddress(string $subData) : string</pre>
 <div class="labels"></div>
@@ -1205,7 +1205,7 @@ section 3.3.4</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF8CellRangeAddressB"></a><div class="element clickable method private method__readBIFF8CellRangeAddressB" data-toggle="collapse" data-target=".method__readBIFF8CellRangeAddressB .collapse">
+<a id="method__readBIFF8CellRangeAddressB"></a><div class="element clickable method private method__readBIFF8CellRangeAddressB" data-bs-toggle="collapse" data-target=".method__readBIFF8CellRangeAddressB .collapse">
 <h2>Reads a cell range address in BIFF8 for shared formulas.</h2>
 <pre>_readBIFF8CellRangeAddressB(string $subData, string $baseCell) : string</pre>
 <div class="labels"></div>
@@ -1226,7 +1226,7 @@ section 3.3.4</p></div>
 <code>string</code>Cell range address</div>
 </div></div>
 </div>
-<a id="method__readBIFF8CellRangeAddressFixed"></a><div class="element clickable method private method__readBIFF8CellRangeAddressFixed" data-toggle="collapse" data-target=".method__readBIFF8CellRangeAddressFixed .collapse">
+<a id="method__readBIFF8CellRangeAddressFixed"></a><div class="element clickable method private method__readBIFF8CellRangeAddressFixed" data-bs-toggle="collapse" data-target=".method__readBIFF8CellRangeAddressFixed .collapse">
 <h2>Reads a cell range address in BIFF8 e.g.</h2>
 <pre>_readBIFF8CellRangeAddressFixed(string $subData) : string</pre>
 <div class="labels"></div>
@@ -1248,7 +1248,7 @@ section 2.5.14</p></div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF8CellRangeAddressList"></a><div class="element clickable method private method__readBIFF8CellRangeAddressList" data-toggle="collapse" data-target=".method__readBIFF8CellRangeAddressList .collapse">
+<a id="method__readBIFF8CellRangeAddressList"></a><div class="element clickable method private method__readBIFF8CellRangeAddressList" data-bs-toggle="collapse" data-target=".method__readBIFF8CellRangeAddressList .collapse">
 <h2>Read BIFF8 cell range address list
 section 2.5.15</h2>
 <pre>_readBIFF8CellRangeAddressList(string $subData) : array</pre>
@@ -1264,7 +1264,7 @@ section 2.5.15</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF8Constant"></a><div class="element clickable method private method__readBIFF8Constant" data-toggle="collapse" data-target=".method__readBIFF8Constant .collapse">
+<a id="method__readBIFF8Constant"></a><div class="element clickable method private method__readBIFF8Constant" data-bs-toggle="collapse" data-target=".method__readBIFF8Constant .collapse">
 <h2>read BIFF8 constant value which may be 'Empty Value', 'Number', 'String Value', 'Boolean Value', 'Error Value'
 section 2.5.7
 returns e.g.</h2>
@@ -1281,7 +1281,7 @@ returns e.g.</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readBIFF8ConstantArray"></a><div class="element clickable method private method__readBIFF8ConstantArray" data-toggle="collapse" data-target=".method__readBIFF8ConstantArray .collapse">
+<a id="method__readBIFF8ConstantArray"></a><div class="element clickable method private method__readBIFF8ConstantArray" data-bs-toggle="collapse" data-target=".method__readBIFF8ConstantArray .collapse">
 <h2>read BIFF8 constant value array from array data
 returns e.g.</h2>
 <pre>_readBIFF8ConstantArray(string $arrayData) : array</pre>
@@ -1298,19 +1298,19 @@ section 2.5.8</p></div>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readBlank"></a><div class="element clickable method private method__readBlank" data-toggle="collapse" data-target=".method__readBlank .collapse">
+<a id="method__readBlank"></a><div class="element clickable method private method__readBlank" data-bs-toggle="collapse" data-target=".method__readBlank .collapse">
 <h2>Read BLANK record</h2>
 <pre>_readBlank() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readBof"></a><div class="element clickable method private method__readBof" data-toggle="collapse" data-target=".method__readBof .collapse">
+<a id="method__readBof"></a><div class="element clickable method private method__readBof" data-bs-toggle="collapse" data-target=".method__readBof .collapse">
 <h2>Read BOF</h2>
 <pre>_readBof() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readBoolErr"></a><div class="element clickable method private method__readBoolErr" data-toggle="collapse" data-target=".method__readBoolErr .collapse">
+<a id="method__readBoolErr"></a><div class="element clickable method private method__readBoolErr" data-bs-toggle="collapse" data-target=".method__readBoolErr .collapse">
 <h2>Read BOOLERR record
 This record represents a Boolean value or error value
 cell.</h2>
@@ -1319,13 +1319,13 @@ cell.</h2>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readBottomMargin"></a><div class="element clickable method private method__readBottomMargin" data-toggle="collapse" data-target=".method__readBottomMargin .collapse">
+<a id="method__readBottomMargin"></a><div class="element clickable method private method__readBottomMargin" data-bs-toggle="collapse" data-target=".method__readBottomMargin .collapse">
 <h2>Read BOTTOMMARGIN record</h2>
 <pre>_readBottomMargin() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readByteStringLong"></a><div class="element clickable method private method__readByteStringLong" data-toggle="collapse" data-target=".method__readByteStringLong .collapse">
+<a id="method__readByteStringLong"></a><div class="element clickable method private method__readByteStringLong" data-bs-toggle="collapse" data-target=".method__readByteStringLong .collapse">
 <h2>Read byte string (16-bit string length)
 OpenOffice documentation: 2.5.2</h2>
 <pre>_readByteStringLong(string $subData) : array</pre>
@@ -1341,7 +1341,7 @@ OpenOffice documentation: 2.5.2</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readByteStringShort"></a><div class="element clickable method private method__readByteStringShort" data-toggle="collapse" data-target=".method__readByteStringShort .collapse">
+<a id="method__readByteStringShort"></a><div class="element clickable method private method__readByteStringShort" data-bs-toggle="collapse" data-target=".method__readByteStringShort .collapse">
 <h2>Read byte string (8-bit string length)
 OpenOffice documentation: 2.5.2</h2>
 <pre>_readByteStringShort(string $subData) : array</pre>
@@ -1357,7 +1357,7 @@ OpenOffice documentation: 2.5.2</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readCodepage"></a><div class="element clickable method private method__readCodepage" data-toggle="collapse" data-target=".method__readCodepage .collapse">
+<a id="method__readCodepage"></a><div class="element clickable method private method__readCodepage" data-bs-toggle="collapse" data-target=".method__readCodepage .collapse">
 <h2>CODEPAGE</h2>
 <pre>_readCodepage() </pre>
 <div class="labels"></div>
@@ -1367,13 +1367,13 @@ strings, stored as MS Windows code page identifier.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readColInfo"></a><div class="element clickable method private method__readColInfo" data-toggle="collapse" data-target=".method__readColInfo .collapse">
+<a id="method__readColInfo"></a><div class="element clickable method private method__readColInfo" data-bs-toggle="collapse" data-target=".method__readColInfo .collapse">
 <h2>Read COLINFO record</h2>
 <pre>_readColInfo() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readColor"></a><div class="element clickable method private method__readColor" data-toggle="collapse" data-target=".method__readColor .collapse">
+<a id="method__readColor"></a><div class="element clickable method private method__readColor" data-bs-toggle="collapse" data-target=".method__readColor .collapse">
 <h2>Read color</h2>
 <pre>_readColor(int $color, array $palette, $version) : array</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -1392,7 +1392,7 @@ strings, stored as MS Windows code page identifier.</p>
 <code>array</code>RGB color value, example: array('rgb' => 'FF0000')</div>
 </div></div>
 </div>
-<a id="method__readContinue"></a><div class="element clickable method private method__readContinue" data-toggle="collapse" data-target=".method__readContinue .collapse">
+<a id="method__readContinue"></a><div class="element clickable method private method__readContinue" data-bs-toggle="collapse" data-target=".method__readContinue .collapse">
 <h2>Read a free CONTINUE record.</h2>
 <pre>_readContinue() </pre>
 <div class="labels"></div>
@@ -1400,19 +1400,19 @@ strings, stored as MS Windows code page identifier.</p>
 When MSODRAWING data on a sheet exceeds 8224 bytes, CONTINUE records are used instead. Undocumented.
 In this case, we must treat the CONTINUE record as a MSODRAWING record</p></div></div></div>
 </div>
-<a id="method__readDataValidation"></a><div class="element clickable method private method__readDataValidation" data-toggle="collapse" data-target=".method__readDataValidation .collapse">
+<a id="method__readDataValidation"></a><div class="element clickable method private method__readDataValidation" data-bs-toggle="collapse" data-target=".method__readDataValidation .collapse">
 <h2>Read DATAVALIDATION record</h2>
 <pre>_readDataValidation() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readDataValidations"></a><div class="element clickable method private method__readDataValidations" data-toggle="collapse" data-target=".method__readDataValidations .collapse">
+<a id="method__readDataValidations"></a><div class="element clickable method private method__readDataValidations" data-bs-toggle="collapse" data-target=".method__readDataValidations .collapse">
 <h2>Read DATAVALIDATIONS record</h2>
 <pre>_readDataValidations() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readDateMode"></a><div class="element clickable method private method__readDateMode" data-toggle="collapse" data-target=".method__readDateMode .collapse">
+<a id="method__readDateMode"></a><div class="element clickable method private method__readDateMode" data-bs-toggle="collapse" data-target=".method__readDateMode .collapse">
 <h2>DATEMODE</h2>
 <pre>_readDateMode() </pre>
 <div class="labels"></div>
@@ -1425,25 +1425,25 @@ stored in the Workbook Globals Substream.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readDefColWidth"></a><div class="element clickable method private method__readDefColWidth" data-toggle="collapse" data-target=".method__readDefColWidth .collapse">
+<a id="method__readDefColWidth"></a><div class="element clickable method private method__readDefColWidth" data-bs-toggle="collapse" data-target=".method__readDefColWidth .collapse">
 <h2>Read DEFCOLWIDTH record</h2>
 <pre>_readDefColWidth() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readDefault"></a><div class="element clickable method private method__readDefault" data-toggle="collapse" data-target=".method__readDefault .collapse">
+<a id="method__readDefault"></a><div class="element clickable method private method__readDefault" data-bs-toggle="collapse" data-target=".method__readDefault .collapse">
 <h2>Reads a general type of BIFF record.</h2>
 <pre>_readDefault() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Does nothing except for moving stream pointer forward to next record.</p></div></div></div>
 </div>
-<a id="method__readDefaultRowHeight"></a><div class="element clickable method private method__readDefaultRowHeight" data-toggle="collapse" data-target=".method__readDefaultRowHeight .collapse">
+<a id="method__readDefaultRowHeight"></a><div class="element clickable method private method__readDefaultRowHeight" data-bs-toggle="collapse" data-target=".method__readDefaultRowHeight .collapse">
 <h2>Read DEFAULTROWHEIGHT record</h2>
 <pre>_readDefaultRowHeight() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readDefinedName"></a><div class="element clickable method private method__readDefinedName" data-toggle="collapse" data-target=".method__readDefinedName .collapse">
+<a id="method__readDefinedName"></a><div class="element clickable method private method__readDefinedName" data-bs-toggle="collapse" data-target=".method__readDefinedName .collapse">
 <h2>DEFINEDNAME</h2>
 <pre>_readDefinedName() </pre>
 <div class="labels"></div>
@@ -1455,31 +1455,31 @@ token classes.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readDocumentSummaryInformation"></a><div class="element clickable method private method__readDocumentSummaryInformation" data-toggle="collapse" data-target=".method__readDocumentSummaryInformation .collapse">
+<a id="method__readDocumentSummaryInformation"></a><div class="element clickable method private method__readDocumentSummaryInformation" data-bs-toggle="collapse" data-target=".method__readDocumentSummaryInformation .collapse">
 <h2>Read additional document summary information</h2>
 <pre>_readDocumentSummaryInformation() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readExternName"></a><div class="element clickable method private method__readExternName" data-toggle="collapse" data-target=".method__readExternName .collapse">
+<a id="method__readExternName"></a><div class="element clickable method private method__readExternName" data-bs-toggle="collapse" data-target=".method__readExternName .collapse">
 <h2>Read EXTERNNAME record.</h2>
 <pre>_readExternName() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readExternSheet"></a><div class="element clickable method private method__readExternSheet" data-toggle="collapse" data-target=".method__readExternSheet .collapse">
+<a id="method__readExternSheet"></a><div class="element clickable method private method__readExternSheet" data-bs-toggle="collapse" data-target=".method__readExternSheet .collapse">
 <h2>Read EXTERNSHEET record</h2>
 <pre>_readExternSheet() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readExternalBook"></a><div class="element clickable method private method__readExternalBook" data-toggle="collapse" data-target=".method__readExternalBook .collapse">
+<a id="method__readExternalBook"></a><div class="element clickable method private method__readExternalBook" data-bs-toggle="collapse" data-target=".method__readExternalBook .collapse">
 <h2>Read EXTERNALBOOK record</h2>
 <pre>_readExternalBook() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readFilepass"></a><div class="element clickable method private method__readFilepass" data-toggle="collapse" data-target=".method__readFilepass .collapse">
+<a id="method__readFilepass"></a><div class="element clickable method private method__readFilepass" data-bs-toggle="collapse" data-target=".method__readFilepass .collapse">
 <h2>FILEPASS</h2>
 <pre>_readFilepass() </pre>
 <div class="labels"></div>
@@ -1495,19 +1495,19 @@ encrypted.</p>
 are based on the source of Spreadsheet-ParseExcel:
 http://search.cpan.org/~jmcnamara/Spreadsheet-ParseExcel/</p></div></div></div>
 </div>
-<a id="method__readFont"></a><div class="element clickable method private method__readFont" data-toggle="collapse" data-target=".method__readFont .collapse">
+<a id="method__readFont"></a><div class="element clickable method private method__readFont" data-bs-toggle="collapse" data-target=".method__readFont .collapse">
 <h2>Read a FONT record</h2>
 <pre>_readFont() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readFooter"></a><div class="element clickable method private method__readFooter" data-toggle="collapse" data-target=".method__readFooter .collapse">
+<a id="method__readFooter"></a><div class="element clickable method private method__readFooter" data-bs-toggle="collapse" data-target=".method__readFooter .collapse">
 <h2>Read FOOTER record</h2>
 <pre>_readFooter() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readFormat"></a><div class="element clickable method private method__readFormat" data-toggle="collapse" data-target=".method__readFormat .collapse">
+<a id="method__readFormat"></a><div class="element clickable method private method__readFormat" data-bs-toggle="collapse" data-target=".method__readFormat .collapse">
 <h2>FORMAT</h2>
 <pre>_readFormat() </pre>
 <div class="labels"></div>
@@ -1522,7 +1522,7 @@ used by other records.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readFormula"></a><div class="element clickable method private method__readFormula" data-toggle="collapse" data-target=".method__readFormula .collapse">
+<a id="method__readFormula"></a><div class="element clickable method private method__readFormula" data-bs-toggle="collapse" data-target=".method__readFormula .collapse">
 <h2>Read FORMULA record + perhaps a following STRING record if formula result is a string
 This record contains the token array and the result of a
 formula cell.</h2>
@@ -1531,37 +1531,37 @@ formula cell.</h2>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readHcenter"></a><div class="element clickable method private method__readHcenter" data-toggle="collapse" data-target=".method__readHcenter .collapse">
+<a id="method__readHcenter"></a><div class="element clickable method private method__readHcenter" data-bs-toggle="collapse" data-target=".method__readHcenter .collapse">
 <h2>Read HCENTER record</h2>
 <pre>_readHcenter() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readHeader"></a><div class="element clickable method private method__readHeader" data-toggle="collapse" data-target=".method__readHeader .collapse">
+<a id="method__readHeader"></a><div class="element clickable method private method__readHeader" data-bs-toggle="collapse" data-target=".method__readHeader .collapse">
 <h2>Read HEADER record</h2>
 <pre>_readHeader() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readHorizontalPageBreaks"></a><div class="element clickable method private method__readHorizontalPageBreaks" data-toggle="collapse" data-target=".method__readHorizontalPageBreaks .collapse">
+<a id="method__readHorizontalPageBreaks"></a><div class="element clickable method private method__readHorizontalPageBreaks" data-bs-toggle="collapse" data-target=".method__readHorizontalPageBreaks .collapse">
 <h2>Read HORIZONTALPAGEBREAKS record</h2>
 <pre>_readHorizontalPageBreaks() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readHyperLink"></a><div class="element clickable method private method__readHyperLink" data-toggle="collapse" data-target=".method__readHyperLink .collapse">
+<a id="method__readHyperLink"></a><div class="element clickable method private method__readHyperLink" data-bs-toggle="collapse" data-target=".method__readHyperLink .collapse">
 <h2>Read HYPERLINK record</h2>
 <pre>_readHyperLink() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readImData"></a><div class="element clickable method private method__readImData" data-toggle="collapse" data-target=".method__readImData .collapse">
+<a id="method__readImData"></a><div class="element clickable method private method__readImData" data-bs-toggle="collapse" data-target=".method__readImData .collapse">
 <h2>Read IMDATA record</h2>
 <pre>_readImData() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readLabel"></a><div class="element clickable method private method__readLabel" data-toggle="collapse" data-target=".method__readLabel .collapse">
+<a id="method__readLabel"></a><div class="element clickable method private method__readLabel" data-bs-toggle="collapse" data-target=".method__readLabel .collapse">
 <h2>Read LABEL record
 This record represents a cell that contains a string.</h2>
 <pre>_readLabel() </pre>
@@ -1574,7 +1574,7 @@ text cells to the clipboard.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readLabelSst"></a><div class="element clickable method private method__readLabelSst" data-toggle="collapse" data-target=".method__readLabelSst .collapse">
+<a id="method__readLabelSst"></a><div class="element clickable method private method__readLabelSst" data-bs-toggle="collapse" data-target=".method__readLabelSst .collapse">
 <h2>Read LABELSST record
 This record represents a cell that contains a string.</h2>
 <pre>_readLabelSst() </pre>
@@ -1586,13 +1586,13 @@ BIFF2-BIFF5.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readLeftMargin"></a><div class="element clickable method private method__readLeftMargin" data-toggle="collapse" data-target=".method__readLeftMargin .collapse">
+<a id="method__readLeftMargin"></a><div class="element clickable method private method__readLeftMargin" data-bs-toggle="collapse" data-target=".method__readLeftMargin .collapse">
 <h2>Read LEFTMARGIN record</h2>
 <pre>_readLeftMargin() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readMergedCells"></a><div class="element clickable method private method__readMergedCells" data-toggle="collapse" data-target=".method__readMergedCells .collapse">
+<a id="method__readMergedCells"></a><div class="element clickable method private method__readMergedCells" data-bs-toggle="collapse" data-target=".method__readMergedCells .collapse">
 <h2>MERGEDCELLS</h2>
 <pre>_readMergedCells() </pre>
 <div class="labels"></div>
@@ -1602,19 +1602,19 @@ in the current sheet.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readMsoDrawing"></a><div class="element clickable method private method__readMsoDrawing" data-toggle="collapse" data-target=".method__readMsoDrawing .collapse">
+<a id="method__readMsoDrawing"></a><div class="element clickable method private method__readMsoDrawing" data-bs-toggle="collapse" data-target=".method__readMsoDrawing .collapse">
 <h2>Read MSODRAWING record</h2>
 <pre>_readMsoDrawing() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readMsoDrawingGroup"></a><div class="element clickable method private method__readMsoDrawingGroup" data-toggle="collapse" data-target=".method__readMsoDrawingGroup .collapse">
+<a id="method__readMsoDrawingGroup"></a><div class="element clickable method private method__readMsoDrawingGroup" data-bs-toggle="collapse" data-target=".method__readMsoDrawingGroup .collapse">
 <h2>Read MSODRAWINGGROUP record</h2>
 <pre>_readMsoDrawingGroup() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readMulBlank"></a><div class="element clickable method private method__readMulBlank" data-toggle="collapse" data-target=".method__readMulBlank .collapse">
+<a id="method__readMulBlank"></a><div class="element clickable method private method__readMulBlank" data-bs-toggle="collapse" data-target=".method__readMulBlank .collapse">
 <h2>Read MULBLANK record
 This record represents a cell range of empty cells.</h2>
 <pre>_readMulBlank() </pre>
@@ -1625,7 +1625,7 @@ cells are located in the same row</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readMulRk"></a><div class="element clickable method private method__readMulRk" data-toggle="collapse" data-target=".method__readMulRk .collapse">
+<a id="method__readMulRk"></a><div class="element clickable method private method__readMulRk" data-bs-toggle="collapse" data-target=".method__readMulRk .collapse">
 <h2>Read MULRK record
 This record represents a cell range containing RK value
 cells.</h2>
@@ -1636,14 +1636,14 @@ cells.</h2>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readNote"></a><div class="element clickable method private method__readNote" data-toggle="collapse" data-target=".method__readNote .collapse">
+<a id="method__readNote"></a><div class="element clickable method private method__readNote" data-bs-toggle="collapse" data-target=".method__readNote .collapse">
 <h2>The NOTE record specifies a comment associated with a particular cell.</h2>
 <pre>_readNote() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>In Excel 95 (BIFF7) and earlier versions,
     this record stores a note (cell note). This feature was significantly enhanced in Excel 97.</p></div></div></div>
 </div>
-<a id="method__readNumber"></a><div class="element clickable method private method__readNumber" data-toggle="collapse" data-target=".method__readNumber .collapse">
+<a id="method__readNumber"></a><div class="element clickable method private method__readNumber" data-bs-toggle="collapse" data-target=".method__readNumber .collapse">
 <h2>Read NUMBER record
 This record represents a cell that contains a
 floating-point value.</h2>
@@ -1652,62 +1652,62 @@ floating-point value.</h2>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readObj"></a><div class="element clickable method private method__readObj" data-toggle="collapse" data-target=".method__readObj .collapse">
+<a id="method__readObj"></a><div class="element clickable method private method__readObj" data-bs-toggle="collapse" data-target=".method__readObj .collapse">
 <h2>Read OBJ record</h2>
 <pre>_readObj() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readObjectProtect"></a><div class="element clickable method private method__readObjectProtect" data-toggle="collapse" data-target=".method__readObjectProtect .collapse">
+<a id="method__readObjectProtect"></a><div class="element clickable method private method__readObjectProtect" data-bs-toggle="collapse" data-target=".method__readObjectProtect .collapse">
 <h2>OBJECTPROTECT</h2>
 <pre>_readObjectProtect() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readPageLayoutView"></a><div class="element clickable method private method__readPageLayoutView" data-toggle="collapse" data-target=".method__readPageLayoutView .collapse">
+<a id="method__readPageLayoutView"></a><div class="element clickable method private method__readPageLayoutView" data-bs-toggle="collapse" data-target=".method__readPageLayoutView .collapse">
 <h2>Read PLV Record(Created by Excel2007 or upper)</h2>
 <pre>_readPageLayoutView() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readPageSetup"></a><div class="element clickable method private method__readPageSetup" data-toggle="collapse" data-target=".method__readPageSetup .collapse">
+<a id="method__readPageSetup"></a><div class="element clickable method private method__readPageSetup" data-bs-toggle="collapse" data-target=".method__readPageSetup .collapse">
 <h2>Read PAGESETUP record</h2>
 <pre>_readPageSetup() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readPalette"></a><div class="element clickable method private method__readPalette" data-toggle="collapse" data-target=".method__readPalette .collapse">
+<a id="method__readPalette"></a><div class="element clickable method private method__readPalette" data-bs-toggle="collapse" data-target=".method__readPalette .collapse">
 <h2>Read PALETTE record</h2>
 <pre>_readPalette() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readPane"></a><div class="element clickable method private method__readPane" data-toggle="collapse" data-target=".method__readPane .collapse">
+<a id="method__readPane"></a><div class="element clickable method private method__readPane" data-bs-toggle="collapse" data-target=".method__readPane .collapse">
 <h2>Read PANE record</h2>
 <pre>_readPane() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readPassword"></a><div class="element clickable method private method__readPassword" data-toggle="collapse" data-target=".method__readPassword .collapse">
+<a id="method__readPassword"></a><div class="element clickable method private method__readPassword" data-bs-toggle="collapse" data-target=".method__readPassword .collapse">
 <h2>PASSWORD - Sheet protection (hashed) password (BIFF2 through BIFF8)</h2>
 <pre>_readPassword() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readPrintGridlines"></a><div class="element clickable method private method__readPrintGridlines" data-toggle="collapse" data-target=".method__readPrintGridlines .collapse">
+<a id="method__readPrintGridlines"></a><div class="element clickable method private method__readPrintGridlines" data-bs-toggle="collapse" data-target=".method__readPrintGridlines .collapse">
 <h2>Read PRINTGRIDLINES record</h2>
 <pre>_readPrintGridlines() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readProtect"></a><div class="element clickable method private method__readProtect" data-toggle="collapse" data-target=".method__readProtect .collapse">
+<a id="method__readProtect"></a><div class="element clickable method private method__readProtect" data-bs-toggle="collapse" data-target=".method__readProtect .collapse">
 <h2>PROTECT - Sheet protection (BIFF2 through BIFF8)
   if this record is omitted, then it also means no sheet protection</h2>
 <pre>_readProtect() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readRGB"></a><div class="element clickable method private method__readRGB" data-toggle="collapse" data-target=".method__readRGB .collapse">
+<a id="method__readRGB"></a><div class="element clickable method private method__readRGB" data-bs-toggle="collapse" data-target=".method__readRGB .collapse">
 <h2>Extract RGB color
 OpenOffice.org's Documentation of the Microsoft Excel File Format, section 2.5.4</h2>
 <pre>_readRGB(string $rgb) : array</pre>
@@ -1723,7 +1723,7 @@ OpenOffice.org's Documentation of the Microsoft Excel File Format, section 2.5.4
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readRangeProtection"></a><div class="element clickable method private method__readRangeProtection" data-toggle="collapse" data-target=".method__readRangeProtection .collapse">
+<a id="method__readRangeProtection"></a><div class="element clickable method private method__readRangeProtection" data-bs-toggle="collapse" data-target=".method__readRangeProtection .collapse">
 <h2>Read RANGEPROTECTION record
 Reading of this record is based on Microsoft Office Excel 97-2000 Binary File Format Specification,
 where it is referred to as FEAT record</h2>
@@ -1731,7 +1731,7 @@ where it is referred to as FEAT record</h2>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readRecordData"></a><div class="element clickable method private method__readRecordData" data-toggle="collapse" data-target=".method__readRecordData .collapse">
+<a id="method__readRecordData"></a><div class="element clickable method private method__readRecordData" data-bs-toggle="collapse" data-target=".method__readRecordData .collapse">
 <h2>Read record data from stream, decrypting as required</h2>
 <pre>_readRecordData(string $data, int $pos, $len) : string</pre>
 <div class="labels"></div>
@@ -1750,13 +1750,13 @@ where it is referred to as FEAT record</h2>
 <code>string</code>Record data</div>
 </div></div>
 </div>
-<a id="method__readRightMargin"></a><div class="element clickable method private method__readRightMargin" data-toggle="collapse" data-target=".method__readRightMargin .collapse">
+<a id="method__readRightMargin"></a><div class="element clickable method private method__readRightMargin" data-bs-toggle="collapse" data-target=".method__readRightMargin .collapse">
 <h2>Read RIGHTMARGIN record</h2>
 <pre>_readRightMargin() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readRk"></a><div class="element clickable method private method__readRk" data-toggle="collapse" data-target=".method__readRk .collapse">
+<a id="method__readRk"></a><div class="element clickable method private method__readRk" data-bs-toggle="collapse" data-target=".method__readRk .collapse">
 <h2>Read RK record
 This record represents a cell that contains an RK value
 (encoded integer or floating-point value).</h2>
@@ -1770,7 +1770,7 @@ record INTEGER written in BIFF2.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readRow"></a><div class="element clickable method private method__readRow" data-toggle="collapse" data-target=".method__readRow .collapse">
+<a id="method__readRow"></a><div class="element clickable method private method__readRow" data-bs-toggle="collapse" data-target=".method__readRow .collapse">
 <h2>ROW</h2>
 <pre>_readRow() </pre>
 <div class="labels"></div>
@@ -1781,25 +1781,25 @@ of 32 rows.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readScenProtect"></a><div class="element clickable method private method__readScenProtect" data-toggle="collapse" data-target=".method__readScenProtect .collapse">
+<a id="method__readScenProtect"></a><div class="element clickable method private method__readScenProtect" data-bs-toggle="collapse" data-target=".method__readScenProtect .collapse">
 <h2>SCENPROTECT</h2>
 <pre>_readScenProtect() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readScl"></a><div class="element clickable method private method__readScl" data-toggle="collapse" data-target=".method__readScl .collapse">
+<a id="method__readScl"></a><div class="element clickable method private method__readScl" data-bs-toggle="collapse" data-target=".method__readScl .collapse">
 <h2>Read SCL record</h2>
 <pre>_readScl() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readSelection"></a><div class="element clickable method private method__readSelection" data-toggle="collapse" data-target=".method__readSelection .collapse">
+<a id="method__readSelection"></a><div class="element clickable method private method__readSelection" data-bs-toggle="collapse" data-target=".method__readSelection .collapse">
 <h2>Read SELECTION record.</h2>
 <pre>_readSelection() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>There is one such record for each pane in the sheet.</p></div></div></div>
 </div>
-<a id="method__readSharedFmla"></a><div class="element clickable method private method__readSharedFmla" data-toggle="collapse" data-target=".method__readSharedFmla .collapse">
+<a id="method__readSharedFmla"></a><div class="element clickable method private method__readSharedFmla" data-bs-toggle="collapse" data-target=".method__readSharedFmla .collapse">
 <h2>Read a SHAREDFMLA record.</h2>
 <pre>_readSharedFmla() </pre>
 <div class="labels"></div>
@@ -1807,7 +1807,7 @@ of 32 rows.</p>
 which usually contains relative references.
 These will be used to construct the formula in each shared formula part after the sheet is read.</p></div></div></div>
 </div>
-<a id="method__readSheet"></a><div class="element clickable method private method__readSheet" data-toggle="collapse" data-target=".method__readSheet .collapse">
+<a id="method__readSheet"></a><div class="element clickable method private method__readSheet" data-bs-toggle="collapse" data-target=".method__readSheet .collapse">
 <h2>SHEET</h2>
 <pre>_readSheet() </pre>
 <div class="labels"></div>
@@ -1820,25 +1820,25 @@ respective Sheet Substream within the Workbook Stream.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readSheetLayout"></a><div class="element clickable method private method__readSheetLayout" data-toggle="collapse" data-target=".method__readSheetLayout .collapse">
+<a id="method__readSheetLayout"></a><div class="element clickable method private method__readSheetLayout" data-bs-toggle="collapse" data-target=".method__readSheetLayout .collapse">
 <h2>Read SHEETLAYOUT record.</h2>
 <pre>_readSheetLayout() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Stores sheet tab color information.</p></div></div></div>
 </div>
-<a id="method__readSheetPr"></a><div class="element clickable method private method__readSheetPr" data-toggle="collapse" data-target=".method__readSheetPr .collapse">
+<a id="method__readSheetPr"></a><div class="element clickable method private method__readSheetPr" data-bs-toggle="collapse" data-target=".method__readSheetPr .collapse">
 <h2>Read SHEETPR record</h2>
 <pre>_readSheetPr() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readSheetProtection"></a><div class="element clickable method private method__readSheetProtection" data-toggle="collapse" data-target=".method__readSheetProtection .collapse">
+<a id="method__readSheetProtection"></a><div class="element clickable method private method__readSheetProtection" data-bs-toggle="collapse" data-target=".method__readSheetProtection .collapse">
 <h2>Read SHEETPROTECTION record (FEATHEADR)</h2>
 <pre>_readSheetProtection() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readSheetRangeByRefIndex"></a><div class="element clickable method private method__readSheetRangeByRefIndex" data-toggle="collapse" data-target=".method__readSheetRangeByRefIndex .collapse">
+<a id="method__readSheetRangeByRefIndex"></a><div class="element clickable method private method__readSheetRangeByRefIndex" data-bs-toggle="collapse" data-target=".method__readSheetRangeByRefIndex .collapse">
 <h2>Get a sheet range like Sheet1:Sheet3 from REF index
 Note: If there is only one sheet in the range, one gets e.g Sheet1
 It can also happen that the REF structure uses the -1 (FFFF) code to indicate deleted sheets,
@@ -1863,7 +1863,7 @@ in which case an PHPExcel_Reader_Exception is thrown</h2>
 </div>
 </div></div>
 </div>
-<a id="method__readSst"></a><div class="element clickable method private method__readSst" data-toggle="collapse" data-target=".method__readSst .collapse">
+<a id="method__readSst"></a><div class="element clickable method private method__readSst" data-bs-toggle="collapse" data-target=".method__readSst .collapse">
 <h2>SST - Shared String Table</h2>
 <pre>_readSst() </pre>
 <div class="labels"></div>
@@ -1875,7 +1875,7 @@ strings.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readString"></a><div class="element clickable method private method__readString" data-toggle="collapse" data-target=".method__readString .collapse">
+<a id="method__readString"></a><div class="element clickable method private method__readString" data-bs-toggle="collapse" data-target=".method__readString .collapse">
 <h2>Read a STRING record from current stream position and advance the stream pointer to next record
 This record is used for storing result from FORMULA record when it is a string, and
 it occurs directly after the FORMULA record</h2>
@@ -1888,31 +1888,31 @@ it occurs directly after the FORMULA record</h2>
 <code>string</code>The string contents as UTF-8</div>
 </div></div>
 </div>
-<a id="method__readStyle"></a><div class="element clickable method private method__readStyle" data-toggle="collapse" data-target=".method__readStyle .collapse">
+<a id="method__readStyle"></a><div class="element clickable method private method__readStyle" data-bs-toggle="collapse" data-target=".method__readStyle .collapse">
 <h2>Read STYLE record</h2>
 <pre>_readStyle() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readSummaryInformation"></a><div class="element clickable method private method__readSummaryInformation" data-toggle="collapse" data-target=".method__readSummaryInformation .collapse">
+<a id="method__readSummaryInformation"></a><div class="element clickable method private method__readSummaryInformation" data-bs-toggle="collapse" data-target=".method__readSummaryInformation .collapse">
 <h2>Read summary information</h2>
 <pre>_readSummaryInformation() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readTextObject"></a><div class="element clickable method private method__readTextObject" data-toggle="collapse" data-target=".method__readTextObject .collapse">
+<a id="method__readTextObject"></a><div class="element clickable method private method__readTextObject" data-bs-toggle="collapse" data-target=".method__readTextObject .collapse">
 <h2>The TEXT Object record contains the text associated with a cell annotation.</h2>
 <pre>_readTextObject() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readTopMargin"></a><div class="element clickable method private method__readTopMargin" data-toggle="collapse" data-target=".method__readTopMargin .collapse">
+<a id="method__readTopMargin"></a><div class="element clickable method private method__readTopMargin" data-bs-toggle="collapse" data-target=".method__readTopMargin .collapse">
 <h2>Read TOPMARGIN record</h2>
 <pre>_readTopMargin() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readUnicodeString"></a><div class="element clickable method private method__readUnicodeString" data-toggle="collapse" data-target=".method__readUnicodeString .collapse">
+<a id="method__readUnicodeString"></a><div class="element clickable method private method__readUnicodeString" data-bs-toggle="collapse" data-target=".method__readUnicodeString .collapse">
 <h2>Read Unicode string with no string length field, but with known character count
 this function is under construction, needs to support rich text, and Asian phonetic settings
 OpenOffice.org's Documentation of the Microsoft Excel File Format, section 2.5.3</h2>
@@ -1933,7 +1933,7 @@ OpenOffice.org's Documentation of the Microsoft Excel File Format, section 2.5.3
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readUnicodeStringLong"></a><div class="element clickable method private method__readUnicodeStringLong" data-toggle="collapse" data-target=".method__readUnicodeStringLong .collapse">
+<a id="method__readUnicodeStringLong"></a><div class="element clickable method private method__readUnicodeStringLong" data-bs-toggle="collapse" data-target=".method__readUnicodeStringLong .collapse">
 <h2>Extracts an Excel Unicode long string (16-bit string length)
 OpenOffice documentation: 2.5.3
 this function is under construction, needs to support rich text, and Asian phonetic settings</h2>
@@ -1950,7 +1950,7 @@ this function is under construction, needs to support rich text, and Asian phone
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readUnicodeStringShort"></a><div class="element clickable method private method__readUnicodeStringShort" data-toggle="collapse" data-target=".method__readUnicodeStringShort .collapse">
+<a id="method__readUnicodeStringShort"></a><div class="element clickable method private method__readUnicodeStringShort" data-bs-toggle="collapse" data-target=".method__readUnicodeStringShort .collapse">
 <h2>Extracts an Excel Unicode short string (8-bit string length)
 OpenOffice documentation: 2.5.3
 function will automatically find out where the Unicode string ends.</h2>
@@ -1967,25 +1967,25 @@ function will automatically find out where the Unicode string ends.</h2>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a id="method__readVcenter"></a><div class="element clickable method private method__readVcenter" data-toggle="collapse" data-target=".method__readVcenter .collapse">
+<a id="method__readVcenter"></a><div class="element clickable method private method__readVcenter" data-bs-toggle="collapse" data-target=".method__readVcenter .collapse">
 <h2>Read VCENTER record</h2>
 <pre>_readVcenter() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readVerticalPageBreaks"></a><div class="element clickable method private method__readVerticalPageBreaks" data-toggle="collapse" data-target=".method__readVerticalPageBreaks .collapse">
+<a id="method__readVerticalPageBreaks"></a><div class="element clickable method private method__readVerticalPageBreaks" data-bs-toggle="collapse" data-target=".method__readVerticalPageBreaks .collapse">
 <h2>Read VERTICALPAGEBREAKS record</h2>
 <pre>_readVerticalPageBreaks() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readWindow2"></a><div class="element clickable method private method__readWindow2" data-toggle="collapse" data-target=".method__readWindow2 .collapse">
+<a id="method__readWindow2"></a><div class="element clickable method private method__readWindow2" data-bs-toggle="collapse" data-target=".method__readWindow2 .collapse">
 <h2>Read WINDOW2 record</h2>
 <pre>_readWindow2() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__readXf"></a><div class="element clickable method private method__readXf" data-toggle="collapse" data-target=".method__readXf .collapse">
+<a id="method__readXf"></a><div class="element clickable method private method__readXf" data-bs-toggle="collapse" data-target=".method__readXf .collapse">
 <h2>XF - Extended Format</h2>
 <pre>_readXf() </pre>
 <div class="labels"></div>
@@ -2000,14 +2000,14 @@ We read all cell XF records.</p>
 <p>--  "OpenOffice.org's Documentation of the Microsoft
         Excel File Format"</p></div></div></div>
 </div>
-<a id="method__readXfExt"></a><div class="element clickable method private method__readXfExt" data-toggle="collapse" data-target=".method__readXfExt .collapse">
+<a id="method__readXfExt"></a><div class="element clickable method private method__readXfExt" data-bs-toggle="collapse" data-target=".method__readXfExt .collapse">
 <h2>_readXfExt()
         </h2>
 <pre>_readXfExt() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method__uncompressByteString"></a><div class="element clickable method private method__uncompressByteString" data-toggle="collapse" data-target=".method__uncompressByteString .collapse">
+<a id="method__uncompressByteString"></a><div class="element clickable method private method__uncompressByteString" data-bs-toggle="collapse" data-target=".method__uncompressByteString .collapse">
 <h2>Convert UTF-16 string in compressed notation to uncompressed form.</h2>
 <pre>_uncompressByteString(string $string) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -2022,7 +2022,7 @@ We read all cell XF records.</p>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method__verifyPassword"></a><div class="element clickable method private method__verifyPassword" data-toggle="collapse" data-target=".method__verifyPassword .collapse">
+<a id="method__verifyPassword"></a><div class="element clickable method private method__verifyPassword" data-bs-toggle="collapse" data-target=".method__verifyPassword .collapse">
 <h2>Verify RC4 file password</h2>
 <pre>_verifyPassword($password, $docid, $salt_data, $hashedsalt_data, $valContext) : bool</pre>
 <div class="labels"></div>
@@ -2064,7 +2064,7 @@ We read all cell XF records.</p>
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a id="property__fileHandle"> </a><div class="element clickable property protected property__fileHandle" data-toggle="collapse" data-target=".property__fileHandle .collapse">
+<a id="property__fileHandle"> </a><div class="element clickable property protected property__fileHandle" data-bs-toggle="collapse" data-target=".property__fileHandle .collapse">
 <h2></h2>
 <pre>$_fileHandle </pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -2076,7 +2076,7 @@ We read all cell XF records.</p>
 </tr></table>
 </div></div>
 </div>
-<a id="property__includeCharts"> </a><div class="element clickable property protected property__includeCharts" data-toggle="collapse" data-target=".property__includeCharts .collapse">
+<a id="property__includeCharts"> </a><div class="element clickable property protected property__includeCharts" data-bs-toggle="collapse" data-target=".property__includeCharts .collapse">
 <h2></h2>
 <pre>$_includeCharts : boolean</pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -2088,7 +2088,7 @@ We read all cell XF records.</p>
 </tr></table>
 </div></div>
 </div>
-<a id="property__loadSheetsOnly"> </a><div class="element clickable property protected property__loadSheetsOnly" data-toggle="collapse" data-target=".property__loadSheetsOnly .collapse">
+<a id="property__loadSheetsOnly"> </a><div class="element clickable property protected property__loadSheetsOnly" data-bs-toggle="collapse" data-target=".property__loadSheetsOnly .collapse">
 <h2></h2>
 <pre>$_loadSheetsOnly : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -2100,7 +2100,7 @@ We read all cell XF records.</p>
 </tr></table>
 </div></div>
 </div>
-<a id="property__readDataOnly"> </a><div class="element clickable property protected property__readDataOnly" data-toggle="collapse" data-target=".property__readDataOnly .collapse">
+<a id="property__readDataOnly"> </a><div class="element clickable property protected property__readDataOnly" data-bs-toggle="collapse" data-target=".property__readDataOnly .collapse">
 <h2></h2>
 <pre>$_readDataOnly : boolean</pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -2112,7 +2112,7 @@ We read all cell XF records.</p>
 </tr></table>
 </div></div>
 </div>
-<a id="property__readFilter"> </a><div class="element clickable property protected property__readFilter" data-toggle="collapse" data-target=".property__readFilter .collapse">
+<a id="property__readFilter"> </a><div class="element clickable property protected property__readFilter" data-bs-toggle="collapse" data-target=".property__readFilter .collapse">
 <h2></h2>
 <pre>$_readFilter : <a href="../classes/PHPExcel_Reader_IReadFilter.html">\PHPExcel_Reader_IReadFilter</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
@@ -2124,219 +2124,219 @@ We read all cell XF records.</p>
 </tr></table>
 </div></div>
 </div>
-<a id="property__cellNotes"> </a><div class="element clickable property private property__cellNotes" data-toggle="collapse" data-target=".property__cellNotes .collapse">
+<a id="property__cellNotes"> </a><div class="element clickable property private property__cellNotes" data-bs-toggle="collapse" data-target=".property__cellNotes .collapse">
 <h2></h2>
 <pre>$_cellNotes : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__codepage"> </a><div class="element clickable property private property__codepage" data-toggle="collapse" data-target=".property__codepage .collapse">
+<a id="property__codepage"> </a><div class="element clickable property private property__codepage" data-bs-toggle="collapse" data-target=".property__codepage .collapse">
 <h2></h2>
 <pre>$_codepage : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Only important for BIFF5 (Excel 5.0 - Excel 95)
 For BIFF8 (Excel 97 - Excel 2003) this will always have the value 'UTF-16LE'</p></div></div></div>
 </div>
-<a id="property__data"> </a><div class="element clickable property private property__data" data-toggle="collapse" data-target=".property__data .collapse">
+<a id="property__data"> </a><div class="element clickable property private property__data" data-bs-toggle="collapse" data-target=".property__data .collapse">
 <h2></h2>
 <pre>$_data : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>(Includes workbook globals substream as well as sheet substreams)</p></div></div></div>
 </div>
-<a id="property__dataSize"> </a><div class="element clickable property private property__dataSize" data-toggle="collapse" data-target=".property__dataSize .collapse">
+<a id="property__dataSize"> </a><div class="element clickable property private property__dataSize" data-bs-toggle="collapse" data-target=".property__dataSize .collapse">
 <h2></h2>
 <pre>$_dataSize : int</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__definedname"> </a><div class="element clickable property private property__definedname" data-toggle="collapse" data-target=".property__definedname .collapse">
+<a id="property__definedname"> </a><div class="element clickable property private property__definedname" data-bs-toggle="collapse" data-target=".property__definedname .collapse">
 <h2></h2>
 <pre>$_definedname : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__documentSummaryInformation"> </a><div class="element clickable property private property__documentSummaryInformation" data-toggle="collapse" data-target=".property__documentSummaryInformation .collapse">
+<a id="property__documentSummaryInformation"> </a><div class="element clickable property private property__documentSummaryInformation" data-bs-toggle="collapse" data-target=".property__documentSummaryInformation .collapse">
 <h2></h2>
 <pre>$_documentSummaryInformation : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__drawingData"> </a><div class="element clickable property private property__drawingData" data-toggle="collapse" data-target=".property__drawingData .collapse">
+<a id="property__drawingData"> </a><div class="element clickable property private property__drawingData" data-bs-toggle="collapse" data-target=".property__drawingData .collapse">
 <h2></h2>
 <pre>$_drawingData : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__drawingGroupData"> </a><div class="element clickable property private property__drawingGroupData" data-toggle="collapse" data-target=".property__drawingGroupData .collapse">
+<a id="property__drawingGroupData"> </a><div class="element clickable property private property__drawingGroupData" data-bs-toggle="collapse" data-target=".property__drawingGroupData .collapse">
 <h2></h2>
 <pre>$_drawingGroupData : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__encryption"> </a><div class="element clickable property private property__encryption" data-toggle="collapse" data-target=".property__encryption .collapse">
+<a id="property__encryption"> </a><div class="element clickable property private property__encryption" data-bs-toggle="collapse" data-target=".property__encryption .collapse">
 <h2></h2>
 <pre>$_encryption : int</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__encryptionStartPos"> </a><div class="element clickable property private property__encryptionStartPos" data-toggle="collapse" data-target=".property__encryptionStartPos .collapse">
+<a id="property__encryptionStartPos"> </a><div class="element clickable property private property__encryptionStartPos" data-bs-toggle="collapse" data-target=".property__encryptionStartPos .collapse">
 <h2></h2>
 <pre>$_encryptionStartPos : int</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__externalBooks"> </a><div class="element clickable property private property__externalBooks" data-toggle="collapse" data-target=".property__externalBooks .collapse">
+<a id="property__externalBooks"> </a><div class="element clickable property private property__externalBooks" data-bs-toggle="collapse" data-target=".property__externalBooks .collapse">
 <h2></h2>
 <pre>$_externalBooks : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__externalNames"> </a><div class="element clickable property private property__externalNames" data-toggle="collapse" data-target=".property__externalNames .collapse">
+<a id="property__externalNames"> </a><div class="element clickable property private property__externalNames" data-bs-toggle="collapse" data-target=".property__externalNames .collapse">
 <h2></h2>
 <pre>$_externalNames : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__formats"> </a><div class="element clickable property private property__formats" data-toggle="collapse" data-target=".property__formats .collapse">
+<a id="property__formats"> </a><div class="element clickable property private property__formats" data-bs-toggle="collapse" data-target=".property__formats .collapse">
 <h2></h2>
 <pre>$_formats : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__frozen"> </a><div class="element clickable property private property__frozen" data-toggle="collapse" data-target=".property__frozen .collapse">
+<a id="property__frozen"> </a><div class="element clickable property private property__frozen" data-bs-toggle="collapse" data-target=".property__frozen .collapse">
 <h2></h2>
 <pre>$_frozen : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>See WINDOW2 record.</p></div></div></div>
 </div>
-<a id="property__isFitToPages"> </a><div class="element clickable property private property__isFitToPages" data-toggle="collapse" data-target=".property__isFitToPages .collapse">
+<a id="property__isFitToPages"> </a><div class="element clickable property private property__isFitToPages" data-bs-toggle="collapse" data-target=".property__isFitToPages .collapse">
 <h2></h2>
 <pre>$_isFitToPages : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>See SHEETPR record.</p></div></div></div>
 </div>
-<a id="property__mapCellStyleXfIndex"> </a><div class="element clickable property private property__mapCellStyleXfIndex" data-toggle="collapse" data-target=".property__mapCellStyleXfIndex .collapse">
+<a id="property__mapCellStyleXfIndex"> </a><div class="element clickable property private property__mapCellStyleXfIndex" data-bs-toggle="collapse" data-target=".property__mapCellStyleXfIndex .collapse">
 <h2></h2>
 <pre>$_mapCellStyleXfIndex : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__mapCellXfIndex"> </a><div class="element clickable property private property__mapCellXfIndex" data-toggle="collapse" data-target=".property__mapCellXfIndex .collapse">
+<a id="property__mapCellXfIndex"> </a><div class="element clickable property private property__mapCellXfIndex" data-bs-toggle="collapse" data-target=".property__mapCellXfIndex .collapse">
 <h2></h2>
 <pre>$_mapCellXfIndex : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__md5Ctxt"> </a><div class="element clickable property private property__md5Ctxt" data-toggle="collapse" data-target=".property__md5Ctxt .collapse">
+<a id="property__md5Ctxt"> </a><div class="element clickable property private property__md5Ctxt" data-bs-toggle="collapse" data-target=".property__md5Ctxt .collapse">
 <h2></h2>
 <pre>$_md5Ctxt : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__objFonts"> </a><div class="element clickable property private property__objFonts" data-toggle="collapse" data-target=".property__objFonts .collapse">
+<a id="property__objFonts"> </a><div class="element clickable property private property__objFonts" data-bs-toggle="collapse" data-target=".property__objFonts .collapse">
 <h2></h2>
 <pre>$_objFonts : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__objs"> </a><div class="element clickable property private property__objs" data-toggle="collapse" data-target=".property__objs .collapse">
+<a id="property__objs"> </a><div class="element clickable property private property__objs" data-bs-toggle="collapse" data-target=".property__objs .collapse">
 <h2></h2>
 <pre>$_objs : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>One OBJ record contributes with one entry.</p></div></div></div>
 </div>
-<a id="property__palette"> </a><div class="element clickable property private property__palette" data-toggle="collapse" data-target=".property__palette .collapse">
+<a id="property__palette"> </a><div class="element clickable property private property__palette" data-bs-toggle="collapse" data-target=".property__palette .collapse">
 <h2></h2>
 <pre>$_palette : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__phpExcel"> </a><div class="element clickable property private property__phpExcel" data-toggle="collapse" data-target=".property__phpExcel .collapse">
+<a id="property__phpExcel"> </a><div class="element clickable property private property__phpExcel" data-bs-toggle="collapse" data-target=".property__phpExcel .collapse">
 <h2></h2>
 <pre>$_phpExcel : <a href="../classes/PHPExcel.html">\PHPExcel</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__phpSheet"> </a><div class="element clickable property private property__phpSheet" data-toggle="collapse" data-target=".property__phpSheet .collapse">
+<a id="property__phpSheet"> </a><div class="element clickable property private property__phpSheet" data-bs-toggle="collapse" data-target=".property__phpSheet .collapse">
 <h2></h2>
 <pre>$_phpSheet : <a href="../classes/PHPExcel_Worksheet.html">\PHPExcel_Worksheet</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__pos"> </a><div class="element clickable property private property__pos" data-toggle="collapse" data-target=".property__pos .collapse">
+<a id="property__pos"> </a><div class="element clickable property private property__pos" data-bs-toggle="collapse" data-target=".property__pos .collapse">
 <h2></h2>
 <pre>$_pos : integer</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__rc4Key"> </a><div class="element clickable property private property__rc4Key" data-toggle="collapse" data-target=".property__rc4Key .collapse">
+<a id="property__rc4Key"> </a><div class="element clickable property private property__rc4Key" data-bs-toggle="collapse" data-target=".property__rc4Key .collapse">
 <h2></h2>
 <pre>$_rc4Key : <a href="../classes/PHPExcel_Reader_Excel5_RC4.html">\PHPExcel_Reader_Excel5_RC4</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__rc4Pos"> </a><div class="element clickable property private property__rc4Pos" data-toggle="collapse" data-target=".property__rc4Pos .collapse">
+<a id="property__rc4Pos"> </a><div class="element clickable property private property__rc4Pos" data-bs-toggle="collapse" data-target=".property__rc4Pos .collapse">
 <h2></h2>
 <pre>$_rc4Pos : int</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__ref"> </a><div class="element clickable property private property__ref" data-toggle="collapse" data-target=".property__ref .collapse">
+<a id="property__ref"> </a><div class="element clickable property private property__ref" data-bs-toggle="collapse" data-target=".property__ref .collapse">
 <h2></h2>
 <pre>$_ref : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Only applies to BIFF8.</p></div></div></div>
 </div>
-<a id="property__sharedFormulaParts"> </a><div class="element clickable property private property__sharedFormulaParts" data-toggle="collapse" data-target=".property__sharedFormulaParts .collapse">
+<a id="property__sharedFormulaParts"> </a><div class="element clickable property private property__sharedFormulaParts" data-bs-toggle="collapse" data-target=".property__sharedFormulaParts .collapse">
 <h2></h2>
 <pre>$_sharedFormulaParts : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>One FORMULA record contributes with one value if it
 refers to a shared formula.</p></div></div></div>
 </div>
-<a id="property__sharedFormulas"> </a><div class="element clickable property private property__sharedFormulas" data-toggle="collapse" data-target=".property__sharedFormulas .collapse">
+<a id="property__sharedFormulas"> </a><div class="element clickable property private property__sharedFormulas" data-bs-toggle="collapse" data-target=".property__sharedFormulas .collapse">
 <h2></h2>
 <pre>$_sharedFormulas : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>One SHAREDFMLA record contributes with one value.</p></div></div></div>
 </div>
-<a id="property__sheets"> </a><div class="element clickable property private property__sheets" data-toggle="collapse" data-target=".property__sheets .collapse">
+<a id="property__sheets"> </a><div class="element clickable property private property__sheets" data-bs-toggle="collapse" data-target=".property__sheets .collapse">
 <h2></h2>
 <pre>$_sheets : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__sst"> </a><div class="element clickable property private property__sst" data-toggle="collapse" data-target=".property__sst .collapse">
+<a id="property__sst"> </a><div class="element clickable property private property__sst" data-bs-toggle="collapse" data-target=".property__sst .collapse">
 <h2></h2>
 <pre>$_sst : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Only applies to BIFF8.</p></div></div></div>
 </div>
-<a id="property__summaryInformation"> </a><div class="element clickable property private property__summaryInformation" data-toggle="collapse" data-target=".property__summaryInformation .collapse">
+<a id="property__summaryInformation"> </a><div class="element clickable property private property__summaryInformation" data-bs-toggle="collapse" data-target=".property__summaryInformation .collapse">
 <h2></h2>
 <pre>$_summaryInformation : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__textObjects"> </a><div class="element clickable property private property__textObjects" data-toggle="collapse" data-target=".property__textObjects .collapse">
+<a id="property__textObjects"> </a><div class="element clickable property private property__textObjects" data-bs-toggle="collapse" data-target=".property__textObjects .collapse">
 <h2></h2>
 <pre>$_textObjects : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>One TXO record corresponds with one entry.</p></div></div></div>
 </div>
-<a id="property__userDefinedProperties"> </a><div class="element clickable property private property__userDefinedProperties" data-toggle="collapse" data-target=".property__userDefinedProperties .collapse">
+<a id="property__userDefinedProperties"> </a><div class="element clickable property private property__userDefinedProperties" data-bs-toggle="collapse" data-target=".property__userDefinedProperties .collapse">
 <h2></h2>
 <pre>$_userDefinedProperties : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__version"> </a><div class="element clickable property private property__version" data-toggle="collapse" data-target=".property__version .collapse">
+<a id="property__version"> </a><div class="element clickable property private property__version" data-bs-toggle="collapse" data-target=".property__version .collapse">
 <h2></h2>
 <pre>$_version : int</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property__xfIndex"> </a><div class="element clickable property private property__xfIndex" data-toggle="collapse" data-target=".property__xfIndex .collapse">
+<a id="property__xfIndex"> </a><div class="element clickable property private property__xfIndex" data-bs-toggle="collapse" data-target=".property__xfIndex .collapse">
 <h2></h2>
 <pre>$_xfIndex : int</pre>
 <div class="labels"></div>
@@ -2344,493 +2344,493 @@ refers to a shared formula.</p></div></div></div>
 </div>
 <h3>
 <i class="icon-custom icon-constant"></i> Constants</h3>
-<a id="constant_MS_BIFF_CRYPTO_NONE"> </a><div class="element clickable constant  constant_MS_BIFF_CRYPTO_NONE" data-toggle="collapse" data-target=".constant_MS_BIFF_CRYPTO_NONE .collapse">
+<a id="constant_MS_BIFF_CRYPTO_NONE"> </a><div class="element clickable constant  constant_MS_BIFF_CRYPTO_NONE" data-bs-toggle="collapse" data-target=".constant_MS_BIFF_CRYPTO_NONE .collapse">
 <h2>MS_BIFF_CRYPTO_NONE</h2>
 <pre>MS_BIFF_CRYPTO_NONE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_MS_BIFF_CRYPTO_RC4"> </a><div class="element clickable constant  constant_MS_BIFF_CRYPTO_RC4" data-toggle="collapse" data-target=".constant_MS_BIFF_CRYPTO_RC4 .collapse">
+<a id="constant_MS_BIFF_CRYPTO_RC4"> </a><div class="element clickable constant  constant_MS_BIFF_CRYPTO_RC4" data-bs-toggle="collapse" data-target=".constant_MS_BIFF_CRYPTO_RC4 .collapse">
 <h2>MS_BIFF_CRYPTO_RC4</h2>
 <pre>MS_BIFF_CRYPTO_RC4 </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_MS_BIFF_CRYPTO_XOR"> </a><div class="element clickable constant  constant_MS_BIFF_CRYPTO_XOR" data-toggle="collapse" data-target=".constant_MS_BIFF_CRYPTO_XOR .collapse">
+<a id="constant_MS_BIFF_CRYPTO_XOR"> </a><div class="element clickable constant  constant_MS_BIFF_CRYPTO_XOR" data-bs-toggle="collapse" data-target=".constant_MS_BIFF_CRYPTO_XOR .collapse">
 <h2>MS_BIFF_CRYPTO_XOR</h2>
 <pre>MS_BIFF_CRYPTO_XOR </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_REKEY_BLOCK"> </a><div class="element clickable constant  constant_REKEY_BLOCK" data-toggle="collapse" data-target=".constant_REKEY_BLOCK .collapse">
+<a id="constant_REKEY_BLOCK"> </a><div class="element clickable constant  constant_REKEY_BLOCK" data-bs-toggle="collapse" data-target=".constant_REKEY_BLOCK .collapse">
 <h2>REKEY_BLOCK</h2>
 <pre>REKEY_BLOCK </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_BIFF7"> </a><div class="element clickable constant  constant_XLS_BIFF7" data-toggle="collapse" data-target=".constant_XLS_BIFF7 .collapse">
+<a id="constant_XLS_BIFF7"> </a><div class="element clickable constant  constant_XLS_BIFF7" data-bs-toggle="collapse" data-target=".constant_XLS_BIFF7 .collapse">
 <h2>XLS_BIFF7</h2>
 <pre>XLS_BIFF7 </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_BIFF8"> </a><div class="element clickable constant  constant_XLS_BIFF8" data-toggle="collapse" data-target=".constant_XLS_BIFF8 .collapse">
+<a id="constant_XLS_BIFF8"> </a><div class="element clickable constant  constant_XLS_BIFF8" data-bs-toggle="collapse" data-target=".constant_XLS_BIFF8 .collapse">
 <h2>XLS_BIFF8</h2>
 <pre>XLS_BIFF8 </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_ARRAY"> </a><div class="element clickable constant  constant_XLS_Type_ARRAY" data-toggle="collapse" data-target=".constant_XLS_Type_ARRAY .collapse">
+<a id="constant_XLS_Type_ARRAY"> </a><div class="element clickable constant  constant_XLS_Type_ARRAY" data-bs-toggle="collapse" data-target=".constant_XLS_Type_ARRAY .collapse">
 <h2>XLS_Type_ARRAY</h2>
 <pre>XLS_Type_ARRAY </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_BLANK"> </a><div class="element clickable constant  constant_XLS_Type_BLANK" data-toggle="collapse" data-target=".constant_XLS_Type_BLANK .collapse">
+<a id="constant_XLS_Type_BLANK"> </a><div class="element clickable constant  constant_XLS_Type_BLANK" data-bs-toggle="collapse" data-target=".constant_XLS_Type_BLANK .collapse">
 <h2>XLS_Type_BLANK</h2>
 <pre>XLS_Type_BLANK </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_BOF"> </a><div class="element clickable constant  constant_XLS_Type_BOF" data-toggle="collapse" data-target=".constant_XLS_Type_BOF .collapse">
+<a id="constant_XLS_Type_BOF"> </a><div class="element clickable constant  constant_XLS_Type_BOF" data-bs-toggle="collapse" data-target=".constant_XLS_Type_BOF .collapse">
 <h2>XLS_Type_BOF</h2>
 <pre>XLS_Type_BOF </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_BOOLERR"> </a><div class="element clickable constant  constant_XLS_Type_BOOLERR" data-toggle="collapse" data-target=".constant_XLS_Type_BOOLERR .collapse">
+<a id="constant_XLS_Type_BOOLERR"> </a><div class="element clickable constant  constant_XLS_Type_BOOLERR" data-bs-toggle="collapse" data-target=".constant_XLS_Type_BOOLERR .collapse">
 <h2>XLS_Type_BOOLERR</h2>
 <pre>XLS_Type_BOOLERR </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_BOTTOMMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_BOTTOMMARGIN" data-toggle="collapse" data-target=".constant_XLS_Type_BOTTOMMARGIN .collapse">
+<a id="constant_XLS_Type_BOTTOMMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_BOTTOMMARGIN" data-bs-toggle="collapse" data-target=".constant_XLS_Type_BOTTOMMARGIN .collapse">
 <h2>XLS_Type_BOTTOMMARGIN</h2>
 <pre>XLS_Type_BOTTOMMARGIN </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_CODEPAGE"> </a><div class="element clickable constant  constant_XLS_Type_CODEPAGE" data-toggle="collapse" data-target=".constant_XLS_Type_CODEPAGE .collapse">
+<a id="constant_XLS_Type_CODEPAGE"> </a><div class="element clickable constant  constant_XLS_Type_CODEPAGE" data-bs-toggle="collapse" data-target=".constant_XLS_Type_CODEPAGE .collapse">
 <h2>XLS_Type_CODEPAGE</h2>
 <pre>XLS_Type_CODEPAGE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_COLINFO"> </a><div class="element clickable constant  constant_XLS_Type_COLINFO" data-toggle="collapse" data-target=".constant_XLS_Type_COLINFO .collapse">
+<a id="constant_XLS_Type_COLINFO"> </a><div class="element clickable constant  constant_XLS_Type_COLINFO" data-bs-toggle="collapse" data-target=".constant_XLS_Type_COLINFO .collapse">
 <h2>XLS_Type_COLINFO</h2>
 <pre>XLS_Type_COLINFO </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_CONTINUE"> </a><div class="element clickable constant  constant_XLS_Type_CONTINUE" data-toggle="collapse" data-target=".constant_XLS_Type_CONTINUE .collapse">
+<a id="constant_XLS_Type_CONTINUE"> </a><div class="element clickable constant  constant_XLS_Type_CONTINUE" data-bs-toggle="collapse" data-target=".constant_XLS_Type_CONTINUE .collapse">
 <h2>XLS_Type_CONTINUE</h2>
 <pre>XLS_Type_CONTINUE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DATAVALIDATION"> </a><div class="element clickable constant  constant_XLS_Type_DATAVALIDATION" data-toggle="collapse" data-target=".constant_XLS_Type_DATAVALIDATION .collapse">
+<a id="constant_XLS_Type_DATAVALIDATION"> </a><div class="element clickable constant  constant_XLS_Type_DATAVALIDATION" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DATAVALIDATION .collapse">
 <h2>XLS_Type_DATAVALIDATION</h2>
 <pre>XLS_Type_DATAVALIDATION </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DATAVALIDATIONS"> </a><div class="element clickable constant  constant_XLS_Type_DATAVALIDATIONS" data-toggle="collapse" data-target=".constant_XLS_Type_DATAVALIDATIONS .collapse">
+<a id="constant_XLS_Type_DATAVALIDATIONS"> </a><div class="element clickable constant  constant_XLS_Type_DATAVALIDATIONS" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DATAVALIDATIONS .collapse">
 <h2>XLS_Type_DATAVALIDATIONS</h2>
 <pre>XLS_Type_DATAVALIDATIONS </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DATEMODE"> </a><div class="element clickable constant  constant_XLS_Type_DATEMODE" data-toggle="collapse" data-target=".constant_XLS_Type_DATEMODE .collapse">
+<a id="constant_XLS_Type_DATEMODE"> </a><div class="element clickable constant  constant_XLS_Type_DATEMODE" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DATEMODE .collapse">
 <h2>XLS_Type_DATEMODE</h2>
 <pre>XLS_Type_DATEMODE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DBCELL"> </a><div class="element clickable constant  constant_XLS_Type_DBCELL" data-toggle="collapse" data-target=".constant_XLS_Type_DBCELL .collapse">
+<a id="constant_XLS_Type_DBCELL"> </a><div class="element clickable constant  constant_XLS_Type_DBCELL" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DBCELL .collapse">
 <h2>XLS_Type_DBCELL</h2>
 <pre>XLS_Type_DBCELL </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DEFAULTROWHEIGHT"> </a><div class="element clickable constant  constant_XLS_Type_DEFAULTROWHEIGHT" data-toggle="collapse" data-target=".constant_XLS_Type_DEFAULTROWHEIGHT .collapse">
+<a id="constant_XLS_Type_DEFAULTROWHEIGHT"> </a><div class="element clickable constant  constant_XLS_Type_DEFAULTROWHEIGHT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DEFAULTROWHEIGHT .collapse">
 <h2>XLS_Type_DEFAULTROWHEIGHT</h2>
 <pre>XLS_Type_DEFAULTROWHEIGHT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DEFCOLWIDTH"> </a><div class="element clickable constant  constant_XLS_Type_DEFCOLWIDTH" data-toggle="collapse" data-target=".constant_XLS_Type_DEFCOLWIDTH .collapse">
+<a id="constant_XLS_Type_DEFCOLWIDTH"> </a><div class="element clickable constant  constant_XLS_Type_DEFCOLWIDTH" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DEFCOLWIDTH .collapse">
 <h2>XLS_Type_DEFCOLWIDTH</h2>
 <pre>XLS_Type_DEFCOLWIDTH </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DEFINEDNAME"> </a><div class="element clickable constant  constant_XLS_Type_DEFINEDNAME" data-toggle="collapse" data-target=".constant_XLS_Type_DEFINEDNAME .collapse">
+<a id="constant_XLS_Type_DEFINEDNAME"> </a><div class="element clickable constant  constant_XLS_Type_DEFINEDNAME" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DEFINEDNAME .collapse">
 <h2>XLS_Type_DEFINEDNAME</h2>
 <pre>XLS_Type_DEFINEDNAME </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_DIMENSION"> </a><div class="element clickable constant  constant_XLS_Type_DIMENSION" data-toggle="collapse" data-target=".constant_XLS_Type_DIMENSION .collapse">
+<a id="constant_XLS_Type_DIMENSION"> </a><div class="element clickable constant  constant_XLS_Type_DIMENSION" data-bs-toggle="collapse" data-target=".constant_XLS_Type_DIMENSION .collapse">
 <h2>XLS_Type_DIMENSION</h2>
 <pre>XLS_Type_DIMENSION </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_EOF"> </a><div class="element clickable constant  constant_XLS_Type_EOF" data-toggle="collapse" data-target=".constant_XLS_Type_EOF .collapse">
+<a id="constant_XLS_Type_EOF"> </a><div class="element clickable constant  constant_XLS_Type_EOF" data-bs-toggle="collapse" data-target=".constant_XLS_Type_EOF .collapse">
 <h2>XLS_Type_EOF</h2>
 <pre>XLS_Type_EOF </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_EXTERNALBOOK"> </a><div class="element clickable constant  constant_XLS_Type_EXTERNALBOOK" data-toggle="collapse" data-target=".constant_XLS_Type_EXTERNALBOOK .collapse">
+<a id="constant_XLS_Type_EXTERNALBOOK"> </a><div class="element clickable constant  constant_XLS_Type_EXTERNALBOOK" data-bs-toggle="collapse" data-target=".constant_XLS_Type_EXTERNALBOOK .collapse">
 <h2>XLS_Type_EXTERNALBOOK</h2>
 <pre>XLS_Type_EXTERNALBOOK </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_EXTERNNAME"> </a><div class="element clickable constant  constant_XLS_Type_EXTERNNAME" data-toggle="collapse" data-target=".constant_XLS_Type_EXTERNNAME .collapse">
+<a id="constant_XLS_Type_EXTERNNAME"> </a><div class="element clickable constant  constant_XLS_Type_EXTERNNAME" data-bs-toggle="collapse" data-target=".constant_XLS_Type_EXTERNNAME .collapse">
 <h2>XLS_Type_EXTERNNAME</h2>
 <pre>XLS_Type_EXTERNNAME </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_EXTERNSHEET"> </a><div class="element clickable constant  constant_XLS_Type_EXTERNSHEET" data-toggle="collapse" data-target=".constant_XLS_Type_EXTERNSHEET .collapse">
+<a id="constant_XLS_Type_EXTERNSHEET"> </a><div class="element clickable constant  constant_XLS_Type_EXTERNSHEET" data-bs-toggle="collapse" data-target=".constant_XLS_Type_EXTERNSHEET .collapse">
 <h2>XLS_Type_EXTERNSHEET</h2>
 <pre>XLS_Type_EXTERNSHEET </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_EXTSST"> </a><div class="element clickable constant  constant_XLS_Type_EXTSST" data-toggle="collapse" data-target=".constant_XLS_Type_EXTSST .collapse">
+<a id="constant_XLS_Type_EXTSST"> </a><div class="element clickable constant  constant_XLS_Type_EXTSST" data-bs-toggle="collapse" data-target=".constant_XLS_Type_EXTSST .collapse">
 <h2>XLS_Type_EXTSST</h2>
 <pre>XLS_Type_EXTSST </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_FILEPASS"> </a><div class="element clickable constant  constant_XLS_Type_FILEPASS" data-toggle="collapse" data-target=".constant_XLS_Type_FILEPASS .collapse">
+<a id="constant_XLS_Type_FILEPASS"> </a><div class="element clickable constant  constant_XLS_Type_FILEPASS" data-bs-toggle="collapse" data-target=".constant_XLS_Type_FILEPASS .collapse">
 <h2>XLS_Type_FILEPASS</h2>
 <pre>XLS_Type_FILEPASS </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_FONT"> </a><div class="element clickable constant  constant_XLS_Type_FONT" data-toggle="collapse" data-target=".constant_XLS_Type_FONT .collapse">
+<a id="constant_XLS_Type_FONT"> </a><div class="element clickable constant  constant_XLS_Type_FONT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_FONT .collapse">
 <h2>XLS_Type_FONT</h2>
 <pre>XLS_Type_FONT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_FOOTER"> </a><div class="element clickable constant  constant_XLS_Type_FOOTER" data-toggle="collapse" data-target=".constant_XLS_Type_FOOTER .collapse">
+<a id="constant_XLS_Type_FOOTER"> </a><div class="element clickable constant  constant_XLS_Type_FOOTER" data-bs-toggle="collapse" data-target=".constant_XLS_Type_FOOTER .collapse">
 <h2>XLS_Type_FOOTER</h2>
 <pre>XLS_Type_FOOTER </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_FORMAT"> </a><div class="element clickable constant  constant_XLS_Type_FORMAT" data-toggle="collapse" data-target=".constant_XLS_Type_FORMAT .collapse">
+<a id="constant_XLS_Type_FORMAT"> </a><div class="element clickable constant  constant_XLS_Type_FORMAT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_FORMAT .collapse">
 <h2>XLS_Type_FORMAT</h2>
 <pre>XLS_Type_FORMAT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_FORMULA"> </a><div class="element clickable constant  constant_XLS_Type_FORMULA" data-toggle="collapse" data-target=".constant_XLS_Type_FORMULA .collapse">
+<a id="constant_XLS_Type_FORMULA"> </a><div class="element clickable constant  constant_XLS_Type_FORMULA" data-bs-toggle="collapse" data-target=".constant_XLS_Type_FORMULA .collapse">
 <h2>XLS_Type_FORMULA</h2>
 <pre>XLS_Type_FORMULA </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_HCENTER"> </a><div class="element clickable constant  constant_XLS_Type_HCENTER" data-toggle="collapse" data-target=".constant_XLS_Type_HCENTER .collapse">
+<a id="constant_XLS_Type_HCENTER"> </a><div class="element clickable constant  constant_XLS_Type_HCENTER" data-bs-toggle="collapse" data-target=".constant_XLS_Type_HCENTER .collapse">
 <h2>XLS_Type_HCENTER</h2>
 <pre>XLS_Type_HCENTER </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_HEADER"> </a><div class="element clickable constant  constant_XLS_Type_HEADER" data-toggle="collapse" data-target=".constant_XLS_Type_HEADER .collapse">
+<a id="constant_XLS_Type_HEADER"> </a><div class="element clickable constant  constant_XLS_Type_HEADER" data-bs-toggle="collapse" data-target=".constant_XLS_Type_HEADER .collapse">
 <h2>XLS_Type_HEADER</h2>
 <pre>XLS_Type_HEADER </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_HORIZONTALPAGEBREAKS"> </a><div class="element clickable constant  constant_XLS_Type_HORIZONTALPAGEBREAKS" data-toggle="collapse" data-target=".constant_XLS_Type_HORIZONTALPAGEBREAKS .collapse">
+<a id="constant_XLS_Type_HORIZONTALPAGEBREAKS"> </a><div class="element clickable constant  constant_XLS_Type_HORIZONTALPAGEBREAKS" data-bs-toggle="collapse" data-target=".constant_XLS_Type_HORIZONTALPAGEBREAKS .collapse">
 <h2>XLS_Type_HORIZONTALPAGEBREAKS</h2>
 <pre>XLS_Type_HORIZONTALPAGEBREAKS </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_HYPERLINK"> </a><div class="element clickable constant  constant_XLS_Type_HYPERLINK" data-toggle="collapse" data-target=".constant_XLS_Type_HYPERLINK .collapse">
+<a id="constant_XLS_Type_HYPERLINK"> </a><div class="element clickable constant  constant_XLS_Type_HYPERLINK" data-bs-toggle="collapse" data-target=".constant_XLS_Type_HYPERLINK .collapse">
 <h2>XLS_Type_HYPERLINK</h2>
 <pre>XLS_Type_HYPERLINK </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_IMDATA"> </a><div class="element clickable constant  constant_XLS_Type_IMDATA" data-toggle="collapse" data-target=".constant_XLS_Type_IMDATA .collapse">
+<a id="constant_XLS_Type_IMDATA"> </a><div class="element clickable constant  constant_XLS_Type_IMDATA" data-bs-toggle="collapse" data-target=".constant_XLS_Type_IMDATA .collapse">
 <h2>XLS_Type_IMDATA</h2>
 <pre>XLS_Type_IMDATA </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_INDEX"> </a><div class="element clickable constant  constant_XLS_Type_INDEX" data-toggle="collapse" data-target=".constant_XLS_Type_INDEX .collapse">
+<a id="constant_XLS_Type_INDEX"> </a><div class="element clickable constant  constant_XLS_Type_INDEX" data-bs-toggle="collapse" data-target=".constant_XLS_Type_INDEX .collapse">
 <h2>XLS_Type_INDEX</h2>
 <pre>XLS_Type_INDEX </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_LABEL"> </a><div class="element clickable constant  constant_XLS_Type_LABEL" data-toggle="collapse" data-target=".constant_XLS_Type_LABEL .collapse">
+<a id="constant_XLS_Type_LABEL"> </a><div class="element clickable constant  constant_XLS_Type_LABEL" data-bs-toggle="collapse" data-target=".constant_XLS_Type_LABEL .collapse">
 <h2>XLS_Type_LABEL</h2>
 <pre>XLS_Type_LABEL </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_LABELSST"> </a><div class="element clickable constant  constant_XLS_Type_LABELSST" data-toggle="collapse" data-target=".constant_XLS_Type_LABELSST .collapse">
+<a id="constant_XLS_Type_LABELSST"> </a><div class="element clickable constant  constant_XLS_Type_LABELSST" data-bs-toggle="collapse" data-target=".constant_XLS_Type_LABELSST .collapse">
 <h2>XLS_Type_LABELSST</h2>
 <pre>XLS_Type_LABELSST </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_LEFTMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_LEFTMARGIN" data-toggle="collapse" data-target=".constant_XLS_Type_LEFTMARGIN .collapse">
+<a id="constant_XLS_Type_LEFTMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_LEFTMARGIN" data-bs-toggle="collapse" data-target=".constant_XLS_Type_LEFTMARGIN .collapse">
 <h2>XLS_Type_LEFTMARGIN</h2>
 <pre>XLS_Type_LEFTMARGIN </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_MERGEDCELLS"> </a><div class="element clickable constant  constant_XLS_Type_MERGEDCELLS" data-toggle="collapse" data-target=".constant_XLS_Type_MERGEDCELLS .collapse">
+<a id="constant_XLS_Type_MERGEDCELLS"> </a><div class="element clickable constant  constant_XLS_Type_MERGEDCELLS" data-bs-toggle="collapse" data-target=".constant_XLS_Type_MERGEDCELLS .collapse">
 <h2>XLS_Type_MERGEDCELLS</h2>
 <pre>XLS_Type_MERGEDCELLS </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_MSODRAWING"> </a><div class="element clickable constant  constant_XLS_Type_MSODRAWING" data-toggle="collapse" data-target=".constant_XLS_Type_MSODRAWING .collapse">
+<a id="constant_XLS_Type_MSODRAWING"> </a><div class="element clickable constant  constant_XLS_Type_MSODRAWING" data-bs-toggle="collapse" data-target=".constant_XLS_Type_MSODRAWING .collapse">
 <h2>XLS_Type_MSODRAWING</h2>
 <pre>XLS_Type_MSODRAWING </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_MSODRAWINGGROUP"> </a><div class="element clickable constant  constant_XLS_Type_MSODRAWINGGROUP" data-toggle="collapse" data-target=".constant_XLS_Type_MSODRAWINGGROUP .collapse">
+<a id="constant_XLS_Type_MSODRAWINGGROUP"> </a><div class="element clickable constant  constant_XLS_Type_MSODRAWINGGROUP" data-bs-toggle="collapse" data-target=".constant_XLS_Type_MSODRAWINGGROUP .collapse">
 <h2>XLS_Type_MSODRAWINGGROUP</h2>
 <pre>XLS_Type_MSODRAWINGGROUP </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_MULBLANK"> </a><div class="element clickable constant  constant_XLS_Type_MULBLANK" data-toggle="collapse" data-target=".constant_XLS_Type_MULBLANK .collapse">
+<a id="constant_XLS_Type_MULBLANK"> </a><div class="element clickable constant  constant_XLS_Type_MULBLANK" data-bs-toggle="collapse" data-target=".constant_XLS_Type_MULBLANK .collapse">
 <h2>XLS_Type_MULBLANK</h2>
 <pre>XLS_Type_MULBLANK </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_MULRK"> </a><div class="element clickable constant  constant_XLS_Type_MULRK" data-toggle="collapse" data-target=".constant_XLS_Type_MULRK .collapse">
+<a id="constant_XLS_Type_MULRK"> </a><div class="element clickable constant  constant_XLS_Type_MULRK" data-bs-toggle="collapse" data-target=".constant_XLS_Type_MULRK .collapse">
 <h2>XLS_Type_MULRK</h2>
 <pre>XLS_Type_MULRK </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_NOTE"> </a><div class="element clickable constant  constant_XLS_Type_NOTE" data-toggle="collapse" data-target=".constant_XLS_Type_NOTE .collapse">
+<a id="constant_XLS_Type_NOTE"> </a><div class="element clickable constant  constant_XLS_Type_NOTE" data-bs-toggle="collapse" data-target=".constant_XLS_Type_NOTE .collapse">
 <h2>XLS_Type_NOTE</h2>
 <pre>XLS_Type_NOTE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_NUMBER"> </a><div class="element clickable constant  constant_XLS_Type_NUMBER" data-toggle="collapse" data-target=".constant_XLS_Type_NUMBER .collapse">
+<a id="constant_XLS_Type_NUMBER"> </a><div class="element clickable constant  constant_XLS_Type_NUMBER" data-bs-toggle="collapse" data-target=".constant_XLS_Type_NUMBER .collapse">
 <h2>XLS_Type_NUMBER</h2>
 <pre>XLS_Type_NUMBER </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_OBJ"> </a><div class="element clickable constant  constant_XLS_Type_OBJ" data-toggle="collapse" data-target=".constant_XLS_Type_OBJ .collapse">
+<a id="constant_XLS_Type_OBJ"> </a><div class="element clickable constant  constant_XLS_Type_OBJ" data-bs-toggle="collapse" data-target=".constant_XLS_Type_OBJ .collapse">
 <h2>XLS_Type_OBJ</h2>
 <pre>XLS_Type_OBJ </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_OBJECTPROTECT"> </a><div class="element clickable constant  constant_XLS_Type_OBJECTPROTECT" data-toggle="collapse" data-target=".constant_XLS_Type_OBJECTPROTECT .collapse">
+<a id="constant_XLS_Type_OBJECTPROTECT"> </a><div class="element clickable constant  constant_XLS_Type_OBJECTPROTECT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_OBJECTPROTECT .collapse">
 <h2>XLS_Type_OBJECTPROTECT</h2>
 <pre>XLS_Type_OBJECTPROTECT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_PAGELAYOUTVIEW"> </a><div class="element clickable constant  constant_XLS_Type_PAGELAYOUTVIEW" data-toggle="collapse" data-target=".constant_XLS_Type_PAGELAYOUTVIEW .collapse">
+<a id="constant_XLS_Type_PAGELAYOUTVIEW"> </a><div class="element clickable constant  constant_XLS_Type_PAGELAYOUTVIEW" data-bs-toggle="collapse" data-target=".constant_XLS_Type_PAGELAYOUTVIEW .collapse">
 <h2>XLS_Type_PAGELAYOUTVIEW</h2>
 <pre>XLS_Type_PAGELAYOUTVIEW </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_PAGESETUP"> </a><div class="element clickable constant  constant_XLS_Type_PAGESETUP" data-toggle="collapse" data-target=".constant_XLS_Type_PAGESETUP .collapse">
+<a id="constant_XLS_Type_PAGESETUP"> </a><div class="element clickable constant  constant_XLS_Type_PAGESETUP" data-bs-toggle="collapse" data-target=".constant_XLS_Type_PAGESETUP .collapse">
 <h2>XLS_Type_PAGESETUP</h2>
 <pre>XLS_Type_PAGESETUP </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_PALETTE"> </a><div class="element clickable constant  constant_XLS_Type_PALETTE" data-toggle="collapse" data-target=".constant_XLS_Type_PALETTE .collapse">
+<a id="constant_XLS_Type_PALETTE"> </a><div class="element clickable constant  constant_XLS_Type_PALETTE" data-bs-toggle="collapse" data-target=".constant_XLS_Type_PALETTE .collapse">
 <h2>XLS_Type_PALETTE</h2>
 <pre>XLS_Type_PALETTE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_PANE"> </a><div class="element clickable constant  constant_XLS_Type_PANE" data-toggle="collapse" data-target=".constant_XLS_Type_PANE .collapse">
+<a id="constant_XLS_Type_PANE"> </a><div class="element clickable constant  constant_XLS_Type_PANE" data-bs-toggle="collapse" data-target=".constant_XLS_Type_PANE .collapse">
 <h2>XLS_Type_PANE</h2>
 <pre>XLS_Type_PANE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_PASSWORD"> </a><div class="element clickable constant  constant_XLS_Type_PASSWORD" data-toggle="collapse" data-target=".constant_XLS_Type_PASSWORD .collapse">
+<a id="constant_XLS_Type_PASSWORD"> </a><div class="element clickable constant  constant_XLS_Type_PASSWORD" data-bs-toggle="collapse" data-target=".constant_XLS_Type_PASSWORD .collapse">
 <h2>XLS_Type_PASSWORD</h2>
 <pre>XLS_Type_PASSWORD </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_PRINTGRIDLINES"> </a><div class="element clickable constant  constant_XLS_Type_PRINTGRIDLINES" data-toggle="collapse" data-target=".constant_XLS_Type_PRINTGRIDLINES .collapse">
+<a id="constant_XLS_Type_PRINTGRIDLINES"> </a><div class="element clickable constant  constant_XLS_Type_PRINTGRIDLINES" data-bs-toggle="collapse" data-target=".constant_XLS_Type_PRINTGRIDLINES .collapse">
 <h2>XLS_Type_PRINTGRIDLINES</h2>
 <pre>XLS_Type_PRINTGRIDLINES </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_PROTECT"> </a><div class="element clickable constant  constant_XLS_Type_PROTECT" data-toggle="collapse" data-target=".constant_XLS_Type_PROTECT .collapse">
+<a id="constant_XLS_Type_PROTECT"> </a><div class="element clickable constant  constant_XLS_Type_PROTECT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_PROTECT .collapse">
 <h2>XLS_Type_PROTECT</h2>
 <pre>XLS_Type_PROTECT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_RANGEPROTECTION"> </a><div class="element clickable constant  constant_XLS_Type_RANGEPROTECTION" data-toggle="collapse" data-target=".constant_XLS_Type_RANGEPROTECTION .collapse">
+<a id="constant_XLS_Type_RANGEPROTECTION"> </a><div class="element clickable constant  constant_XLS_Type_RANGEPROTECTION" data-bs-toggle="collapse" data-target=".constant_XLS_Type_RANGEPROTECTION .collapse">
 <h2>XLS_Type_RANGEPROTECTION</h2>
 <pre>XLS_Type_RANGEPROTECTION </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_RIGHTMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_RIGHTMARGIN" data-toggle="collapse" data-target=".constant_XLS_Type_RIGHTMARGIN .collapse">
+<a id="constant_XLS_Type_RIGHTMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_RIGHTMARGIN" data-bs-toggle="collapse" data-target=".constant_XLS_Type_RIGHTMARGIN .collapse">
 <h2>XLS_Type_RIGHTMARGIN</h2>
 <pre>XLS_Type_RIGHTMARGIN </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_RK"> </a><div class="element clickable constant  constant_XLS_Type_RK" data-toggle="collapse" data-target=".constant_XLS_Type_RK .collapse">
+<a id="constant_XLS_Type_RK"> </a><div class="element clickable constant  constant_XLS_Type_RK" data-bs-toggle="collapse" data-target=".constant_XLS_Type_RK .collapse">
 <h2>XLS_Type_RK</h2>
 <pre>XLS_Type_RK </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_ROW"> </a><div class="element clickable constant  constant_XLS_Type_ROW" data-toggle="collapse" data-target=".constant_XLS_Type_ROW .collapse">
+<a id="constant_XLS_Type_ROW"> </a><div class="element clickable constant  constant_XLS_Type_ROW" data-bs-toggle="collapse" data-target=".constant_XLS_Type_ROW .collapse">
 <h2>XLS_Type_ROW</h2>
 <pre>XLS_Type_ROW </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SCENPROTECT"> </a><div class="element clickable constant  constant_XLS_Type_SCENPROTECT" data-toggle="collapse" data-target=".constant_XLS_Type_SCENPROTECT .collapse">
+<a id="constant_XLS_Type_SCENPROTECT"> </a><div class="element clickable constant  constant_XLS_Type_SCENPROTECT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SCENPROTECT .collapse">
 <h2>XLS_Type_SCENPROTECT</h2>
 <pre>XLS_Type_SCENPROTECT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SCL"> </a><div class="element clickable constant  constant_XLS_Type_SCL" data-toggle="collapse" data-target=".constant_XLS_Type_SCL .collapse">
+<a id="constant_XLS_Type_SCL"> </a><div class="element clickable constant  constant_XLS_Type_SCL" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SCL .collapse">
 <h2>XLS_Type_SCL</h2>
 <pre>XLS_Type_SCL </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SELECTION"> </a><div class="element clickable constant  constant_XLS_Type_SELECTION" data-toggle="collapse" data-target=".constant_XLS_Type_SELECTION .collapse">
+<a id="constant_XLS_Type_SELECTION"> </a><div class="element clickable constant  constant_XLS_Type_SELECTION" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SELECTION .collapse">
 <h2>XLS_Type_SELECTION</h2>
 <pre>XLS_Type_SELECTION </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SHAREDFMLA"> </a><div class="element clickable constant  constant_XLS_Type_SHAREDFMLA" data-toggle="collapse" data-target=".constant_XLS_Type_SHAREDFMLA .collapse">
+<a id="constant_XLS_Type_SHAREDFMLA"> </a><div class="element clickable constant  constant_XLS_Type_SHAREDFMLA" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SHAREDFMLA .collapse">
 <h2>XLS_Type_SHAREDFMLA</h2>
 <pre>XLS_Type_SHAREDFMLA </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SHEET"> </a><div class="element clickable constant  constant_XLS_Type_SHEET" data-toggle="collapse" data-target=".constant_XLS_Type_SHEET .collapse">
+<a id="constant_XLS_Type_SHEET"> </a><div class="element clickable constant  constant_XLS_Type_SHEET" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SHEET .collapse">
 <h2>XLS_Type_SHEET</h2>
 <pre>XLS_Type_SHEET </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SHEETLAYOUT"> </a><div class="element clickable constant  constant_XLS_Type_SHEETLAYOUT" data-toggle="collapse" data-target=".constant_XLS_Type_SHEETLAYOUT .collapse">
+<a id="constant_XLS_Type_SHEETLAYOUT"> </a><div class="element clickable constant  constant_XLS_Type_SHEETLAYOUT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SHEETLAYOUT .collapse">
 <h2>XLS_Type_SHEETLAYOUT</h2>
 <pre>XLS_Type_SHEETLAYOUT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SHEETPR"> </a><div class="element clickable constant  constant_XLS_Type_SHEETPR" data-toggle="collapse" data-target=".constant_XLS_Type_SHEETPR .collapse">
+<a id="constant_XLS_Type_SHEETPR"> </a><div class="element clickable constant  constant_XLS_Type_SHEETPR" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SHEETPR .collapse">
 <h2>XLS_Type_SHEETPR</h2>
 <pre>XLS_Type_SHEETPR </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SHEETPROTECTION"> </a><div class="element clickable constant  constant_XLS_Type_SHEETPROTECTION" data-toggle="collapse" data-target=".constant_XLS_Type_SHEETPROTECTION .collapse">
+<a id="constant_XLS_Type_SHEETPROTECTION"> </a><div class="element clickable constant  constant_XLS_Type_SHEETPROTECTION" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SHEETPROTECTION .collapse">
 <h2>XLS_Type_SHEETPROTECTION</h2>
 <pre>XLS_Type_SHEETPROTECTION </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_SST"> </a><div class="element clickable constant  constant_XLS_Type_SST" data-toggle="collapse" data-target=".constant_XLS_Type_SST .collapse">
+<a id="constant_XLS_Type_SST"> </a><div class="element clickable constant  constant_XLS_Type_SST" data-bs-toggle="collapse" data-target=".constant_XLS_Type_SST .collapse">
 <h2>XLS_Type_SST</h2>
 <pre>XLS_Type_SST </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_STRING"> </a><div class="element clickable constant  constant_XLS_Type_STRING" data-toggle="collapse" data-target=".constant_XLS_Type_STRING .collapse">
+<a id="constant_XLS_Type_STRING"> </a><div class="element clickable constant  constant_XLS_Type_STRING" data-bs-toggle="collapse" data-target=".constant_XLS_Type_STRING .collapse">
 <h2>XLS_Type_STRING</h2>
 <pre>XLS_Type_STRING </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_STYLE"> </a><div class="element clickable constant  constant_XLS_Type_STYLE" data-toggle="collapse" data-target=".constant_XLS_Type_STYLE .collapse">
+<a id="constant_XLS_Type_STYLE"> </a><div class="element clickable constant  constant_XLS_Type_STYLE" data-bs-toggle="collapse" data-target=".constant_XLS_Type_STYLE .collapse">
 <h2>XLS_Type_STYLE</h2>
 <pre>XLS_Type_STYLE </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_TOPMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_TOPMARGIN" data-toggle="collapse" data-target=".constant_XLS_Type_TOPMARGIN .collapse">
+<a id="constant_XLS_Type_TOPMARGIN"> </a><div class="element clickable constant  constant_XLS_Type_TOPMARGIN" data-bs-toggle="collapse" data-target=".constant_XLS_Type_TOPMARGIN .collapse">
 <h2>XLS_Type_TOPMARGIN</h2>
 <pre>XLS_Type_TOPMARGIN </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_TXO"> </a><div class="element clickable constant  constant_XLS_Type_TXO" data-toggle="collapse" data-target=".constant_XLS_Type_TXO .collapse">
+<a id="constant_XLS_Type_TXO"> </a><div class="element clickable constant  constant_XLS_Type_TXO" data-bs-toggle="collapse" data-target=".constant_XLS_Type_TXO .collapse">
 <h2>XLS_Type_TXO</h2>
 <pre>XLS_Type_TXO </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_UNKNOWN"> </a><div class="element clickable constant  constant_XLS_Type_UNKNOWN" data-toggle="collapse" data-target=".constant_XLS_Type_UNKNOWN .collapse">
+<a id="constant_XLS_Type_UNKNOWN"> </a><div class="element clickable constant  constant_XLS_Type_UNKNOWN" data-bs-toggle="collapse" data-target=".constant_XLS_Type_UNKNOWN .collapse">
 <h2>XLS_Type_UNKNOWN</h2>
 <pre>XLS_Type_UNKNOWN </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_VCENTER"> </a><div class="element clickable constant  constant_XLS_Type_VCENTER" data-toggle="collapse" data-target=".constant_XLS_Type_VCENTER .collapse">
+<a id="constant_XLS_Type_VCENTER"> </a><div class="element clickable constant  constant_XLS_Type_VCENTER" data-bs-toggle="collapse" data-target=".constant_XLS_Type_VCENTER .collapse">
 <h2>XLS_Type_VCENTER</h2>
 <pre>XLS_Type_VCENTER </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_VERTICALPAGEBREAKS"> </a><div class="element clickable constant  constant_XLS_Type_VERTICALPAGEBREAKS" data-toggle="collapse" data-target=".constant_XLS_Type_VERTICALPAGEBREAKS .collapse">
+<a id="constant_XLS_Type_VERTICALPAGEBREAKS"> </a><div class="element clickable constant  constant_XLS_Type_VERTICALPAGEBREAKS" data-bs-toggle="collapse" data-target=".constant_XLS_Type_VERTICALPAGEBREAKS .collapse">
 <h2>XLS_Type_VERTICALPAGEBREAKS</h2>
 <pre>XLS_Type_VERTICALPAGEBREAKS </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_WINDOW2"> </a><div class="element clickable constant  constant_XLS_Type_WINDOW2" data-toggle="collapse" data-target=".constant_XLS_Type_WINDOW2 .collapse">
+<a id="constant_XLS_Type_WINDOW2"> </a><div class="element clickable constant  constant_XLS_Type_WINDOW2" data-bs-toggle="collapse" data-target=".constant_XLS_Type_WINDOW2 .collapse">
 <h2>XLS_Type_WINDOW2</h2>
 <pre>XLS_Type_WINDOW2 </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_XF"> </a><div class="element clickable constant  constant_XLS_Type_XF" data-toggle="collapse" data-target=".constant_XLS_Type_XF .collapse">
+<a id="constant_XLS_Type_XF"> </a><div class="element clickable constant  constant_XLS_Type_XF" data-bs-toggle="collapse" data-target=".constant_XLS_Type_XF .collapse">
 <h2>XLS_Type_XF</h2>
 <pre>XLS_Type_XF </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Type_XFEXT"> </a><div class="element clickable constant  constant_XLS_Type_XFEXT" data-toggle="collapse" data-target=".constant_XLS_Type_XFEXT .collapse">
+<a id="constant_XLS_Type_XFEXT"> </a><div class="element clickable constant  constant_XLS_Type_XFEXT" data-bs-toggle="collapse" data-target=".constant_XLS_Type_XFEXT .collapse">
 <h2>XLS_Type_XFEXT</h2>
 <pre>XLS_Type_XFEXT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_WorkbookGlobals"> </a><div class="element clickable constant  constant_XLS_WorkbookGlobals" data-toggle="collapse" data-target=".constant_XLS_WorkbookGlobals .collapse">
+<a id="constant_XLS_WorkbookGlobals"> </a><div class="element clickable constant  constant_XLS_WorkbookGlobals" data-bs-toggle="collapse" data-target=".constant_XLS_WorkbookGlobals .collapse">
 <h2>XLS_WorkbookGlobals</h2>
 <pre>XLS_WorkbookGlobals </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_XLS_Worksheet"> </a><div class="element clickable constant  constant_XLS_Worksheet" data-toggle="collapse" data-target=".constant_XLS_Worksheet .collapse">
+<a id="constant_XLS_Worksheet"> </a><div class="element clickable constant  constant_XLS_Worksheet" data-bs-toggle="collapse" data-target=".constant_XLS_Worksheet .collapse">
 <h2>XLS_Worksheet</h2>
 <pre>XLS_Worksheet </pre>
 <div class="labels"></div>

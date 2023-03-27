@@ -156,14 +156,14 @@ if(isset($_POST['urlActual']))
 			?>
             <tr>
                 <td colspan="6"><div>No hay resultados</div></td>
-                <!--data-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
+                <!--data-bs-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
                 <td>
                 <?php if($tipo == "venta"){?>
                 	Lo sentimos pero Debe <br>
 					AGREGAR el PRODUCTO por <br>
 					COMPRAS o como INVENTARIO INICIAL
                 <?php }elseif($tipo == "compra"){?>
-                <input type="button" class="btn btn-success" value="Agregar y Seleccionar Producto" data-dismiss="modal" data-toggle="modal" data-target="#nueProd">
+                <input type="button" class="btn btn-success" value="Agregar y Seleccionar Producto" data-dismiss="modal" data-bs-toggle="modal" data-target="#nueProd">
                 <?php }?>
                 </td>
             </tr>

@@ -79,7 +79,7 @@ include_once('../../includes_SISTEM/include_login.php');
 			?>
             <tr>
                 <td colspan="7"><div>No hay resultados La Factura Debe Existir en el Sistema</div></td>
-                <!--data-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actua
+                <!--data-bs-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actua
                 <td><input type="button" class="btn btn-success" value="Cancelar" data-dismiss="modal"></td>l-->
             </tr>
             <?php    

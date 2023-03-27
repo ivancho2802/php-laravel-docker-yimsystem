@@ -85,7 +85,7 @@ if(isset($_POST['nfact_afectada']))
 						?>
                             <tr>
                                 <td colspan="5"><div>No hay resultados La Factura Debe Existir en el Sistema??</div></td>
-                                <!--data-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
+                                <!--data-bs-toggle="modal" data-target="#nueProv" para agregar y con dismis cierra el actual-->
                             </tr>
             			<?php    
 						}
