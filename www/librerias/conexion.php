@@ -12,7 +12,7 @@ $conexion =  pg_connect("host=us-east-2.aws.neon.tech options='project=".$ENDPOI
 // }
 if (!$conexion) {
 	var_dump($conexion);
-	die("Connection failed: " );
+	//die("Connection failed: " );
 }else{
 	return $conexion;
 }

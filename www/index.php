@@ -18,7 +18,7 @@
 <link  rel="stylesheet" type="text/css" href="menu_assets/styles.css"/>
 -->
 <!--					ESTILOS, JS BOOTSTRAP, JQUERY-->
-<?php include_once('includes_SISTEM/include_head.php');?>
+<?php require_once('includes_SISTEM/include_head.php');?>
 <script>
 	<?php
 	if(isset($_POST["msm"]) || isset($_SESSION["msm"])){//osea cuando cierro session por admin

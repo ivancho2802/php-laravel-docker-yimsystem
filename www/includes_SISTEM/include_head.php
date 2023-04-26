@@ -23,7 +23,7 @@ if(strpos($url, 'modulos/') > 0 || strpos($url, 'modales/') > 0  || strpos($url,
 } else {
 	if ($_SERVER["SERVER_NAME"] === 'localhost')
 	{
-		$extra1 = './';
+		$extra1 = '/';
 	} else {
 		$extra = '/';
 		$extra1 = $extra;
@@ -34,8 +34,8 @@ if(strpos($url, 'modulos/') > 0 || strpos($url, 'modales/') > 0  || strpos($url,
 ///////////////////////////////////////////////////////////////////////////////////
 //			FUNCIONES
 ////////////////////////////////////////////////////////////////////////////////////
-include_once(dirname(__DIR__).$extra1."librerias/conexion.php");
-include_once(dirname(__DIR__).$extra1."php/funciones.php");
+require_once(dirname(__DIR__).$extra1."librerias/conexion.php");
+require_once(dirname(__DIR__).$extra1."php/funciones.php");
 if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 ?>
 <title>Sist. YIM</title>
@@ -52,4 +52,7 @@ if(!(strpos($url, '/php') || strpos($url, '/modulos/reporte'))){
 <script type="text/javascript" src="<?php echo $uri.$extra?>js/jquery-3.6.0.min.js"></script>
 <!--<script type="text/javascript" src="<?php //echo $uri.$extra?>js/jquery-ui.min.js"></script>-->
 <script type="text/javascript" src="<?php echo $uri.$extra?>js/funciones.js"></script>
+  
+</body>
+
 <?php }?>

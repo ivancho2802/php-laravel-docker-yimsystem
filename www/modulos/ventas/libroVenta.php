@@ -27,7 +27,9 @@ if (isset($_POST['mes'])){
 $mes = $_POST['mes'];
 
 	$mesi = $mes."-01";
-	$mesf = ($mes=='02')? $mes."-28":((int) $mes%2==0) ? $mes."-31" : $mes."-30";
+	$mesf = $mes=='02' ?
+            $mes."-28":
+          ($mes%2==0 ? $mes."-31" : $mes."-30");
 	
 	//consulta de los datos de la empreas PARA SABE LA ACTIVA 
 	$consultaEmpre = pg_query($conexion,"SELECT * FROM empre WHERE empre.est_empre = '1'");

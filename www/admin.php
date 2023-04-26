@@ -2,6 +2,16 @@
 include_once('includes_SISTEM/include_header.php');
 include_once('includes_SISTEM/include_login.php');
 //$sistem_root = SISTEM_ROOT;
+
+
+
+/* $consulta2=pg_query($conexion,sprintf("
+SELECT * FROM reg_inventario, inventario WHERE
+        reg_inventario.fk_inventario = inventario.codigo
+        ORDER BY fecha_reg_inv ASC"));
+// $filas2 = $c_inv_menor->fetch_assoc();
+$filas2=pg_fetch_assoc($consulta2);
+print_r(pg_fetch_all($consulta2)); */
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -42,8 +52,8 @@ include_once('includes_SISTEM/include_login.php');
       }
 
       $('#myTabs').click('show', function(e) {
-        console.log("myTabs show"+e.target);
         paneID = $(e.target).attr('href');
+        console.log("myTabs show", paneID);
         src = $(paneID).attr('data-src');
         // if the iframe hasn't already been loaded once
         if ($(paneID + " iframe").attr("src") == "") {
