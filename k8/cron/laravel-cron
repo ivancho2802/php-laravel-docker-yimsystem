@@ -1,0 +1,3 @@
+* * * * * cd /var/www/storage && chown -R application:www-data logs && chmod 775 -R logs
+* * * * * cd /var/www/storage/framework && chown -R application:www-data cache && chmod 775 -R cache
+* * * * * cd /var/www && /usr/local/bin/php artisan schedule:run >> /dev/stdout
