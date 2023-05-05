@@ -70,9 +70,8 @@ USER application
 
 #Supervisord
 COPY ./k8/supervisord /opt/docker/etc/supervisor.d
-
-ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN set -eux;
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 #Composer
 RUN composer install --no-dev
