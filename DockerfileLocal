@@ -71,8 +71,10 @@ USER application
 #Supervisord
 COPY ./k8/supervisord /opt/docker/etc/supervisor.d
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.22
+RUN php composer-setup.php --install-dir=bin --filename=composer
+RUN php bin/composer
+RUN mv composer.phar /usr/local/bin/composer
 #Composer
 RUN composer install --no-dev
 
