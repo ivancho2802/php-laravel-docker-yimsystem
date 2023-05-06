@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 echo "Running composer"
-composer global require hirak/prestissimo
 pwd
 rm -rf vendor
 rm -rf composer.lock
 echo "DELETE composer pwd"
+composer global require hirak/prestissimo
 
 composer install --no-dev --working-dir=/var/www/html
 composer update
