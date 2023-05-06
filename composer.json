@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
@@ -15,7 +18,8 @@
         "laravel/ui": "^3.4",
         "nesbot/carbon": "^2.59.0",
         "rap2hpoutre/laravel-log-viewer": "^2.3",
-        "sabberworm/php-css-parser": "^8.4"
+        "sabberworm/php-css-parser": "^8.4",
+        "laravel/nova": "^3.8"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
@@ -64,5 +68,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ]
 }
