@@ -4,6 +4,7 @@ pwd
 rm -rf vendor
 rm -rf composer.lock
 echo "DELETE composer pwd"
+COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
 composer global require hirak/prestissimo
 
 composer install --no-dev --working-dir=/var/www/html
