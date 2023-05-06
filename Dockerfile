@@ -1,4 +1,4 @@
-FROM richarvey/nginx-php-fpm:2.0.4
+FROM richarvey/nginx-php-fpm:latest
 
 COPY . .
 
@@ -20,4 +20,4 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 #codigo extra
 EXPOSE 8000
 
-CMD ["cd /var/www/html/public && /scripts/00-laravel-deploy.sh"]
+CMD ["/start.sh"]
