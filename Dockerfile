@@ -20,4 +20,4 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 #codigo extra
 EXPOSE 8000
 
-CMD ["/start.sh"]
+CMD ["a2enmod stop && ./bin/bash -c cd /var/www/html && ./scripts/00-laravel-deploy.sh"]
