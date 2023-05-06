@@ -18,7 +18,6 @@ ENV LOG_CHANNEL stderr
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 #codigo extra
-RUN a2enmod stop
 EXPOSE 8000
 
 CMD ["/start.sh"]
