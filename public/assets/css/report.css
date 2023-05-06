@@ -1,0 +1,128 @@
+/* CSS Document */
+@media all and (max-width: 1024px) {
+	#bloc_page {
+		width: 900px;
+	}
+}
+
+* {
+	font-size: 8px;
+}
+
+div {
+	margin: 0 auto;
+}
+
+table {
+	vertical-align: top;
+}
+
+tr {
+	vertical-align: top;
+}
+
+td {
+	vertical-align: top;
+}
+
+thead {
+	border: 0px;
+}
+
+th div {
+	border: 0px;
+	text-align: center;
+}
+
+.tabla_bordes {
+	font-size: 12px;
+	border: 1px solid;
+	text-align: center;
+}
+
+.tabla_header {
+	font-size: 12px;
+	text-align: left;
+}
+
+b {
+	font-size: 12px;
+}
+
+span {
+	font-size: 12px;
+}
+
+.tabla1 {
+	cellpadding: 0;
+	cellspacing: 0;
+}
+
+.w-30{
+    width: 30px;
+}
+
+/*VERTICAL*/
+td.cont_v {
+	height: 50mm;
+	width: 5mm;
+	position: relative;
+}
+
+.cont_v div {
+	
+    /* writing-mode: vertical-lr; */
+
+    rotate: 90deg;
+    position: absolute;
+    width: 180px;
+    height: 13px;
+    left: -81px;
+    top: 85px;
+    font-style: italic;
+    font-weight: normal;
+    text-align: left;
+    font-size: 2.5mm;
+}
+
+.subTitulo {
+	text-align: center;
+}
+
+.v {
+
+	/*rotate: 90;*/
+	width: 30px;
+}
+
+.h {
+	/*width:30px;*/
+}
+
+.tabla1 {
+	border: 0.5px solid #000;
+}
+
+.tabla1 td {
+	border: 0.5px solid #000;
+}
+
+.tabla1 .titulo {
+	background-color: #069;
+	color: #FFF;
+}
+
+.verticalText {
+	text-align: center;
+	vertical-align: middle;
+	width: 15px;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 10px;
+	white-space: nowrap;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	rotate: 90;
+}
