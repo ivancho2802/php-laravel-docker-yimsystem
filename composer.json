@@ -14,7 +14,13 @@
         "laravel/tinker": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
-        "laravel/nova": "^3.8"
+        "laravel/nova": "^3.8",
+        "dompdf/dompdf": "^2.0",
+        "laravel/sanctum": "^2.11",
+        "laravel/ui": "^3.4",
+        "nesbot/carbon": "^2.59.0",
+        "rap2hpoutre/laravel-log-viewer": "^2.3",
+        "sabberworm/php-css-parser": "^8.4"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
