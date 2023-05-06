@@ -10,9 +10,7 @@ RUN apt-get update \
        php8.0-intl php8.0-readline \
        php8.0-msgpack php8.0-igbinary php8.0-ldap \
        php8.0-redis \
-    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
-    && apt-get install -y yarn \
-    && apt-get install -y mysql-client
+    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
 COPY . .
 
