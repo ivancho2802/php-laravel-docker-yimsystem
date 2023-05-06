@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "Running composer"
+echo "Running composer DELETE"
 pwd
 rm -rf vendor
 rm -rf composer.lock
