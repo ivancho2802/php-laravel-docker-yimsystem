@@ -9,19 +9,24 @@ use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
-    
+
+    public function login()
+    {
+        return view('session/login-session');
+    }
     /**
      * get: Returns se authentified user data
      * @return Response
      */
-    public function show(Request $request) {
+    public function show(Request $request)
+    {
         /** @var User $user */
 
         //return $request->user();
 
         $user = auth()->user();
-                      //->makeVisible(['id'])
-                      //->append('nps_show', 'is_full', 'is_invited', 'is_invited_user', 'has_company_contract', 'survey_show', 'rating_store_show'
+        //->makeVisible(['id'])
+        //->append('nps_show', 'is_full', 'is_invited', 'is_invited_user', 'has_company_contract', 'survey_show', 'rating_store_show'
 
         /* $user->load([
             'wallets', 'vehicles', 'restrictions',
@@ -48,7 +53,8 @@ class UserController extends Controller
     /**
      * update: Updates a current identified user data UpdateRequest
      */
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $user = auth()->user();
 
         if (!$user) {
@@ -66,13 +72,14 @@ class UserController extends Controller
      * remove: Removes a current identified user
      * @return Response
      */
-    public function remove() {
+    public function remove()
+    {
         $user = auth()->user();
         $user->currentAccessToken()->delete();
         return $this->success();
     }
 
-    
+
     /**
      * Return user notifications
      */
@@ -133,4 +140,28 @@ class UserController extends Controller
         return $this->success();
     }
 
+    public function exampleUserManager()
+    {
+        return view('laravel-examples/user-management');
+    }
+    public function exampleFixedPlugin()
+    {
+        return view('laravel-examples/fixed-plugin');
+    }
+    public function exampleTables()
+    {
+        return view('tables');
+    }
+    public function exampleVirtualReality()
+    {
+        return view('virtual-reality');
+    }
+    public function exampleStaticSignIn()
+    {
+        return view('static-sign-in');
+    }
+    public function exampleStaticSignUp()
+    {
+        return view('static-sign-up');
+    }
 }

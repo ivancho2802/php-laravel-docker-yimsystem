@@ -14,7 +14,9 @@ use App\Http\Controllers\RetencionesController;
 use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\DashController;
-
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\RtlController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,41 +54,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [DashController::class, 'redirect']);
 	Route::get('dashboard', [DashController::class, 'index'])->name('dashboard');
 
-	Route::get('billing', function () {
-		return view('billing');
-	})->name('billing');
+	Route::get('billing', [BillingController::class, 'index'])->name('billing');
 
-	Route::get('profile', function () {
-		return view('profile');
-	})->name('profile');
+	Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 
-	Route::get('rtl', function () {
-		return view('rtl');
-	})->name('rtl');
+	Route::get('rtl', [RtlController::class, 'index'])->name('rtl');
 
-	Route::get('user-management', function () {
-		return view('laravel-examples/user-management');
-	})->name('user-management');
+	Route::get('user-management', [UserController::class, 'exampleUserManager'])->name('user-management');
     
-	Route::get('fixed-plugin', function () {
-		return view('laravel-examples/fixed-plugin');
-	})->name('fixed-plugin');
+	Route::get('fixed-plugin', [UserController::class, 'exampleFixedPlugin'])->name('fixed-plugin');
 
-	Route::get('tables', function () {
-		return view('tables');
-	})->name('tables');
+	Route::get('tables', [UserController::class, 'exampleTables'])->name('tables');
 
-    Route::get('virtual-reality', function () {
-		return view('virtual-reality');
-	})->name('virtual-reality');
+    Route::get('virtual-reality', [UserController::class, 'exampleVirtualReality'])->name('virtual-reality');
 
-    Route::get('static-sign-in', function () {
-		return view('static-sign-in');
-	})->name('sign-in');
+    Route::get('static-sign-in', [UserController::class, 'exampleStaticSignIn'])->name('sign-in');
 
-    Route::get('static-sign-up', function () {
-		return view('static-sign-up');
-	})->name('sign-up');
+    Route::get('static-sign-up', [UserController::class, 'exampleStaticSignUp'])->name('sign-up');
 
 	//libros de compras
 	Route::get('book-shopping', [BookShoppingController::class, 'index']);
@@ -221,6 +205,4 @@ Route::group(['middleware' => 'guest'], function () {
 
 });
 
-Route::get('/login', function () {
-    return view('session/login-session');
-})->name('login');
+Route::get('/login', [UserController::class, 'login'])->name('login');
