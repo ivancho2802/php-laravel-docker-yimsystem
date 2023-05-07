@@ -13,6 +13,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RetencionesController;
 use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\DashController;
 
 
 /*
@@ -48,12 +49,8 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', function () {
-        return redirect('dashboard');
-    });
-	Route::get('dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
+    Route::get('/', [DashController::class, 'redirect']);
+	Route::get('dashboard', [DashController::class, 'index'])->name('dashboard');
 
 	Route::get('billing', function () {
 		return view('billing');
