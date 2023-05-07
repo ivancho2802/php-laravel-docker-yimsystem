@@ -15,7 +15,7 @@ class CreateNotasCdsTable extends Migration
     {
         if (!Schema::hasTable('notas_cds')) {
             Schema::create('notas_cds', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('id_notas_cd');
                 $table->string('num_notas_cd');

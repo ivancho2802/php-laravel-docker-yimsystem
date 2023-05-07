@@ -17,7 +17,7 @@ class CreateRegInventariosTable extends Migration
         if (!Schema::hasTable('reg_inventarios')) {
 
             Schema::create('reg_inventarios', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->timestamp('fecha_reg_inv')->useCurrent();
                 $table->timestamp('fecha_registro')->useCurrent();

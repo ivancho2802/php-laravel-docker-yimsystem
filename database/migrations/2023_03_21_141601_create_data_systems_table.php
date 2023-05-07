@@ -15,7 +15,7 @@ class CreateDataSystemsTable extends Migration
     {
         if (!Schema::hasTable('data_systems')) {
             Schema::create('data_systems', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('nom_ds');
                 $table->string('alias_ds');

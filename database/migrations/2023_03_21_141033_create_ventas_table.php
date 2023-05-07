@@ -15,7 +15,7 @@ class CreateVentasTable extends Migration
     {
         if (!Schema::hasTable('ventas')) {
             Schema::create('ventas', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('serial')->nullable();
                 $table->string('tipoVenta');

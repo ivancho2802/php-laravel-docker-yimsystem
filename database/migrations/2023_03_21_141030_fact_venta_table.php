@@ -17,7 +17,7 @@ class FactVentaTable extends Migration
         if (!Schema::hasTable('fact_ventas')) {
 
             Schema::create('fact_ventas', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
 
                 $table->string('empre_cod_empre');
                 $table->string('tipo_fact_venta');

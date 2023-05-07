@@ -17,7 +17,7 @@ class FactCompraTable extends Migration
         if (!Schema::hasTable('fact_compras')) {
 
             Schema::create('fact_compras', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->string('num_fact_compra');
                 $table->string('tipo_fact_compra');
                 $table->string('empre_cod_empre');

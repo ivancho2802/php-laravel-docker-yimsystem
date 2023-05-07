@@ -18,7 +18,7 @@ class DevoVentaTable extends Migration
         if (!Schema::hasTable('devo_ventas')) {
 
             Schema::create('devo_ventas', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->string('id_devo_venta');
                 $table->string('motivo_devo_venta');
                 $table->string('text');

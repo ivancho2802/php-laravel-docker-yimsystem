@@ -17,7 +17,7 @@ class DevoCompraTable extends Migration
         if (!Schema::hasTable('devo_compras')) {
 
             Schema::create('devo_compras', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->string('motivo_devolucion');
                 $table->timestamp('fecha_devolucion')->useCurrent();
                 $table->decimal('cantidad_devuelta', 20, 4);

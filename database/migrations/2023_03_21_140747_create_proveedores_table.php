@@ -15,7 +15,7 @@ class CreateProveedoresTable extends Migration
     {
         if (!Schema::hasTable('proveedors')) {
             Schema::create('proveedors', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('rif');
                 $table->string('nombre');

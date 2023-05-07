@@ -15,7 +15,7 @@ class CreateEmpresTable extends Migration
     {
         if (!Schema::hasTable('empres')) {
             Schema::create('empres', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('cod_empre');
                 $table->string('rif_empre');

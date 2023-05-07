@@ -15,7 +15,7 @@ class CreateInventariosTable extends Migration
     {
         if (!Schema::hasTable('inventarios')) {
             Schema::create('inventarios', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('codigo');
                 $table->string('nombre_i');

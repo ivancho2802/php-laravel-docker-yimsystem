@@ -15,7 +15,7 @@ class CreateComprasTable extends Migration
     {
         if (!Schema::hasTable('compras')) {
             Schema::create('compras', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('tipoCompra');
                 $table->decimal('costo', 20, 4);
