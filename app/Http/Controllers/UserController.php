@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 class UserController extends Controller
 {
 
-    public function login()
+    public function login(Request $request)
     {
         return view('session/login-session');
     }
