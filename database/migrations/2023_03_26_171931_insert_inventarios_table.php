@@ -18,6 +18,7 @@ class InsertInventariosTable extends Migration
         DB::table('inventarios')->insert([
             array(
                 'id' => 278,
+                'codigo' => 278,
                 'nombre_i' => 'PAÃ‘ALES PEQUEÃ‘IN',
                 'descripcion' => '',
                 'cant_min' => 0,
@@ -29,6 +30,7 @@ class InsertInventariosTable extends Migration
             ),
             array(
                 'id' => 281,
+                'codigo' => 281,
                 'nombre_i' => 'CAFE CONCAFE',
                 'descripcion' => '',
                 'cant_min' => 0,
@@ -40,6 +42,7 @@ class InsertInventariosTable extends Migration
             ),
             array(
                 'id' => 697,
+                'codigo' => 697,
                 'nombre_i' => 'LECHE EN POLVO LA CAMPIÃ‘A',
                 'descripcion' => '',
                 'cant_min' => 0,
@@ -51,6 +54,7 @@ class InsertInventariosTable extends Migration
             ),
             array(
                 'id' => 712,
+                'codigo' => 712,
                 'nombre_i' => 'CREMA SAPOLIN',
                 'descripcion' => '',
                 'cant_min' => 0,
@@ -62,6 +66,7 @@ class InsertInventariosTable extends Migration
             ),
             array(
                 'id' => 985,
+                'codigo' => 985,
                 'nombre_i' => 'harina pan',
                 'descripcion' => '',
                 'cant_min' => 1,
