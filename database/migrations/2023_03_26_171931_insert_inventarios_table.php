@@ -26,7 +26,8 @@ class InsertInventariosTable extends Migration
                 'stock' => 400,
                 'valor_unitario' => 16805.012531328,
                 'pmpvj_actual' => 20748.000,
-                'fecha' => '2017-05-28'
+                'fecha' => '2017-05-28',
+                'fk_usuarios' => 1
             ),
             array(
                 'id' => 281,
@@ -38,7 +39,8 @@ class InsertInventariosTable extends Migration
                 'stock' => 299,
                 'valor_unitario' => 7600,
                 'pmpvj_actual' => 10108,
-                'fecha' => '2017-05-28'
+                'fecha' => '2017-05-28',
+                'fk_usuarios' => 1
             ),
             array(
                 'id' => 697,
@@ -50,7 +52,8 @@ class InsertInventariosTable extends Migration
                 'stock' => 299,
                 'valor_unitario' => 5600,
                 'pmpvj_actual' => 7448,
-                'fecha' => '2017-05-28'
+                'fecha' => '2017-05-28',
+                'fk_usuarios' => 1
             ),
             array(
                 'id' => 712,
@@ -62,7 +65,8 @@ class InsertInventariosTable extends Migration
                 'stock' => 30,
                 'valor_unitario' => 6500,
                 'pmpvj_actual' => 0,
-                'fecha' => '2017-06-28'
+                'fecha' => '2017-06-28',
+                'fk_usuarios' => 1
             ),
             array(
                 'id' => 985,
@@ -74,7 +78,8 @@ class InsertInventariosTable extends Migration
                 'stock' => 301,
                 'valor_unitario' => 474500,
                 'pmpvj_actual' => 631085,
-                'fecha' => '2017-03-28'
+                'fecha' => '2017-03-28',
+                'fk_usuarios' => 1
             )
         ]);
     }
