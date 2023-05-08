@@ -16,7 +16,7 @@ class InsertUsersTable extends Migration
         //
         $password = Hash::make('12345678');
 
-        DB::table('users')->insertOrIgnore(
+        DB::table('users')->insert(
             array(
                 'name'=>'testname',
                 'email'=>'test@yimsystem.com',
