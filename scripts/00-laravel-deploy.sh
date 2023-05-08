@@ -7,8 +7,9 @@ echo "DELETE composer pwd"
 COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
 composer global require hirak/prestissimo
 
-composer install --no-dev --working-dir=/var/www/html
 composer update
+
+composer install --no-dev --working-dir=/var/www/html
 
 echo "Caching config..."
 php artisan config:cache

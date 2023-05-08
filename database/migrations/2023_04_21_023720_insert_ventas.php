@@ -20,7 +20,7 @@ class InsertVentas extends Migration
                 "precio_venta" => 22244.000,
                 "cantidad" => 22,
                 "fk_inventario" => 278,
-                "fk_fact_venta" => 2
+                "fk_fact_venta" => 1
             )
         ]);
     }

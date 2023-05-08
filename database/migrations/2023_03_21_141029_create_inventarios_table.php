@@ -15,7 +15,7 @@ class CreateInventariosTable extends Migration
     {
         if (!Schema::hasTable('inventarios')) {
             Schema::create('inventarios', function (Blueprint $table) {
-                $table->id();
+                $table->bigIncrements('id');
                 $table->timestamps();
                 $table->string('codigo');
                 $table->string('nombre_i');
@@ -27,7 +27,7 @@ class CreateInventariosTable extends Migration
                 $table->string('pmpvj_actual');
                 $table->timestamp('fecha')->useCurrent();
                 
-                $table->unsignedBigInteger('fk_usuarios');
+                $table->unsignedBigInteger('fk_usuarios')->nullable();
                 $table->foreign('fk_usuarios')
                     ->references('id')->on('users')->nullable();
                 
