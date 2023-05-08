@@ -14,9 +14,9 @@ class RegisterController extends Controller
         return view('session.register');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $attributes = request()->validate([
+        $attributes = $request->validate([
             'name' => ['required', 'max:50'],
             'email' => ['required', 'email', 'max:50', Rule::unique('users', 'email')],
             'password' => ['required', 'min:5', 'max:20'],
@@ -27,7 +27,7 @@ class RegisterController extends Controller
 
         session()->flash('success', 'Your account has been created.');
         $user = User::create($attributes);
-        Auth::login($user); 
+        Auth::login($user);
         return redirect('/dashboard');
     }
 }
