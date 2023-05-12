@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+//use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class FactVenta extends Model
 {
-    use HasFactory;
+    //use HasFactory;
 
     /**
      * PATH AGREGAR FACTURA DE VENTA
