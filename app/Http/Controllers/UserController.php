@@ -10,6 +10,11 @@ use Illuminate\Http\Response;
 class UserController extends Controller
 {
 
+
+    public function login(Request $request)
+    {
+        return view('session/login-session');
+    }
     /**
      * get: Returns se authentified user data
      * @return Response
