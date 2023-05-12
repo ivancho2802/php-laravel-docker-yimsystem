@@ -22,7 +22,13 @@ class BookSalesController extends Controller
 
     $user = auth()->user();
 
-    $data['empre'] = $user->empre()->active();
+    //consulta de los datos de la empreas PARA SABE LA ACTIVA
+    $data['empre'] = Empre::query()
+      ->where([
+        ['est_empre', '1'],
+        ['fk_usuarios', auth()->user()->id]
+      ])
+      ->first();
 
     //find data company for see information in relation
     $data['date_to'] = date("Y-m-d");
@@ -620,7 +626,13 @@ class BookSalesController extends Controller
 
     $user = auth()->user();
 
-    $empre = $user->empre()->active();
+    //consulta de los datos de la empreas PARA SABE LA ACTIVA
+    $data['empre'] = Empre::query()
+      ->where([
+        ['est_empre', '1'],
+        ['fk_usuarios', auth()->user()->id]
+      ])
+      ->first();
 
     //return ['params' => $request];
 

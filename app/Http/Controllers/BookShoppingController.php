@@ -230,7 +230,13 @@ class BookShoppingController extends Controller
 
     $user = auth()->user();
 
-    $empre = $user->empre()->active();
+    //consulta de los datos de la empreas PARA SABE LA ACTIVA
+    $empre = Empre::query()
+      ->where([
+        ['est_empre', '1'],
+        ['fk_usuarios', auth()->user()->id]
+      ])
+      ->first();
 
     //return ['params' => $request];
 
@@ -391,7 +397,13 @@ class BookShoppingController extends Controller
 
     $user = auth()->user();
 
-    $empre = $user->empre()->active();
+    //consulta de los datos de la empreas PARA SABE LA ACTIVA
+    $empre = Empre::query()
+      ->where([
+        ['est_empre', '1'],
+        ['fk_usuarios', auth()->user()->id]
+      ])
+      ->first();
 
     return ['params' => $request];
 
