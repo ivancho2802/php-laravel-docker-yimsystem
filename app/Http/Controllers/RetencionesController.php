@@ -62,7 +62,7 @@ class RetencionesController extends Controller
       $ultimoNumero = substr($factCompra->num_compro_reten, 10, 16);
     }
 
-    $siguienteNumero = $ultimoNumero + 1;
+    $siguienteNumero = intval($ultimoNumero) + 1;
 
     return response()->json(['status' => true,  'siguienteNumero' => $siguienteNumero], 201);
   }

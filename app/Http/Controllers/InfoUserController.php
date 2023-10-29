@@ -13,7 +13,7 @@ class InfoUserController extends Controller
 
     public function create()
     {
-        return view('laravel-examples/user-profile');
+        return view('user-profile');
     }
 
     public function store(Request $request)
@@ -53,5 +53,10 @@ class InfoUserController extends Controller
 
 
         return redirect('/user-profile')->with('success','Profile updated successfully');
+    }
+    
+    public function index(Request $request)
+    {
+		return view('profile');
     }
 }

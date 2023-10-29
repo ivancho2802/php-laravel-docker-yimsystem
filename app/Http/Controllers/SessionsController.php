@@ -20,7 +20,11 @@ class SessionsController extends Controller
             'password'=>'required' 
         ]);
 
-        if(Auth::attempt($attributes))
+        $dias = (86400 * 7);
+
+        $token = Auth::attempt($attributes, ['exp' => strtotime(date("Y-m-d", time() + $dias))]);
+
+        if($token)
         {
             session()->regenerate();
             return redirect('dashboard')->with(['success'=>'You are logged in.']);

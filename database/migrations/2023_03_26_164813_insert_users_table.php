@@ -22,6 +22,12 @@ class InsertUsersTable extends Migration
                 'email'=>'test@yimsystem.com',
                 'password'=>$password,
                 'nivel'=>1
+            ),
+            array(
+                'name'=>'testsellerprovideremploye',
+                'email'=>'user@yimsystem.com',
+                'password'=>$password,
+                'nivel'=>2
             )
         );
 

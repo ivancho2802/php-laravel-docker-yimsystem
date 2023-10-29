@@ -246,65 +246,14 @@ function showHint1(str) {
 }
 
 
-function validar_repetidoM(tabla, columna, valor, zona_dinamica) {
-  if (valor !== "") {
-    objAjax = new XMLHttpRequest()
-    objAjax.open("GET", extra + "php/consul_sql/b_tabla.php?valor=" + valor + "&tabla=" + tabla + "&columna=" + columna)
-    objAjax.onreadystatechange = function () {
-      if (objAjax.status == 200 && objAjax.readyState == 4) {
-        var span = document.createElement("span");//console.log(objAjax.responseText);
-
-        if (objAjax.responseText == 1) {
-          document.getElementById(zona_dinamica).value = "";
-          document.getElementById(zona_dinamica).placeholder = "EXISTENTE";
-
-          span.setAttribute("class", "has-error");
-          document.getElementById("res_" + zona_dinamica).appendChild(span);
-          span.appendChild(document.getElementById("cont_" + zona_dinamica));
-
-          if (tabla == "fact_venta") {
-            alert("Los datos para FACTURA de VENTA ya existen en el sistema");
-            document.form1.num_fact_venta.value = "";
-            document.form1.fk_cliente.value = "";
-            document.getElementById('nom_cliente_ajax').value = "";
-            document.getElementById('tipoDoc').value = "";
-          }
-          else if (tabla == "fact_compra") {
-            alert("Esta FACTURA de compra y RAZON SOCIAL ya existen en el sistema");
-            document.form1.num_fact_compra.value = "";
-            document.form1.fk_proveedor.value = "";
-            document.getElementById('nom_prov_ajax').value = "";
-            document.getElementById('tipoDoc').value = "";
-          }
-          else if (tabla == "inventario") {
-            alert("Este CODIGO ó NOMBRE DE PRODUCTO ya existen en el sistema");
-          } else if (tabla == "cliente") {
-            alert("La CEDULA o RIF del CLIENTE ya existen en el sistema");
-            document.getElementById(zona_dinamica).focus();
-          } else if (tabla == "proveedor" && columna == "rif") {
-            alert("La CEDULA o RIF del PROVEEDOR ya existen en el sistema");
-            document.getElementById(zona_dinamica).focus();
-          }
-
-        } else {
-          span.setAttribute("class", "has-success");
-          document.getElementById("res_" + zona_dinamica).appendChild(span);
-          span.appendChild(document.getElementById("cont_" + zona_dinamica));
-        }
-      }
-    }
-    objAjax.send(null)
-  }
-}
-
 /**
  * ********************************************************************************
  * ********************************************************************************
- * funciones uqe si van a usar las demas van a pasar a revision
+ * funciones uqe si van a usar las demas van a pasar a revision pasar de arriba abajo
  * ********************************************************************************
  * ********************************************************************************
  * ********************************************************************************
- * funciones uqe si van a usar las demas van a pasar a revision
+ * funciones uqe si van a usar las demas van a pasar a revision las que van son las de abajo
  * ********************************************************************************
  * ********************************************************************************
  * ********************************************************************************
@@ -327,6 +276,77 @@ function validar_repetidoM(tabla, columna, valor, zona_dinamica) {
  * ********************************************************************************
  * funciones uqe si van a usar las demas van a pasar a revision
  */
+
+
+function validarRepetido(tabla, columna, valor, zona_dinamica) {
+  if (valor !== "") {
+
+    let body = {
+      valor: valor,
+      tabla: tabla,
+      columna: columna
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: '/check-exist',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: body,
+      success: function (data) {
+
+        if (data.status == 200 || data.status == 304) {
+
+          if (data.data) {
+            $('#' + zona_dinamica).addClass('is-invalid');
+
+            $('#' + zona_dinamica).parent().append("<span class='invalid-feedback'>Elemento Existente</span>");
+
+            /* if (tabla == "fact_venta") {
+              alert("Los datos para FACTURA de VENTA ya existen en el sistema");
+              document.form1.num_fact_venta.value = "";
+              document.form1.fk_cliente.value = "";
+              document.getElementById('nom_cliente_ajax').value = "";
+              document.getElementById('tipoDoc').value = "";
+            }
+            else if (tabla == "fact_compra") {
+              alert("Esta FACTURA de compra y RAZON SOCIAL ya existen en el sistema");
+              document.form1.num_fact_compra.value = "";
+              document.form1.fk_proveedor.value = "";
+              document.getElementById('nom_prov_ajax').value = "";
+              document.getElementById('tipoDoc').value = "";
+            }
+            else if (tabla == "inventario") {
+              alert("Este CODIGO ó NOMBRE DE PRODUCTO ya existen en el sistema");
+            } else if (tabla == "cliente") {
+              alert("La CEDULA o RIF del CLIENTE ya existen en el sistema");
+              document.getElementById(zona_dinamica).focus();
+            } else if (tabla == "proveedor" && columna == "rif") {
+              alert("La CEDULA o RIF del PROVEEDOR ya existen en el sistema");
+              document.getElementById(zona_dinamica).focus();
+            } */
+
+          } else {
+            $('#' + zona_dinamica).addClass('is-valid');
+            $('#' + zona_dinamica).parent().find('span').remove();
+          }
+        }
+
+      },
+      beforeSend: function () {
+        $('#' + zona_dinamica).prop('disabled', true)
+      },
+      complete: function () {
+        $('#' + zona_dinamica).prop('disabled', false)
+      },
+
+    });
+
+  }
+}
+
+
 function toInputUpperCase(event) {
   //console.log("event", event)
   event.target.value = event.target.value.toUpperCase();
@@ -365,6 +385,10 @@ function selecFactMF(strI, strII, strIII, strIV, strV, strVI, strVII, strVIII, s
   document.form1.mtot_iva_compra.value = strVI;
   document.form1.tipo_fact_compra.value = strVII;
   document.form1.num_ctrl_factcompra.value = strVIII;
+
+  if (strIX)
+    strIX = moment(strIX).format('yyyy-MM-DD');
+
   document.form1.fecha_fact_compra.value = strIX;
   //una es para mostrar y la otra es para seleccionear
   document.form1.tipo_transc.value = strX;
@@ -655,4 +679,252 @@ function validar_cedula() {
     document.getElementById("ced_per").focus()
   }
 }
+
+
+/**
+ * funcion para calculo de siguiente fecha o posterior
+ * @params date = Date; type = true ? next :back | "back";long = "y" | "m" | "d" ; cant = Number
+ */
+function calcDate(date, type, long, cant) {
+  let dateCurrent = new Date(date);
+
+  switch (long) {
+    case "years":
+      if (type) {
+        dateCurrent.setFullYear(dateCurrent.getFullYear() + cant);
+
+      } else {
+        dateCurrent.setFullYear(dateCurrent.getFullYear() - cant);
+
+      }
+      break;
+
+    case "months":
+      if (type) {
+        dateCurrent.setMonth(dateCurrent.getMonth() + cant);
+
+      } else {
+        dateCurrent.setMonth(dateCurrent.getMonth() - cant);
+
+      }
+
+      break;
+
+    case "days":
+      if (type) {
+        dateCurrent.setDate(dateCurrent.getDate() + cant);
+
+      } else {
+        dateCurrent.setDate(dateCurrent.getDate() - cant);
+
+      }
+
+      break;
+    default:
+      break;
+  }
+
+  return dateCurrent;
+
+
+}
+
+function formatDate(date = new Date()) {
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
+  return [
+    date.getFullYear(),
+    padTo2Digits(date.getMonth() + 1),
+    padTo2Digits(date.getDate() + 1),
+  ].join('-');
+}
 //FIN DE LAS FUNCIONES DE VALIDAR FORMULARIOS
+
+/**
+ * funcion para convertir excel to json
+ */
+function convertExcelToJson(selectedfile) {
+  return new Promise((resolve) => {
+    if (selectedfile) {
+      let fileReader = new FileReader();
+      fileReader.onload = (event) => {
+        let data = event.target.result;
+
+        let workbook = XLSX.read(data, { type: 'binary' });
+
+        workbook.SheetNames.forEach(sheet => {
+          let rowObject = XLSX.utils.sheet_to_row_object_array(
+            workbook.Sheets[sheet]
+          );
+
+          let jsonObject = JSON.stringify(rowObject);
+
+          resolve(rowObject)
+        });
+      };
+
+      fileReader.readAsBinaryString(selectedfile);
+    } else
+      resolve()
+  })
+
+
+}
+
+function split(array, n) {
+  try {
+    let [...arr] = array;
+    var res = [];
+    while (arr.length) {
+      res.push(arr.splice(0, n));
+    }
+    return res;
+
+  } catch (error) {
+
+    alert(JSON.stringify(error));
+
+    return []
+  }
+}
+
+function convertJsonToTable(arrayTable) {
+
+  if(!arrayTable || arrayTable.length <= 0)
+  {
+    return `
+    <div class="m-3  alert alert-warning alert-dismissible fade show" id="alert-warning" role="alert">
+      <span class="alert-text text-white">
+        No hay resultados 
+      </span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <i class="fa fa-close" aria-hidden="true"></i>
+      </button>
+    </div>
+      `
+  }
+  
+  let body = '';
+  let head = '';
+
+  function getHtmlBodyTr(arrayTableD){
+    let trbody = '';
+
+    arrayTableD.forEach(element => {
+      trbody += "<tr>";
+
+      let arrayValues = Object.values(element);
+
+      if(arrayValues.length>0){
+        arrayValues.forEach(element2 => {
+          trbody += 
+          `
+            <td class="text-center">
+              <p class="text-xs font-weight-bold mb-0">${element2}</p>
+            </td>
+          `;
+        });
+      }
+
+      trbody += "</tr>";
+
+    });
+
+    return trbody;
+  }
+
+  function getHtmlHeadTr(arrayTableD){
+    let th = "";
+
+    let arrayHead = Object.keys(arrayTableD[0])
+
+    for (let index = 0; index < arrayHead.length; index++) {
+      const element = arrayHead[index];
+      th += `
+      <th><b>${element}</b></th>
+      `;
+    }
+    
+    let headtr = `
+    <tr>
+      ${th}
+    </tr>
+    `;
+
+    return headtr;
+  }
+
+  head = getHtmlHeadTr(arrayTable);
+  body = getHtmlBodyTr(arrayTable);
+  
+  let html = `
+  <div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <div class="d-flex flex-row justify-content-between">
+              <div>
+                <h5 class="mb-0">Todas los Datos ${arrayTable.length}</h5>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+
+              <table class="table table-bordered">
+                <thead>
+                  ${head}
+                </thead>
+
+                <tbody>
+                  ${body}
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+
+  return html;
+}
+
+/**
+ * funcion para loading proceso he inhabilitar procesos hasa que termine
+ */
+
+function loading(action){
+
+  if(action){
+    //$('html, body').addClass("overflow-hidden");
+    /* document.body.innerHTML += `
+    <div id="loadingtoken" class="modal fade bg-unfocused" role="dialog">
+      <div class="modal-dialog  modal-xl">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="spinner-border position-relative top-50" role="status" >
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    `; */
+    $('#loadingtoken').modal('show');
+
+    /* <div id="loadingtoken" class="d-flex justify-content-center position-absolute fixed-top bg-unfocused h-100 w-100" >
+        <div class="spinner-border position-relative top-50" role="status" >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div> */
+  }else{
+    //$('html, body').removeClass("overflow-hidden");
+    $('#loadingtoken').modal('hide');
+    //$('#loadingtoken').remove();
+  }
+}

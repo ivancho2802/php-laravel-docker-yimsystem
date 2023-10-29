@@ -42,7 +42,14 @@
             @include('layouts.footers.auth.footer')
 
         @else
-            @include('layouts.navbars.auth.sidebar')
+            @if(Auth::user()->isAdmin()) 
+                @include('layouts.navbars.auth.sidebar')
+            @endIf
+
+            @if(Auth::user()->isSellerProviver())
+                @include('layouts.navbars.auth.sidebar-user')
+            @endIf
+
             <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg {{ (Request::is('rtl') ? 'overflow-hidden' : '') }}">
                 @include('layouts.navbars.auth.nav')
                 <div class="container-fluid py-4">

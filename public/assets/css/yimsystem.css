@@ -1,0 +1,7 @@
+#loadingtoken{
+    z-index:1090;
+}
+
+.bg-unfocused{
+    backdrop-filter: blur(6px);
+}

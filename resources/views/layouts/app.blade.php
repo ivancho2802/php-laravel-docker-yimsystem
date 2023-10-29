@@ -44,9 +44,11 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  <link id="pagestyle" href="../assets/css/yimsystem.css" rel="stylesheet" />
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <script src="../assets/js/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="../assets/js/helper.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../assets/js/moment/moment.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">

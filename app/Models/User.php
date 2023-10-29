@@ -47,4 +47,20 @@ class User extends Authenticatable
     public function empre() {
         return $this->hasMany(Empre::class, 'fk_usuarios', 'id');
     }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->nivel == 1;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSellerProviver(): bool
+    {
+        return $this->nivel == 2;
+    }
 }

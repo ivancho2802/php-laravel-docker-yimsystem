@@ -17,6 +17,8 @@ use App\Http\Controllers\DashController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\RtlController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CuentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,10 +55,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [DashController::class, 'redirect']);
 	Route::get('dashboard', [DashController::class, 'index'])->name('dashboard');
+	Route::post('dashboard', [DashController::class, 'index'])->name('dashboard');
 
 	Route::get('billing', [BillingController::class, 'index'])->name('billing');
 
-	Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+	Route::get('profile', [ProfileController::class, 'index']);//->name('profile')
 
 	Route::get('rtl', [RtlController::class, 'index'])->name('rtl');
 
@@ -74,6 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//libros de compras
 	Route::get('book-shopping', [BookShoppingController::class, 'index']);
+	Route::get('book-shopping/{from}/{to}', [BookShoppingController::class, 'index']);
 
 	Route::post('book-shopping', [BookShoppingController::class, 'search'])
 	->name('book-shopping.search');
@@ -183,9 +187,27 @@ Route::group(['middleware' => 'auth'], function () {
 	->name('inventario.report');
 
 	//inventario-end
+
+	//CUENTAS
+	Route::get('cuentas-list', [CuentaController::class, 'index']);
+	Route::post('cuentas-add', [CuentaController::class, 'store']);
+	Route::post('cuentas-list', [CuentaController::class, 'storeses']);
+	//'cuentas-excel'
+	Route::get(__('yimsystem.fileexamplecuentas'), [CuentaController::class, 'download']);
+
+	Route::post('cuentas-preview', [CuentaController::class, 'preview']);
+
+	//en cuentas
+
+	//administracion y configuracion
+	Route::post('config', [DashController::class, 'setConfig']);
+	Route::post('check-exist', [DashController::class, 'checkExist']);
+	
+	//end administracion y configuracion
 	
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
+	Route::get('/profile', [ProfileController::class, 'index']);//->name('profile')
 	Route::get('/user-profile', [InfoUserController::class, 'create']);
 	Route::post('/user-profile', [InfoUserController::class, 'store']);
     Route::get('/login', function () {

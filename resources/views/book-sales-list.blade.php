@@ -1,7 +1,6 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-
 <div>
 
   @if(session('success'))
@@ -146,7 +145,7 @@
             <div class="table-responsive p-0">
               <table class="table table-bordered align-items-center mb-0">
 
-                <thead class="text-center">
+                <thead class="titulo text-sm">
                   <tr>
                     <th rowspan="2">ACCIONES</th>
                     <td colspan="20" rowspan="2"></td>
@@ -254,7 +253,7 @@
 
                   </tr>
                 </thead>
-                <tbody class="text-center">
+                <tbody class="text-center text-sm">
                   @forelse ($fact_ventas as $fact_venta)
                   <tr>
                     <td class="text-center">

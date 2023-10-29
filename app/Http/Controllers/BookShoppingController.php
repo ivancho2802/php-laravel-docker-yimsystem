@@ -11,6 +11,7 @@ use App\Models\Empre;
 
 use Illuminate\Support\Carbon;
 use Dompdf\Dompdf;
+use Illuminate\Support\Facades\Cookie;
 
 
 class BookShoppingController extends Controller
@@ -19,9 +20,10 @@ class BookShoppingController extends Controller
   public function index()
   {
     //find data company for see information in relation
-    $data['date_to'] = date("Y-m-d");
+    $data['date_to'] = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
     $time = strtotime($data['date_to']);
-    $data['date_from'] = date("Y-m-d", strtotime("-3 month", $time));
+    $data['date_from'] = Cookie::get('date_op_from') ? Cookie::get('date_op_from') : date("Y-m-d", strtotime("-3 month", $time));
+
 
     $factCompras = FactCompra::query()
       ->where([
@@ -138,9 +140,9 @@ class BookShoppingController extends Controller
     $requestBody = $request->all();
 
     //valid dates if send dates or not set for default
-    $data['date_to'] = date("Y-m-d");
+    $data['date_to'] = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
     $time = strtotime($data['date_to']);
-    $data['date_from'] = date("Y-m-d", strtotime("-3 month", $time));
+    $data['date_from'] = Cookie::get('date_op_from') ? Cookie::get('date_op_from') : date("Y-m-d", strtotime("-3 month", $time));
 
     if (isset($requestBody['mes'])) {
       $requestBody['queryBetween'] = [
@@ -591,7 +593,7 @@ class BookShoppingController extends Controller
 
   public function report(Request $request)
   {
-    $dateCurrent = date("Y-m-d");
+    $dateCurrent = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
 
     $request['destination'] = 'components.report.shopping-reten';
     $request['query'] = ["num_compro_reten" => $request['num_compro_reten']];

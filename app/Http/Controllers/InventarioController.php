@@ -15,6 +15,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Illuminate\Support\Facades\Cookie;
 
 class InventarioController extends Controller
 {
@@ -53,10 +54,13 @@ class InventarioController extends Controller
     if (isset($requestBody['simple'])) {
       return $data;
     }
-
-    $data['dateEnd'] = $requestBody['dateTo'] ?? date("Y-m-d");
+    
+    $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
+    $data['dateEnd'] = $requestBody['dateTo'] ?? $dateto;
     $time = strtotime($data['dateEnd']);
-    $data['dateBegin'] = $requestBody['dateFrom'] ?? date("Y-m-d", strtotime("-3 month", $time));
+    $datefrom = Cookie::get('date_op_from') ? Cookie::get('date_op_from') : date("Y-m-d", strtotime("-3 month", $time));
+
+    $data['dateBegin'] = $requestBody['dateFrom'] ?? $datefrom;
 
     $data['dateFrom'] = $requestBody['dateFrom'] ?? NULL;
     $data['dateTo'] = $requestBody['dateTo'] ?? NULL;
@@ -450,7 +454,9 @@ class InventarioController extends Controller
     $options->setIsRemoteEnabled(true);
     $dompdf->setOptions($options);
 
-    $dateCurrent = date("Y-m-d");
+    $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
+
+    $dateCurrent = $dateto;
     // Output the generated PDF to Browser
     $dompdf->stream('reporte_inventario_' . $dateCurrent . '.pdf');
   }

@@ -39,6 +39,6 @@ example with var
 return [
 
     'accepted' => 'The :attribute must be accepted.',
-
+    'fileexamplecuentas' => 'cuentas-excel'
     
 ];

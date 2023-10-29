@@ -49,7 +49,8 @@
               Num. Comp. de Retencion:<br>
 
               <span class="input-group" id="cont_num_compro_reten">
-                <input type="text" class="form-control list-group-item" name="num_compro_reten" id="num_compro_reten" lang="si-num_compro_reten" onBlur="validar_repetidoM('fact_compra', 'num_compro_reten', this.value, 'num_compro_reten')" required>
+                <!-- abajo en funciontes esta los eventos -->
+                <input type="text" class="form-control list-group-item" name="num_compro_reten" id="num_compro_reten" lang="si-num_compro_reten" required>
 
                 <button type="button" id="generateNumReten" onclick="generarNum()" class="btn btn-primary m-0">Generar</button>
 
@@ -117,6 +118,11 @@
         document.getElementById('num_compro_reten').value = ano_mes + "-";
         document.getElementById('mes_apli_reten').value = ano_mes;
       }
+    });
+
+    $('#num_compro_reten').on('input', function() {
+      console.log("num_compro_reten", this.value)
+      validarRepetido('fact_compras', 'num_compro_reten', $('#num_compro_reten').val(), 'num_compro_reten')
     });
 
   });
@@ -215,6 +221,9 @@
     document.getElementById("num_compro_reten").value = strVIII;
     if (strIX == "0000-00-00")
       strIX = "";
+
+    if(strIX)
+      strIX = moment(strIX).format('yyyy-MM-DD');
     document.getElementById("fecha_compro_reten").value = strIX;
   }
 

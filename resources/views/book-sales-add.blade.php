@@ -149,7 +149,7 @@
       <div class="row">
         <div class="col-xs-4 col-md-4 col-lg-4">
           <label>Tipo de Transacci&oacute;n:</label>
-          <select id="tipoTrans" name="tipo_transv" class="form-control" required disabled="disabled" value="{{ $factVenta['tipoTrans'] ?? '' }}">
+          <select id="tipoTrans" name="tipo_transv" class="form-select" required disabled="disabled" value="{{ $factVenta['tipoTrans'] ?? '' }}">
             <option value="01-reg" {!! !empty($factVenta) && $factVenta->tipo_trans=='01-reg' ? 'selected' : '' !!}>
               01-reg -> Registro
             </option>
@@ -340,7 +340,7 @@
       <div class="row">
         <div class="col-xs-4 col-md-4 col-lg-4">
           <label>Tipo de Pago:</label>
-          <select name="tipo_pago" class="form-control" onChange="tipoPago(this.value)" required="required">
+          <select name="tipo_pago" class="form-select" onChange="tipoPago(this.value)" required="required">
             <option value="">Seleccione</option>
             <option value="D">Debito</option>
             <option value="C">Credito</option>

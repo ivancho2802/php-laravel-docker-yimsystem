@@ -93,7 +93,7 @@
                   <td colspan="2"><b></b></td>
                   <!--<th colspan="3" rowspan="2"><b>ACCIONES</b></th>-->
                 </tr>
-                <tr class="titulo">
+                <tr class="titulo text-sm">
                   <!--ACCIONES-->
                   <th>
                     <div class="verticalText">Acciones</div>
@@ -201,18 +201,18 @@
                   <td class="text-center">
 
                     <!--  action="{{route('book-shopping.edit', $fact_compra->id )}}" method="POST" -->
-                    <form id="formUpdate">
+                    <form id="formUpdate" class="d-inline">
                       @csrf @method('GET')
 
-                      <button class="btn btn-warning" type="submit" disabled>
-                        <i class="fas fa-edit" description="Editar compra"></i>
+                      <button class="btn btn-warning btn-sm" type="submit" disabled>
+                        <i class="fas fa fa-edit  text-sm" description="Editar compra"></i>
                       </button>
                     </form>
 
                     <!-- Eliminar Factura de Compras -->
                     <!--  data-bs-target="#confirmDeleteModal" data-bs-id="{{$fact_compra->id}}" -->
-                    <button class="btn btn-danger" data-bs-toggle="modal" disabled>
-                      <i class="cursor-pointer fas fa-trash"></i>
+                    <button class="btn btn-danger btn-sm" data-bs-toggle="modal" disabled>
+                      <i class="cursor-pointer fas fa fa-trash text-sm"></i>
                     </button>
 
                   </td>
