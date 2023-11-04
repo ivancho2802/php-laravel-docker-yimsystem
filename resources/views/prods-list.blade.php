@@ -175,48 +175,53 @@
 
             <div class="btn-group">
               <form class="form-control btn btn-sm btn-danger" target="_blank" name="formreport" method="post" action="/inventario-report" class="d-grid gap-2">
-
-                <button class="btn btn-clear m-0 " type="submit" name="report_pdf" value="pdf">
-                  <span class="fa fa-file-pdf-o fs-5  text-light" title="pdf"></span>
-                </button>
-
                 @csrf
-                @if(isset($mes))
-                <input type="hidden" name="mes" value="{{$mes}}" />
-                @elseif(isset($ano))
-                <input type="hidden" name="ano" value="{{$ano}}" />
-                @elseif(isset($date_from) && isset($date_to))
-                <input type="hidden" name="date_from" value="{{$date_from}}" />
-                <input type="hidden" name="date_to" value="{{$date_to}}" />
-                @elseif(isset($dia))
-                <input type="hidden" name="dia" value="{{$dia}}" />
-                @endif
+                <label>
+                  <button class="btn btn-clear m-0 " type="submit" name="report_pdf" value="pdf">
+                    <i class="fa fa-file-pdf-o fs-5  text-light" title="pdf"></i>
+                  </button>
 
-                @if(isset($prod))
-                <input type="hidden" name="prod" value="{{$prod}}" />
-                @endif
+                  @if(isset($mes))
+                  <input type="hidden" name="mes" value="{{$mes}}" />
+                  @elseif(isset($ano))
+                  <input type="hidden" name="ano" value="{{$ano}}" />
+                  @elseif(isset($date_from) && isset($date_to))
+                  <input type="hidden" name="date_from" value="{{$date_from}}" />
+                  <input type="hidden" name="date_to" value="{{$date_to}}" />
+                  @elseif(isset($dia))
+                  <input type="hidden" name="dia" value="{{$dia}}" />
+                  @endif
+
+                  @if(isset($prod))
+                  <input type="hidden" name="prod" value="{{$prod}}" />
+                  @endif
+
+                </label>
 
               </form>
               <form class="form-control btn btn-sm btn-success" target="_blank" name="formreport" method="post" action="/inventario-report" class="d-grid gap-2">
-
                 @csrf
-                @if(isset($mes))
-                <input type="hidden" name="mes" value="{{$mes}}" />
-                @elseif(isset($ano))
-                <input type="hidden" name="ano" value="{{$ano}}" />
-                @elseif(isset($date_from) && isset($date_to))
-                <input type="hidden" name="date_from" value="{{$date_from}}" />
-                <input type="hidden" name="date_to" value="{{$date_to}}" />
-                @elseif(isset($dia))
-                <input type="hidden" name="dia" value="{{$dia}}" />
-                @endif
+                <label>
+                  <button class="btn btn-clear m-0" type="submit" name="report_excel" value="excel">
+                    <span class="fa fa-file-excel-o fs-5 text-light" title="EXCEL"></span>
+                  </button>
 
-                @if(isset($prod))
-                <input type="hidden" name="prod" value="{{$prod}}" />
-                @endif
-                <button class="btn btn-clear m-0" type="submit" name="report_excel" value="excel">
-                  <span class="fa fa-file-excel-o fs-5 text-light" title="EXCEL"></span>
-                </button>
+                  @if(isset($mes))
+                  <input type="hidden" name="mes" value="{{$mes}}" />
+                  @elseif(isset($ano))
+                  <input type="hidden" name="ano" value="{{$ano}}" />
+                  @elseif(isset($date_from) && isset($date_to))
+                  <input type="hidden" name="date_from" value="{{$date_from}}" />
+                  <input type="hidden" name="date_to" value="{{$date_to}}" />
+                  @elseif(isset($dia))
+                  <input type="hidden" name="dia" value="{{$dia}}" />
+                  @endif
+
+                  @if(isset($prod))
+                  <input type="hidden" name="prod" value="{{$prod}}" />
+                  @endif
+
+                </label>
 
               </form>
             </div><!--input-group-->
@@ -229,7 +234,7 @@
 
   </div>
 
-  <x-prod.prods-table dateFrom="{{$date_from ?? ''}}" dateTo="{{$date_to ?? ''}}" dateBegin="{{$dateBegin}}" dateEnd="{{$dateEnd}}" :empre="$empre" :inventarios="$inventarios" :inventarioInicialAcum="$inventarioInicialAcum" mes="{{$mes ?? ''}}" dia="{{$dia ?? ''}}" ano="{{$ano ?? ''}}" type="{{$type ?? ''}}" prod="{{$prod ?? ''}}" />
+  <x-prod.prods-table dateFrom="{{$date_from ?? ''}}" dateTo="{{$date_to ?? ''}}" dateBegin="{{$dateBegin}}" dateEnd="{{$dateEnd}}" :empre="$empre" :inventarios="$inventarios" :inventarioInicialAcum="$inventarioInicialAcum" mes="{{$mes ?? ''}}" dia="{{$dia ?? ''}}" ano="{{$ano ?? ''}}" type="{{$type ?? ''}}" prod="{{$prod ?? ''}}" report="{{$report ?? false}}" />
 
 </div>
 

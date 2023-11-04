@@ -32,6 +32,8 @@ class prodsTable extends Component
         public ?string $dia,
         public ?string $type,
         public ?string $prod,
+        public ?bool $report,
+        
         )
     {
         //

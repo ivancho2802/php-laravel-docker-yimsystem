@@ -186,6 +186,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('inventario-report', [InventarioController::class, 'reportInventario'])
 	->name('inventario.report');
 
+	Route::get('inventario-report/{id}', [InventarioController::class, 'reportInventarioDetails']);
+
 	//inventario-end
 
 	//CUENTAS

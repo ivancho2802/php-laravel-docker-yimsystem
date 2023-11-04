@@ -28,6 +28,8 @@ class InventarioController extends Controller
       return view('prods-list', $data)->with($data);
     }
 
+    $data['report'] = false;
+
     return view('prods-list', $data);
   }
   //
@@ -433,6 +435,16 @@ class InventarioController extends Controller
 
     $data['css'] = $cssDocument;
 
+    $data['report'] = true;
+    
+    $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
+    $data['dateEnd'] = $requestBody['dateTo'] ?? $dateto;
+    $time = strtotime($data['dateEnd']);
+    $datefrom = Cookie::get('date_op_from') ? Cookie::get('date_op_from') : date("Y-m-d", strtotime("-3 month", $time));
+
+    $data['date_to'] = $dateto;
+    $data['date_from'] = $datefrom;
+
     $html = view('components.prod.prods-table', $data);
 
     /**
@@ -443,7 +455,7 @@ class InventarioController extends Controller
     $dompdf = new Dompdf($options);
 
     $dompdf->loadHtml($html);
-
+    
     // (Optional) Setup the paper size and orientation
     $dompdf->setPaper('legal', 'landscape');
 
@@ -459,5 +471,77 @@ class InventarioController extends Controller
     $dateCurrent = $dateto;
     // Output the generated PDF to Browser
     $dompdf->stream('reporte_inventario_' . $dateCurrent . '.pdf');
+  }
+
+  public function reportInventarioDetails(Request $request)
+  {
+    //get css by default
+    $parser = new \Sabberworm\CSS\Parser(file_get_contents('./assets/css/report.css'));
+    $cssDocument = '<style>' . $parser->parse() . '</style>';
+
+    $data['prod'] = Inventario::firstWhere('id', '=', $request->id);
+
+    $data['empre'] = Empre::query()
+      ->where([
+        ['est_empre', '1'],
+        ['fk_usuarios', auth()->user()->id]
+      ])
+      ->first();
+
+    
+    $operations = RegInventario::query()
+    ->where([
+      ['fk_inventario', $request->id]
+    ])
+    ->orderBy('fecha_reg_inv')
+    ->get();
+
+    $data['operations'] = $operations;
+    
+    $data['css'] = $cssDocument;
+
+    $data['report'] = true;
+    
+    $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
+    $data['dateEnd'] = $requestBody['dateTo'] ?? $dateto;
+    $time = strtotime($data['dateEnd']);
+    $datefrom = Cookie::get('date_op_from') ? Cookie::get('date_op_from') : date("Y-m-d", strtotime("-3 month", $time));
+    $data['dateBegin'] = $requestBody['dateFrom'] ?? $datefrom;
+
+    $data['date_to'] = $dateto;
+    $data['date_from'] = $datefrom;
+
+    //totales
+    $data['inventarioInicialAcum'] = [
+      "cantidad_reg_inv_tot" => $operations->sum("cantidad_reg_inv"),
+      "pmpvj_tot" => $operations->sum("pmpvj"),
+    ];
+    
+    $html = view('components.prod.prods-details', $data);
+    
+    /**
+     * reference the Dompdf namespace
+     * */
+    $options = new Options();
+    $options->set('defaultFont', 'Courier');
+    $dompdf = new Dompdf($options);
+
+    $dompdf->loadHtml($html);
+    
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('legal', 'landscape');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    $options = $dompdf->getOptions();
+    $options->setIsRemoteEnabled(true);
+    $dompdf->setOptions($options);
+
+    $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
+
+    $dateCurrent = $dateto;
+    // Output the generated PDF to Browser
+    $dompdf->stream('reporte_movimiento_unidades_' . $request->id . '_' . $dateCurrent . '.pdf');
   }
 }

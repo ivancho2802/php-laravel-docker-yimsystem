@@ -45,9 +45,11 @@
             <thead>
               <tr class="titulo">
                 <!--ACCIONES-->
+                @if (!$report)
                 <th rowspan="2">
                   <div class="verticalText">Acciones</div>
                 </th>
+                @endif
                 <td colspan="2"></td>
                 <td colspan="3" class="titulo">Existencia Inicial</td>
                 <td colspan="2" class="titulo">Entradas</td>
@@ -89,9 +91,10 @@
             <tbody>
               @foreach ($inventarios as $inventario)
               <tr>
+                @if (!$report)
                 <td class="text-center">
 
-                  <form target="_blank" id="formreport" name="formreport" action="/inventario-report" method="POST">
+                  <form target="_blank" id="formreport" name="formreport" action="/inventario-report/{{$inventario->id}}" method="GET">
                     @csrf
 
                     <input name="id" type="hidden" value="{{$inventario->id}}" />
@@ -99,11 +102,13 @@
                       <button class="btn btn-danger" type="submit">
                         <i class="fa fa-file-pdf-o fa-lg" title="PDF" description="PDF"></i>
                       </button>
-                      detalles
+                      <br>
+                      Detalles
                     </label>
                   </form>
 
                 </td>
+                @endif
 
                 <td> {{$inventario->codigo}} </td>
                 <td> {{$inventario->nombre_i}}</td>
@@ -143,7 +148,7 @@
               </tr>
               @endforeach
               <tr>
-                <td colspan="3">Totales</td>
+                <td colspan="{{$report ? 2 : 3}}">Totales</td>
                 <!-- $acum_miicu; -->
                 <td><b>{{ $inventarioInicialAcum['inventario_inicial_registro_costo_reg_inv'] }} </b></td>
                 <!-- $acum_miic -->
