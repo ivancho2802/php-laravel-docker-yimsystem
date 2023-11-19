@@ -1,27 +1,26 @@
 do
 
-    para todas las relciones cambiar fk_usuarios por fk_company ya que los datos pertenecen a al empresa y no al usuario
-    https://www.youtube.com/watch?v=EFs8VIgH2o8&ab_channel=MaestroPedroTV
+    *   para todas las relciones cambiar fk_usuarios por fk_company ya que los datos pertenecen a al empresa y no al usuario
+        https://www.youtube.com/watch?v=EFs8VIgH2o8&ab_channel=MaestroPedroTV
 
-    cuando ponaga en la tabla de empresa una nueva ponga le rif J2558888 
+    *   cuando ponaga en la tabla de empresa una nueva ponga le rif J2558888 
 
-    pipes
-    https://pineco.de/laravel-blade-filters/
-    REEMPLAZAR cargarRetirosInvent POR out-inventario-add
+    *   pipes en reaidad es un filtro
+        https://pineco.de/laravel-blade-filters/
+    
 
-    buscar "book-shopping-reten-add";
-    var patron2 = "book-shopping-add";
-    var patron3 = "book-shopping-edit";
-    y reemplzar por la constante en el modelo de fact compra por las constantes
-    const factcompraadd = <?php echo \App\Models\FactCompra::FCOMPRAADD; ?>
+    *   buscar "book-shopping-reten-add";
+        var patron2 = "book-shopping-add";
+        var patron3 = "book-shopping-edit";
+        y reemplzar por la constante en el modelo de fact compra por las constantes
+        const factcompraadd = <?php echo \App\Models\FactCompra::FCOMPRAADD; ?>
 
-    donde aparezca reemplazar por 
-    document.form1.elements['numCampos']
+    *   donde aparezca reemplazar por 
+        document.form1.elements['numCampos']
         var n = 0
         if (document.form1.fk_inventario)
         n = document.form1.fk_inventario.length ? parseInt(document.form1.fk_inventario.length) : 1;
-
-    cuando este en cargarRetirosInvent
+    
     inicializar numCampoActual en cero o lo que seria formProdCurrent
 
     mmProd terminar este modal para efitar productos
@@ -44,8 +43,16 @@ do
 
 doing
 
+    *   REEMPLAZAR cargarRetirosInvent POR out-inventario-add
+        cuando este en cargarRetirosInvent
+
+    * agregar proveedor despues de dare editar el formulario queda lleno
+
+    * cuando se inicialice todo formulario de agregar document.getElementById("myform").reset();
+
 
 does
+    *   terminar editar y eliminaar cuetas
 
     crear reporte segun todos los reportes de http://127.0.0.1:8000/inventario-list
     <a target="_blank" href="reporte_inventario.php?id= $inv_cod"> detalles </a>

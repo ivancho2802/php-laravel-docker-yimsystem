@@ -193,6 +193,8 @@ Route::group(['middleware' => 'auth'], function () {
 	//CUENTAS
 	Route::get('cuentas-list', [CuentaController::class, 'index']);
 	Route::post('cuentas-add', [CuentaController::class, 'store']);
+	Route::post('cuentas-edit/{id}', [CuentaController::class, 'update']);
+	Route::delete('cuentas-delete/{id}', [CuentaController::class, 'detroy']);
 	Route::post('cuentas-list', [CuentaController::class, 'storeses']);
 	//'cuentas-excel'
 	Route::get(__('yimsystem.fileexamplecuentas'), [CuentaController::class, 'download']);

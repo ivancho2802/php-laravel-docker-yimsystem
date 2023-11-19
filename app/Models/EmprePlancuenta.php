@@ -13,11 +13,20 @@ class EmprePlancuenta extends Model
         'id',
         'cant_plancuenta',
         'rel_empre',
+        'status',
         'rel_plancuenta',
         'c_natu'
     ];
 
     public function plancuenta() {
         return $this->belongsTo(Plancuenta::class, 'rel_plancuenta', 'id');
+    }
+
+    /**
+     * scopes
+     */
+    public function scopeActive($query)
+    {
+        $query->where('status', true);
     }
 }

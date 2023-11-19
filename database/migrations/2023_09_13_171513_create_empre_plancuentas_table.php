@@ -18,6 +18,7 @@ class CreateEmprePlancuentasTable extends Migration
             $table->timestamps();
             $table->integer('cant_plancuenta');
             $table->string('c_natu');
+            $table->boolean('status');
 
             $table->unsignedBigInteger('rel_plancuenta');
             $table->foreign('rel_plancuenta')

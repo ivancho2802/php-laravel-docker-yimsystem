@@ -928,3 +928,15 @@ function loading(action){
     //$('#loadingtoken').remove();
   }
 }
+
+function alertYim(action, msg=''){
+
+  if(action){
+    $('#alertyim').modal('show');
+    $('#alertyim_msg').html(msg);
+    
+  }else{
+    $('#alertyim_msg').html("");
+    $('#alertyim').modal('hide');
+  }
+}

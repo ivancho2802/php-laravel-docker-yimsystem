@@ -95,6 +95,8 @@
       document.formEditProvider.telefono.value = providerToUpdate.telefono
       document.formEditProvider.direccion.value = providerToUpdate.direccion
 
+    } else {
+      document.getElementById("formEditProvider").reset();
     }
 
   }

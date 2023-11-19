@@ -59,7 +59,7 @@
             <div>
               <h5 class="mb-0">Todas las Cuentas </h5>
             </div>
-            <a data-bs-target="#addCuenta" data-bs-toggle="modal" class="btn bg-gradient-primary btn-sm mb-0" type="button">
+            <a onClick="showModalEditCuenta(this)" data-id="" class="btn bg-gradient-primary btn-sm mb-0" type="button">
               +&nbsp; Agregar Plan de Cuentas
             </a>
           </div>
@@ -74,27 +74,39 @@
                 <table class="table table-bordered align-items-center mb-0">
                   <thead class="titulo text-sm">
                     <tr>
+                      <th>Acci&oacute;n</th>
                       <th>Codigo</th>
                       <th>Nombre</th>
                       <th>T.S.C.</th>
                       <th>Naturaleza</th>
                       <th>Auxiliar</th>
-                      <th>Acci&oacute;n</th>
                     </tr>
                   </thead>
                   <tbody class="text-center text-sm">
                     @forelse ($cuentas as $cuenta)
+                    @if(!$cuenta->empreplancuenta || (isset($cuenta->empreplancuenta) ? $cuenta->empreplancuenta->status : true) === true)
                     <tr>
-                      <td>{{$cuenta->id_plancuenta}}  </td>
+
+                      <td class="text-center">
+
+                        <button type="button" class="btn  btn-warning btn-sm" onClick="showModalEditCuenta(this)" data-id="{{$cuenta}}">
+                          <i alt="Modificar Cuenta" class="fas fa fa-edit  text-sm" description="Editar compra"></i>
+                        </button>
+
+                        <!-- Eliminar Factura de Compras -->
+                        <!--  data-bs-target="#confirmDeleteModal" data-bs-id="{{$cuenta->id}}" -->
+                        <button class="btn btn-danger btn-sm" onClick="showModalDeleteCuenta(this)" data-id="{{$cuenta}}">
+                          <i alt="Eliminar Cuenta" class="cursor-pointer fas fa fa-trash text-sm"></i>
+                        </button>
+
+                      </td>
+                      <td>{{$cuenta->id_plancuenta}} </td>
                       <td>{{$cuenta->nom_plancuenta}} </td>
                       <td>{{$cuenta->tsc}} </td>
                       <td>{{$cuenta->natu}}</td>
                       <td>{{$cuenta->aux}} </td>
-                      <td>
-                        <input type="button" class="btn btn-warning" onClick="location.href='g_plan_cuentas.php?id_plancuenta={{$cuenta->id_plancuenta}}&accion=m'" value="Modificar" />
-                        <input type="button" class="btn btn-danger" onClick="location.href='g_plan_cuentas.php?id_plancuenta={{$cuenta->id_plancuenta}}&accion=e'" value="Eliminar" />
-                      </td>
                     </tr>
+                    @endif
                     @empty
                     <tr>
                       <td class="text-center " colspan="9">Lo sentimos pero no hay resultados</td>
@@ -103,7 +115,7 @@
                   </tbody>
                 </table>
 
-                {{  $cuentas->links() }}
+                {{ $cuentas->links() }}
               </div>
             </label>
 
@@ -118,13 +130,116 @@
 </div>
 
 <script>
+  var cuentaToUpdate
+
+  function showModalEditCuenta(btn) {
+
+    console.log("btn", btn)
+    cuentaToUpdate = $(btn).data('id');
+    console.log("cuentaToUpdate", cuentaToUpdate)
+
+    var modalEditcuenta = new bootstrap.Modal(document.getElementById('addCuenta'), {
+      keyboard: false
+    })
+    modalEditcuenta.show()
+
+  }
+
+  function showModalDeleteCuenta(btn) {
+
+
+    console.log("btn", btn)
+    let cuentaToDeleted = $(btn).data('id');
+    console.log("cuentaToDeleted", cuentaToDeleted);
+    console.log("cuentaToDeleted", cuentaToDeleted.id);
+
+    delete cuentaToDeleted.created_at;
+    delete cuentaToDeleted.updated_at;
+    delete cuentaToDeleted.empreplancuenta;
+
+    let values = Object.values(cuentaToDeleted);
+    let keys = Object.keys(cuentaToDeleted);
+
+    let contentResponse = "";
+
+    for (let index = 0; index < values.length; index++) {
+      const value = values[index];
+      const key = keys[index];
+
+      contentResponse += " " + key + ": " + value + "\n";
+
+    }
+
+    let msgConfirm = "Estas Seguro que quieres eliminar " + contentResponse;
+
+    if (confirm(msgConfirm) == true) {
+      loading(true);
+      deleleCuenta(cuentaToDeleted);
+    }
+
+    /* var modalEditcuenta = new bootstrap.Modal(document.getElementById('addCuenta'), {
+      keyboard: false
+    });
+
+    modalEditcuenta.show() */
+
+  }
+
+  function deleleCuenta(cuentaToDeleted) {
+
+    let id = cuentaToDeleted.id;
+
+    $.ajax({
+      type: 'DELETE',
+      url: '/cuentas-delete/' + id,
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(data) {
+        loading(false);
+
+        let html = `
+            <div class="alert alert-success">
+              Operacion hecha con exito
+            </div>
+            `;
+        alertYim(true, html);
+
+        console.log("data", data)
+
+      },
+      beforeSend: function(data) {
+        $('#btnaddCuenta').prop('disabled', true)
+      },
+      complete: function() {
+        $('#btnaddCuenta').prop('disabled', false)
+        loading(false);
+        let origin = window.location.origin
+        window.location.replace(origin + '/cuentas-list');
+      },
+      error: function(data) {
+
+        let html = `
+          <div class="alert alert-danger">
+            Lo sentimos No fue posible realizar la operacion Cliente
+            ${data.responseJSON.message}
+          </div>
+          `;
+        $("#txtEdomodaddCuenta").append(html)
+        $('#btnaddCuenta').prop('disabled', false)
+      },
+
+    });
+  }
 </script>
 
 <!-- modales -->
 <div id="zoneModalExtra"></div>
 
 @include('modales.m_loading')
+@include('modales.m_alert')
+<!-- modal para agregar cuena -->
+<!-- modal para modificar cuena -->
 @include('modales.cuentas.m_a_cuenta')
-
 
 @endsection

@@ -17,14 +17,17 @@ class CuentaController extends Controller
     $empreId = $user->empre()->active()->id;
 
     $data['cuentas'] = Plancuenta::query()
-      ->where([
-        ['rel_empre', $empreId]
-      ])
+      ->valid()
       ->with('empreplancuenta')
+      /* ->whereHas('empreplancuenta', function($query){
+          $query->active();
+        }
+      ) */
+      ->where([
+        ['rel_empre', $empreId],
+      ])
       ->orderBy('id_plancuenta')
       ->paginate(15);
-
-    //dd($data);
 
     return view('cuentas-list', $data);
   }
@@ -55,6 +58,7 @@ class CuentaController extends Controller
         "rel_empre" => $empreId,
         'rel_plancuenta' => $plancuenta->id,
         'c_natu' => $request['natu'],
+        'status' => true,
 
       ]);
 
@@ -74,6 +78,35 @@ class CuentaController extends Controller
     }
   }
 
+  public function update(Request $request)
+  {
+    $request = $request->all();
+
+    $user = auth()->user();
+    $empreId = $user->empre()->active()->id;
+
+    try {
+      $updatePlancuenta = Plancuenta::query()
+        ->where([
+          ['id', $request["id"]],
+          ['rel_empre', $empreId]
+        ])
+        ->update([
+          "id_plancuenta" => $request['id_plancuenta'],
+          "nom_plancuenta" => $request['nom_plancuenta'],
+          "tsc" => $request['tsc'],
+          "natu" => $request['natu'],
+          "aux" => $request['aux']
+        ]);
+
+      $data['update_plancuenta'] = $updatePlancuenta;
+
+      return response()->json(['status' => false, 'data' => ["message" => "Cuenta actualizada con exito"]], 200);
+    } catch (\Exception $e) {
+      return $e->getMessage();
+    }
+  }
+
   public function storeses(Request $request)
   {
 
@@ -87,6 +120,10 @@ class CuentaController extends Controller
 
 
       $response['inserted'] = Plancuenta::insertOrIgnore($data); // Eloquent approach
+
+      $dataEmprePlancuenta = $this->formatEmprePlancuenta($request->cuentas);
+
+      $response['insertedEmprePlancuenta'] = EmprePlancuenta::insertOrIgnore($dataEmprePlancuenta);
 
       $response['cuentas'] = []; //[["Codigo del Plancuenta" => "1"]]
 
@@ -138,5 +175,76 @@ class CuentaController extends Controller
     }
 
     return $cuentasFormated;
+  }
+
+  public function formatEmprePlancuenta($cuentasRequest)
+  {
+
+    $cuentasFormated = [];
+    //$user = auth()->user();
+    $user = auth()->user();
+    $empreId = $user->empre()->active()->id;
+
+    $cuentas = Plancuenta::where(["rel_empre" => $empreId])->get();
+
+    for ($i = 0; $i < count($cuentas); $i++) {
+
+      $exist = EmprePlancuenta::where('rel_plancuenta', $cuentas[$i]->id)->doesntExist();
+      if ($exist) {
+        $cuentasFormated[$i]['cant_plancuenta'] = 0;
+        $cuentasFormated[$i]['c_natu'] = 0;
+        $cuentasFormated[$i]['rel_plancuenta'] = $cuentas[$i]->id;
+        $cuentasFormated[$i]['rel_empre'] = $empreId;
+        $cuentasFormated[$i]['status'] = true;
+      }
+    }
+
+    return $cuentasFormated;
+  }
+
+  public function detroy(Request $request)
+  {
+
+    try {
+      //valid number records limit
+      if (!$request->id) {
+        return response()->json(['false' => false, ["id" => $request]], 402);
+      }
+      //valid if this plan is the company curent
+      $user = auth()->user();
+      $empreId = $user->empre()->active()->id;
+
+      $cuentaToDeteled = Plancuenta::where([
+        'id' => $request->id,
+        'rel_empre' => $empreId
+      ]);
+
+      if ($cuentaToDeteled->exists() !== true) {
+        return response()->json(['false' => false, ["id" => $request]], 403);
+      }
+
+      $response  = EmprePlancuenta::where([
+        "rel_plancuenta" => $request->id,
+        'rel_empre' => $empreId
+      ])
+        ->update(["status" => false]);
+
+
+      if ($response !== 1) {
+        return response()->json(['status' => false, ["response" => $response]], 402);
+      }
+
+      $exist = EmprePlancuenta::where(['rel_plancuenta' => $request->id, "status" => true])->exists();
+
+      if(!$exist){
+        return response()->json(['status' => true, 'data' => $exist], 200);
+      }else {
+        return response()->json(['status' => false, ["response" => $response]], 402);
+      }
+
+    } catch (\Exception $e) {
+
+      return response()->json(['status' => false, ["message" => $e]], 503);
+    }
   }
 }
