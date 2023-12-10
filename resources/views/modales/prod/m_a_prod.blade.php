@@ -97,8 +97,6 @@
 
         validarFormularioAgreInventario();
 
-        getDateInventarioInicial();
-
         setFormAddProdData(prodToUpdate)
 
       }.bind(this), 100);
@@ -109,6 +107,9 @@
       console.log("nueProd hidden")
       document.formProds.reset();
       prodToUpdate = null
+      if (document.getElementById("resProd")) {
+        document.getElementById("resProd").innerHTML = "";
+      }
     })
 
     document.getElementById("calPMPVJ").addEventListener('shown.bs.modal', function() {
@@ -281,6 +282,7 @@
     document.formProds.elements['pmpvj[0]'].removeAttribute("readonly")
     document.getElementById("btnAddInventory").setAttribute("onclick", "agreRProd(this.form);")
 
+    //si hay id es editr sino es agregar
     if (prodToUpdate?.id) {
 
       document.getElementById("modalTitleProdsLabel").innerHTML = 'Modificar'
@@ -295,12 +297,16 @@
       document.formProds.cant_max.value = prodToUpdate.cant_max
       document.formProds.valor_unitario.value = prodToUpdate.valor_unitario
       document.formProds.elements['pmpvj[0]'].value = prodToUpdate.pmpvj_actual
-      document.formProds.elements['pmpvj[0]'].readOnly = 'readOnly'
-      document.formProds.fecha.value = prodToUpdate.fecha.substr(0, 7)
+      document.formProds.elements['pmpvj[0]'].readOnly = 'readOnly';
+      if (prodToUpdate.fecha)
+        document.formProds.fecha.value = prodToUpdate.fecha.substr(0, 7)
       document.formProds.stock.value = prodToUpdate.stock
-      document.formProds.stock.readOnly = 'readOnly'
+      document.formProds.stock.readOnly = 'readOnly';
+
     }
 
+    if (!prodToUpdate?.fecha)
+      getDateInventarioInicial();
   }
 
   //estas lineas estan en la funcion mmProd
@@ -328,6 +334,7 @@
             let html = `
             <div class="alert alert-success">
               Producto actualizado con exito
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             `;
             $("#txtHintAPROD").append(html)
@@ -347,6 +354,7 @@
           <div class="alert alert-danger">
             Lo sentimos No fue posible realizar la operacion Productos
             ${data.responseJSON.message}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           `;
           $("#txtHintAPROD").append(html)

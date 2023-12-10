@@ -19,7 +19,7 @@ class CreateInventariosTable extends Migration
                 $table->timestamps();
                 $table->string('codigo');
                 $table->string('nombre_i');
-                $table->string('descripcion');
+                $table->string('descripcion')->nullable();
                 $table->integer('cant_min');
                 $table->integer('cant_max');
                 $table->integer('stock');

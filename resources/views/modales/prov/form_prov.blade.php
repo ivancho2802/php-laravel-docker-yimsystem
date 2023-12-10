@@ -76,7 +76,7 @@
     providerToUpdate = null
   });
 
-  function setFormAddProviderData() {
+  function setFormAddProviderData(providerToUpdate) {
 
     document.getElementById("modalTitleProviderLabel").innerHTML = 'Agregar del Proveedor'
     document.getElementById("btnFormAddProvider").innerText = 'Agregar del Proveedor'

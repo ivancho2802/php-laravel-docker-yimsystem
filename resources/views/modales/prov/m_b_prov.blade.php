@@ -57,6 +57,16 @@
       providerToUpdate = null
 
     });
+
+    document.getElementById("formProv").onkeypress = function(e) {
+      var key = e.charCode || e.keyCode || 0;
+      if (key == 13) {
+        //alert("I told you not to, why did you do it?");
+        e.preventDefault();
+      }
+    }
+
+
   });
   //para ver si existe el rif en el sistema
   function consulProv() {

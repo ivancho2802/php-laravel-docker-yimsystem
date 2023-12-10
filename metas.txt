@@ -1,19 +1,37 @@
+REPEAT
+
+*   cuando se inicialice todo formulario de agregar document.getElementById("myform").reset();
+
+*   buscar "book-shopping-reten-add";
+    var patron2 = "book-shopping-add";
+    var patron3 = "book-shopping-edit";
+    y reemplzar por la constante en el modelo de fact compra por las constantes
+    const factcompraadd = <?php echo \App\Models\FactCompra::FCOMPRAADD; ?>
+
+
+*   pipes en reaidad es un filtro
+    https://pineco.de/laravel-blade-filters/
+
 do
 
     *   para todas las relciones cambiar fk_usuarios por fk_company ya que los datos pertenecen a al empresa y no al usuario
         https://www.youtube.com/watch?v=EFs8VIgH2o8&ab_channel=MaestroPedroTV
 
-    *   cuando ponaga en la tabla de empresa una nueva ponga le rif J2558888 
+    *   convertir 
+        IN_EX
+        IN_EXO
+        IN_NS
+        en constantes y dnde aparescan esto estaba en 
+            form-prod
+            form tipoCompra 
 
-    *   pipes en reaidad es un filtro
-        https://pineco.de/laravel-blade-filters/
-    
+    *   hacer pagina de falla de conexion a internet
+    *   exterminar codFactProvee
 
-    *   buscar "book-shopping-reten-add";
-        var patron2 = "book-shopping-add";
-        var patron3 = "book-shopping-edit";
-        y reemplzar por la constante en el modelo de fact compra por las constantes
-        const factcompraadd = <?php echo \App\Models\FactCompra::FCOMPRAADD; ?>
+    * ../../includes_SISTEM/include eliminar donde parezca
+    *   validar al crear facturas si tiene existecias
+
+doing
 
     *   donde aparezca reemplazar por 
         document.form1.elements['numCampos']
@@ -21,37 +39,21 @@ do
         if (document.form1.fk_inventario)
         n = document.form1.fk_inventario.length ? parseInt(document.form1.fk_inventario.length) : 1;
     
-    inicializar numCampoActual en cero o lo que seria formProdCurrent
-
-    mmProd terminar este modal para efitar productos
-
-    revisar que pasa con contraseña erronea el login
-
-    corregir error en editar para cuando se cagan los select 
-
-    corregir la fecha quetarle la hora antes de cargar editar
-
-    convertir IN_EX
-        IN_EXO
-        IN_NS
-    en constantes y dnde aparescan esto estaba en form-prod
-    form tipoCompra 
-
-    validar al crear facturas si tiene eistecnias
-    hacer pagina de falla de conexion a ainternet
-    exterminar codFactProvee
-
-doing
-
-    *   REEMPLAZAR cargarRetirosInvent POR out-inventario-add
-        cuando este en cargarRetirosInvent
-
-    * agregar proveedor despues de dare editar el formulario queda lleno
-
-    * cuando se inicialice todo formulario de agregar document.getElementById("myform").reset();
-
+        inicializar numCampoActual en cero o lo que seria formProdCurrent
 
 does
+
+    *   corregir la fecha quetarle la hora antes de cargar editar con el modal de agregar prod
+
+    * corregir error en editar para cuando se cagan los select 
+
+    * mmProd terminar este modal para efitar productos
+
+    * revisar que pasa con contraseña erronea el login
+
+    * cuando ponaga en la tabla de empresa una nueva ponga le rif J2558888 
+
+    * agregar proveedor despues de dare editar el formulario queda lleno
     *   terminar editar y eliminaar cuetas
 
     crear reporte segun todos los reportes de http://127.0.0.1:8000/inventario-list

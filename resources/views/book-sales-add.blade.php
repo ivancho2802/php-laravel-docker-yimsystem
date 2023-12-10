@@ -918,14 +918,13 @@
 @include('modales.cliente.form_cliente')
 @include('modales.prod.m_b_prod')
 @include('modales.prod.m_PMPVJ')
+<!-- llamando de modales el id es "nueProd" -->
+<!-- llamando de modales el id es "mmProd" -->
+@include('modales.prod.m_a_prod')
 
 <!-- //llamando de modales el id es "nueCliente"
 include_once($extra . "modales/cliente/m_a_cliente.php");
 //llamando de modales el id es "mmCliente"
-include_once($extra . "modales/cliente/m_m_cliente.php");
-//llamando de modales el id es "nueProd"
-include_once($extra . "modales/prod/m_a_prod.php");
-//llamando de modales el id es "mmProd"
-include_once($extra . "modales/prod/m_m_prod.php"); -->
+include_once($extra . "modales/cliente/m_m_cliente.php"); -->
 
 @endsection

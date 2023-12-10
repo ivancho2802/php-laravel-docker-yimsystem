@@ -16,12 +16,15 @@ class RetencionesController extends Controller
    */
   public function indexDetail(Request $request)
   {
+
     $data['fact_compra'] = FactCompra::query()
-      ->find($request->factCompra)
       ->where([
+        ['id', $request->factCompra],
         ['fk_usuariosc', auth()->user()->id]
       ])
-      ->load(['compras', 'compras.inventario']);
+      ->with(['compras', 'compras.inventario'])
+      ->first();
+
     return view('modales.fact_c.m_b_fact_c_detail', $data);
   }
 

@@ -14,7 +14,7 @@ class InsertEmpreTable extends Migration
     {
         //
         
-        DB::table('empres')->insert([
+        DB::table('empres')->insertOrIgnore([
             array(
                 'cod_empre'=> 1,
                 'rif_empre'=>'E814176951',
@@ -27,7 +27,21 @@ class InsertEmpreTable extends Migration
                 'retenIVA'=>'SI',
                 'tel_empre'=>'0276-5554444',
                 'url_report'=>'C:\\Users\\ivancho2802\\Desktop\\ReportesSistemaYIMI'
-            )
+            ),
+            array(
+                'cod_empre'=> 2,
+                'rif_empre'=>'J2558888',
+                'titular_rif_empre'=>'EMPRESA 2',
+                'nom_empre'=>'Sistemas Informaticos NN',
+                'contri_empre'=>'Especial',
+                'dir_empre'=>'san antonio del tachira centro civicco calle jum',
+                'est_empre'=>1,
+                'fk_usuarios'=>1,
+                'retenIVA'=>'SI',
+                'tel_empre'=>'0276-5554444',
+                'url_report'=>'C:\\Users\\ivancho2802\\Desktop\\ReportesSistemaYIMI'
+            ),
+            
         ]);
 
     }
