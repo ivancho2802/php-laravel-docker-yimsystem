@@ -1,8 +1,6 @@
-<?php include_once('../../includes_SISTEM/include_head.php');?>
 <script>
 	$(window.document).on('shown.bs.modal', '#addCate', function() {
 		window.setTimeout(function() {
-			<?php include_once('../../includes_SISTEM/include_login.php'); ?>
 			// if (/[JVEGPjvepg][0-9]{8}$/.test(document.getElementById('b_cliente').value) || /[JVEGPjvepg][0-9]{9}$/.test(document.getElementById('b_cliente').value) || /[0-9]{8}$/.test(document.getElementById('b_cliente').value)) 
 				// document.getElementById('ced_cliente').value = document.getElementById('b_cliente').value;
 			$('#id', this).focus();
@@ -14,7 +12,6 @@
 				if(tecla == 13)
 				{
 					agreCate('formModal');
-					codFactProvee('form1', 'serie_fact_venta', 'num_fact_venta', 'fk_cliente', 'id_fact_venta');
 				}
 			}
 			*/

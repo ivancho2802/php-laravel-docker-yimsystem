@@ -16,3 +16,11 @@ desplegar > php artisan serve.
 migracion > leer documentacion laravel desde docume tos
 
 ### Premium Partners
+
+
+## jquery trycs
+
+$('td[name="tcol1"]')   // Matches exactly 'tcol1'
+$('td[name^="tcol"]' )  // Matches those that begin with 'tcol'
+$('td[name$="tcol"]' )  // Matches those that end with 'tcol'
+$('td[name*="tcol"]' )  // Matches those that contain 'tcol'

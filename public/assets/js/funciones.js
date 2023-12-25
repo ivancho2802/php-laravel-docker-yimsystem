@@ -208,46 +208,6 @@ function fcalculoTotV(iva_12,iva_8,iva_27){//		fcalculoTot(iva_12,iva_8,iva_27)
 }
 */
 
-
-// funcion para generar numeros de algo mas uno
-function generarNum(valor, inputID, tabla) {// campo = inputID
-  var valor = valor.substr(0, 8);
-  var columna = inputID;
-  var actNumero, sigNumero;
-  var xhttp;
-
-
-  if (valor !== "") {
-
-    xhttp = new XMLHttpRequest();
-    xhttp.open("GET", extra + "php/consul_sql/b_tabla_may.php?columna=" + columna + "&tabla=" + tabla);
-
-    xhttp.onreadystatechange = function () {
-      if (xhttp.readyState == 4 && xhttp.status == 200) {
-        if (xhttp.responseText !== 0) {// si la ocnsulta ha dado exito
-          if (xhttp.responseText == "0")
-            actNumero = 0;
-          else
-            actNumero = xhttp.responseText.substr(10, 16);//extraigo los 8 numeros finales del numero actual 
-          sigNumero = "" + (parseFloat(actNumero) + 1);
-          //		
-          pad = "00000000";
-          ans = pad.substring(0, pad.length - sigNumero.length) + sigNumero;
-          document.getElementById(inputID).value = valor + ans;
-        } else {
-          alert("error al cargar el archivo")
-        }
-      }
-    };
-    xhttp.send(null)
-  } else {
-    if (columna == 'num_compro_reten') {
-      alert('Debe Seleccionar la Fecha del comprobante primero');
-      document.getElementById('fecha_compro_reten').value = "";
-      document.getElementById('fecha_compro_reten').focus();
-    }
-  }
-}
 //	FUNCION PARA VALIDAR QUE LA CANTIDAD SEA MENOR AL STOCK O LA EXISTENCIA*/
 function valCantidadStock(cantidadA, stockA, zona_dinamica) {
   //alert(cantidadA+'-'+stockA)
@@ -531,79 +491,8 @@ function selecCliente(strI, strII, strIII) {
   document.form1.elements["nom_cliente_ajax"].value = strII;
   document.form1.elements["tipo_contri"].value = strIII;
 }
-//control del seleccionador del producto
-function ctrlSelecProd(i) {
-  //if(tipo ="con")
-  //{0
-  document.form1.numCampoActual.value = i;
-
-  $('#busProd').modal('show');
-
-  //}else if(tipo = "agre"){
-
-  //}
-
-}
-//calculo del pmvpj vs utilidd
-function SelecPMPVJ(strI, numCampoActual) {
-  document.getElementById("pmpvj" + numCampoActual).value = strI
-}
 function SeleccalReten(str) {
   document.getElementById("m_iva_reten").value = str;
-}
-//selector de producto
-//para enviar el codigo del producto y nombre a cargarcompra.php	
-function selecProd(strI, strII, strIII, strIV, numCampoActual) {
-  //alert(document.form1.elements['fk_inventario9'])
-  var error = 0;
-  var item_existen = "";
-  for (var j = 1; j <= parseInt(document.form1.elements['numCampos'].value); j++) {
-    //
-    //alert(document.form1.elements['fk_inventario'+parseInt(j)]);
-    if (document.form1.elements['fk_inventario' + j] != null) {//[object HTMLInputElement]		//SI ITEM NO EXISTE
-      //alert("variable existe"+document.form1.elements['fk_inventario'+parseInt(j)].value+'numero'+j);
-      if (document.form1.elements['fk_inventario' + parseInt(j)].value == strI) {
-        item_existen = document.form1.elements['fk_inventario' + j].value;
-        //return false
-        error++;
-        //alert(document.form1.elements['fk_inventario'+parseInt(j)].value+" - "+strI);
-      } else {//		SI SELECCIONO POR QUE NO ESTA
-        //alert(document.form1.elements['fk_inventario'+parseInt(j)].value+" - "+strI);
-      }
-    } else {//SI ITEM  EXISTE
-      //alert("el elemento no existe");
-    }
-  }//FOR
-  if (error == 0) {
-    //alert("variable no existe"+document.form1.elements['fk_inventario'+parseInt(j)].value);
-    //vacion antes de seleccionrar los datos que no se leccionan para este producto
-    document.form1.elements["pmpvj" + numCampoActual].value = "";
-
-    //ahora si paso el resro de los valores 
-    document.form1.elements["fk_inventario" + numCampoActual].value = strI
-    document.form1.elements["nom_fk_inventario" + numCampoActual].value = strII
-    document.form1.elements["costo" + numCampoActual].value = strIII
-    document.form1.elements["stock" + numCampoActual].value = strIV
-
-    //SOLO PARA COMPRAS EN NOTAS DE CREDITO DESCUENTOS
-    if ($('#tipoDoc').length) {
-      if (document.getElementById('tipoDoc').value == 'NC-DESC') {
-        document.form1.elements["cantidad" + numCampoActual].setAttribute("readonly", true);
-        document.form1.elements["cantidad" + numCampoActual].value = strIV;
-
-      } else {
-        document.form1.elements["cantidad" + numCampoActual].value = "";
-        //document.form1.elements["cantidad"+numCampoActual].removeAttribute("readonly");
-
-      }
-    }
-    if (numCampoActual !== "")
-      fcalculo();
-    //alert(document.form1.elements['fk_inventario'+parseInt(i)].value+'num'+i);	
-  } else {
-    alert("Ya exise este item: " + item_existen);
-  }
-
 }
 
 function confirmDel() {

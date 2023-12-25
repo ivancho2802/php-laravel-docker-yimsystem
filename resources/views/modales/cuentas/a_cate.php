@@ -1,6 +1,4 @@
 <?php
-include_once('../../includes_SISTEM/include_head.php');
-include_once('../../includes_SISTEM/include_login.php');
 
 //CODIGO DE INSERCION
 if(isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['descripcion'])  ){

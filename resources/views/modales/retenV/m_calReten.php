@@ -4,17 +4,6 @@
 <script type="text/javascript" src="bootstrap-3.3.6/js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="bootstrap-3.3.6/js/bootstrap.min.js"></script>
 <script>
-<?php
-/*
-//inicializar variable del campo actual ya que no se recibe en todos lados
-$urlActual = $_SERVER['REQUEST_URI'];
-//echo $urlActual;
-if( stristr($urlActual, "inventario") == true){
-	$numCampoActual = "''";
-}else
-	$numCampoActual = "document.form1.numCampoActual.value";
-*/
-?>
 //para desactivar el enter envie y cierre el modal
 $(document).ready(function() {
 	$(window.document).on('shown.bs.modal', '#calReten', function() {
@@ -33,7 +22,6 @@ $(document).ready(function() {
 			if(url.search(patron1) >= 0){
 				calReten();
 			}else{
-				//document.forms['formcalReten'].elements['tot_iva'].value = document.form1.elements['costo'+numCampoActual].value;
 				calReten();
 			}
 		}.bind(this), 100);

@@ -11,12 +11,7 @@ REPEAT
 
 *   pipes en reaidad es un filtro
     https://pineco.de/laravel-blade-filters/
-
-do
-
-    *   para todas las relciones cambiar fk_usuarios por fk_company ya que los datos pertenecen a al empresa y no al usuario
-        https://www.youtube.com/watch?v=EFs8VIgH2o8&ab_channel=MaestroPedroTV
-
+    
     *   convertir 
         IN_EX
         IN_EXO
@@ -25,24 +20,34 @@ do
             form-prod
             form tipoCompra 
 
-    *   hacer pagina de falla de conexion a internet
-    *   exterminar codFactProvee
+do
 
-    * ../../includes_SISTEM/include eliminar donde parezca
+    *   hacer pagina de falla de conexion a internet
+
     *   validar al crear facturas si tiene existecias
 
 doing
 
-    *   donde aparezca reemplazar por 
-        document.form1.elements['numCampos']
-        var n = 0
-        if (document.form1.fk_inventario)
-        n = document.form1.fk_inventario.length ? parseInt(document.form1.fk_inventario.length) : 1;
-    
-        inicializar numCampoActual en cero o lo que seria formProdCurrent
+    *   para todas las relciones cambiar fk_usuarios por fk_company ya que los datos pertenecen a al empresa y no al usuario
+        https://www.youtube.com/watch?v=EFs8VIgH2o8&ab_channel=MaestroPedroTV
 
 does
 
+
+    * donde salga numCampoActual no funciona por que se esta usando mal el llamado con el eemento lso inputs son con []
+        * esta mal document.form1.elements['fk_inventario' + i]
+
+        *   donde aparezca reemplazar por 
+            document.form1.elements['numCampos']
+            var n = 0
+            if (document.form1.fk_inventario)
+            n = document.form1.fk_inventario.length ? parseInt(document.form1.fk_inventario.length) : 1;
+        
+            inicializar numCampoActual en cero o lo que seria formProdCurrent
+
+    *   exterminar codFactProvee
+    *   /inventario-list error timeout
+    * ../../includes_SISTEM/include eliminar donde parezca
     *   corregir la fecha quetarle la hora antes de cargar editar con el modal de agregar prod
 
     * corregir error en editar para cuando se cagan los select 

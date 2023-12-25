@@ -171,13 +171,6 @@
           "&mes_apli_reten=" + mes_apli_reten
         );
       }
-      /*
-      else if(  (url.search(patronB) > 0)  ){
-        xhttp.send("codigo="+ codigo +"&nombre_i="+ nombre_i +"&cant_min="+ cant_min +"&cant_max="+ cant_max +"&stock="+ stock +"&valor_unitario="+ valor_unitario+"&fecha="+ fecha);
-        selecProd(codigo, nombre_i, valor_unitario, stock, document.form1.numCampoActual.value);
-        fcalculo();
-      }
-      */
     }
 
   }
