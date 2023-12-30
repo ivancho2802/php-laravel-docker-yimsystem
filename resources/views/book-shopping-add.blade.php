@@ -2,6 +2,9 @@
 
 @section('content')
 
+<!-- <div class="" wire:offline>
+    You are now offline.
+</div> -->
 
 <div class="container-fluid py-4">
   <div class="card">

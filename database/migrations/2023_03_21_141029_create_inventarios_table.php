@@ -26,15 +26,16 @@ class CreateInventariosTable extends Migration
                 $table->string('valor_unitario');
                 $table->string('pmpvj_actual');
                 $table->timestamp('fecha')->useCurrent();
-                
+
                 $table->unsignedBigInteger('fk_usuarios')->nullable();
                 $table->foreign('fk_usuarios')
                     ->references('id')->on('users')->nullable();
-                
+
+                $table->unsignedBigInteger('fk_company')->nullable();
+                $table->foreign('fk_company')
+                    ->references('id')->on('empres')->nullable();
             });
-
         }
-
     }
 
     /**

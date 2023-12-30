@@ -258,6 +258,9 @@ class BookShoppingController extends Controller
         $msubtBiIva27 = $msubtBiIva27 * $negativo;
       }
 
+      //validation for creating
+      
+
       //insertar en FACT_COMPRA
       $factCompra = FactCompra::create([
         "serie_fact_compra" => $request['serie_fact_compra'],

@@ -43,6 +43,10 @@ class CreateRegInventariosTable extends Migration
                     ->constrained()
                     ->references('id')->on('fact_ventas');
 
+                $table->unsignedBigInteger('fk_company')->nullable();
+                $table->foreign('fk_company')
+                    ->references('id')->on('empres')->nullable();
+
                 /* $table->foreign('fk_fact_cv')
                 ->references('id_fact_venta')->on('fk_fact_venta'); */
 

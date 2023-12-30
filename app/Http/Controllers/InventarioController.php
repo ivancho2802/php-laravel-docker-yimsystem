@@ -56,7 +56,7 @@ class InventarioController extends Controller
     if (isset($requestBody['simple'])) {
       return $data;
     }
-    
+
     $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
     $data['dateEnd'] = $requestBody['dateTo'] ?? $dateto;
     $time = strtotime($data['dateEnd']);
@@ -254,6 +254,7 @@ class InventarioController extends Controller
     $request = $request->all();
 
     $userId = auth()->user()->id;
+    $empre = auth()->user()->empre()->active();
 
     try {
       $fecha = Carbon::create($request['fecha']);
@@ -275,6 +276,8 @@ class InventarioController extends Controller
         "descripcion" => $request['descripcion'],
         "tipo" => $request['tipo'],
         "fk_usuarios" => $userId,
+        "fk_company" => $empre->id,
+
       ]);
 
 
@@ -291,7 +294,8 @@ class InventarioController extends Controller
           "tipo" => $request['tipo'],
           "fk_inventario" => $inventario->id,
           "fecha_registro" => Carbon::now(),
-          "hora_registro" => Carbon::now()->toDateTimeString()
+          "hora_registro" => Carbon::now()->toDateTimeString(),
+          "fk_company" => $empre->id,
         ]);
 
         $data['insertRegInv'] = $insertRegInv;
@@ -349,6 +353,8 @@ class InventarioController extends Controller
 
     $userId = auth()->user()->id;
 
+    $empre = auth()->user()->empre()->active();
+
     try {
 
       $inventario = Inventario::query()->where([
@@ -374,7 +380,8 @@ class InventarioController extends Controller
         "orden_inv_retiros" => $request['orden_inv_retiros'],
         "obs_inv_retiros" => $request['obs_inv_retiros'],
         "fk_inventario" => $request['fk_inventario'],
-        "fk_usuariosRI" => $userId
+        "fk_usuariosRI" => $userId,
+        "fk_company" => $empre->id,
 
       ]);
 
@@ -402,6 +409,7 @@ class InventarioController extends Controller
         "fecha_registro" => Carbon::now(),
         "hora_registro" => Carbon::now()->toDateTimeString(),
         'pmpvj', $inventario->pmpvj_actual,
+        "fk_company" => $empre->id,
 
       ]);
 
@@ -436,7 +444,7 @@ class InventarioController extends Controller
     $data['css'] = $cssDocument;
 
     $data['report'] = true;
-    
+
     $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
     $data['dateEnd'] = $requestBody['dateTo'] ?? $dateto;
     $time = strtotime($data['dateEnd']);
@@ -455,7 +463,7 @@ class InventarioController extends Controller
     $dompdf = new Dompdf($options);
 
     $dompdf->loadHtml($html);
-    
+
     // (Optional) Setup the paper size and orientation
     $dompdf->setPaper('legal', 'landscape');
 
@@ -488,20 +496,20 @@ class InventarioController extends Controller
       ])
       ->first();
 
-    
+
     $operations = RegInventario::query()
-    ->where([
-      ['fk_inventario', $request->id]
-    ])
-    ->orderBy('fecha_reg_inv')
-    ->get();
+      ->where([
+        ['fk_inventario', $request->id]
+      ])
+      ->orderBy('fecha_reg_inv')
+      ->get();
 
     $data['operations'] = $operations;
-    
+
     $data['css'] = $cssDocument;
 
     $data['report'] = true;
-    
+
     $dateto = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
     $data['dateEnd'] = $requestBody['dateTo'] ?? $dateto;
     $time = strtotime($data['dateEnd']);
@@ -516,9 +524,9 @@ class InventarioController extends Controller
       "cantidad_reg_inv_tot" => $operations->sum("cantidad_reg_inv"),
       "pmpvj_tot" => $operations->sum("pmpvj"),
     ];
-    
+
     $html = view('components.prod.prods-details', $data);
-    
+
     /**
      * reference the Dompdf namespace
      * */
@@ -527,7 +535,7 @@ class InventarioController extends Controller
     $dompdf = new Dompdf($options);
 
     $dompdf->loadHtml($html);
-    
+
     // (Optional) Setup the paper size and orientation
     $dompdf->setPaper('legal', 'landscape');
 

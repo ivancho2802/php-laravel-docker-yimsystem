@@ -32,6 +32,10 @@ class CreateInventarioRetirosTable extends Migration
                 $table->unsignedBigInteger('fk_usuariosRI');
                 $table->foreign('fk_usuariosRI')
                     ->references('id')->on('users');
+                    
+                $table->unsignedBigInteger('fk_company')->nullable();
+                $table->foreign('fk_company')
+                    ->references('id')->on('empres')->nullable();
 
             });
         }

@@ -22,16 +22,29 @@ REPEAT
 
 do
 
-    *   hacer pagina de falla de conexion a internet
 
+      //validation for creating
     *   validar al crear facturas si tiene existecias
 
+
 doing
+
+    *   hacer pagina de falla de conexion a internet
+
+
+does
+
 
     *   para todas las relciones cambiar fk_usuarios por fk_company ya que los datos pertenecen a al empresa y no al usuario
         https://www.youtube.com/watch?v=EFs8VIgH2o8&ab_channel=MaestroPedroTV
 
-does
+            $empre = auth()->user()->empre()->active();
+        "fk_company" => $empre->id,
+
+
+                $table->unsignedBigInteger('fk_company')->nullable();
+                $table->foreign('fk_company')
+                    ->references('id')->on('empres')->nullable();
 
 
     * donde salga numCampoActual no funciona por que se esta usando mal el llamado con el eemento lso inputs son con []
