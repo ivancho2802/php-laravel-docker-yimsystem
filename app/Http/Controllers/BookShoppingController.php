@@ -238,6 +238,23 @@ class BookShoppingController extends Controller
 
     try {
 
+      //validacion para las facturas dulicadas
+      $fact_repeated = FactCompra::where([
+        "serie_fact_compra" => $request['serie_fact_compra'],
+        "num_fact_compra" => $request['num_fact_compra'],
+        "num_ctrl_factcompra" => $request['num_ctrl_factcompra']
+      ]);
+
+      //dd($fact_repeated->exists());
+
+      if($fact_repeated->exists()){
+        return redirect('book-shopping-add')->withErrors(['Repetido: Lo sentimos datos ya registrados en el sistema, revisa
+          - Serie del ocuemnto 
+          - Numero de documento.
+          - Cumero de control
+          ']);
+      }
+
       $mtotIvaCompra = $request['mtot_iva_compra'];
       $totIva = $request['tot_iva'];
       $msubtExentoCompra = $request['msubt_exento_compra'];
@@ -292,6 +309,8 @@ class BookShoppingController extends Controller
       ]);
 
       $data['factCompra'] = $factCompra;
+
+      dd($factCompra);
 
       //get data of inventary of product for check
       $inventarios = Inventario::query()
@@ -370,10 +389,10 @@ class BookShoppingController extends Controller
       ]);
     } catch (\Exception $e) {
       $valid = "Fuck";
-      if ($factCompra->id) {
+      /* if ($factCompra->id) {
         FactCompra::destroy($factCompra->id);
         $valid = " yes" . $factCompra->id;
-      }
+      } */
 
       return $e->getMessage() . $valid;
     }

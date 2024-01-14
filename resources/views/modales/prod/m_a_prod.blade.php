@@ -114,6 +114,12 @@
 
     document.getElementById("calPMPVJ").addEventListener('shown.bs.modal', function() {
       var inputPU = document.getElementById('valor_unitario').value;
+
+      //validacion en el caso de no agregr pero si al crear compra
+      if(!inputPU){
+        inputPU = document.getElementById('costoActual').value;
+      }
+
       if (inputPU == "") { //VALIDO
         alert('VALOR UNITARIO NECESARIO');
         $('#calPMPVJ').modal('hide');

@@ -23,8 +23,6 @@ REPEAT
 do
 
 
-      //validation for creating
-    *   validar al crear facturas si tiene existecias
 
 
 doing
@@ -33,6 +31,9 @@ doing
 
 
 does
+
+      //validation for creating
+    *   validar al crear facturas si tiene existecias
 
 
     *   para todas las relciones cambiar fk_usuarios por fk_company ya que los datos pertenecen a al empresa y no al usuario
