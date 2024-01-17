@@ -633,6 +633,23 @@ class BookSalesController extends Controller
 
     try {
 
+      //validacion para las facturas dulicadas
+      $fact_repeated = FactVenta::where([
+        "num_fact_venta" => $request['num_fact_venta'],
+        "num_ctrl_factventa" => $request['num_ctrl_factventa'],
+        "serie_fact_venta" => $request['serie_fact_venta']
+      ]);
+
+      //dd($fact_repeated->exists());
+
+      if($fact_repeated->exists()){
+        return redirect('book-sales-add')->withErrors(['Repetido: Lo sentimos datos ya registrados en el sistema, revisa
+          - Serie del docuemnto 
+          - Numero de documento.
+          - Cumero de control
+          ']);
+      }
+
       $mtotIvaVenta = $request['mtot_iva_venta'];
       $totIva = $request['tot_iva'];
       $msubtExentoVenta = $request['msubt_exento_venta'];
