@@ -843,7 +843,7 @@
       data: body,
       success: function(data) {
 
-        $("#serie_fact_venta").val(parseInt(data.data.fact_ventas.serie_fact_venta) + 1);
+        $("#serie_fact_venta").val((data.data.fact_ventas.serie_fact_venta));
         $("#num_ctrl_factventa").val(parseInt(data.data.fact_ventas.num_ctrl_factventa) + 1);
       },
       beforeSend: function() {

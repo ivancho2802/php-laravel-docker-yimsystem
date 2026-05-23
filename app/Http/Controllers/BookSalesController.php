@@ -26,7 +26,7 @@ class BookSalesController extends Controller
     $data['empre'] = $user->empre()->active();
 
     //find data company for see information in relation
-    
+
     //find data company for see information in relation
     $data['date_to'] = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
     $time = strtotime($data['date_to']);
@@ -204,9 +204,8 @@ class BookSalesController extends Controller
 
     //valid dates if send dates or not set for default
     if (!isset($data['date_to'])) {
-      
+
       $data['date_to'] = Cookie::get('date_op_from') ? Cookie::get('date_op_to') : date("Y-m-d");
-     
     }
 
     //find data company for see information in relation
@@ -233,7 +232,18 @@ class BookSalesController extends Controller
       if (isset($requestBody['queryBetween'])) {
         $factVentas->whereBetween($requestBody['queryBetween']['key'], $requestBody['queryBetween']['data']);
       } else {
-        $factVentas->whereBetween('fecha_fact_venta', [$data['date_from'], $data['date_to']]);
+        $exist = $factVentas->whereBetween('fecha_fact_venta', [$data['date_from'], $data['date_to']])->exists();
+
+        if ($exist === false) {
+
+          $dateVeryOld = "2000-01-01";
+
+          $factVentas->OrWhereBetween(
+            'fecha_fact_venta',
+            [$dateVeryOld, $data['date_to']]);
+        } else {
+          $factVentas = $factVentas->whereBetween('fecha_fact_venta', [$data['date_from'], $data['date_to']]);
+        }
       }
     }
 
@@ -642,7 +652,7 @@ class BookSalesController extends Controller
 
       //dd($fact_repeated->exists());
 
-      if($fact_repeated->exists()){
+      if ($fact_repeated->exists()) {
         return redirect('book-sales-add')->withErrors(['Repetido: Lo sentimos datos ya registrados en el sistema, revisa
           - Serie del docuemnto 
           - Numero de documento.
