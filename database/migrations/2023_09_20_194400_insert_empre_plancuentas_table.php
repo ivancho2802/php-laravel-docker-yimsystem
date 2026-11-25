@@ -15,11 +15,11 @@ class InsertEmprePlancuentasTable extends Migration
     public function up()
     {
         //
-        DB::table('ventas')->insert([
-            array("id" => 2, "rel_empre" => 1, "rel_plancuenta" => 1110101, "cant_plancuenta" => 1000.01, "c_natu" => 'Debe'),
-            array("id" => 3, "rel_empre" => 1, "rel_plancuenta" => 1110101, "cant_plancuenta" => 1000.01, "c_natu" => 'Debe'),
-            array("id" => 4, "rel_empre" => 1, "rel_plancuenta" => 3110101, "cant_plancuenta" => 500.00, "c_natu" => 'Haber'),
-            array("id" => 4, "rel_empre" => 1, "rel_plancuenta" => 4110102, "cant_plancuenta" => 9999.00, "c_natu" => 'Haber')
+        DB::table('empre_plancuentas')->insert([
+            array("id" => 2, "rel_empre" => 1, "rel_plancuenta" => 1110101, "cant_plancuenta" => 1000, "c_natu" => 'Debe', "status" => true),
+            array("id" => 3, "rel_empre" => 1, "rel_plancuenta" => 1110101, "cant_plancuenta" => 1000, "c_natu" => 'Debe', "status" => true),
+            array("id" => 4, "rel_empre" => 1, "rel_plancuenta" => 3110101, "cant_plancuenta" => 500, "c_natu" => 'Haber', "status" => true),
+            array("id" => 5, "rel_empre" => 1, "rel_plancuenta" => 4110102, "cant_plancuenta" => 9999, "c_natu" => 'Haber', "status" => true)
         ]);
     }
 
