@@ -1,23 +1,24 @@
-FROM richarvey/nginx-php-fpm:latest
+FROM serversideup/php:8.4-fpm-nginx
 
-COPY . .
+# Cambiar a root para instalar extensiones adicionales si las necesitas (ej. pgsql, gd, intl)
+USER root
+RUN install-php-extensions intl bcmath gd
 
-# Image config
-ENV SKIP_COMPOSER 1
-ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
+# Copiar los archivos del proyecto
+COPY --chown=www-data:www-data . /var/www/html
 
-# Laravel config
-ENV APP_ENV production
-ENV APP_DEBUG false
-ENV LOG_CHANNEL stderr
+# Volver al usuario seguro por defecto
+USER www-data
 
-# Allow composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
+# Instalar dependencias de producción de Composer
+RUN composer install --no-dev --optimize-autoloader
 
-#codigo extra
-EXPOSE 8000
+# Variables de entorno para Laravel en Render
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV LOG_CHANNEL=stderr
+ENV PHP_OPCACHE_ENABLE=1
+ENV NGINX_WEBROOT=/var/www/html/public
+ENV SSL_MODE=off
 
-CMD ["/start.sh"]
+EXPOSE 8080
